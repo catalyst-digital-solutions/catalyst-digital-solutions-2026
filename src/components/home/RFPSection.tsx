@@ -85,7 +85,7 @@ export default function RFPSection() {
         }}
       >
         {/* STEP 1 */}
-        <div style={{ flex: "1 1 290px", minWidth: "258px", maxWidth: "340px", background: "linear-gradient(180deg,#0c1016,#090c11)", border: "1px solid rgba(0,212,255,.28)", borderRadius: "18px", padding: "22px", display: "flex", flexDirection: "column", boxShadow: "0 24px 60px rgba(0,0,0,.4)" }}>
+        <div className="rfp-step-card" style={{ flex: "1 1 290px", minWidth: "258px", maxWidth: "340px", background: "linear-gradient(180deg,#0c1016,#090c11)", border: "1px solid rgba(0,212,255,.28)", borderRadius: "18px", padding: "22px", display: "flex", flexDirection: "column", boxShadow: "0 24px 60px rgba(0,0,0,.4)" }}>
           <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: "11px", letterSpacing: "2px", color: "#00d4ff", marginBottom: "6px" }}>STEP 1</div>
           <div style={{ fontSize: "18px", fontWeight: 600, color: "#fafafa", marginBottom: "16px" }}>Thousands of public bids</div>
           <div style={{ position: "relative", flex: 1, minHeight: "152px" }}>
@@ -134,7 +134,7 @@ export default function RFPSection() {
         <Connector delay="0s" />
 
         {/* STEP 2 */}
-        <div style={{ flex: "1 1 290px", minWidth: "258px", maxWidth: "340px", background: "linear-gradient(180deg,#0c1016,#090c11)", border: "1px solid rgba(0,212,255,.28)", borderRadius: "18px", padding: "22px", display: "flex", flexDirection: "column", boxShadow: "0 24px 60px rgba(0,0,0,.4)" }}>
+        <div className="rfp-step-card" style={{ flex: "1 1 290px", minWidth: "258px", maxWidth: "340px", background: "linear-gradient(180deg,#0c1016,#090c11)", border: "1px solid rgba(0,212,255,.28)", borderRadius: "18px", padding: "22px", display: "flex", flexDirection: "column", boxShadow: "0 24px 60px rgba(0,0,0,.4)" }}>
           <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: "11px", letterSpacing: "2px", color: "#00d4ff", marginBottom: "6px" }}>STEP 2</div>
           <div style={{ fontSize: "18px", fontWeight: 600, color: "#fafafa", marginBottom: "16px" }}>Filtered for you</div>
           <div style={{ flex: 1, minHeight: "152px", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -161,7 +161,7 @@ export default function RFPSection() {
         <Connector delay=".9s" />
 
         {/* STEP 3 */}
-        <div style={{ flex: "1 1 290px", minWidth: "258px", maxWidth: "340px", background: "linear-gradient(180deg,#0c1016,#090c11)", border: "1px solid rgba(0,212,255,.28)", borderRadius: "18px", padding: "22px", display: "flex", flexDirection: "column", boxShadow: "0 24px 60px rgba(0,0,0,.4)" }}>
+        <div className="rfp-step-card" style={{ flex: "1 1 290px", minWidth: "258px", maxWidth: "340px", background: "linear-gradient(180deg,#0c1016,#090c11)", border: "1px solid rgba(0,212,255,.28)", borderRadius: "18px", padding: "22px", display: "flex", flexDirection: "column", boxShadow: "0 24px 60px rgba(0,0,0,.4)" }}>
           <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: "11px", letterSpacing: "2px", color: "#00d4ff", marginBottom: "6px" }}>STEP 3</div>
           <div style={{ fontSize: "18px", fontWeight: 600, color: "#fafafa", marginBottom: "16px" }}>In your inbox</div>
           <div style={{ flex: 1, minHeight: "152px", display: "flex", flexDirection: "column", gap: "9px" }}>

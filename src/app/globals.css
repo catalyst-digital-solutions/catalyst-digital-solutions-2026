@@ -547,7 +547,15 @@ a {
 @media (max-width: 1023px) {
   .rfp-steps {
     flex-direction: column !important;
-    align-items: center !important;   /* ← centres cards */
+    align-items: center !important;
+  }
+  /* margin:auto centres each card reliably regardless of align-items */
+  .rfp-step-card {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    flex: none !important;
   }
   .rfp-connector-h { display: none !important; }
   .rfp-connector-v { display: flex !important; }
