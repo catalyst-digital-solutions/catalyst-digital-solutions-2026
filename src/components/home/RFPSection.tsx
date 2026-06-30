@@ -3,40 +3,25 @@
 import Link from "next/link";
 import { useState } from "react";
 
-/* Animated connector between steps — dotRun */
+/* Animated connector — horizontal (desktop) / vertical down-arrow (mobile) */
 function Connector({ delay = "0s" }: { delay?: string }) {
   return (
-    <div style={{ flex: "0 0 64px", display: "flex", alignItems: "center", justifyContent: "center", alignSelf: "center", height: "40px" }}>
-      <div style={{ position: "relative", width: "60px", height: "2px", background: "linear-gradient(90deg,rgba(128,0,255,.2),rgba(128,0,255,.85))" }}>
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: 0,
-            width: "7px",
-            height: "7px",
-            borderRadius: "50%",
-            background: "#b56bff",
-            boxShadow: "0 0 10px #8000ff",
-            transform: "translate(0,-50%)",
-            animation: "dotRun 2.8s ease-in-out infinite",
-            animationDelay: delay,
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            right: "-3px",
-            top: "50%",
-            width: "7px",
-            height: "7px",
-            borderRight: "2px solid #8000ff",
-            borderTop: "2px solid #8000ff",
-            transform: "translate(0,-50%) rotate(45deg)",
-          }}
-        />
+    <>
+      {/* Horizontal — desktop only */}
+      <div className="rfp-connector-h" style={{ flex: "0 0 64px", display: "flex", alignItems: "center", justifyContent: "center", alignSelf: "center", height: "40px" }}>
+        <div style={{ position: "relative", width: "60px", height: "2px", background: "linear-gradient(90deg,rgba(128,0,255,.2),rgba(128,0,255,.85))" }}>
+          <div style={{ position: "absolute", top: "50%", left: 0, width: "7px", height: "7px", borderRadius: "50%", background: "#b56bff", boxShadow: "0 0 10px #8000ff", transform: "translate(0,-50%)", animation: "dotRun 2.8s ease-in-out infinite", animationDelay: delay }} />
+          <div style={{ position: "absolute", right: "-3px", top: "50%", width: "7px", height: "7px", borderRight: "2px solid #8000ff", borderTop: "2px solid #8000ff", transform: "translate(0,-50%) rotate(45deg)" }} />
+        </div>
       </div>
-    </div>
+      {/* Vertical — mobile only */}
+      <div className="rfp-connector-v" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "4px 0", width: "100%" }}>
+        <svg width="24" height="32" viewBox="0 0 24 32" fill="none" aria-hidden="true">
+          <line x1="12" y1="0" x2="12" y2="24" stroke="#8000ff" strokeOpacity=".7" strokeWidth="2" strokeDasharray="4 3" style={{ animation: `flow 2s linear infinite`, animationDelay: delay }} />
+          <path d="M6 20 L12 28 L18 20" stroke="#8000ff" strokeOpacity=".85" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        </svg>
+      </div>
+    </>
   );
 }
 
@@ -86,8 +71,9 @@ export default function RFPSection() {
         </p>
       </div>
 
-      {/* 3-step flow */}
+      {/* 3-step flow — horizontal on desktop, vertical on mobile */}
       <div
+        className="rfp-steps"
         style={{
           display: "flex",
           flexWrap: "wrap",

@@ -89,13 +89,12 @@ export default function Nav() {
         {/* Desktop Nav */}
         <nav
           aria-label="Main navigation"
+          className="nav-desktop"
           style={{
-            display: "flex",
             alignItems: "center",
             gap: "32px",
             margin: "0 auto",
           }}
-          className="hidden md:flex"
         >
           {NAV_LINKS.map((link) =>
             link.children ? (
@@ -223,8 +222,8 @@ export default function Nav() {
 
         {/* Right: Phone + CTA */}
         <div
-          style={{ display: "flex", alignItems: "center", gap: "16px", marginLeft: "auto" }}
-          className="hidden md:flex"
+          className="nav-desktop"
+          style={{ alignItems: "center", gap: "16px", marginLeft: "auto" }}
         >
           <a
             href="tel:+16615359927"
@@ -266,7 +265,7 @@ export default function Nav() {
           onClick={() => setMobileOpen((v) => !v)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
-          className="flex md:hidden"
+          className="nav-hamburger"
           style={{
             marginLeft: "auto",
             background: "none",

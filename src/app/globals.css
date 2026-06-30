@@ -498,6 +498,54 @@ a {
   }
 }
 
+/* ─────────────────────────────────────────────
+   NAV RESPONSIVE
+───────────────────────────────────────────── */
+
+.nav-desktop   { display: flex; }
+.nav-hamburger { display: none; }
+
+@media (max-width: 767px) {
+  .nav-desktop   { display: none !important; }
+  .nav-hamburger { display: flex !important; }
+}
+
+/* ─────────────────────────────────────────────
+   ANIMATION SAFE FALLBACKS
+   When prefers-reduced-motion or animation fails,
+   elements that start at opacity:0 must still show.
+───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .anim-fadeup { opacity: 1 !important; animation: none !important; }
+  .anim-float  { animation: none !important; }
+}
+
+/* ─────────────────────────────────────────────
+   OMNIPRESENCE — show/hide by viewport
+───────────────────────────────────────────── */
+.omni-desktop { display: block; }
+.omni-mobile  { display: none; }
+
+@media (max-width: 767px) {
+  .omni-desktop { display: none !important; }
+  .omni-mobile  { display: block !important; }
+}
+
+/* ─────────────────────────────────────────────
+   RFP STEPS — responsive layout
+───────────────────────────────────────────── */
+.rfp-connector-h { display: flex; }
+.rfp-connector-v { display: none; }
+
+@media (max-width: 767px) {
+  .rfp-steps {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .rfp-connector-h { display: none !important; }
+  .rfp-connector-v { display: flex !important; }
+}
+
 /* Iceberg pill variant */
 .iceberg-pill {
   display: inline-flex;

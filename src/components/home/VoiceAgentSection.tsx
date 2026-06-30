@@ -191,6 +191,7 @@ export default function VoiceAgentSection() {
 
           {/* Incoming call — fadeUp delay 0.2s */}
           <div
+            className="anim-fadeup"
             style={{
               display: "flex",
               alignItems: "center",
@@ -218,6 +219,7 @@ export default function VoiceAgentSection() {
           <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "18px" }}>
             {/* Customer — fadeUp delay 0.6s */}
             <div
+              className="anim-fadeup"
               style={{
                 alignSelf: "flex-start",
                 maxWidth: "84%",
@@ -237,6 +239,7 @@ export default function VoiceAgentSection() {
 
             {/* Agent — fadeUp delay 1.0s */}
             <div
+              className="anim-fadeup"
               style={{
                 alignSelf: "flex-end",
                 maxWidth: "88%",
@@ -256,6 +259,7 @@ export default function VoiceAgentSection() {
 
             {/* Customer — fadeUp delay 1.4s */}
             <div
+              className="anim-fadeup"
               style={{
                 alignSelf: "flex-start",
                 maxWidth: "70%",
@@ -276,6 +280,7 @@ export default function VoiceAgentSection() {
 
           {/* Job booked — fadeUp delay 1.85s */}
           <div
+            className="anim-fadeup"
             style={{
               display: "flex",
               alignItems: "center",

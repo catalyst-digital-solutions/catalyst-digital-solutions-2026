@@ -1,38 +1,42 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const WORDS = ["JOBS", "REVENUE", "PROFIT"] as const;
 
 export default function RotatingWord() {
   const [index, setIndex] = useState(0);
+  const [animate, setAnimate] = useState(true);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-    if (prefersReduced) return;
 
-    // Exact reference interval: 2000ms
-    const id = setInterval(() => {
+    // Always cycle words — just skip the CSS animation when reduced-motion
+    setAnimate(!prefersReduced);
+
+    // 2000ms interval — exact reference value
+    timerRef.current = setInterval(() => {
       setIndex((i) => (i + 1) % WORDS.length);
     }, 2000);
 
-    return () => clearInterval(id);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
   }, []);
 
   return (
-    // key forces React to remount the span so wordIn animation re-runs each word
     <span
-      key={index}
+      key={animate ? index : undefined} // key only when animating (forces re-mount for wordIn)
       style={{
         display: "inline-block",
         background: "linear-gradient(90deg,#b56bff,#00d4ff)",
         WebkitBackgroundClip: "text",
         backgroundClip: "text",
         color: "transparent",
-        // wordIn: from{opacity:0;transform:translateY(.55em)} to{opacity:1;transform:translateY(0)}
-        animation: "wordIn .55s cubic-bezier(.2,.8,.2,1)",
+        animation: animate ? "wordIn .55s cubic-bezier(.2,.8,.2,1)" : "none",
       }}
     >
       {WORDS[index]}
