@@ -543,10 +543,11 @@ a {
 .rfp-connector-h { display: flex; }
 .rfp-connector-v { display: none; }
 
-@media (max-width: 767px) {
+/* Single column + centred on both tablet and mobile */
+@media (max-width: 1023px) {
   .rfp-steps {
     flex-direction: column !important;
-    align-items: stretch !important;
+    align-items: center !important;   /* ← centres cards */
   }
   .rfp-connector-h { display: none !important; }
   .rfp-connector-v { display: flex !important; }
