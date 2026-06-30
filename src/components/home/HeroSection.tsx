@@ -1,4 +1,5 @@
 import Link from "next/link";
+import RotatingWord from "@/components/home/RotatingWord";
 
 /* ── Isometric wireframe cube ─────────────────── */
 function IsometricCube() {
@@ -189,17 +190,17 @@ export default function HeroSection() {
       <div className="grid-overlay" style={{ opacity: 0.6 }} />
 
       <div className="container">
-        <div className="two-col-60-40">
+        <div className="two-col" style={{ gap: "48px" }}>
           {/* Left — Copy */}
           <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
             <h1
               className="display"
-              style={{ fontSize: "clamp(52px, 6.5vw, 110px)", lineHeight: 0.9, letterSpacing: "1px" }}
+              style={{ fontSize: "clamp(54px, 9vw, 132px)", lineHeight: 0.88, letterSpacing: "1px" }}
             >
               We don&apos;t do<br />
               &ldquo;Marketing.&rdquo;<br />
-              We do more{" "}
-              <span style={{ color: "var(--cds-purple-light)" }}>Revenue.</span>
+              We do more<br />
+              <RotatingWord />
             </h1>
 
             <p
