@@ -490,6 +490,12 @@ a {
   .reverse-mobile {
     order: -1;
   }
+  .footer-start-col { display: none !important; }
+  .footer-grid { grid-template-columns: 1fr 1fr !important; }
+}
+
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr !important; }
 }
 
 @media (max-width: 640px) {

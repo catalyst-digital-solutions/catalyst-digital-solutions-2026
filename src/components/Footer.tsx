@@ -74,8 +74,8 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Col 4 — Start */}
-        <div>
+        {/* Col 4 — Start (hidden on mobile) */}
+        <div className="footer-start-col">
           <p className="footer-col-heading eyebrow">Start</p>
           <Link href="/contact" className="btn-primary footer-cta">
             Get a Free Audit →
