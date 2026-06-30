@@ -1,0 +1,429 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   CDS BRAND TOKENS — Dark "Iceberg" Theme
+   No hardcoded hex allowed outside this file.
+───────────────────────────────────────────── */
+:root {
+  /* Purples */
+  --cds-purple:        #8000ff;
+  --cds-purple-2:      #5600ab;
+  --cds-purple-light:  #b56bff;
+
+  /* Accents */
+  --cds-cyan:          #00d4ff;
+  --cds-green:         #80ff80;
+
+  /* Neutrals — dark is default */
+  --cds-bg-dark:       #080b0f;
+  --cds-bg-light:      #f8f8f8;
+  --cds-heading:       #fafafa;
+  --cds-body:          #c8c8c8;
+  --cds-muted:         #7f8896;
+
+  /* Gradients */
+  --cds-gradient:      linear-gradient(135deg, #8000ff, #5600ab);
+
+  /* Typography */
+  --font-display:      var(--font-bebas-neue);
+  --font-body:         var(--font-inter);
+  --font-mono:         var(--font-jetbrains-mono);
+}
+
+/* ─────────────────────────────────────────────
+   TAILWIND v4 THEME EXTENSIONS
+───────────────────────────────────────────── */
+@theme inline {
+  --color-cds-purple:       var(--cds-purple);
+  --color-cds-purple-2:     var(--cds-purple-2);
+  --color-cds-purple-light: var(--cds-purple-light);
+  --color-cds-cyan:         var(--cds-cyan);
+  --color-cds-green:        var(--cds-green);
+  --color-cds-bg-dark:      var(--cds-bg-dark);
+  --color-cds-bg-light:     var(--cds-bg-light);
+  --color-cds-heading:      var(--cds-heading);
+  --color-cds-body:         var(--cds-body);
+  --color-cds-muted:        var(--cds-muted);
+
+  --font-display: var(--font-bebas-neue);
+  --font-body:    var(--font-inter);
+  --font-mono:    var(--font-jetbrains-mono);
+}
+
+/* ─────────────────────────────────────────────
+   BASE RESET & DEFAULTS
+───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--cds-bg-dark);
+  color: var(--cds-body);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--cds-bg-dark);
+  color: var(--cds-body);
+  min-height: 100dvh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--cds-heading);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ─────────────────────────────────────────────
+   UTILITY CLASSES
+───────────────────────────────────────────── */
+
+/* Eyebrow label — JetBrains Mono, cyan, uppercase, tracked */
+.eyebrow {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cds-cyan);
+}
+
+/* Bebas display headline */
+.display {
+  font-family: var(--font-bebas-neue), sans-serif;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: 1px;
+  color: var(--cds-heading);
+}
+
+/* Primary gradient button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 30px;
+  background: var(--cds-gradient);
+  color: #fff;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 11px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 34px rgba(128, 0, 255, 0.4);
+  transition: opacity 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.btn-primary:hover {
+  opacity: 0.92;
+  box-shadow: 0 14px 42px rgba(128, 0, 255, 0.55);
+  transform: translateY(-1px);
+}
+
+/* Secondary ghost button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 30px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--cds-heading);
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-1px);
+}
+
+/* Standard card */
+.card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  padding: 30px 28px;
+}
+
+/* Featured / purple-tinted card */
+.card-featured {
+  background: rgba(128, 0, 255, 0.08);
+  border: 1px solid rgba(128, 0, 255, 0.45);
+  border-radius: 16px;
+  padding: 30px 28px;
+  box-shadow: 0 0 40px rgba(128, 0, 255, 0.12);
+}
+
+/* Iceberg inline expand trigger */
+.iceberg-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 13px;
+  color: var(--cds-purple-light);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color 0.2s;
+}
+.iceberg-trigger:hover {
+  color: var(--cds-purple);
+}
+
+/* Iceberg panel */
+.iceberg-panel {
+  border-left: 2px solid var(--cds-purple);
+  padding: 14px 18px;
+  background: rgba(128, 0, 255, 0.06);
+  border-radius: 0 8px 8px 0;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.42s ease, opacity 0.3s ease;
+}
+.iceberg-panel.open {
+  max-height: 400px;
+  opacity: 1;
+}
+
+/* Ambient purple glow blob */
+.glow-blob {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(128, 0, 255, 0.22), transparent 64%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────── */
+
+.footer-root {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background: var(--cds-bg-dark);
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px 48px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 48px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-tagline {
+  font-size: 14px;
+  color: var(--cds-muted);
+  line-height: 1.6;
+  max-width: 200px;
+}
+
+.footer-col-heading {
+  font-size: 11px;
+  margin-bottom: 16px;
+}
+
+.footer-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-link {
+  font-size: 14px;
+  color: var(--cds-body);
+  font-family: var(--font-inter);
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--cds-heading);
+}
+
+.footer-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--cds-body);
+  font-family: var(--font-inter);
+  transition: color 0.2s;
+}
+
+.footer-contact-link:hover {
+  color: var(--cds-cyan);
+}
+
+.footer-cta {
+  justify-content: center;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--cds-muted);
+  font-family: var(--font-inter);
+  text-align: center;
+}
+
+.footer-dot {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+/* ─────────────────────────────────────────────
+   LAYOUT UTILITIES
+───────────────────────────────────────────── */
+
+.section {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-sm {
+  padding: 72px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.two-col-60-40 {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.two-col-40-60 {
+  display: grid;
+  grid-template-columns: 40fr 60fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.centered {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 72px 0; }
+  .two-col,
+  .two-col-60-40,
+  .two-col-40-60 {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .three-col {
+    grid-template-columns: 1fr;
+  }
+  .reverse-mobile {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .three-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Iceberg pill variant */
+.iceberg-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 13px;
+  color: var(--cds-purple-light);
+  cursor: pointer;
+  background: rgba(128, 0, 255, 0.06);
+  border: 1px solid rgba(128, 0, 255, 0.3);
+  border-radius: 999px;
+  padding: 8px 18px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.iceberg-pill:hover {
+  background: rgba(128, 0, 255, 0.12);
+  border-color: rgba(128, 0, 255, 0.5);
+}
+
+/* Section divider pulse line */
+.pulse-line {
+  width: 48px;
+  height: 2px;
+  background: var(--cds-purple);
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+
+/* Faint cyan grid overlay */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.06) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+  pointer-events: none;
+}
