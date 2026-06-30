@@ -18,11 +18,11 @@ export default function Footer() {
         <div className="footer-brand">
           <Link href="/">
             <Image
-              src="/assets/catalyst-wordmark-white.svg"
+              src="/assets/cds-wordmark.png"
               alt="Catalyst Digital Solutions"
-              width={150}
-              height={54}
-              style={{ height: "54px", width: "auto" }}
+              width={172}
+              height={60}
+              style={{ width: "172px", height: "auto" }}
             />
           </Link>
           <p className="footer-tagline">

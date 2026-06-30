@@ -2,11 +2,10 @@
 
 import { useEffect, useState } from "react";
 
-const WORDS = ["Jobs.", "Revenue.", "Profit."];
+const WORDS = ["JOBS", "REVENUE", "PROFIT"] as const;
 
 export default function RotatingWord() {
   const [index, setIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -14,25 +13,26 @@ export default function RotatingWord() {
     ).matches;
     if (prefersReduced) return;
 
+    // Exact reference interval: 2000ms
     const id = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setIndex((i) => (i + 1) % WORDS.length);
-        setVisible(true);
-      }, 280);
-    }, 2400);
+      setIndex((i) => (i + 1) % WORDS.length);
+    }, 2000);
 
     return () => clearInterval(id);
   }, []);
 
   return (
+    // key forces React to remount the span so wordIn animation re-runs each word
     <span
+      key={index}
       style={{
-        color: "var(--cds-purple-light)",
         display: "inline-block",
-        transition: "opacity 0.28s ease, transform 0.28s ease",
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(8px)",
+        background: "linear-gradient(90deg,#b56bff,#00d4ff)",
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        color: "transparent",
+        // wordIn: from{opacity:0;transform:translateY(.55em)} to{opacity:1;transform:translateY(0)}
+        animation: "wordIn .55s cubic-bezier(.2,.8,.2,1)",
       }}
     >
       {WORDS[index]}

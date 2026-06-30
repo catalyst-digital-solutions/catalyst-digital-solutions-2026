@@ -227,12 +227,12 @@ a {
 }
 
 .footer-grid {
-  max-width: 1200px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 64px 24px 48px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 48px;
+  grid-template-columns: 1.3fr 1fr 1.2fr 1.1fr;
+  gap: clamp(32px,4vw,56px);
 }
 
 .footer-brand {
@@ -309,6 +309,117 @@ a {
 
 .footer-dot {
   color: rgba(255, 255, 255, 0.15);
+}
+
+/* ─────────────────────────────────────────────
+   KEYFRAME ANIMATIONS — ported exactly from CDS Hero.dc.html
+───────────────────────────────────────────── */
+
+/* Word entrance (rotating hero word) */
+@keyframes wordIn {
+  from { opacity: 0; transform: translateY(.55em); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Ambient purple glow pulse */
+@keyframes glowPulse {
+  0%, 100% { opacity: .55; }
+  50%       { opacity: .95; }
+}
+
+/* Floating vertical drift (hero building, voice agent card) */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+/* Window flicker on building */
+@keyframes winPulse {
+  0%, 100% { opacity: .25; }
+  50%      { opacity: .85; }
+}
+
+/* Animated background grid drift */
+@keyframes gridDrift {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 54px 54px, 54px 54px; }
+}
+
+/* Diagonal beam sweeps in hero right column */
+@keyframes t1 {
+  0%   { opacity: 0; transform: translate(-160px,  60px) rotate(-12deg); }
+  18%  { opacity: .95; }
+  100% { opacity: 0; transform: translate( 120px, -40px) rotate(-12deg); }
+}
+@keyframes t2 {
+  0%   { opacity: 0; transform: translate(-200px, -30px) rotate(8deg); }
+  22%  { opacity: .9; }
+  100% { opacity: 0; transform: translate( 140px,  30px) rotate(8deg); }
+}
+@keyframes t3 {
+  0%   { opacity: 0; transform: translate( 180px,  90px) rotate(16deg); }
+  20%  { opacity: .85; }
+  100% { opacity: 0; transform: translate(-120px, -30px) rotate(16deg); }
+}
+@keyframes t4 {
+  0%   { opacity: 0; transform: translate(-140px, 140px) rotate(-4deg); }
+  20%  { opacity: .9; }
+  100% { opacity: 0; transform: translate( 120px, -60px) rotate(-4deg); }
+}
+
+/* Scanning bar on phone mockup */
+@keyframes scan {
+  0%   { transform: translateY(-12px); opacity: 0; }
+  12%  { opacity: 1; }
+  86%  { opacity: 1; }
+  100% { transform: translateY(470px); opacity: 0; }
+}
+
+/* Iceberg panel open */
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Staggered chat bubble / card fade-up */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* SVG dashed-line flow (platform network) */
+@keyframes flow {
+  to { stroke-dashoffset: -170; }
+}
+
+/* Status dot pulse */
+@keyframes dotPulse {
+  0%, 100% { opacity: .5; }
+  50%      { opacity: 1; }
+}
+
+/* Running dot on step connectors */
+@keyframes dotRun {
+  0%   { transform: translate(0,   -50%); opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { transform: translate(57px,-50%); opacity: 0; }
+}
+
+/* CTA button glow pulse */
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 10px 34px rgba(128,0,255,.4); }
+  50%      { box-shadow: 0 14px 50px rgba(128,0,255,.72); }
+}
+
+/* Scroll-driven section reveal */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition-duration: 0.01ms !important; }
 }
 
 /* ─────────────────────────────────────────────

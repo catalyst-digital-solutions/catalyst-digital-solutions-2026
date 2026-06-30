@@ -29,7 +29,7 @@ export default function Nav() {
 
   // Scroll detection — glassmorphic transition
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -66,8 +66,8 @@ export default function Nav() {
           padding: "0 24px",
           transition: "background 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease",
           background: scrolled ? "rgba(0, 0, 0, 0.5)" : "transparent",
-          backdropFilter: scrolled ? "blur(20px)" : "none",
-          WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
+          backdropFilter: scrolled ? "blur(18px) saturate(135%)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(18px) saturate(135%)" : "none",
           borderBottom: scrolled
             ? "1px solid rgba(255, 255, 255, 0.06)"
             : "1px solid transparent",

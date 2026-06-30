@@ -1,179 +1,142 @@
 import Link from "next/link";
 import RotatingWord from "@/components/home/RotatingWord";
 
-/* ── Isometric wireframe cube ─────────────────── */
-function IsometricCube() {
-  // Projection: isoPoint(x,y,z) → [sx, sy]
-  // Origin (0,0,0) → screen (280, 360)
-  // u=52, cos30≈0.866, sin30=0.5
-  const u = 52;
-  const c = 0.866;
-  const s = 0.5;
-  const ox = 280;
-  const oy = 360;
-  const cols = 4;
-  const rows = 4;
-  const hgt = 3;
-
-  function p(x: number, y: number, z: number): [number, number] {
-    return [ox + (x - y) * u * c, oy + (x + y) * u * s - z * u];
-  }
-
-  function pts(...coords: [number, number, number][]): string {
-    return coords.map(([x, y, z]) => p(x, y, z).join(",")).join(" ");
-  }
-
-  const gridStroke = "rgba(0,212,255,0.22)";
-  const edgeStroke = "rgba(0,212,255,0.55)";
-
-  // Build grid lines
-  const topLines: React.ReactNode[] = [];
-  for (let i = 0; i <= cols; i++) {
-    const [x1, y1] = p(i, 0, hgt);
-    const [x2, y2] = p(i, rows, hgt);
-    topLines.push(<line key={`tx${i}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke={gridStroke} strokeWidth="0.8" />);
-  }
-  for (let j = 0; j <= rows; j++) {
-    const [x1, y1] = p(0, j, hgt);
-    const [x2, y2] = p(cols, j, hgt);
-    topLines.push(<line key={`ty${j}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke={gridStroke} strokeWidth="0.8" />);
-  }
-
-  const rightLines: React.ReactNode[] = [];
-  for (let i = 0; i <= cols; i++) {
-    const [x1, y1] = p(i, 0, 0);
-    const [x2, y2] = p(i, 0, hgt);
-    rightLines.push(<line key={`rx${i}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke={gridStroke} strokeWidth="0.8" />);
-  }
-  for (let k = 0; k <= hgt; k++) {
-    const [x1, y1] = p(0, 0, k);
-    const [x2, y2] = p(cols, 0, k);
-    rightLines.push(<line key={`rz${k}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke={gridStroke} strokeWidth="0.8" />);
-  }
-
-  const leftLines: React.ReactNode[] = [];
-  for (let j = 0; j <= rows; j++) {
-    const [x1, y1] = p(0, j, 0);
-    const [x2, y2] = p(0, j, hgt);
-    leftLines.push(<line key={`ly${j}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke={gridStroke} strokeWidth="0.8" />);
-  }
-  for (let k = 0; k <= hgt; k++) {
-    const [x1, y1] = p(0, 0, k);
-    const [x2, y2] = p(0, rows, k);
-    leftLines.push(<line key={`lz${k}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke={gridStroke} strokeWidth="0.8" />);
-  }
-
-  // Purple-filled cells: right face (y=0) and top face (z=hgt)
-  const purpleCells: [number, number, number][][] = [
-    // right face
-    [p(1,0,1), p(2,0,1), p(2,0,2), p(1,0,2)].map(([x,y])=>[x,y,0]) as [number,number,number][],
-    [p(2,0,1), p(3,0,1), p(3,0,2), p(2,0,2)].map(([x,y])=>[x,y,0]) as [number,number,number][],
-    [p(2,0,2), p(3,0,2), p(3,0,3), p(2,0,3)].map(([x,y])=>[x,y,0]) as [number,number,number][],
-    // top face
-    [p(2,1,3), p(3,1,3), p(3,2,3), p(2,2,3)].map(([x,y])=>[x,y,0]) as [number,number,number][],
-    [p(1,2,3), p(2,2,3), p(2,3,3), p(1,3,3)].map(([x,y])=>[x,y,0]) as [number,number,number][],
-  ];
-
-  // Convert already-projected cells to polygon points strings
-  const purplePts: [number, number][][] = [
-    [[...p(1,0,1)], [...p(2,0,1)], [...p(2,0,2)], [...p(1,0,2)]],
-    [[...p(2,0,1)], [...p(3,0,1)], [...p(3,0,2)], [...p(2,0,2)]],
-    [[...p(2,0,2)], [...p(3,0,2)], [...p(3,0,3)], [...p(2,0,3)]],
-    [[...p(2,1,3)], [...p(3,1,3)], [...p(3,2,3)], [...p(2,2,3)]],
-    [[...p(1,2,3)], [...p(2,2,3)], [...p(2,3,3)], [...p(1,3,3)]],
-  ];
-
-  // Glow dots
-  const dots: [number, number][] = [p(0,0,hgt), p(cols/2, rows/2, hgt), p(cols,0,hgt)];
-
+/* ── Building SVG — exact port from CDS Hero.dc.html lines 96–153 ── */
+function BuildingVisual() {
   return (
-    <div style={{ position: "relative", width: "100%", display: "flex", justifyContent: "center" }}>
-      {/* Purple glow behind cube */}
+    <div
+      style={{
+        flex: "1 1 420px",
+        minWidth: "300px",
+        position: "relative",
+        alignSelf: "stretch",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "480px",
+      }}
+    >
+      {/* Purple ambient glow blob — glowPulse 8s */}
       <div
         style={{
           position: "absolute",
-          width: "380px",
-          height: "380px",
           top: "50%",
-          left: "55%",
+          left: "50%",
           transform: "translate(-50%,-50%)",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(128,0,255,0.28), transparent 65%)",
-          filter: "blur(40px)",
-          pointerEvents: "none",
+          width: "560px",
+          height: "560px",
+          maxWidth: "120%",
+          background: "radial-gradient(circle at center,rgba(128,0,255,.4),transparent 62%)",
+          filter: "blur(20px)",
+          animation: "glowPulse 8s ease-in-out infinite",
+          willChange: "transform",
         }}
       />
 
+      {/* Animated cyan grid — gridDrift 24s */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage:
+            "linear-gradient(rgba(0,212,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.07) 1px,transparent 1px)",
+          backgroundSize: "54px 54px",
+          animation: "gridDrift 24s linear infinite",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 80% at 50% 50%,#000 35%,transparent 78%)",
+          maskImage:
+            "radial-gradient(ellipse 80% 80% at 50% 50%,#000 35%,transparent 78%)",
+          willChange: "background-position",
+        }}
+      />
+
+      {/* Beam sweeps — t1 through t4 */}
+      <div style={{ position:"absolute",left:"6%",top:"42%",width:"130px",height:"2px",borderRadius:"2px",background:"linear-gradient(90deg,transparent,#00d4ff)",boxShadow:"0 0 12px rgba(0,212,255,.8)",animation:"t1 5.5s ease-in infinite",willChange:"transform,opacity" }} />
+      <div style={{ position:"absolute",left:"2%",top:"30%",width:"160px",height:"2px",borderRadius:"2px",background:"linear-gradient(90deg,transparent,#b56bff)",boxShadow:"0 0 12px rgba(181,107,255,.8)",animation:"t2 7s ease-in infinite",animationDelay:"1.4s",willChange:"transform,opacity" }} />
+      <div style={{ position:"absolute",right:"4%",top:"24%",width:"120px",height:"2px",borderRadius:"2px",background:"linear-gradient(90deg,#00d4ff,transparent)",boxShadow:"0 0 12px rgba(0,212,255,.7)",animation:"t3 6.2s ease-in infinite",animationDelay:"2.6s",willChange:"transform,opacity" }} />
+      <div style={{ position:"absolute",left:"8%",top:"62%",width:"140px",height:"2px",borderRadius:"2px",background:"linear-gradient(90deg,transparent,#8000ff)",boxShadow:"0 0 12px rgba(128,0,255,.8)",animation:"t4 6.8s ease-in infinite",animationDelay:".8s",willChange:"transform,opacity" }} />
+
+      {/* Building SVG — floatY 9s ease-in-out infinite */}
       <svg
-        viewBox="50 100 460 380"
-        style={{ width: "100%", maxWidth: "480px", overflow: "visible" }}
+        viewBox="0 0 420 520"
+        style={{
+          position: "relative",
+          zIndex: 1,
+          width: "100%",
+          maxWidth: "520px",
+          height: "auto",
+          animation: "floatY 9s ease-in-out infinite",
+          willChange: "transform",
+        }}
+        fill="none"
         aria-hidden="true"
       >
         <defs>
-          <linearGradient id="purpleFill" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#8000ff" stopOpacity="0.75" />
-            <stop offset="100%" stopColor="#b56bff" stopOpacity="0.25" />
-          </linearGradient>
-          <linearGradient id="pinkFill" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0%" stopColor="#ff40ff" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#8000ff" stopOpacity="0.2" />
+          <filter id="cg" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="3" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <linearGradient id="ant" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#b56bff" />
+            <stop offset="1" stopColor="#00d4ff" />
           </linearGradient>
         </defs>
 
-        {/* Face backgrounds */}
-        <polygon points={pts([0,0,hgt],[cols,0,hgt],[cols,rows,hgt],[0,rows,hgt])}
-          fill="rgba(8,11,15,0.3)" stroke={edgeStroke} strokeWidth="1.4" />
-        <polygon points={pts([0,0,hgt],[cols,0,hgt],[cols,0,0],[0,0,0])}
-          fill="rgba(8,11,15,0.45)" stroke={edgeStroke} strokeWidth="1.4" />
-        <polygon points={pts([0,0,hgt],[0,rows,hgt],[0,rows,0],[0,0,0])}
-          fill="rgba(8,11,15,0.5)" stroke={edgeStroke} strokeWidth="1.4" />
+        {/* Ground line */}
+        <line x1="20" y1="470" x2="400" y2="470" stroke="#00d4ff" strokeOpacity=".18" strokeWidth="1" />
 
-        {/* Purple cells */}
-        {purplePts.map((cell, i) => (
-          <polygon
-            key={i}
-            points={cell.map(([x, y]) => `${x},${y}`).join(" ")}
-            fill={i < 3 ? "url(#purpleFill)" : "url(#pinkFill)"}
-          />
-        ))}
+        {/* Secondary building (left) */}
+        <g stroke="#00d4ff" strokeOpacity=".35" strokeWidth="1.1">
+          <rect x="64" y="306" width="74" height="164" />
+          <line x1="64" y1="340" x2="138" y2="340" />
+          <line x1="64" y1="374" x2="138" y2="374" />
+          <line x1="64" y1="408" x2="138" y2="408" />
+          <line x1="64" y1="442" x2="138" y2="442" />
+          <line x1="101" y1="306" x2="101" y2="470" />
+        </g>
 
-        {/* Grid lines */}
-        {topLines}
-        {rightLines}
-        {leftLines}
+        {/* Main tower */}
+        <g stroke="#00d4ff" strokeWidth="1.4" filter="url(#cg)">
+          {/* Top face */}
+          <path d="M150 150 L280 150 L328 120 L198 120 Z" strokeOpacity=".9" />
+          {/* Right side face */}
+          <path d="M280 150 L328 120 L328 440 L280 470 Z" strokeOpacity=".7" />
+          {/* Front face */}
+          <rect x="150" y="150" width="130" height="320" strokeOpacity="1" />
+          {/* Front floor lines */}
+          <line x1="150" y1="182" x2="280" y2="182" strokeOpacity=".55" />
+          <line x1="150" y1="214" x2="280" y2="214" strokeOpacity=".55" />
+          <line x1="150" y1="246" x2="280" y2="246" strokeOpacity=".55" />
+          <line x1="150" y1="278" x2="280" y2="278" strokeOpacity=".55" />
+          <line x1="150" y1="310" x2="280" y2="310" strokeOpacity=".55" />
+          <line x1="150" y1="342" x2="280" y2="342" strokeOpacity=".55" />
+          <line x1="150" y1="374" x2="280" y2="374" strokeOpacity=".55" />
+          <line x1="150" y1="406" x2="280" y2="406" strokeOpacity=".55" />
+          <line x1="150" y1="438" x2="280" y2="438" strokeOpacity=".55" />
+          {/* Front mullions */}
+          <line x1="183" y1="150" x2="183" y2="470" strokeOpacity=".45" />
+          <line x1="215" y1="150" x2="215" y2="470" strokeOpacity=".45" />
+          <line x1="247" y1="150" x2="247" y2="470" strokeOpacity=".45" />
+          {/* Side floor lines */}
+          <line x1="280" y1="182" x2="328" y2="152" strokeOpacity=".3" />
+          <line x1="280" y1="246" x2="328" y2="216" strokeOpacity=".3" />
+          <line x1="280" y1="310" x2="328" y2="280" strokeOpacity=".3" />
+          <line x1="280" y1="374" x2="328" y2="344" strokeOpacity=".3" />
+          <line x1="280" y1="438" x2="328" y2="408" strokeOpacity=".3" />
+          {/* Antenna */}
+          <line x1="221" y1="120" x2="221" y2="78" stroke="url(#ant)" strokeWidth="1.6" />
+        </g>
+        <circle cx="221" cy="76" r="3.5" fill="#00d4ff" filter="url(#cg)" />
 
-        {/* Cyan accent lines extending right (scan lines) */}
-        {[0, 1, 2].map((k) => {
-          const [x1, y1] = p(cols, 0, k);
-          return (
-            <line
-              key={`scan${k}`}
-              x1={x1} y1={y1}
-              x2={x1 + 60} y2={y1}
-              stroke="rgba(0,212,255,0.3)"
-              strokeWidth="0.8"
-              strokeDasharray="4 3"
-            />
-          );
-        })}
-
-        {/* Glow dots */}
-        {dots.map(([x, y], i) => (
-          <g key={i}>
-            <circle cx={x} cy={y} r="5" fill="rgba(0,212,255,0.25)" />
-            <circle cx={x} cy={y} r="2.5" fill="#00d4ff" />
-          </g>
-        ))}
-
-        {/* Floating dot above cube */}
-        {(() => {
-          const [topX, topY] = p(0, 0, hgt);
-          return (
-            <g>
-              <circle cx={topX + 80} cy={topY - 30} r="4" fill="#00d4ff" opacity="0.8" />
-            </g>
-          );
-        })()}
+        {/* Lit windows — winPulse */}
+        <rect x="151" y="183" width="31" height="30" fill="#00d4ff" style={{ animation: "winPulse 4s ease-in-out infinite" }} />
+        <rect x="216" y="247" width="31" height="30" fill="#8000ff" style={{ animation: "winPulse 5s ease-in-out infinite", animationDelay: "1s" }} />
+        <rect x="248" y="311" width="31" height="30" fill="#00d4ff" style={{ animation: "winPulse 4.6s ease-in-out infinite", animationDelay: ".6s" }} />
+        <rect x="151" y="375" width="31" height="30" fill="#b56bff" style={{ animation: "winPulse 5.4s ease-in-out infinite", animationDelay: "1.8s" }} />
+        <rect x="184" y="407" width="31" height="30" fill="#00d4ff" style={{ animation: "winPulse 4.2s ease-in-out infinite", animationDelay: "2.2s" }} />
       </svg>
     </div>
   );
@@ -183,69 +146,144 @@ function IsometricCube() {
 export default function HeroSection() {
   return (
     <section
-      className="section"
-      style={{ paddingTop: "80px", paddingBottom: "120px", position: "relative" }}
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        background: "#080b0f",
+        fontFamily: "'Inter',sans-serif",
+        color: "#c8c8c8",
+        overflow: "hidden",
+      }}
     >
-      {/* Subtle grid overlay */}
-      <div className="grid-overlay" style={{ opacity: 0.6 }} />
-
-      <div className="container">
-        <div className="two-col" style={{ gap: "48px" }}>
-          {/* Left — Copy */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
-            <h1
-              className="display"
-              style={{ fontSize: "clamp(54px, 9vw, 132px)", lineHeight: 0.88, letterSpacing: "1px" }}
-            >
-              We don&apos;t do<br />
-              &ldquo;Marketing.&rdquo;<br />
-              We do more<br />
-              <RotatingWord />
-            </h1>
-
-            <p
-              style={{
-                fontSize: "18px",
-                fontWeight: 700,
-                color: "var(--cds-heading)",
-                fontFamily: "var(--font-inter)",
-                lineHeight: 1.5,
-              }}
-            >
-              That&apos;s what you hire Catalyst for: a fatter bottom line.
-            </p>
-
-            <p
-              style={{
-                fontSize: "15px",
-                color: "var(--cds-body)",
-                lineHeight: 1.8,
-                maxWidth: "500px",
-                fontFamily: "var(--font-inter)",
-              }}
-            >
-              You didn&apos;t become a contractor to build websites and babysit algorithms. You got
-              into it to build things and make a great living. You don&apos;t care about SEO
-              keywords. You want a business that puts money in the bank and lets you step away
-              whenever you want. That&apos;s what we build.
-            </p>
-
-            <div style={{ display: "flex", gap: "14px", flexWrap: "wrap", alignItems: "center" }}>
-              <Link href="/contact" className="btn-primary" style={{ fontSize: "15px" }}>
-                Get a Free Audit →
-              </Link>
-              <Link href="#how-it-works" className="btn-secondary" style={{ fontSize: "15px" }}>
-                ▶ See How It Works
-              </Link>
+      <main
+        style={{
+          position: "relative",
+          zIndex: 2,
+          flex: 1,
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          gap: "40px",
+          padding: "clamp(24px,4vw,56px) clamp(20px,5vw,64px) clamp(40px,5vw,72px)",
+          marginTop: "64px", /* offset for fixed nav */
+        }}
+      >
+        {/* Left — Copy */}
+        <div
+          style={{
+            flex: "1 1 520px",
+            minWidth: "300px",
+            maxWidth: "720px",
+          }}
+        >
+          <h1
+            style={{
+              fontFamily: "'Bebas Neue',sans-serif",
+              fontWeight: 400,
+              textTransform: "uppercase",
+              fontSize: "clamp(54px,6.6vw,118px)",
+              lineHeight: 0.88,
+              letterSpacing: "1px",
+              color: "#fafafa",
+              margin: 0,
+            }}
+          >
+            <div>
+              We don&apos;t do{" "}
+              <span style={{ color: "#7f8896" }}>&ldquo;marketing.&rdquo;</span>
             </div>
-          </div>
+            <div>
+              We do more <RotatingWord />.
+            </div>
+          </h1>
 
-          {/* Right — Isometric cube */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <IsometricCube />
+          <p
+            style={{
+              fontSize: "clamp(19px,1.5vw,23px)",
+              fontWeight: 600,
+              color: "#fafafa",
+              margin: "30px 0 0",
+              lineHeight: 1.4,
+              fontFamily: "'Inter',sans-serif",
+            }}
+          >
+            That&apos;s what you hire Catalyst for: a fatter bottom line.
+          </p>
+
+          <p
+            style={{
+              fontSize: "clamp(15.5px,1.1vw,17px)",
+              color: "#c8c8c8",
+              lineHeight: 1.7,
+              maxWidth: "560px",
+              margin: "18px 0 0",
+              fontFamily: "'Inter',sans-serif",
+            }}
+          >
+            You didn&apos;t become a contractor to build websites and babysit
+            algorithms. You got into it to build things and make a great living.
+            You don&apos;t care about SEO keywords. You want a business that puts
+            money in the bank and lets you step away whenever you want.
+            That&apos;s what we build.
+          </p>
+
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "16px",
+              marginTop: "40px",
+            }}
+          >
+            <Link
+              href="/contact"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                fontFamily: "'Inter',sans-serif",
+                fontSize: "16px",
+                fontWeight: 600,
+                color: "#fff",
+                background: "linear-gradient(135deg,#8000ff,#5600ab)",
+                border: "none",
+                padding: "16px 30px",
+                borderRadius: "11px",
+                boxShadow: "0 10px 34px rgba(128,0,255,.4)",
+                cursor: "pointer",
+                textDecoration: "none",
+              }}
+            >
+              Get a Free Audit <span style={{ fontSize: "18px" }}>→</span>
+            </Link>
+            <Link
+              href="#how-it-works"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                fontFamily: "'Inter',sans-serif",
+                fontSize: "16px",
+                fontWeight: 600,
+                color: "#fafafa",
+                background: "rgba(255,255,255,.04)",
+                border: "1px solid rgba(255,255,255,.18)",
+                padding: "16px 28px",
+                borderRadius: "11px",
+                cursor: "pointer",
+                textDecoration: "none",
+              }}
+            >
+              <span style={{ fontSize: "11px" }}>▶</span> See How It Works
+            </Link>
           </div>
         </div>
-      </div>
+
+        {/* Right — Building visual */}
+        <BuildingVisual />
+      </main>
     </section>
   );
 }
