@@ -27,9 +27,9 @@ export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Scroll detection — glassmorphic transition
+  // Scroll detection — glassmorphic transition (fires on the very first pixel of scroll)
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 0);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);

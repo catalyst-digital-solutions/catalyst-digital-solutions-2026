@@ -1,6 +1,7 @@
 export default function Page() {
   return (
     <section
+      id="pricing-cards"
       style={{
         minHeight: "80dvh",
         display: "flex",

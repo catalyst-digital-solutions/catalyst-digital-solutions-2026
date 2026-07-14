@@ -248,7 +248,14 @@ export default function RFPSection() {
           }}
         >
           <p style={{ fontSize: "14.5px", color: "#d6dae0", lineHeight: 1.65, margin: 0 }}>
-            It watches thousands of public bid portals 24/7, filters every opportunity by your trade, license, and area, and sends you only the ones that fit. It can even track what your competitors are bidding. Tools that do a fraction of this run $20,000+ a year. Ours is $497/mo on its own — or free inside our top tier.
+            It watches public bid portals like Cal e-Procure 24/7, filters every opportunity by your licenses, budget requirements, certifications, etc., and sends you only the ones that fit. Tools that do a fraction of this run $20,000+ a year. Ours is $497/mo on its own (or free when you subscribe to{" "}
+            <Link
+              href="/pricing#pricing-cards"
+              style={{ color: "#b56bff", textDecoration: "underline", textUnderlineOffset: "2px" }}
+            >
+              Domination
+            </Link>
+            ).
           </p>
         </div>
       )}

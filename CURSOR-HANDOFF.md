@@ -255,7 +255,7 @@ git push origin main
 
 ## Business Context
 
-- **Client:** Mario — Founder & CEO, Catalyst Digital Solutions, Bakersfield CA
+- **Owner:** Mario Garza — Founder & CEO, Catalyst Digital Solutions, Bakersfield CA. This is Mario's own agency's website (not a client project — Mario is building this in-house).
 - **Niche:** Revenue-growth company for construction GCs / design-build firms ($5M+ revenue)
 - **Positioning (non-negotiable):** Catalyst is a *revenue-growth company*, not a marketing agency. Headlines sell the destination (jobs, revenue, profit, time off the tools) — never the vehicle (websites, SEO, AI)
 - **Phone:** (661) 535-9927

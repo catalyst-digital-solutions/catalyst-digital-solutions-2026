@@ -167,7 +167,7 @@ export default function HeroSection() {
           alignItems: "center",
           gap: "40px",
           padding: "clamp(24px,4vw,56px) clamp(20px,5vw,64px) clamp(40px,5vw,72px)",
-          marginTop: "64px", /* offset for fixed nav */
+          marginTop: "84px", /* 64px fixed-nav offset + 20px breathing room */
         }}
       >
         {/* Left — Copy */}
