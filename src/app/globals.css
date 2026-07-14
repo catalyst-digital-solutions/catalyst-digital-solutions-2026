@@ -562,6 +562,16 @@ a {
   .rfp-connector-v { display: flex !important; }
 }
 
+/* Contact form fields — dark selects + violet focus ring */
+select option {
+  background: #12161d;
+  color: #fafafa;
+}
+.contact-field:focus {
+  border-color: #8000ff !important;
+  box-shadow: 0 0 0 3px rgba(128, 0, 255, 0.2);
+}
+
 /* Iceberg pill variant */
 .iceberg-pill {
   display: inline-flex;
