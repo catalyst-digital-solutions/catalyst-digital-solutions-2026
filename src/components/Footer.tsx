@@ -1,15 +1,22 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const PAGES = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Quick Wins", href: "/quick-wins" },
   { label: "Pricing", href: "/pricing" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
   return (
     <footer className="footer-root">
       {/* Main grid */}
@@ -20,8 +27,8 @@ export default function Footer() {
             <Image
               src="/assets/cds-wordmark.png"
               alt="Catalyst Digital Solutions"
-              width={172}
-              height={60}
+              width={834}
+              height={292}
               style={{ width: "172px", height: "auto" }}
             />
           </Link>
@@ -37,7 +44,16 @@ export default function Footer() {
             <ul className="footer-link-list">
               {PAGES.map((page) => (
                 <li key={page.label}>
-                  <Link href={page.href} className="footer-link">
+                  <Link
+                    href={page.href}
+                    className="footer-link"
+                    aria-current={isActive(page.href) ? "page" : undefined}
+                    style={
+                      isActive(page.href)
+                        ? { color: "var(--cds-heading)", fontWeight: 600 }
+                        : undefined
+                    }
+                  >
                     {page.label}
                   </Link>
                 </li>

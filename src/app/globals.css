@@ -511,7 +511,8 @@ a {
 .nav-desktop   { display: flex; }
 .nav-hamburger { display: none; }
 
-@media (max-width: 767px) {
+/* Nav collapses to burger below 1040px (design spec) */
+@media (max-width: 1039px) {
   .nav-desktop   { display: none !important; }
   .nav-hamburger { display: flex !important; }
 }

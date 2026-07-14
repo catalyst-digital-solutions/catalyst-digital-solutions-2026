@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -17,15 +18,21 @@ const NAV_LINKS = [
       { label: "Construction RFP AI", href: "/services#rfp-ai" },
     ],
   },
+  { label: "Quick Wins", href: "/quick-wins" },
   { label: "Pricing", href: "/pricing" },
   { label: "Contact", href: "/contact" },
 ];
+
+function isActivePath(pathname: string, href: string) {
+  return href === "/" ? pathname === "/" : pathname.startsWith(href);
+}
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   // Scroll detection — glassmorphic transition (fires on the very first pixel of scroll)
   useEffect(() => {
@@ -77,11 +84,11 @@ export default function Nav() {
         {/* Wordmark */}
         <Link href="/" style={{ flexShrink: 0, display: "flex", alignItems: "center" }}>
           <Image
-            src="/assets/catalyst-wordmark.png"
+            src="/assets/cds-wordmark.png"
             alt="Catalyst Digital Solutions"
-            width={120}
-            height={40}
-            style={{ height: "40px", width: "auto" }}
+            width={834}
+            height={292}
+            style={{ width: "150px", height: "auto" }}
             priority
           />
         </Link>
@@ -96,8 +103,9 @@ export default function Nav() {
             margin: "0 auto",
           }}
         >
-          {NAV_LINKS.map((link) =>
-            link.children ? (
+          {NAV_LINKS.map((link) => {
+            const active = isActivePath(pathname, link.href);
+            return link.children ? (
               <div
                 key={link.label}
                 ref={dropdownRef}
@@ -114,20 +122,20 @@ export default function Nav() {
                     background: "none",
                     border: "none",
                     cursor: "pointer",
-                    color: "var(--cds-heading)",
-                    fontSize: "14px",
+                    color: active ? "var(--cds-heading)" : "var(--cds-body)",
+                    fontSize: "14.5px",
                     fontFamily: "var(--font-inter)",
-                    fontWeight: 400,
+                    fontWeight: active ? 600 : 400,
                     padding: 0,
                     transition: "color 0.2s",
                   }}
                   onMouseEnter={(e) =>
                     ((e.currentTarget as HTMLButtonElement).style.color =
-                      "var(--cds-purple-light)")
+                      "var(--cds-heading)")
                   }
                   onMouseLeave={(e) =>
                     ((e.currentTarget as HTMLButtonElement).style.color =
-                      "var(--cds-heading)")
+                      active ? "var(--cds-heading)" : "var(--cds-body)")
                   }
                 >
                   {link.label}
@@ -198,26 +206,27 @@ export default function Nav() {
               <Link
                 key={link.label}
                 href={link.href}
+                aria-current={active ? "page" : undefined}
                 style={{
-                  fontSize: "14px",
+                  fontSize: "14.5px",
                   fontFamily: "var(--font-inter)",
-                  fontWeight: 400,
-                  color: "var(--cds-heading)",
+                  fontWeight: active ? 600 : 400,
+                  color: active ? "var(--cds-heading)" : "var(--cds-body)",
                   transition: "color 0.2s",
                 }}
                 onMouseEnter={(e) =>
                   ((e.currentTarget as HTMLAnchorElement).style.color =
-                    "var(--cds-purple-light)")
+                    "var(--cds-heading)")
                 }
                 onMouseLeave={(e) =>
                   ((e.currentTarget as HTMLAnchorElement).style.color =
-                    "var(--cds-heading)")
+                    active ? "var(--cds-heading)" : "var(--cds-body)")
                 }
               >
                 {link.label}
               </Link>
-            )
-          )}
+            );
+          })}
         </nav>
 
         {/* Right: Phone + CTA */}
@@ -302,18 +311,21 @@ export default function Nav() {
             gap: "8px",
           }}
         >
-          {NAV_LINKS.map((link) => (
+          {NAV_LINKS.map((link) => {
+            const active = isActivePath(pathname, link.href);
+            return (
             <div key={link.label}>
               <Link
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
+                aria-current={active ? "page" : undefined}
                 style={{
                   display: "block",
                   fontSize: "28px",
                   fontFamily: "var(--font-bebas-neue)",
                   textTransform: "uppercase",
                   letterSpacing: "1px",
-                  color: "var(--cds-heading)",
+                  color: active ? "var(--cds-purple-light)" : "var(--cds-heading)",
                   padding: "10px 0",
                   borderBottom: "1px solid rgba(255,255,255,0.06)",
                 }}
@@ -341,7 +353,8 @@ export default function Nav() {
                 </div>
               )}
             </div>
-          ))}
+            );
+          })}
 
           <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: "12px" }}>
             <a
