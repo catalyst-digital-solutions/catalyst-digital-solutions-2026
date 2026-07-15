@@ -84,6 +84,21 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "Name, email, and contact consent are required." }, { status: 422 });
   }
 
+  // Mirror the client's phone <-> SMS-consent interdependency (defense in depth:
+  // the client blocks these, but a direct POST could bypass it).
+  const b = body as Record<string, unknown>;
+  const digits = String(b.phone ?? "").replace(/\D/g, "");
+  const normalized = digits.length === 11 && digits[0] === "1" ? digits.slice(1) : digits;
+  const hasPhone = normalized.length > 0;
+  const validPhone = normalized.length === 10;
+  const smsConsent = b.consentToSms === true;
+  if ((hasPhone || smsConsent) && !validPhone) {
+    return Response.json({ ok: false, error: "A valid 10-digit U.S. phone number is required." }, { status: 422 });
+  }
+  if (hasPhone && !smsConsent) {
+    return Response.json({ ok: false, error: "SMS consent is required when a phone number is provided." }, { status: 422 });
+  }
+
   const { text, html, subject } = buildEmail(body);
 
   try {
