@@ -501,17 +501,17 @@ export default function HomeV3() {
               <div style={{ flex: "1 1 440px", minWidth: "290px" }}>
                 <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", ...mono("#00d4ff", 11, 2), border: "1px solid rgba(0,212,255,.3)", borderRadius: "100px", padding: "6px 14px", marginBottom: "18px" }}><span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#00d4ff", boxShadow: "0 0 9px #00d4ff" }} />Machine 03 &middot; Construction RFP AI</div>
                 <h3 style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontWeight: 400, textTransform: "uppercase", fontSize: "clamp(32px,3.2vw,50px)", lineHeight: 0.92, letterSpacing: "1px", color: "#fafafa", margin: 0 }}>RFP's delivered automatically</h3>
-                <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", color: "#c8c8c8", lineHeight: 1.75, margin: "18px 0 0", maxWidth: "540px", textWrap: "pretty" }}>Stop wasting hours digging through bid portals for RFPs. Our system scans&nbsp;<i>your</i> RFP sources around the clock and drops the <i>right</i> jobs in your email. And our AI makes sure the jobs fit your:</p>
+                <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", color: "#c8c8c8", lineHeight: 1.75, margin: "18px 0 0", maxWidth: "540px", textWrap: "pretty" }}>Stop wasting hours digging through bid portals for RFPs. Our AI scans&nbsp;<i>your</i> RFP sources and drops the <i>right</i> jobs in your email, ready to bid every morning.</p>
+                <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", color: "#c8c8c8", lineHeight: 1.75, margin: "18px 0 0", maxWidth: "540px", textWrap: "pretty" }}>Our AI makes sure every job fits:</p>
                 <ul style={{ listStyle: "none", margin: "16px 0 0", padding: 0, display: "flex", flexDirection: "column", gap: "10px", maxWidth: "540px" }}>
-                  {["Budget", "Licenses", "Certifications", "Service areas"].map((item) => (
+                  {["Your Budget", "Your Licenses", "Your Certifications", "Your Service Areas"].map((item) => (
                     <li key={item} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "clamp(14.5px,1.1vw,16px)", color: "#fafafa" }}>
-                      <span style={{ width: "8px", height: "8px", borderRadius: "2px", background: "linear-gradient(135deg,#00d4ff,#8000ff)", transform: "rotate(45deg)", boxShadow: "0 0 10px rgba(0,212,255,.5)", flex: "none" }} />
+                      <span style={{ width: "8px", height: "8px", borderRadius: "2px", background: "#80ff80", transform: "rotate(45deg)", boxShadow: "0 0 10px rgba(128,255,128,.5)", flex: "none" }} />
                       {item}
                     </li>
                   ))}
                 </ul>
-                <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", color: "#c8c8c8", lineHeight: 1.75, margin: "16px 0 0", maxWidth: "540px", textWrap: "pretty" }}>Ready for you to bid.</p>
-                <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", fontWeight: 600, color: "#fafafa", lineHeight: 1.75, margin: "6px 0 0", maxWidth: "540px", textWrap: "pretty" }}>15+ hours back every week.</p>
+                <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", fontWeight: 600, color: "#fafafa", lineHeight: 1.75, margin: "16px 0 0", maxWidth: "540px", textWrap: "pretty" }}>15+ hours back every week.</p>
                 <div style={{ ...mono("#b56bff", 15.5, 1), textTransform: "none", marginTop: "16px", lineHeight: 1.6 }}>$497/mo on its own&nbsp;&mdash; Included in our top tier.</div>
                 <SolvesRow items={["wondering where the next job is", "referrals only", "stretched thin"]} />
                 <Iceberg label="What is Construction RFP AI?">An always-on system that scans public bid sources, filters for jobs that fit you, and delivers them to your inbox, ready to bid.</Iceberg>
