@@ -562,6 +562,41 @@ a {
   .rfp-connector-v { display: flex !important; }
 }
 
+/* ─────────────────────────────────────────────
+   HOMEPAGE v3 — keyframes + helpers (from CDS Homepage v3.dc.html)
+───────────────────────────────────────────── */
+@keyframes caretBlink { 0%,45%{opacity:1;} 50%,95%{opacity:0;} 100%{opacity:1;} }
+@keyframes scanDown { 0%{transform:translateY(-16px);opacity:0;} 12%{opacity:1;} 86%{opacity:1;} 100%{transform:translateY(470px);opacity:0;} }
+@keyframes bDraw { from{stroke-dasharray:2400;stroke-dashoffset:2400;} to{stroke-dasharray:2400;stroke-dashoffset:0;} }
+@keyframes bFrame { from{opacity:0;} to{opacity:1;} }
+@keyframes bClad { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+@keyframes bWin { 0%{opacity:0;} 60%{opacity:0;} 100%{opacity:1;} }
+@keyframes craneSwing { 0%,100%{transform:rotate(0deg);} 50%{transform:rotate(2.4deg);} }
+@keyframes thumbScroll {
+  0%,8%{transform:translateY(0);}
+  48%,58%{transform:translateY(min(0px,calc(100cqh - 100%)));}
+  98%,100%{transform:translateY(0);}
+}
+
+/* Reveal-on-scroll wrapper */
+.rv { opacity: 0; }
+.rv.in { opacity: 1; animation: revealUp .8s cubic-bezier(.2,.8,.2,1) both; }
+@media (prefers-reduced-motion: reduce) { .rv { opacity: 1 !important; } }
+
+/* Demo-card slow scroll: 12s reset, 48s on hover; 108s ambient on touch */
+.demo-thumb-img { transition: transform 12s linear; }
+.demo-card:hover .demo-thumb-img {
+  transform: translateY(min(0px, calc(100cqh - 100%)));
+  transition: transform 48s linear;
+}
+@media (hover: none) {
+  .demo-thumb-img { animation: thumbScroll 108s ease-in-out infinite; }
+}
+
+/* Angled "see live" badge — swap label by input type */
+.see-live-tap { display: none; }
+@media (hover: none) { .see-live-tap { display: inline; } .see-live-click { display: none; } }
+
 /* Contact form fields — dark selects + violet focus ring */
 select option {
   background: #12161d;

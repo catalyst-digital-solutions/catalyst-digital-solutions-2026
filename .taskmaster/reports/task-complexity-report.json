@@ -1,0 +1,213 @@
+{
+	"meta": {
+		"generatedAt": "2026-07-01T20:06:29.845Z",
+		"tasksAnalyzed": 25,
+		"totalTasks": 25,
+		"analysisCount": 25,
+		"thresholdScore": 5,
+		"projectName": "Task Master",
+		"usedResearch": true
+	},
+	"complexityAnalysis": [
+		{
+			"taskId": 1,
+			"taskTitle": "Initialize new Mesa Financiera repository and local project",
+			"complexityScore": 3,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Break this task into subtasks covering directory creation, Git initialization with main as default branch, .gitignore configuration aligned with the existing project, Node.js and package manager verification, and documentation of the fork’s one-way nature.",
+			"reasoning": "This task is mostly standard Git and Node.js setup work, with one additional nuance of ensuring a hard fork with no shared Git ancestry and documenting architectural intent.[11][15] The implementation is straightforward and well-supported by common Git branching and repository initialization practices.[11] Verification steps are simple (git status, git branch, git remote) and do not require complex testing infrastructure, keeping overall complexity low."
+		},
+		{
+			"taskId": 2,
+			"taskTitle": "Copy source codebase into Mesa Financiera project and strip source-specific artifacts",
+			"complexityScore": 5,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Decompose this task into subtasks for obtaining the source working tree, copying files without VCS metadata, removing stale assets and task logs, reinstalling dependencies and validating builds, and documenting the resulting baseline state.",
+			"reasoning": "Copying an existing React/Vite/Tailwind codebase while carefully avoiding nested Git repositories and unwanted artifacts is moderately complex, especially when ensuring that only the working tree and not .git contents are carried over.[4][11] The need to selectively remove specific logo assets and Taskmaster/CLAUDE files while preserving all functional configuration adds detail-oriented work and increases the chance of subtle mistakes.[8] However, the patterns are standard and the final validation via npm/pnpm install and build is routine, so the task stays in mid-range complexity."
+		},
+		{
+			"taskId": 3,
+			"taskTitle": "Create new GitHub repository and connect Mesa Financiera project",
+			"complexityScore": 3,
+			"recommendedSubtasks": 3,
+			"expansionPrompt": "Split this task into creating the GitHub repository, wiring the local Git remote to the new repo (via CLI or web flow), and pushing and verifying the initial main branch.",
+			"reasoning": "Provisioning a GitHub repository and connecting a local Git remote is a well-understood workflow with strong tooling support via GitHub CLI or the web UI.[11] The main risks are minor misconfigurations of the origin remote or branch tracking, which are easily detected by git remote -v and push feedback.[11] There is no application-level complexity or cross-service integration beyond GitHub, so the task remains low complexity."
+		},
+		{
+			"taskId": 4,
+			"taskTitle": "Create new Vercel project and connect to GitHub repository",
+			"complexityScore": 4,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Break this task into selecting and connecting the GitHub repo in Vercel, configuring framework/build/output settings for Vite + React, mirroring required environment variables, and triggering and validating an initial deployment without custom domains.",
+			"reasoning": "Setting up a Vercel project for a Vite + React application is moderately complex but follows established patterns for build commands and output directories.[4][8] Care must be taken to align the build tooling (pnpm vs npm) and environment variables with the source project, but Vercel’s presets and logs significantly reduce risk.[8] DNS and custom domain configuration are explicitly out of scope, which keeps the complexity from escalating further."
+		},
+		{
+			"taskId": 5,
+			"taskTitle": "Remove deprecated routes, components, and navigation links",
+			"complexityScore": 6,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Expand this task into identifying all deprecated routes and components, updating React Router configuration, cleaning header and footer navigation, removing or adjusting redirects, deleting unused files, and recompiling/testing to catch dangling imports.",
+			"reasoning": "This task touches routing, navigation, and page composition across the app, requiring careful auditing of React Router v6 definitions and shared layout components.[4][9] Removing multiple routes and associated components introduces the risk of broken links, dangling imports, and misconfigured redirects that must be validated via both automated builds and manual navigation tests.[9] While conceptually straightforward, the breadth of impact across the UI and router pushes complexity into the mid-high range."
+		},
+		{
+			"taskId": 6,
+			"taskTitle": "Refactor Resources navigation to a single Artículos link",
+			"complexityScore": 3,
+			"recommendedSubtasks": 3,
+			"expansionPrompt": "Divide this task into updating the header navigation structure, wiring the single Artículos entry to /resources/articles, and ensuring footer and accessibility labels match the new Spanish label.",
+			"reasoning": "This is a focused navigation refactor affecting a small part of the header and possibly footer, with limited routing changes.[4][9] The primary work is renaming labels, simplifying a dropdown to a single entry, and verifying the path mapping, all of which are common React UI tasks.[4] Accessibility updates to aria-labels add a bit of care but do not significantly increase technical complexity."
+		},
+		{
+			"taskId": 7,
+			"taskTitle": "Remove all language badges and trilingual trust-bar content",
+			"complexityScore": 6,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Break this work into global search and inventory of language-related strings and icons, targeted removal or adjustment of trust-bar elements per page, preservation of non-language trust indicators, TypeScript/layout validation, and a visual pass to confirm messaging cleanup.",
+			"reasoning": "This task requires a codebase-wide content audit to find and remove multilingual messaging across numerous components and pages, which introduces breadth and detail complexity.[15][16] Care is needed to preserve other trust indicators within shared arrays or components while selectively removing language-specific items, to avoid layout or key/index issues.[8] Although the logic changes are simple, the number of touchpoints and the risk of inconsistent messaging justify a mid-high complexity rating."
+		},
+		{
+			"taskId": 8,
+			"taskTitle": "Collapse Contact page to a single Spanish booking section",
+			"complexityScore": 5,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Split this into refactoring Contact.tsx to remove extra language sections, consolidating configuration to a single Spanish booking URL, adjusting layout and spacing for the single section, and validating navigation and booking behavior.",
+			"reasoning": "The Contact page currently carries multiple language-specific booking flows, so collapsing it to a single Spanish section modifies both content structure and underlying configuration for booking URLs.[10][20] Ensuring that layout assumptions about columns/sections are updated to avoid empty whitespace and that all anchors still point correctly adds moderate UI complexity.[7] Integration with the existing booking hook and modal components must be preserved to avoid regressions, keeping this task in the mid-range."
+		},
+		{
+			"taskId": 9,
+			"taskTitle": "Implement centralized Calendly URL and swap from GHL booking widget",
+			"complexityScore": 6,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Decompose this task into locating all GHL booking usages, introducing a centralized CALENDLY_URL configuration in useCalendly or similar, updating CalendlyModal to embed the new widget or iframe source, wiring Contact and other pages to the updated abstraction, and testing modal/script behavior.",
+			"reasoning": "Swapping a booking provider from GHL to Calendly while centralizing configuration requires careful changes in hooks, modal components, and any page-level triggers.[10][20] Calendly’s embed scripts or iframe integrations can introduce asynchronous loading and potential script duplication issues that need to be handled with robust React effects.[20] The work is more intricate than a simple URL change but still bounded to a specific integration, resulting in moderate-to-high complexity."
+		},
+		{
+			"taskId": 10,
+			"taskTitle": "Document and enforce non-translation of legal pages",
+			"complexityScore": 4,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Expand this task into enumerating all legal/compliance routes and components, annotating them in code with non-translation comments, updating extraction scripts to skip them, and documenting the decision and behavior in README/CLAUDE.",
+			"reasoning": "Identifying and tagging legal pages is conceptually simple but must be done exhaustively to avoid accidental translation of regulated content.[14][16] The main technical step is integrating the legal-exclusion logic into the AST-based extraction scripts so these files are always skipped, which is a modest addition to existing tooling.[1][17] Most of the effort is in documentation and verification, keeping complexity moderate but not high."
+		},
+		{
+			"taskId": 11,
+			"taskTitle": "Extend SEO component to support hreflang and cross-domain canonical tags",
+			"complexityScore": 7,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Break this into analyzing the current SEO component API, adding optional props for alternate hreflang and URLs, implementing canonical and hreflang rendering logic consistent with Google guidelines, wiring representative pages to use the new props for cross-domain mesagroupconsulting.com/mesafinanciera pairs, and validating head output.",
+			"reasoning": "Implementing hreflang and cross-domain canonical tags requires a solid grasp of SEO best practices and careful coordination between the Spanish and English sites to avoid conflicting signals.[5][9] Modifying a shared SEO component used across many pages introduces a risk of regressions in meta tags, structured data, and canonical handling that must be tested thoroughly.[9][10] While head management in a SPA is not inherently complex, getting hreflang and canonical semantics exactly right in a dual-domain setup justifies a higher complexity score."
+		},
+		{
+			"taskId": 12,
+			"taskTitle": "Translate meta titles, descriptions, OG tags, and JSON-LD literals to Spanish",
+			"complexityScore": 5,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Decompose this task into inventorying all meta and OG content sources, extracting human-readable text into a small JSON mapping, translating via an LLM while preserving schema keys and URLs, reapplying translations to the SEO configuration, and validating head and JSON-LD output.",
+			"reasoning": "Translating meta tags and JSON-LD literals is moderately complex because it crosses code and SEO domains and must preserve structural elements like URLs and schema.org keys while changing only human-readable text.[10][12] The work benefits from the same JSON-based translation pipeline used elsewhere, which reduces implementation risk but still requires careful extraction and reinsertion.[12][20] Testing mainly involves head inspection and structured data validation rather than UI changes, keeping complexity in the mid-range."
+		},
+		{
+			"taskId": 13,
+			"taskTitle": "Implement data-array content extraction script using ts-morph",
+			"complexityScore": 8,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Expand this work into installing and configuring ts-morph against the project tsconfig, implementing AST traversal to find FAQ/testimonial/feature arrays, filtering for user-facing string properties, excluding legal pages and non-content strings, emitting arrays-en.json with stable identifiers, and documenting script usage.",
+			"reasoning": "Building a robust AST-based extraction tool with ts-morph for structured data arrays is technically advanced, requiring familiarity with TypeScript ASTs, project configuration, and pattern matching for specific array shapes.[1][18] The script must reliably distinguish content strings from URLs, class names, and logic to avoid corrupting application behavior and must integrate legal-page exclusion logic.[17] Given the depth of AST manipulation and the need for stable identifiers across extraction and application phases, this task is high complexity."
+		},
+		{
+			"taskId": 14,
+			"taskTitle": "Translate extracted data-array JSON via LLM and validate key parity",
+			"complexityScore": 5,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Split this into designing a translation prompt with constraints on brand names and placeholders, running the LLM translation to produce arrays-es.json, implementing a validation script to compare keys and structure against arrays-en.json, and storing and documenting the translated JSON.",
+			"reasoning": "The LLM translation itself is operationally straightforward but must be carefully constrained to preserve trademarks, placeholders, and overall JSON structure.[2][12] The key-parity validation script adds moderate technical work to ensure that the destructive codemod downstream has a reliable mapping.[17] Overall, the task is more about designing robust data and validation workflows than complex application code, so it sits in the middle of the scale."
+		},
+		{
+			"taskId": 15,
+			"taskTitle": "Apply Spanish translations to data arrays via ts-morph codemod",
+			"complexityScore": 8,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Break this into reading arrays-es.json, wiring a ts-morph Project to source files, locating previously identified data arrays via stable identifiers, replacing English string literals with Spanish equivalents while preserving structure, implementing a dry-run mode, and running full compilation and UI checks after applying changes.",
+			"reasoning": "Writing a codemod that safely mutates many files’ array literals via AST operations is high complexity, particularly when matching source nodes to translation entries and preserving syntax, comments, and formatting.[1][5][18] The operation is intentionally destructive and one-way, which increases the need for robust dry-run, logging, and regression testing to avoid large-scale breakage.[8][17] Given the breadth of impact and the technical depth of ts-morph transformations, this task warrants a high complexity score."
+		},
+		{
+			"taskId": 16,
+			"taskTitle": "Implement JSX text-node and scoped-prop extraction script using AST",
+			"complexityScore": 8,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Decompose this into configuring ts-morph for JSX parsing, traversing JSX elements and fragments to collect text children, scanning attributes to extract allowed props like alt/placeholder/aria-label/title, enforcing deny-lists for URLs and non-content attributes, excluding legal pages, writing jsx-en.json with stable identifiers, and documenting the extraction rules.",
+			"reasoning": "Extracting JSX text and selected attributes via AST rather than regex is technically demanding and must handle varied JSX patterns, nested components, and TypeScript-specific constructs.[1][5][17] Careful allow-listing and deny-listing of attributes and patterns is required to avoid capturing URLs, className, or other non-content strings, and to respect legal-page exclusions.[13][16] The complexity lies in designing a robust, maintainable AST traversal that forms the backbone of the translation pipeline, justifying a high rating."
+		},
+		{
+			"taskId": 17,
+			"taskTitle": "Translate JSX content JSON via LLM and validate structural integrity",
+			"complexityScore": 5,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Split this task into crafting a detailed LLM prompt with constraints (brands, URLs, placeholders), running translation of jsx-en.json to jsx-es.json, implementing key-set and JSON-validity validation between the two files, and normalizing any formatting anomalies in the translated strings.",
+			"reasoning": "As with array translation, the core complexity is in constraining the LLM so that it preserves JSON structure, non-translatable entities, and placeholders while changing only visible text.[2][12] The validation step to compare key sets and parse the JSON ensures structural integrity but is a relatively straightforward scripting exercise once the extraction schema is defined.[17] This makes the task moderately complex, more procedural than algorithmically challenging."
+		},
+		{
+			"taskId": 18,
+			"taskTitle": "Apply Spanish translations to JSX text and selected props via codemod",
+			"complexityScore": 8,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Break this into reading jsx-es.json, wiring ts-morph to traverse JSX trees, locating text nodes and allowed attributes via stable identifiers, updating their string or template literal values to Spanish while excluding href/src/className/style, implementing dry-run logging, and running compilation and UI regression checks after applying translations.",
+			"reasoning": "This codemod must accurately map thousands of JSX text nodes and attributes to their translated counterparts, using AST locations or identifiers, without touching critical non-content attributes like href and className.[1][5][18] The transformation is wide-ranging and irreversible, so robust tooling, dry-run modes, and extensive build and UI validation are required to manage risk.[8][17] Given the breadth of impact and the technical demands of AST-based JSX mutation, complexity is high."
+		},
+		{
+			"taskId": 19,
+			"taskTitle": "Perform extended image representation audit on secondary supporting imagery",
+			"complexityScore": 5,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Decompose this into gathering and converting all relevant image assets for review, systematically auditing images across kept pages, categorizing each asset (KEEP/REPLACE/BORDERLINE) in a master table, coordinating borderline decisions with Evert, and preparing the codebase for subsequent swaps.",
+			"reasoning": "The image audit is operationally broad but technically simple; it involves systematic manual review of assets, categorization, and documentation rather than complex coding.[14] However, the number of pages and images, coupled with the need to align with cultural representation goals and coordinate decisions for borderline cases, adds project-management complexity.[19] The work sits in the mid-range due to volume and coordination rather than technical depth."
+		},
+		{
+			"taskId": 20,
+			"taskTitle": "Implement image replacements for audited stock persona assets",
+			"complexityScore": 6,
+			"recommendedSubtasks": 5,
+			"expansionPrompt": "Break this work into importing and organizing new Hispanic-representing images, updating component imports and paths according to the replacement list, adjusting alt texts and captions to describe new imagery, verifying layout and aspect ratios, and performing visual checks across key pages.",
+			"reasoning": "Replacing persona and testimonial images touches many components and layouts, and requires careful attention to file paths, asset organization, alt text, and preserving aspect ratios to avoid visual regressions.[7] Coordination with narrative content (e.g., names and scenarios) and ensuring all REPLACE-designated assets are covered adds detail complexity.[19] While the coding is not algorithmically difficult, the breadth and sensitivity of visual changes justify a slightly higher mid-range score."
+		},
+		{
+			"taskId": 21,
+			"taskTitle": "Perform lightweight QA and overflow bug fixes after translation",
+			"complexityScore": 6,
+			"recommendedSubtasks": 6,
+			"expansionPrompt": "Decompose this into running full build and dev servers, performing page-by-page QA on all kept routes, identifying horizontal overflow or clipping caused by longer Spanish text, applying minimal Tailwind-class adjustments to fix functional issues, validating key interactive flows and console logs, and documenting the fixes.",
+			"reasoning": "Post-translation QA across many routes requires systematic navigation and visual inspection, as well as targeted fixes for overflow issues using Tailwind utilities like whitespace and text-overflow classes.[7][10] Ensuring that interactive flows backed by TanStack Query and external APIs still behave correctly adds functional testing complexity.[8][18] The task is broad but focused on small adjustments rather than redesign, resulting in mid-high complexity."
+		},
+		{
+			"taskId": 22,
+			"taskTitle": "Prepare WordPress blog implementation brief and placeholder behavior for Artículos",
+			"complexityScore": 4,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Split this into analyzing the existing English WordPress REST integration and Vercel rewrites, drafting a detailed implementation brief for the future Spanish blog instance, defining and coding interim placeholder behavior for /resources/articles, and validating that the placeholder does not trigger WordPress calls.",
+			"reasoning": "The core of this task is architectural analysis and documentation of a future integration, based on an existing pattern of WordPress REST usage, TanStack Query hooks, and proxy rewrites.[18][19] Implementing a simple placeholder for the Artículos page is technically trivial but must avoid unnecessary API calls or runtime errors.[18] Overall, the task is more about planning and communication than complex implementation, so complexity is moderate but not high."
+		},
+		{
+			"taskId": 23,
+			"taskTitle": "Ensure third-party integrations use single editable URL constants",
+			"complexityScore": 4,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Decompose this into inventorying all third-party and affiliate URLs, refactoring scattered usages into centralized configuration constants, updating components to consume those constants, ensuring translation scripts ignore these URLs, and validating that integrations still function as before.",
+			"reasoning": "Centralizing third-party URLs is a common configuration refactor that involves search, minor code changes, and verification that all CTAs and embeds still point to the correct destinations.[4][17] The main subtlety is ensuring that translation pipelines do not inadvertently modify these URL constants, which can be handled via existing deny-list logic in extraction scripts.[13] Since no new integrations or complex logic are introduced, overall complexity remains modest."
+		},
+		{
+			"taskId": 24,
+			"taskTitle": "Update README/CLAUDE documentation for Mesa Financiera fork",
+			"complexityScore": 4,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Break this into documenting the fork’s one-way Spanish nature and repository setup, summarizing the AST-based translation pipeline and legal-page exclusions, describing SEO and deployment configuration, and noting integration strategies (Calendly, third-party URLs, WordPress blog brief, image audit).",
+			"reasoning": "This task is documentation-heavy, requiring synthesis of decisions and implementation details across Git, translation tooling, SEO, deployment, legal policy, and integrations.[1][5][8] While it spans many topics, the work itself is narrative and explanatory rather than technically complex, leveraging existing patterns and configurations.[11][17] Good documentation discipline is important for future maintainers, but the underlying effort is moderate."
+		},
+		{
+			"taskId": 25,
+			"taskTitle": "Final deployment of Mesa Financiera to Vercel main environment",
+			"complexityScore": 5,
+			"recommendedSubtasks": 4,
+			"expansionPrompt": "Decompose this into ensuring main branch reflects the finalized Spanish state, triggering and monitoring a Vercel production deployment, performing a targeted smoke test across key pages and integrations on the production URL, and documenting the deployment status and coordination steps for DNS.",
+			"reasoning": "Final production deployment combines Git branch hygiene, Vercel configuration, environment variable verification, and a concise production smoke test across content and integrations.[4][8] The process follows standard continuous deployment patterns but is critical because it represents the go-live state, so additional care is needed despite modest technical novelty.[11] Coordination with external DNS configuration is largely procedural and does not add significant technical complexity."
+		}
+	]
+}
