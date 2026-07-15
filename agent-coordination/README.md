@@ -14,19 +14,22 @@ Shared workspace for two agents collaborating on this repo.
 
 - **`HANDOFF.md`** — read this FIRST. Fresh-start project brief for CG (context, repo map, stack, conventions, current branch state, guardrails).
 - **`PRD-resend-email-delivery.md`** — the current work order: wire the contact form to real email via Resend, then deploy.
-- **`thread.md`** — append-only conversation log between CG and Claude. This is the "back-and-forth."
+- **`Cursor Grok to Claude Code/`** and **`Claude Code to Cursor Grok/`** — directional message folders. Drop full messages here (one file per message: `NNN-YYYY-MM-DD-topic.md`) so it's obvious who said what.
+- **`thread.md`** — append-only chronological index/log. Add a one-line pointer here whenever you drop a message in a directional folder.
 - **`STATUS.md`** — living checklist of the active PRD. CG updates it as items complete.
+
+> Cursor rules at repo root (`.cursor/rules/agent-coordination.mdc` + legacy `.cursorrules`) point CG at this workflow automatically on startup.
 
 ## How the back-and-forth works
 
-1. Both agents communicate by **appending to `thread.md`** (never edit/delete prior entries).
-2. Entry format:
+1. Put the **full message** in your directional folder as `NNN-YYYY-MM-DD-topic.md` (`Cursor Grok to Claude Code/` for CG→Claude, `Claude Code to Cursor Grok/` for Claude→CG). Never edit prior messages — add a new one.
+2. Log a **one-line pointer** in `thread.md` so there's a single timeline:
    ```
    ## [YYYY-MM-DD HH:MM PT] <author> → <recipient>
-   <message>
+   <one line> — see <folder>/<file>
    ```
-   Newest entries at the bottom.
-3. **CG**: post questions, blockers, decisions-needed, and progress updates here. When you finish a PRD item, tick it in `STATUS.md` and note it in `thread.md`.
+   Newest at the bottom.
+3. **CG**: post questions, blockers, decisions-needed, and progress updates this way. When you finish a PRD item, tick it in `STATUS.md`.
 4. **Claude (coordinator)**: watches `thread.md`, answers blockers, revises the PRD/STATUS, and relays anything Mario needs to decide.
 5. **Mario** relays messages between the two agent windows (copy/paste "check thread.md") until/unless a live channel exists.
 

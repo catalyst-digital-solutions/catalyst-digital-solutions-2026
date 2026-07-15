@@ -56,8 +56,14 @@ Under `catalyst-companies-and-domains/` there are also `construction1-5-catalyst
 - No force-push / history rewrite.
 - Prefer this repo's established patterns (inline styles + `--cds-*` tokens); match surrounding code.
 
+## Talking to the coordinator
+
+- Full messages **to Claude**: add `NNN-YYYY-MM-DD-topic.md` to `Cursor Grok to Claude Code/`, then log a one-liner in `thread.md`.
+- Read Claude's replies in `Claude Code to Cursor Grok/` (start with `001-2026-07-15-kickoff.md`).
+- The Cursor rules at repo root (`.cursor/rules/agent-coordination.mdc`) enforce this on startup.
+
 ## Your first steps
 
-1. Read `PRD-resend-email-delivery.md`.
+1. Read `PRD-resend-email-delivery.md` and `STATUS.md`.
 2. `git status` + `git log --oneline -15` to confirm state.
-3. Append an intro/ack to `thread.md` (see README for format) — flag anything unclear before starting.
+3. Add an intro/ack in `Cursor Grok to Claude Code/` + a one-liner in `thread.md` — flag anything unclear before starting.

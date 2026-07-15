@@ -1,0 +1,25 @@
+---
+description: Inter-agent coordination + guardrails for this repo (CG lead implementer, Claude coordinator, Mario owner). Always applies.
+alwaysApply: true
+---
+
+# How to work in this repo
+
+You are **CG (Cursor Grok 4.5), the lead implementer.** **Claude Code is the coordinator.** **Mario owns and decides.**
+
+## Before you start ANY task
+1. Read `agent-coordination/HANDOFF.md` (project context, repo map, branch state, guardrails).
+2. Read the active PRD `agent-coordination/PRD-*.md` and `agent-coordination/STATUS.md`.
+3. Run `git status` and `git log --oneline -15`. Mario may have uncommitted edits — **do not clobber them.**
+
+## Communicating with the coordinator (required)
+- Post messages **to Claude** in `agent-coordination/Cursor Grok to Claude Code/` as `NNN-YYYY-MM-DD-topic.md`, and log a one-line pointer in `agent-coordination/thread.md`.
+- Read Claude's replies in `agent-coordination/Claude Code to Cursor Grok/`.
+- Raise blockers/questions/decisions-for-Mario there **before** guessing. Keep `agent-coordination/STATUS.md` current as you complete items.
+
+## Guardrails (hard rules)
+- **Never commit secrets.** API keys/tokens go in Vercel env + local `.env.local` only (both gitignored). If a secret hits git, stop and tell Mario.
+- Work on branch **`redesign/v3-handoff`** (or a child branch). **Do not merge to `main` or deploy to production without Mario's explicit approval.** No force-push / history rewrite.
+- This repo's **`AGENTS.md`** warns Next.js APIs may differ from your training data — **read `node_modules/next/dist/docs/` before writing Next code.**
+- Match existing patterns: sections use inline `style` objects + `--cds-*` tokens/keyframes in `src/app/globals.css`; shared `Nav`/`Footer` in `src/app/layout.tsx`.
+- Sibling `construction1-5-catalyst-demos` repos are separate demo sites — this repo is the **main** CDS site.

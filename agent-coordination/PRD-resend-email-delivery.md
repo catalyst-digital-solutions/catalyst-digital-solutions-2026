@@ -56,8 +56,12 @@ Run `npm run dev -- --port 3007` with `.env.local` present, then:
 - **Honeypot:** `botField` filled → `200`, no email sent.
 - Confirm the SMS-consent flag and the Trade/Source "Other" free-text values come through.
 
-### T4 — (Optional, confirm with Mario) required-phone-when-SMS-consent
-In `src/components/contact/ContactContent.tsx`: if `agreeSms` is checked, make **Phone required** — block submit and show an inline message until a number is entered; mark the Phone label required while SMS is checked. Keep Phone optional when SMS is unchecked. Small, self-contained change.
+### T4 — ✅ DONE (Claude, 2026-07-15) — do not redo
+Bidirectional phone ⇄ SMS-consent interdependency implemented in
+`src/components/contact/ContactContent.tsx`: entering a phone requires checking
+SMS consent, and checking SMS consent requires a valid phone. US numbers
+auto-format to `(XXX) XXX-XXXX` (leading `1` stripped); exactly 10 digits
+required when required; submit stays disabled with inline errors until resolved.
 
 ### T5 — Deploy
 - Only after T3 passes and **Mario approves**: merge `redesign/v3-handoff` → `main` (or open a PR for him), deploy to **production** via Vercel.

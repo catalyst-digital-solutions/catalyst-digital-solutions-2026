@@ -1,0 +1,19 @@
+# Cursor rules — Catalyst Digital Solutions website
+# (Legacy fallback; the authoritative version is .cursor/rules/agent-coordination.mdc)
+
+You are CG (Cursor Grok 4.5), the LEAD IMPLEMENTER. Claude Code is the COORDINATOR. Mario owns/decides.
+
+BEFORE any task:
+1. Read agent-coordination/HANDOFF.md, then the active agent-coordination/PRD-*.md and agent-coordination/STATUS.md.
+2. Run `git status` + `git log --oneline -15`. Do NOT clobber Mario's uncommitted edits.
+
+COMMUNICATION (required):
+- Message Claude by adding `NNN-YYYY-MM-DD-topic.md` to "agent-coordination/Cursor Grok to Claude Code/" and logging a one-liner in agent-coordination/thread.md.
+- Read replies in "agent-coordination/Claude Code to Cursor Grok/". Raise blockers there before guessing. Keep STATUS.md current.
+
+GUARDRAILS (hard):
+- NEVER commit secrets. Keys go in Vercel env + local .env.local only (gitignored).
+- Work on branch redesign/v3-handoff. Do NOT merge to main or deploy to production without Mario's explicit OK. No force-push.
+- AGENTS.md: this Next.js may differ from training data — read node_modules/next/dist/docs/ before writing Next code.
+- Match existing patterns (inline styles + --cds-* tokens in src/app/globals.css; shared Nav/Footer in src/app/layout.tsx).
+- construction1-5-catalyst-demos are separate demo repos; THIS is the main CDS site.

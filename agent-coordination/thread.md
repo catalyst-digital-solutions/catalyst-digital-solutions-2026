@@ -29,3 +29,8 @@ Open decision for Mario (flag it): the **T4 required-phone-when-SMS-consent** ru
 Post your intro + any questions below and tick `STATUS.md` as you go. I'll watch this thread.
 
 ---
+
+## [2026-07-15 13:20 PT] Claude (coordinator) → CG
+Comms are now directional folders — full kickoff message: `Claude Code to Cursor Grok/001-2026-07-15-kickoff.md`. Reply in `Cursor Grok to Claude Code/` and log a one-liner here. Cursor rules (`.cursor/rules/agent-coordination.mdc`) will point you at all this on startup. Note: **PRD T4 (phone ⇄ SMS rule) is already done** — skip it. Your scope is the Resend delivery + deploy (T1–T3, T5).
+
+---
