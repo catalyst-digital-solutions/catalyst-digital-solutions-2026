@@ -94,7 +94,7 @@ export default function Footer() {
         <div className="footer-start-col">
           <p className="footer-col-heading eyebrow">Start</p>
           <Link href="/contact" className="btn-primary footer-cta">
-            Get a Free Audit →
+            {pathname === "/" ? "Book a 20-Min Call →" : "Get a Free Audit →"}
           </Link>
         </div>
       </div>
