@@ -27,6 +27,17 @@ const TRADES = ["General Contractor", "Commercial Builder", "Roofing", "Electric
 const REVENUES = ["Under $500K", "$500K–$1M", "$1M–$5M", "$5M–$10M", "$10M+", "Prefer not to say"];
 const SOURCES = ["Google", "LinkedIn", "Referral", "YouTube", "Instagram", "Other"];
 
+/** Format a US number as (XXX) XXX-XXXX while typing. Strips a leading 1, caps at 10 digits. */
+function formatUsPhone(raw: string): string {
+  let d = raw.replace(/\D/g, "");
+  if (d.length === 11 && d[0] === "1") d = d.slice(1);
+  d = d.slice(0, 10);
+  if (d.length > 6) return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`;
+  if (d.length > 3) return `(${d.slice(0, 3)}) ${d.slice(3)}`;
+  if (d.length > 0) return `(${d}`;
+  return "";
+}
+
 type FormState = { name: string; company: string; email: string; phone: string; trade: string; tradeOther: string; revenue: string; url: string; challenge: string; source: string; sourceOther: string };
 
 export default function ContactContent() {
@@ -38,9 +49,19 @@ export default function ContactContent() {
   const [form, setForm] = useState<FormState>({ name: "", company: "", email: "", phone: "", trade: "", tradeOther: "", revenue: "", url: "", challenge: "", source: "", sourceOther: "" });
   const set = (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
+  // Phone <-> SMS-consent interdependency + US phone validity (10 digits).
+  const phoneDigits = form.phone.replace(/\D/g, "");
+  const validPhone = phoneDigits.length === 10;
+  const phoneProvided = phoneDigits.length > 0;
+  const needPhone = agreeSms || phoneProvided; // opting into SMS (or entering a number) requires a valid number
+  const needSms = phoneProvided; // entering a number requires SMS consent
+  const phoneInvalid = needPhone && !validPhone;
+  const smsMissing = needSms && !agreeSms;
+  const canSubmit = agreeContact && !phoneInvalid && !smsMissing;
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!agreeContact || status === "submitting") return;
+    if (!canSubmit || status === "submitting") return;
     setStatus("submitting");
     try {
       const res = await fetch("/api/contact", {
@@ -148,8 +169,9 @@ export default function ContactContent() {
                     <input className="contact-field" type="email" required value={form.email} onChange={set("email")} placeholder="you@company.com" style={fieldBase} />
                   </label>
                   <label style={labelWrap}>
-                    <span style={labelText}>Phone <span style={{ color: "#7f8896", fontWeight: 400 }}>(for a call or text)</span></span>
-                    <input className="contact-field" type="tel" value={form.phone} onChange={set("phone")} placeholder="(661) 555-0123" style={fieldBase} />
+                    <span style={labelText}>Phone <span style={{ color: "#7f8896", fontWeight: 400 }}>(for a call or text)</span>{needPhone && <span style={{ color: "#b56bff" }}> *</span>}</span>
+                    <input className="contact-field" type="tel" inputMode="tel" value={form.phone} onChange={(e) => setForm((f) => ({ ...f, phone: formatUsPhone(e.target.value) }))} placeholder="(661) 555-0123" aria-invalid={phoneInvalid} style={{ ...fieldBase, border: phoneInvalid ? "1px solid rgba(255,138,138,.6)" : "1px solid rgba(255,255,255,.14)" }} />
+                    {phoneInvalid && <span style={{ fontSize: "12.5px", color: "#ff8a8a" }}>Enter a valid 10-digit U.S. phone number.</span>}
                   </label>
                   <label style={labelWrap}>
                     <span style={labelText}>Trade / Specialty</span>
@@ -202,14 +224,15 @@ export default function ContactContent() {
                   </label>
                   <label style={{ display: "flex", gap: "11px", alignItems: "flex-start", cursor: "pointer" }}>
                     <input type="checkbox" checked={agreeSms} onChange={(e) => setAgreeSms(e.target.checked)} style={{ marginTop: "2px", width: "17px", height: "17px", accentColor: "#8000ff", flex: "none", cursor: "pointer" }} />
-                    <span style={{ fontSize: "13.5px", lineHeight: 1.55, color: "#9aa3b0" }}>I also agree to receive text messages (SMS) at the number I provide. Message &amp; data rates may apply; reply STOP to opt out. <span style={{ color: "#7f8896" }}>(optional)</span></span>
+                    <span style={{ fontSize: "13.5px", lineHeight: 1.55, color: "#9aa3b0" }}>I also agree to receive text messages (SMS) at the number I provide. Message &amp; data rates may apply; reply STOP to opt out. {needSms ? <span style={{ color: "#b56bff" }}>*</span> : <span style={{ color: "#7f8896" }}>(optional)</span>}</span>
                   </label>
+                  {smsMissing && <span style={{ fontSize: "12.5px", color: "#ff8a8a", marginLeft: "28px" }}>Check this to receive texts, or clear the phone number above.</span>}
                 </div>
 
                 <button
                   type="submit"
-                  disabled={!agreeContact || status === "submitting"}
-                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "10px", width: "100%", minHeight: "52px", fontFamily: "var(--font-inter), sans-serif", fontSize: "16px", fontWeight: 600, color: "#fff", background: "linear-gradient(135deg,#8000ff,#5600ab)", border: "none", padding: "16px 30px", borderRadius: "12px", marginTop: "22px", boxShadow: agreeContact ? "0 10px 34px rgba(128,0,255,.4)" : "none", opacity: agreeContact && status !== "submitting" ? 1 : 0.5, cursor: agreeContact && status !== "submitting" ? "pointer" : "not-allowed", transition: "opacity .2s, box-shadow .2s" }}
+                  disabled={!canSubmit || status === "submitting"}
+                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "10px", width: "100%", minHeight: "52px", fontFamily: "var(--font-inter), sans-serif", fontSize: "16px", fontWeight: 600, color: "#fff", background: "linear-gradient(135deg,#8000ff,#5600ab)", border: "none", padding: "16px 30px", borderRadius: "12px", marginTop: "22px", boxShadow: canSubmit ? "0 10px 34px rgba(128,0,255,.4)" : "none", opacity: canSubmit && status !== "submitting" ? 1 : 0.5, cursor: canSubmit && status !== "submitting" ? "pointer" : "not-allowed", transition: "opacity .2s, box-shadow .2s" }}
                 >
                   {status === "submitting" ? "Sending…" : <>Send My Audit Request <span style={{ fontSize: "18px" }}>&rarr;</span></>}
                 </button>
