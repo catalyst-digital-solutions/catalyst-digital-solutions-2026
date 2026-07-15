@@ -514,7 +514,7 @@ export default function HomeV3() {
                 <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", fontWeight: 600, color: "#fafafa", lineHeight: 1.75, margin: "16px 0 0", maxWidth: "540px", textWrap: "pretty" }}>15+ hours back every week.</p>
                 <div style={{ ...mono("#b56bff", 15.5, 1), textTransform: "none", marginTop: "16px", lineHeight: 1.6 }}>$497/mo on its own&nbsp;&mdash; Included in our top tier.</div>
                 <SolvesRow items={["wondering where the next job is", "referrals only", "stretched thin"]} />
-                <Iceberg label="What is Construction RFP AI?">An always-on system that scans public bid sources, filters for jobs that fit you, and delivers them to your inbox, ready to bid.</Iceberg>
+                <Iceberg label="What is Construction RFP AI?">An always-on system that scans public bid sites, filters for jobs that fit your requirements, and delivers them to your inbox, ready to bid.</Iceberg>
               </div>
               <div style={{ flex: "1 1 340px", minWidth: "290px", display: "flex", justifyContent: "center" }}>
                 <div style={{ width: "360px", maxWidth: "100%", background: "linear-gradient(180deg,#0c1016,#090c11)", border: "1px solid rgba(0,212,255,.25)", borderRadius: "20px", padding: "20px", boxShadow: "0 30px 80px rgba(0,0,0,.6)" }}>
@@ -552,7 +552,8 @@ export default function HomeV3() {
             <div style={{ maxWidth: "720px" }}>
               <div style={{ ...mono("#00d4ff"), marginBottom: "18px" }}>Proof, not promises</div>
               <h2 style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontWeight: 400, textTransform: "uppercase", fontSize: "clamp(44px,5.6vw,92px)", lineHeight: 0.9, letterSpacing: "1px", color: "#fafafa", margin: 0, textWrap: "balance" }}>We&rsquo;d rather prove it than promise it.</h2>
-              <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", color: "#c8c8c8", lineHeight: 1.75, margin: "24px 0 0", maxWidth: "640px", textWrap: "pretty" }}>Talk is cheap. Here&rsquo;s the work. Real, live sites we built specifically for contractors. Fast, sharp, made to win jobs. No Wordpress templates here. Just modern,&nbsp;Next.js/React. The gold standard for speed. Great for search authority. When you choose Catalyst, you get the best.</p>
+              <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", color: "#c8c8c8", lineHeight: 1.75, margin: "24px 0 0", maxWidth: "640px", textWrap: "pretty" }}>Talk is cheap. Here&rsquo;s the work. Real, live sites we built specifically for contractors. Fast, sharp, made to win jobs. No Wordpress templates here. Just modern Next.js/React. The gold standard for <span style={{ background: "linear-gradient(90deg,#b56bff,#00d4ff)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>speed</span>. Built for <span style={{ background: "linear-gradient(90deg,#b56bff,#00d4ff)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>search visibility</span>. When you choose Catalyst, you get the best.</p>
+              <Iceberg label="What websites do you know that run on Next.js/React?">Netflix, Apple, Nike, and Walmart, to name a few &mdash; the biggest names on the web run on the same Next.js/React stack we build you on.</Iceberg>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 12px", ...mono("#00d4ff", 11.5, 1.5) }}>
               <span style={{ color: "#00d4ff" }}>Solves &rarr;</span>
