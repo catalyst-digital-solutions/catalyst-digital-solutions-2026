@@ -33,7 +33,7 @@ type Obj = { q: string; a: string; links?: { label: string; url: string }[] };
 const OBJECTIONS: Obj[] = [
   { q: "“I get all my work by referral.”", a: "Referrals are a gift, but they’re not scalable. You can’t schedule referrals. You can't turn them up when you're slow. And here's what nobody ever tells you: the clients happiest with your work are the least likely to bring you up. The ones who talk most are the unhappy ones. It's human nature. What's more, your next job shouldn’t ride on whether a former customer happens to come in contact with an interested party and then remembers to mention your name. Word of mouth is a ceiling...not a growth engine." },
   { q: "“I’m too busy for this.”", a: "That’s exactly the point. We do it, so you don’t have to. If you had to learn to do your own marketing (properly), it would become your full-time job." },
-  { q: "“That’s a lot to spend every month.”", a: "That's a common sentiment...until you look at what you’re already losing. Jobs going to voicemail. Bids lost to whoever answered first. You're already leaking 100x. You can pay 2x to stop it. You can easily make back your investment with Catalyst on a single job." },
+  { q: "“That’s a lot to spend every month.”", a: "That's a common sentiment...until you look at what you’re already losing. Jobs going to voicemail. Bids lost to whoever answered first. You're already leaking 100x. You can pay 2x to stop it. You can easily make back a year's investment with Catalyst on a single job." },
   { q: "“I can’t compete with the big companies spending on AI.”", a: "The same tools being used by billion-dollar companies are available to you now. And they're becoming more capable and affordable every day. We can build iOS apps, company business intelligence platforms, and lead systems for 5% of what they used to cost. That’s the whole point of hiring us instead of building it yourself: big-company setup, without the big-company price." },
   { q: "“Isn’t AI just hype? It’ll blow over.”", a: "Please be careful, here. Tools that save time and win jobs are already being adopted by construction firms worldwide. Turner Construction, the largest US construction company by volume, signed an AI deal that has already saved them over $50,000,000 so far. Byte TI estimates 91% of construction companies will invest in AI in 2026. This isn’t Silicon Valley inventing a new social media app. This is the next revolution in human technology — that's not hyperbole — and it’s making new and established businesses huge money.", links: [
     { label: "Turner’s $50M savings", url: "https://www.constructiondive.com/news/turner-partnership-openai-startups-tech/804765/" },
@@ -573,7 +573,7 @@ export default function HomeV3() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img className="demo-thumb-img" src={d.img} alt={`${d.name} demo site`} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "auto", minHeight: "100%", objectFit: "cover", objectPosition: "top" }} />
                 </div>
-                <div style={{ position: "relative", padding: "16px 150px 18px 20px", borderTop: "1px solid rgba(255,255,255,.07)" }}>
+                <div style={{ position: "relative", padding: "16px 180px 18px 20px", borderTop: "1px solid rgba(255,255,255,.07)" }}>
                   <span style={{ position: "absolute", right: "14px", bottom: "16px", transform: "rotate(-6deg)", ...mono(d.badgeColor, 10.5, 1.5), fontWeight: 500, background: d.badgeBg, borderRadius: "6px", padding: "7px 12px", whiteSpace: "nowrap" }}><span className="see-live-click">Click to see live</span><span className="see-live-tap">Tap to see live</span></span>
                   <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: "24px", letterSpacing: "1.5px", color: "#fafafa" }}>{d.name}</div>
                   <p style={{ fontSize: "13.5px", color: "#9aa3b0", lineHeight: 1.55, margin: "7px 0 0", textWrap: "pretty" }}>{d.blurb}</p>
@@ -584,7 +584,7 @@ export default function HomeV3() {
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "24px", marginTop: "clamp(36px,4.5vw,52px)" }}>
             <div style={{ maxWidth: "620px" }}>
               <p style={{ fontSize: "clamp(20px,1.9vw,28px)", fontWeight: 600, color: "#fafafa", lineHeight: 1.35, margin: 0, textWrap: "balance" }}>Want to see YOUR company on one of these? Book a call and we&rsquo;ll show you in <span style={{ background: "linear-gradient(90deg,#b56bff,#00d4ff)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>10 minutes</span>.</p>
-              <Iceberg label="Wait — are these real?">Yes &mdash; live and deployable. On a call we re-skin one to your brand in under a minute.</Iceberg>
+              <Iceberg label="Wait — are these real?">Yes. Live and deployable. On a call, we&rsquo;ll apply your branding and colors in just a few minutes.</Iceberg>
             </div>
             <Link href="/contact" className="cta-full" style={primaryCta}>Book a 20-Min Call <span style={{ fontSize: "18px" }}>&rarr;</span></Link>
           </div>
@@ -629,7 +629,7 @@ export default function HomeV3() {
           <div style={{ maxWidth: "780px" }}>
             <div style={{ ...mono("#00d4ff"), marginBottom: "18px" }}>How we work with you</div>
             <h2 style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontWeight: 400, textTransform: "uppercase", fontSize: "clamp(44px,5.6vw,92px)", lineHeight: 0.9, letterSpacing: "1px", color: "#fafafa", margin: 0, textWrap: "balance" }}>One system. Built up in three stages.</h2>
-            <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", color: "#c8c8c8", lineHeight: 1.75, margin: "24px 0 0", maxWidth: "640px", textWrap: "pretty" }}>We don&rsquo;t do one-off jobs. We tie our name to your success, so we build the whole structure. Starting with the foundation, ending with the spire.</p>
+            <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", color: "#c8c8c8", lineHeight: 1.75, margin: "24px 0 0", maxWidth: "640px", textWrap: "pretty" }}>We don&rsquo;t do one-off jobs. We tie our name to your success, so we build the whole structure. Starting with a concrete foundation, ending with a spire.</p>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "stretch", gap: "clamp(16px,2vw,24px)", marginTop: "clamp(40px,5vw,56px)" }}>
             {[
