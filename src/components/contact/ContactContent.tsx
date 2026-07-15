@@ -4,9 +4,9 @@ import { useState } from "react";
 import type { CSSProperties } from "react";
 
 /* CDS Contact page — recreated from "CDS Contact.dc.html" (design handoff).
-   Copy is locked; transcribed verbatim. The form is a front-end-only prototype
-   (matches the design): submitting toggles a success state; there is no backend
-   endpoint wired up. */
+   The form POSTs to /api/contact, which forwards to a webhook or emails
+   hello@ (see app/api/contact/route.ts). Includes contact/SMS consent, a
+   honeypot, and per-form tracking metadata so multiple forms can be told apart. */
 
 const fieldBase: CSSProperties = {
   minHeight: "48px",
@@ -27,12 +27,46 @@ const TRADES = ["General Contractor", "Commercial Builder", "Roofing", "Electric
 const REVENUES = ["Under $500K", "$500K–$1M", "$1M–$5M", "$5M–$10M", "$10M+", "Prefer not to say"];
 const SOURCES = ["Google", "LinkedIn", "Referral", "YouTube", "Instagram", "Other"];
 
-type FormState = { name: string; company: string; trade: string; revenue: string; url: string; challenge: string; source: string };
+type FormState = { name: string; company: string; email: string; phone: string; trade: string; tradeOther: string; revenue: string; url: string; challenge: string; source: string; sourceOther: string };
 
 export default function ContactContent() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState<FormState>({ name: "", company: "", trade: "", revenue: "", url: "", challenge: "", source: "" });
+  const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
+  const [agreeContact, setAgreeContact] = useState(false);
+  const [agreeSms, setAgreeSms] = useState(false);
+  const [botField, setBotField] = useState("");
+  const [form, setForm] = useState<FormState>({ name: "", company: "", email: "", phone: "", trade: "", tradeOther: "", revenue: "", url: "", challenge: "", source: "", sourceOther: "" });
   const set = (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm((f) => ({ ...f, [key]: e.target.value }));
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!agreeContact || status === "submitting") return;
+    setStatus("submitting");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formId: "contact-page",
+          formName: "Contact — Let's talk about your pipeline",
+          ...form,
+          consentToContact: agreeContact,
+          consentToSms: agreeSms,
+          botField,
+          meta: {
+            submittedAt: new Date().toISOString(),
+            pagePath: typeof window !== "undefined" ? window.location.pathname : "",
+            pageUrl: typeof window !== "undefined" ? window.location.href : "",
+            referrer: typeof document !== "undefined" ? document.referrer : "",
+          },
+        }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setSubmitted(true);
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <div style={{ background: "#080b0f", fontFamily: "var(--font-inter), sans-serif", color: "#c8c8c8" }}>
@@ -86,9 +120,20 @@ export default function ContactContent() {
           <div style={{ flex: "1 1 480px", minWidth: "300px" }}>
             {!submitted ? (
               <form
-                onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
+                onSubmit={handleSubmit}
                 style={{ background: "rgba(255,255,255,.025)", border: "1px solid rgba(255,255,255,.1)", borderRadius: "20px", padding: "clamp(28px,3.4vw,44px)" }}
               >
+                {/* Honeypot — hidden from users; bots that fill it get dropped server-side */}
+                <input
+                  type="text"
+                  name="company_website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={botField}
+                  onChange={(e) => setBotField(e.target.value)}
+                  aria-hidden="true"
+                  style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
+                />
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,220px),1fr))", gap: "18px" }}>
                   <label style={labelWrap}>
                     <span style={labelText}>Full Name</span>
@@ -99,6 +144,14 @@ export default function ContactContent() {
                     <input className="contact-field" value={form.company} onChange={set("company")} placeholder="Your company" style={fieldBase} />
                   </label>
                   <label style={labelWrap}>
+                    <span style={labelText}>Email <span style={{ color: "#b56bff" }}>*</span></span>
+                    <input className="contact-field" type="email" required value={form.email} onChange={set("email")} placeholder="you@company.com" style={fieldBase} />
+                  </label>
+                  <label style={labelWrap}>
+                    <span style={labelText}>Phone <span style={{ color: "#7f8896", fontWeight: 400 }}>(for a call or text)</span></span>
+                    <input className="contact-field" type="tel" value={form.phone} onChange={set("phone")} placeholder="(661) 555-0123" style={fieldBase} />
+                  </label>
+                  <label style={labelWrap}>
                     <span style={labelText}>Trade / Specialty</span>
                     <select className="contact-field" value={form.trade} onChange={set("trade")} style={selectBase}>
                       <option value="">Select your trade…</option>
@@ -106,19 +159,25 @@ export default function ContactContent() {
                     </select>
                   </label>
                   <label style={labelWrap}>
-                    <span style={labelText}>Current Monthly Revenue</span>
+                    <span style={labelText}>Current Annual Revenue</span>
                     <select className="contact-field" value={form.revenue} onChange={set("revenue")} style={selectBase}>
                       <option value="">Select a range…</option>
                       {REVENUES.map((r) => <option key={r}>{r}</option>)}
                     </select>
                   </label>
                 </div>
+                {form.trade === "Other" && (
+                  <label style={{ ...labelWrap, marginTop: "18px", animation: "panelIn .3s ease" }}>
+                    <span style={labelText}>Tell us your trade / specialty</span>
+                    <input className="contact-field" value={form.tradeOther} onChange={set("tradeOther")} placeholder="e.g. Concrete, Landscaping, Solar…" style={fieldBase} />
+                  </label>
+                )}
                 <label style={{ ...labelWrap, marginTop: "18px" }}>
                   <span style={labelText}>Website URL</span>
                   <input className="contact-field" value={form.url} onChange={set("url")} placeholder="https://yourcompany.com — or 'don't have one yet'" style={fieldBase} />
                 </label>
                 <label style={{ ...labelWrap, marginTop: "18px" }}>
-                  <span style={labelText}>Biggest Digital Challenge</span>
+                  <span style={labelText}>Biggest Digital or Operational Challenge</span>
                   <textarea className="contact-field" value={form.challenge} onChange={set("challenge")} rows={4} placeholder="Where are you losing jobs? What's not working?" style={{ ...fieldBase, resize: "vertical", minHeight: "110px", padding: "14px 16px" }} />
                 </label>
                 <label style={{ ...labelWrap, marginTop: "18px" }}>
@@ -128,9 +187,37 @@ export default function ContactContent() {
                     {SOURCES.map((s) => <option key={s}>{s}</option>)}
                   </select>
                 </label>
-                <button type="submit" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "10px", width: "100%", minHeight: "52px", fontFamily: "var(--font-inter), sans-serif", fontSize: "16px", fontWeight: 600, color: "#fff", background: "linear-gradient(135deg,#8000ff,#5600ab)", border: "none", padding: "16px 30px", borderRadius: "12px", marginTop: "26px", boxShadow: "0 10px 34px rgba(128,0,255,.4)", cursor: "pointer" }}>
-                  Send My Audit Request <span style={{ fontSize: "18px" }}>&rarr;</span>
+                {form.source === "Other" && (
+                  <label style={{ ...labelWrap, marginTop: "18px", animation: "panelIn .3s ease" }}>
+                    <span style={labelText}>How did you hear about us? (please specify)</span>
+                    <input className="contact-field" value={form.sourceOther} onChange={set("sourceOther")} placeholder="Tell us where you found us" style={fieldBase} />
+                  </label>
+                )}
+
+                {/* Consent */}
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "24px" }}>
+                  <label style={{ display: "flex", gap: "11px", alignItems: "flex-start", cursor: "pointer" }}>
+                    <input type="checkbox" checked={agreeContact} onChange={(e) => setAgreeContact(e.target.checked)} required style={{ marginTop: "2px", width: "17px", height: "17px", accentColor: "#8000ff", flex: "none", cursor: "pointer" }} />
+                    <span style={{ fontSize: "13.5px", lineHeight: 1.55, color: "#c8c8c8" }}>I agree to be contacted by Catalyst Digital Solutions about my request. <span style={{ color: "#b56bff" }}>*</span></span>
+                  </label>
+                  <label style={{ display: "flex", gap: "11px", alignItems: "flex-start", cursor: "pointer" }}>
+                    <input type="checkbox" checked={agreeSms} onChange={(e) => setAgreeSms(e.target.checked)} style={{ marginTop: "2px", width: "17px", height: "17px", accentColor: "#8000ff", flex: "none", cursor: "pointer" }} />
+                    <span style={{ fontSize: "13.5px", lineHeight: 1.55, color: "#9aa3b0" }}>I also agree to receive text messages (SMS) at the number I provide. Message &amp; data rates may apply; reply STOP to opt out. <span style={{ color: "#7f8896" }}>(optional)</span></span>
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={!agreeContact || status === "submitting"}
+                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "10px", width: "100%", minHeight: "52px", fontFamily: "var(--font-inter), sans-serif", fontSize: "16px", fontWeight: 600, color: "#fff", background: "linear-gradient(135deg,#8000ff,#5600ab)", border: "none", padding: "16px 30px", borderRadius: "12px", marginTop: "22px", boxShadow: agreeContact ? "0 10px 34px rgba(128,0,255,.4)" : "none", opacity: agreeContact && status !== "submitting" ? 1 : 0.5, cursor: agreeContact && status !== "submitting" ? "pointer" : "not-allowed", transition: "opacity .2s, box-shadow .2s" }}
+                >
+                  {status === "submitting" ? "Sending…" : <>Send My Audit Request <span style={{ fontSize: "18px" }}>&rarr;</span></>}
                 </button>
+                {status === "error" && (
+                  <p style={{ color: "#ff8a8a", fontSize: "13.5px", lineHeight: 1.6, margin: "12px 0 0", textWrap: "pretty" }}>
+                    Something went wrong sending your request. Please call or text <a href="tel:+16615359927" style={{ color: "#00d4ff", textDecoration: "none" }}>(661) 535-9927</a> or email <a href="mailto:hello@catalyst-digital-solutions.com" style={{ color: "#00d4ff", textDecoration: "none" }}>hello@catalyst-digital-solutions.com</a>.
+                  </p>
+                )}
               </form>
             ) : (
               <div style={{ background: "linear-gradient(180deg,rgba(128,255,128,.07),rgba(128,255,128,.02)),rgba(255,255,255,.02)", border: "1px solid rgba(128,255,128,.35)", borderRadius: "20px", padding: "clamp(40px,5vw,64px)", textAlign: "center", animation: "panelIn .45s cubic-bezier(.4,0,.2,1)" }}>
