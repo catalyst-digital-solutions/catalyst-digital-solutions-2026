@@ -478,7 +478,7 @@ export default function HomeV3() {
                 <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", ...mono("#00d4ff", 11, 2), border: "1px solid rgba(0,212,255,.3)", borderRadius: "100px", padding: "6px 14px", marginBottom: "18px" }}><span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#00d4ff", boxShadow: "0 0 9px #00d4ff" }} />Machine 02</div>
                 <h3 style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontWeight: 400, textTransform: "uppercase", fontSize: "clamp(32px,3.2vw,50px)", lineHeight: 0.92, letterSpacing: "1px", color: "#fafafa", margin: 0 }}>Be everywhere they look</h3>
                 <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", color: "#c8c8c8", lineHeight: 1.75, margin: "18px 0 0", maxWidth: "540px", textWrap: "pretty" }}>Fresh posts and videos go out every week &mdash; Google, YouTube, social &mdash; so you&rsquo;re the name they keep seeing. You become the obvious choice without lifting a finger.</p>
-                <SolvesRow items={["feeling invisible", "relying on referrals"]} />
+                <SolvesRow items={["feeling invisible", "relying on referrals", "bidding low just to win"]} />
                 <Iceberg label="How does that work?">We create and schedule the content for you across every channel, so your name stays in front of buyers with zero effort on your end.</Iceberg>
               </div>
               <div style={{ flex: "1 1 340px", minWidth: "290px", display: "flex", justifyContent: "center" }}>
