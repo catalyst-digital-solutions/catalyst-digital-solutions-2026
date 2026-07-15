@@ -186,7 +186,22 @@ function RotatingWord() {
     const id = setInterval(() => setI((v) => v + 1), 2000);
     return () => clearInterval(id);
   }, []);
-  return <span key={i} style={{ display: "inline-block", color: "#b56bff", animation: "wordIn .55s cubic-bezier(.2,.8,.2,1)" }}>{WORDS[i % WORDS.length]}</span>;
+  return (
+    <span
+      key={i}
+      style={{
+        display: "inline-block",
+        background: "linear-gradient(90deg,#00d4ff,#8000ff)",
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        color: "transparent",
+        animation: "wordIn .55s cubic-bezier(.2,.8,.2,1)",
+      }}
+    >
+      {WORDS[i % WORDS.length]}
+    </span>
+  );
 }
 
 /* Isolated typewriter self-audit search bar (types/erases "commercial GC Bakersfield"). */
