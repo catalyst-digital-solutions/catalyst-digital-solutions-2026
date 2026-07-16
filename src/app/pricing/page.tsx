@@ -6,12 +6,13 @@ import PricingFAQ from "@/components/pricing/PricingFAQ";
 /* CDS Pricing page — recreated from "CDS Pricing.dc.html" (design handoff).
    Copy is locked; transcribed verbatim. Only the FAQ is interactive
    (isolated in the PricingFAQ client component). Keeps the #pricing-cards
-   anchor referenced by the homepage RFP section's "Domination" link. */
+   anchor referenced by other pages' pricing links.
+   Canonical tier names (must match everywhere): Foundation / Framework / Landmark. */
 
 export const metadata: Metadata = {
   title: "Pricing — Catalyst Digital Solutions",
   description:
-    "Transparent pricing, measurable results. Three tiers — Launchpad ($1,497/mo), Growth Engine ($2,997/mo), Domination ($7,997/mo) — plus Construction RFP AI standalone at $497/mo. No contracts.",
+    "Transparent pricing, measurable results. Three tiers — Foundation ($1,497/mo), Framework ($2,997/mo), Landmark ($7,997/mo) — plus Construction RFP AI standalone at $497/mo. No contracts.",
 };
 
 function Row({ mark, color, bold, children }: { mark: "check" | "dash"; color: string; bold?: boolean; children: ReactNode }) {
@@ -85,10 +86,10 @@ export default function Page() {
       <section id="pricing-cards" style={{ position: "relative", padding: "clamp(30px,4vw,60px) clamp(20px,5vw,64px) clamp(50px,6vw,80px)" }}>
         <div style={{ maxWidth: "1180px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,310px),1fr))", gap: "clamp(20px,2.2vw,26px)", alignItems: "stretch" }}>
 
-          {/* TIER 1 LAUNCHPAD */}
+          {/* TIER 1 FOUNDATION */}
           <div style={{ background: "rgba(255,255,255,.025)", border: "1px solid rgba(255,255,255,.10)", borderRadius: "18px", padding: "34px 30px", display: "flex", flexDirection: "column" }}>
             <div style={tierKicker("#00d4ff")}>Tier 1</div>
-            <h2 style={tierName}>Launchpad</h2>
+            <h2 style={tierName}>Foundation</h2>
             <div style={tierPriceWrap}><span style={tierPrice}>$1,497</span><span style={tierPer}>/mo</span></div>
             <p style={{ fontSize: "14.5px", fontStyle: "italic", color: "#9aa3b0", margin: "12px 0 0" }}>&ldquo;Get found. Look professional.&rdquo;</p>
             <div style={{ width: "100%", height: "1px", background: "rgba(255,255,255,.08)", margin: "24px 0" }} />
@@ -104,19 +105,19 @@ export default function Page() {
               <Row mark="dash" color="#7f8896">No call tracking</Row>
               <Row mark="dash" color="#7f8896">No programmatic SEO</Row>
             </div>
-            <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "9px", minHeight: "48px", fontFamily: "var(--font-inter), sans-serif", fontSize: "15px", fontWeight: 600, color: "#fafafa", background: "rgba(255,255,255,.04)", border: "1px solid rgba(255,255,255,.2)", padding: "14px 24px", borderRadius: "11px", marginTop: "28px", textDecoration: "none" }}>Start With Launchpad</Link>
+            <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "9px", minHeight: "48px", fontFamily: "var(--font-inter), sans-serif", fontSize: "15px", fontWeight: 600, color: "#fafafa", background: "rgba(255,255,255,.04)", border: "1px solid rgba(255,255,255,.2)", padding: "14px 24px", borderRadius: "11px", marginTop: "28px", textDecoration: "none" }}>Start With Foundation</Link>
           </div>
 
-          {/* TIER 2 GROWTH ENGINE */}
+          {/* TIER 2 FRAMEWORK */}
           <div style={{ position: "relative", background: "linear-gradient(180deg,rgba(128,0,255,.12),rgba(128,0,255,.03)),rgba(255,255,255,.02)", border: "1px solid rgba(128,0,255,.55)", borderRadius: "18px", padding: "34px 30px", display: "flex", flexDirection: "column", boxShadow: "0 0 60px rgba(128,0,255,.16)" }}>
             <div style={{ position: "absolute", top: "-13px", left: "50%", transform: "translateX(-50%)", fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "11px", letterSpacing: "2px", textTransform: "uppercase", color: "#fff", background: "linear-gradient(135deg,#8000ff,#5600ab)", borderRadius: "999px", padding: "6px 16px", whiteSpace: "nowrap", boxShadow: "0 6px 20px rgba(128,0,255,.5)" }}>Most Popular</div>
             <div style={tierKicker("#b56bff")}>Tier 2</div>
-            <h2 style={tierName}>Growth Engine</h2>
+            <h2 style={tierName}>Framework</h2>
             <div style={tierPriceWrap}><span style={tierPrice}>$2,997</span><span style={tierPer}>/mo</span></div>
             <p style={{ fontSize: "14.5px", fontStyle: "italic", color: "#c8a8ff", margin: "12px 0 0" }}>&ldquo;Become the contractor they call first.&rdquo;</p>
             <div style={{ width: "100%", height: "1px", background: "rgba(128,0,255,.3)", margin: "24px 0" }} />
             <div style={featureCol}>
-              <Row mark="check" color="#b56bff" bold>Everything in Launchpad, plus:</Row>
+              <Row mark="check" color="#b56bff" bold>Everything in Foundation, plus:</Row>
               <Row mark="check" color="#b56bff">12&ndash;16 AI-generated videos/month</Row>
               <Row mark="check" color="#b56bff">36&ndash;96 short-form clips/month auto-distributed to YouTube, TikTok, IG Reels, LinkedIn</Row>
               <Row mark="check" color="#b56bff">Advanced SEO + keyword tracking + competitor analysis</Row>
@@ -129,18 +130,18 @@ export default function Page() {
             <div style={{ background: "rgba(128,0,255,.10)", border: "1px solid rgba(128,0,255,.35)", borderRadius: "11px", padding: "14px 16px", marginTop: "20px" }}>
               <p style={{ fontSize: "13px", color: "#d9c2ff", lineHeight: 1.6, margin: 0, textWrap: "pretty" }}>For $1,500 more than Tier 1, this includes an entire AI content factory (48&ndash;112 pieces/month) plus programmatic SEO that alone costs $3,000+ elsewhere.</p>
             </div>
-            <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "9px", minHeight: "48px", fontFamily: "var(--font-inter), sans-serif", fontSize: "15px", fontWeight: 600, color: "#fff", background: "linear-gradient(135deg,#8000ff,#5600ab)", border: "none", padding: "14px 24px", borderRadius: "11px", marginTop: "20px", boxShadow: "0 10px 34px rgba(128,0,255,.4)", textDecoration: "none" }}>Get Growth Engine</Link>
+            <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "9px", minHeight: "48px", fontFamily: "var(--font-inter), sans-serif", fontSize: "15px", fontWeight: 600, color: "#fff", background: "linear-gradient(135deg,#8000ff,#5600ab)", border: "none", padding: "14px 24px", borderRadius: "11px", marginTop: "20px", boxShadow: "0 10px 34px rgba(128,0,255,.4)", textDecoration: "none" }}>Get Framework</Link>
           </div>
 
-          {/* TIER 3 DOMINATION */}
+          {/* TIER 3 LANDMARK */}
           <div style={{ background: "rgba(255,255,255,.025)", border: "1px solid rgba(0,212,255,.3)", borderRadius: "18px", padding: "34px 30px", display: "flex", flexDirection: "column" }}>
             <div style={tierKicker("#00d4ff")}>Tier 3</div>
-            <h2 style={tierName}>Domination</h2>
+            <h2 style={tierName}>Landmark</h2>
             <div style={tierPriceWrap}><span style={tierPrice}>$7,997</span><span style={tierPer}>/mo</span></div>
             <p style={{ fontSize: "14.5px", fontStyle: "italic", color: "#8fdcff", margin: "12px 0 0" }}>&ldquo;The obvious choice in every market you enter.&rdquo;</p>
             <div style={{ width: "100%", height: "1px", background: "rgba(0,212,255,.25)", margin: "24px 0" }} />
             <div style={featureCol}>
-              <Row mark="check" color="#00d4ff" bold>Everything in Growth Engine, plus:</Row>
+              <Row mark="check" color="#00d4ff" bold>Everything in Framework, plus:</Row>
               <Row mark="check" color="#00d4ff">20&ndash;30 AI videos/month + 60&ndash;180 short-form clips</Row>
               <Row mark="check" color="#00d4ff">24/7 AI Voice Agent</Row>
               <Row mark="check" color="#00d4ff">AI website chatbot (RAG-powered)</Row>
@@ -154,7 +155,7 @@ export default function Page() {
             <div style={{ background: "rgba(0,212,255,.06)", border: "1px solid rgba(0,212,255,.25)", borderRadius: "11px", padding: "14px 16px", marginTop: "20px" }}>
               <p style={{ fontSize: "13px", color: "#9fdfff", lineHeight: 1.6, margin: 0, textWrap: "pretty" }}>RFP AI alone: comparable tools (Loopio) cost $20,000&ndash;$55,000/yr; AutoRFP starts at $899/mo. Included free here.</p>
             </div>
-            <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "9px", minHeight: "48px", fontFamily: "var(--font-inter), sans-serif", fontSize: "15px", fontWeight: 600, color: "#fafafa", background: "rgba(0,212,255,.08)", border: "1px solid rgba(0,212,255,.4)", padding: "14px 24px", borderRadius: "11px", marginTop: "20px", textDecoration: "none" }}>Let&apos;s Talk Domination</Link>
+            <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "9px", minHeight: "48px", fontFamily: "var(--font-inter), sans-serif", fontSize: "15px", fontWeight: 600, color: "#fafafa", background: "rgba(0,212,255,.08)", border: "1px solid rgba(0,212,255,.4)", padding: "14px 24px", borderRadius: "11px", marginTop: "20px", textDecoration: "none" }}>Let&apos;s Talk Landmark</Link>
           </div>
         </div>
       </section>
@@ -195,18 +196,20 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ============ CLIENT RESULTS ============ */}
+      {/* ============ CLIENT RESULTS ============
+          Commented out until we have real client quotes/results for this
+          page — reuse this exact markup/formatting when they're ready.
       <section style={{ position: "relative", overflow: "hidden", padding: "clamp(70px,8vw,110px) clamp(20px,5vw,64px)", borderTop: "1px solid rgba(255,255,255,.06)" }}>
         <div style={{ position: "absolute", bottom: "-24%", right: "-10%", width: "640px", height: "640px", maxWidth: "90vw", background: "radial-gradient(circle at center,rgba(0,212,255,.10),transparent 64%)", filter: "blur(28px)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1180px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", maxWidth: "640px", margin: "0 auto clamp(44px,5vw,64px)" }}>
             <div style={secEyebrow("#00d4ff")}>Client results</div>
-            <h2 style={secH2}>Don&apos;t take our word for it</h2>
+            <h2 style={secH2}>Don't take our word for it</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,380px),1fr))", gap: "clamp(20px,2.4vw,28px)", alignItems: "stretch" }}>
             <figure style={{ background: "rgba(255,255,255,.025)", border: "1px solid rgba(255,255,255,.09)", borderRadius: "18px", padding: "clamp(28px,3vw,40px)", margin: 0, display: "flex", flexDirection: "column", gap: "22px" }}>
-              <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: "64px", lineHeight: 0.5, color: "rgba(0,212,255,.5)", marginTop: "14px" }}>&ldquo;</div>
-              <blockquote style={{ margin: 0, fontSize: "15.5px", lineHeight: 1.75, color: "#c8c8c8", textWrap: "pretty" }}>Before Catalyst, I was spending hours every week hunting for bids on government portals and still missing half of them. Within 30 days of turning on their RFP AI, I had a pipeline full of opportunities I never would have found on my own. In the first quarter, we submitted 40% more bids than the same period last year &mdash; and won three projects that more than covered the entire annual cost of the program. Mario doesn&apos;t sell you &lsquo;marketing.&rsquo; He builds you infrastructure that scales your company to the 9-digit mark!</blockquote>
+              <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: "64px", lineHeight: 0.5, color: "rgba(0,212,255,.5)", marginTop: "14px" }}>"</div>
+              <blockquote style={{ margin: 0, fontSize: "15.5px", lineHeight: 1.75, color: "#c8c8c8", textWrap: "pretty" }}>Before Catalyst, I was spending hours every week hunting for bids on government portals and still missing half of them. Within 30 days of turning on their RFP AI, I had a pipeline full of opportunities I never would have found on my own. In the first quarter, we submitted 40% more bids than the same period last year — and won three projects that more than covered the entire annual cost of the program. Mario doesn't sell you 'marketing.' He builds you infrastructure that scales your company to the 9-digit mark!</blockquote>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                 <span style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "11.5px", color: "#00d4ff", background: "rgba(0,212,255,.07)", border: "1px solid rgba(0,212,255,.3)", borderRadius: "999px", padding: "5px 12px", whiteSpace: "nowrap" }}>+40% bids submitted Q1</span>
                 <span style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "11.5px", color: "#80ff80", background: "rgba(128,255,128,.07)", border: "1px solid rgba(128,255,128,.3)", borderRadius: "999px", padding: "5px 12px", whiteSpace: "nowrap" }}>3 projects won from RFP AI</span>
@@ -214,21 +217,22 @@ export default function Page() {
               </div>
               <figcaption style={{ marginTop: "auto", paddingTop: "6px" }}>
                 <div style={{ fontWeight: 700, fontSize: "15px", color: "#fafafa" }}>Scott Baxter</div>
-                <div style={{ fontSize: "13px", color: "#7f8896", marginTop: "3px" }}>Freedom Engineering, Inc. &mdash; Commercial GC, Bakersfield, CA</div>
+                <div style={{ fontSize: "13px", color: "#7f8896", marginTop: "3px" }}>Freedom Engineering, Inc. — Commercial GC, Bakersfield, CA</div>
               </figcaption>
             </figure>
 
             <figure style={{ background: "rgba(255,255,255,.025)", border: "1px solid rgba(255,255,255,.09)", borderRadius: "18px", padding: "clamp(28px,3vw,40px)", margin: 0, display: "flex", flexDirection: "column", gap: "22px" }}>
-              <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: "64px", lineHeight: 0.5, color: "rgba(181,107,255,.5)", marginTop: "14px" }}>&ldquo;</div>
-              <blockquote style={{ margin: 0, fontSize: "15.5px", lineHeight: 1.75, color: "#c8c8c8", textWrap: "pretty" }}>We came to Mario needing a website. What we left with was an entirely different operation. He built us a professional site that actually converts, set up an AI content system that keeps our name in front of clients without us lifting a finger, and then built our entire Digital Operations Hub &mdash; our internal intranet &mdash; from scratch. Our team went from using a dozen disconnected tools to having everything in one place. The website alone paid for itself in the first month.</blockquote>
+              <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: "64px", lineHeight: 0.5, color: "rgba(181,107,255,.5)", marginTop: "14px" }}>"</div>
+              <blockquote style={{ margin: 0, fontSize: "15.5px", lineHeight: 1.75, color: "#c8c8c8", textWrap: "pretty" }}>We came to Mario needing a website. What we left with was an entirely different operation. He built us a professional site that actually converts, set up an AI content system that keeps our name in front of clients without us lifting a finger, and then built our entire Digital Operations Hub — our internal intranet — from scratch. Our team went from using a dozen disconnected tools to having everything in one place. The website alone paid for itself in the first month.</blockquote>
               <figcaption style={{ marginTop: "auto", paddingTop: "6px" }}>
                 <div style={{ fontWeight: 700, fontSize: "15px", color: "#fafafa" }}>Evert Calderon</div>
-                <div style={{ fontSize: "13px", color: "#7f8896", marginTop: "3px" }}>Mesa Group Consulting &mdash; Founder/CEO, Bakersfield, CA</div>
+                <div style={{ fontSize: "13px", color: "#7f8896", marginTop: "3px" }}>Mesa Group Consulting — Founder/CEO, Bakersfield, CA</div>
               </figcaption>
             </figure>
           </div>
         </div>
       </section>
+      */}
 
       {/* ============ FAQ ============ */}
       <section style={{ position: "relative", padding: "clamp(70px,8vw,110px) clamp(20px,5vw,64px)", borderTop: "1px solid rgba(255,255,255,.06)" }}>

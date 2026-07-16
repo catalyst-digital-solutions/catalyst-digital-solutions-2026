@@ -175,7 +175,7 @@ export default function QuickWinsContent() {
             <AccordionTrigger color="#b56bff" hoverColor="#d9b3ff" open={open1} onToggle={() => setOpen1((v) => !v)}>Is this the same as the Construction RFP AI on the pricing page?</AccordionTrigger>
             {open1 && (
               <AccordionPanel>
-                Yes &mdash; same tool. This is the on-ramp; the <Link href="/pricing" style={{ color: "#00d4ff", textDecoration: "none", borderBottom: "1px solid rgba(0,212,255,.4)" }}>Domination tier</Link> includes it free once you&apos;re ready to go all-in.
+                Yes &mdash; same tool. This is the on-ramp; the <Link href="/pricing" style={{ color: "#00d4ff", textDecoration: "none", borderBottom: "1px solid rgba(0,212,255,.4)" }}>Landmark tier</Link> includes it free once you&apos;re ready to go all-in.
               </AccordionPanel>
             )}
             <Link href="/contact" style={{ ...primaryCta }}>Start Finding Bids</Link>
@@ -236,7 +236,9 @@ export default function QuickWinsContent() {
           <p style={{ fontSize: "clamp(16px,1.25vw,18px)", color: "#c8c8c8", lineHeight: 1.7, margin: 0, maxWidth: "620px", textWrap: "pretty" }}>
             If you like what a Quick Win does for your business, <span style={{ color: "#80ff80", fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: ".9em" }}>[X]%</span> of what you paid credits directly toward your first month on any monthly plan &mdash; or toward your custom website build &mdash; if you upgrade within <span style={{ color: "#80ff80", fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: ".9em" }}>[Y]</span> days. You&apos;re not starting over. You&apos;re picking up where you left off.
           </p>
-          <p style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "12px", color: "#7f8896", margin: "6px 0 0" }}>[Placeholder &mdash; final credit % and window pending Mario&apos;s call. Do not publish as-is.]</p>
+          {/* Internal note — do not publish. Uncomment only if intentionally left visible pending Mario's final credit %/window call.
+          <p style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "12px", color: "#7f8896", margin: "6px 0 0" }}>[Placeholder — final credit % and window pending Mario's call. Do not publish as-is.]</p>
+          */}
         </div>
       </section>
 

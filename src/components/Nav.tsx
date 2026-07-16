@@ -12,9 +12,9 @@ const NAV_LINKS = [
     label: "Services",
     href: "/services",
     children: [
-      { label: "Launchpad", href: "/services#launchpad" },
-      { label: "Growth Engine", href: "/services#growth-engine" },
-      { label: "Domination", href: "/services#domination" },
+      { label: "Foundation", href: "/services#launchpad" },
+      { label: "Framework", href: "/services#growth-engine" },
+      { label: "Landmark", href: "/services#domination" },
       { label: "Construction RFP AI", href: "/services#rfp-ai" },
     ],
   },

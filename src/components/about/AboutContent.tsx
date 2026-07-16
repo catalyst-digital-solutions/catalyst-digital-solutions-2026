@@ -205,6 +205,9 @@ export default function AboutContent() {
               </div>
               <div style={{ width: "100%", height: "1px", background: "rgba(255,255,255,.08)" }} />
               <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "8px" }}>
+                <span style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "11.5px", color: "#e8c14c", background: "rgba(232,193,76,.08)", border: "1px solid rgba(232,193,76,.35)", borderRadius: "999px", padding: "5px 12px", whiteSpace: "nowrap" }}>Christ Follower</span>
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "8px" }}>
                 <span style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "11.5px", color: "#fafafa", background: "rgba(255,255,255,.06)", border: "1px solid rgba(255,255,255,.22)", borderRadius: "999px", padding: "5px 12px", whiteSpace: "nowrap" }}>20-Year Law Enforcement Veteran</span>
                 <span style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "11.5px", color: "#80ff80", background: "rgba(128,255,128,.07)", border: "1px solid rgba(128,255,128,.3)", borderRadius: "999px", padding: "5px 12px", whiteSpace: "nowrap" }}>Card-Carrying Nerd</span>
                 <span style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "11.5px", color: "#00d4ff", background: "rgba(0,212,255,.07)", border: "1px solid rgba(0,212,255,.3)", borderRadius: "999px", padding: "5px 12px", whiteSpace: "nowrap" }}>Construction-Focused</span>
@@ -214,7 +217,7 @@ export default function AboutContent() {
               <div style={{ textAlign: "left" }}>
                 <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "11px", letterSpacing: "2.5px", textTransform: "uppercase", color: "#00d4ff", marginBottom: "12px" }}>About Mario</div>
                 <p style={{ fontSize: "13.5px", color: "#c8c8c8", lineHeight: 1.75, margin: 0, textWrap: "pretty" }}>
-                  Mario has been writing code since long before &ldquo;learn to code&rdquo; was a bootcamp slogan. He started with C, then learned Objective-C and object-oriented programming fundamentals, building a full turn-based iOS poker game from scratch just to see if he could.
+                  Mario has been writing code since long before &ldquo;learn to code&rdquo; was a bootcamp slogan. He started with C, then learned Objective-C and object-oriented programming fundamentals.
                 </p>
                 <p style={{ fontSize: "13.5px", color: "#c8c8c8", lineHeight: 1.75, margin: "12px 0 0", textWrap: "pretty" }}>
                   20+ years later, that same tenacious curiosity goes into databases, web development, and now AI-focused Python apps. He&rsquo;s never met a programming language or operating system he couldn&rsquo;t figure out.
@@ -321,10 +324,10 @@ export default function AboutContent() {
         <div style={{ position: "relative", zIndex: 1, maxWidth: "620px", margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", gap: "18px" }}>
           <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "13px", letterSpacing: "3px", textTransform: "uppercase", color: "#00d4ff" }}>Let&rsquo;s talk</div>
           <h2 style={{ fontFamily: "var(--font-inter), sans-serif", fontWeight: 700, fontSize: "clamp(26px,2.6vw,36px)", lineHeight: 1.25, color: "#fafafa", margin: 0, textWrap: "balance" }}>
-            Let&rsquo;s build the thing that makes your phone ring.
+            Let&rsquo;s dig your competitive moat.
           </h2>
           <p style={{ fontSize: "clamp(15.5px,1.1vw,17px)", color: "#c8c8c8", lineHeight: 1.7, margin: 0, textWrap: "pretty" }}>
-            Tell me where you&rsquo;re losing jobs. I&rsquo;ll tell you &mdash; straight &mdash; whether we can fix it.
+            The wider we build it, the harder you are to touch.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px", marginTop: "10px" }}>
             <Link href="/contact" className="cta-full" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "10px", minHeight: "48px", fontFamily: "var(--font-inter), sans-serif", fontSize: "16px", fontWeight: 600, color: "#fff", background: "linear-gradient(135deg,#8000ff,#5600ab)", border: "none", padding: "16px 30px", borderRadius: "11px", boxShadow: "0 10px 34px rgba(128,0,255,.4)", cursor: "pointer", textDecoration: "none" }}>
