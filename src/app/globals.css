@@ -584,10 +584,10 @@ a {
 @media (prefers-reduced-motion: reduce) { .rv { opacity: 1 !important; } }
 
 /* Demo-card slow scroll: 12s reset, 48s on hover; 108s ambient on touch */
-.demo-thumb-img { transition: transform 12s linear; }
+.demo-thumb-img { transition: transform var(--thumb-return, 12s) linear; }
 .demo-card:hover .demo-thumb-img {
   transform: translateY(min(0px, calc(100cqh - 100%)));
-  transition: transform 48s linear;
+  transition: transform var(--thumb-hover, 48s) linear;
 }
 @media (hover: none) {
   .demo-thumb-img { animation: thumbScroll 108s ease-in-out infinite; }
