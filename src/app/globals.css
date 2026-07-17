@@ -593,6 +593,25 @@ a {
   .demo-thumb-img { animation: thumbScroll 108s ease-in-out infinite; }
 }
 
+/* Services hub index cards — lift + violet border/glow on hover */
+.service-index-card {
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.service-index-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(128,0,255,.5);
+  box-shadow: 0 24px 60px rgba(128,0,255,.18);
+}
+
+/* Websites service page — brand-identity logo showcase cards */
+.logo-card {
+  transition: transform .3s ease, border-color .3s ease;
+}
+.logo-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0,212,255,.4);
+}
+
 /* Angled "see live" badge — swap label by input type */
 .see-live-tap { display: none; }
 @media (hover: none) { .see-live-tap { display: inline; } .see-live-click { display: none; } }
