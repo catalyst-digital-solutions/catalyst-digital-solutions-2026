@@ -84,13 +84,15 @@ export default function AboutContent() {
               The thing that kills most construction companies isn&rsquo;t what you think.
             </h2>
 
+            {/* WordPress-style author byline (avatar + "Mario / Founder · 4 min read") — commented out per Mario.
             <div style={{ display: "flex", alignItems: "center", gap: "10px", margin: "26px 0 0" }}>
               <div style={{ width: "44px", height: "44px", borderRadius: "50%", background: "linear-gradient(135deg,#8000ff,#5600ab)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: "24px", color: "#fff", flex: "none" }}>M</div>
               <div>
                 <div style={{ fontSize: "14px", fontWeight: 600, color: "#fafafa" }}>Mario</div>
-                <div style={{ fontSize: "12.5px", color: "#7f8896" }}>Founder &middot; 4 min read</div>
+                <div style={{ fontSize: "12.5px", color: "#7f8896" }}>Founder · 4 min read</div>
               </div>
             </div>
+            */}
 
             <div style={{ marginTop: "34px", fontSize: "clamp(16px,1.2vw,17.5px)", lineHeight: 1.85, color: "#c8c8c8" }}>
               <p style={{ margin: 0, textWrap: "pretty" }}>
