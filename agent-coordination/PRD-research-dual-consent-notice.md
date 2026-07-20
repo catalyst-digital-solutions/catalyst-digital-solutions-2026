@@ -62,12 +62,11 @@ Produce a short recommendation memo (not just raw links) that answers:
 ### Verdict
 **(d) Keep both, but reword to eliminate overlap.** Checkboxes = affirmative consent act. Standing notice = disclosure/reference record (not a second "you agree" consent ask).
 
-### Implemented (CG, 2026-07-20)
-- Checkboxes in `ContactContent.tsx` left as-is (Checkbox 1 contact; Checkbox 2 SMS).
-- Standing notice added below submit with the reworded disclosure copy (references checkboxes; no parallel "you agree").
-- `/privacy` and `/terms` built from `docs/privacy-policy.md` + `docs/terms-of-service.md` so notice links resolve.
-- `docs/form-consent-notice.md` Part 1 updated to match the shipped disclosure copy.
-- Footer already linked both pages — no change needed.
+### Implemented (CG, 2026-07-20; restored same day for A2P submit)
+- Dual consent live: Checkbox 1 (contact) + Checkbox 2 (SMS) + disclosure notice below submit.
+- Full SMS language restored on `/privacy` (incl. Mobile information sharing) and `/terms` §6.
+- API enforces phone ↔ SMS-consent again. Consent is collected now; outbound SMS waits on campaign approval.
+- Footer already linked both pages.
 
 ### Twilio campaign registration language (for Mario)
 > Users opt in via the contact form at catalyst-digital-solutions.com/contact. The form includes an unchecked checkbox specifically for SMS consent: "I also agree to receive text messages (SMS) at the number I provide." A disclosure notice below the submit button references this checkbox and lists the program name, STOP/HELP instructions, data rate disclosure, message frequency disclosure, and links to our Privacy Policy and Terms of Service. The SMS checkbox is only shown when a phone number is entered. Consent is not a condition of purchase.

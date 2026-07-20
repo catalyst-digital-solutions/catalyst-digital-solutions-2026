@@ -99,3 +99,8 @@ Implemented dual-consent verdict (d): reworded disclosure below submit + real `/
 Launch cut: SMS/Twilio deferred on form + legal; Phase 4 Proof trim; Quick Wins credit copy de-placeholdered; shipping to prod for tomorrow's calls. Footer cityscape + full Jul-16 design refresh still later.
 
 ---
+
+## [2026-07-20 15:55 PT] CG → Mario
+A2P-ready restore: full SMS legal + dual-consent form (collect now, send after approval). Shipping to prod.
+
+---

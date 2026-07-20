@@ -4,7 +4,7 @@ import LegalPage from "@/components/legal/LegalPage";
 export const metadata: Metadata = {
   title: "Privacy Policy — Catalyst Digital Solutions",
   description:
-    "How Catalyst Digital Solutions collects, uses, and protects your information.",
+    "How Catalyst Digital Solutions collects, uses, and protects your information, including SMS and mobile data.",
   robots: { index: true, follow: true },
 };
 
@@ -13,7 +13,7 @@ export default function Page() {
     <LegalPage
       title="Privacy Policy"
       effectiveDate="July 17, 2026"
-      lastUpdated="July 17, 2026"
+      lastUpdated="July 20, 2026"
     >
       <p>
         Catalyst Digital Solutions LLC (&quot;Catalyst,&quot; &quot;we,&quot; &quot;us,&quot; or
@@ -97,12 +97,45 @@ export default function Page() {
         <li>Comply with legal obligations and protect our rights</li>
       </ul>
 
-      <h2>4. Phone contact</h2>
+      <h2>4. SMS and text messaging</h2>
       <p>
-        If you provide a phone number on our Site, we use it to call you back about your inquiry —
-        scheduling, follow-up, and questions about your request. We do not currently send marketing
-        or promotional text messages from this Site. If we add text messaging later, we will update
-        this policy and collect separate SMS consent before sending any texts.
+        If you provide us your mobile number — through a form on our Site, a lead form, or by
+        calling or texting us — you consent to receive text messages from Catalyst Digital
+        Solutions relating to your inquiry. These may include a reply to your request, questions
+        about your availability, appointment confirmations and reminders, and follow-up about your
+        inquiry.
+      </p>
+      <ul>
+        <li>
+          <strong>Message frequency varies.</strong>
+        </li>
+        <li>
+          <strong>Message and data rates may apply.</strong>
+        </li>
+        <li>
+          <strong>Reply STOP</strong> to any message to opt out. You will receive one confirmation
+          and no further messages. You may reply START to resubscribe.
+        </li>
+        <li>
+          <strong>Reply HELP</strong> for help, or call us at (661) 535-9927.
+        </li>
+        <li>Carriers are not liable for delayed or undelivered messages.</li>
+      </ul>
+
+      <h3>Mobile information sharing</h3>
+      <p>
+        <strong>
+          No mobile information will be shared with third parties or affiliates for marketing or
+          promotional purposes.
+        </strong>{" "}
+        All other categories of information described in this policy exclude text messaging
+        originator opt-in data and consent;{" "}
+        <strong>this information will not be shared with any third parties.</strong>
+      </p>
+      <p>
+        Mobile numbers and SMS consent data are used solely to communicate with you about your
+        inquiry and are shared only with the service providers strictly necessary to deliver those
+        messages (for example, our messaging platform), and never for their own marketing purposes.
       </p>
 
       <h2>5. How we share information</h2>
@@ -147,6 +180,8 @@ export default function Page() {
 
       <h2>8. Your rights and choices</h2>
       <p>
+        <strong>Opt out of texts:</strong> reply STOP to any message.
+        <br />
         <strong>Opt out of marketing email:</strong> use the unsubscribe link, or email us.
         <br />
         <strong>Access, correction, or deletion:</strong> contact us and we&apos;ll handle it.

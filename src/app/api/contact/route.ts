@@ -50,6 +50,7 @@ function buildEmail(p: Payload) {
     ["Heard about us", (p as Record<string, unknown>).source],
     ["Source (other)", (p as Record<string, unknown>).sourceOther],
     ["Consent to contact", p.consentToContact ? "Yes" : "No"],
+    ["Consent to SMS", (p as Record<string, unknown>).consentToSms ? "Yes" : "No"],
     ["Submitted at", meta.submittedAt],
     ["Page", meta.pageUrl || meta.pagePath],
     ["Referrer", meta.referrer || "(direct)"],
@@ -83,14 +84,18 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "Name, email, and contact consent are required." }, { status: 422 });
   }
 
-  // If a phone is provided, require a valid 10-digit U.S. number. SMS consent
-  // is deferred until Twilio A2P texting is live — phone is for call-back only.
+  // Mirror the client's phone <-> SMS-consent interdependency (defense in depth).
   const b = body as Record<string, unknown>;
   const digits = String(b.phone ?? "").replace(/\D/g, "");
   const normalized = digits.length === 11 && digits[0] === "1" ? digits.slice(1) : digits;
   const hasPhone = normalized.length > 0;
-  if (hasPhone && normalized.length !== 10) {
+  const validPhone = normalized.length === 10;
+  const smsConsent = b.consentToSms === true;
+  if ((hasPhone || smsConsent) && !validPhone) {
     return Response.json({ ok: false, error: "A valid 10-digit U.S. phone number is required." }, { status: 422 });
+  }
+  if (hasPhone && !smsConsent) {
+    return Response.json({ ok: false, error: "SMS consent is required when a phone number is provided." }, { status: 422 });
   }
 
   const { text, html, subject } = buildEmail(body);

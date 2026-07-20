@@ -13,7 +13,7 @@ export default function Page() {
     <LegalPage
       title="Terms of Service"
       effectiveDate="July 17, 2026"
-      lastUpdated="July 17, 2026"
+      lastUpdated="July 20, 2026"
     >
       <p>
         These Terms of Service (&quot;Terms&quot;) govern your use of the website at
@@ -108,15 +108,25 @@ export default function Page() {
         only. Their appearance does not imply endorsement, affiliation, or sponsorship.
       </p>
 
-      <h2>6. Phone contact</h2>
+      <h2>6. Text messaging</h2>
       <p>
-        If you provide a phone number on this Site, you agree that we may call you about your
-        inquiry. We do not currently send text messages from this Site. If text messaging is added
-        later, we will update these Terms and our Privacy Policy and collect separate consent before
-        sending any texts.
+        If you provide your mobile number to us, you consent to receive text messages from Catalyst
+        related to your inquiry.
       </p>
+      <ul>
+        <li>Message frequency varies.</li>
+        <li>
+          <strong>Message and data rates may apply.</strong>
+        </li>
+        <li>
+          <strong>Reply STOP</strong> to opt out. <strong>Reply HELP</strong> for help, or call
+          (661) 535-9927.
+        </li>
+        <li>Carriers are not liable for delayed or undelivered messages.</li>
+      </ul>
       <p>
-        How we handle your information is described in our <Link href="/privacy">Privacy Policy</Link>.
+        How we handle mobile information — including that we never share it with third parties for
+        marketing — is described in our <Link href="/privacy">Privacy Policy</Link>.
       </p>
 
       <h2>7. Third-party links and services</h2>
