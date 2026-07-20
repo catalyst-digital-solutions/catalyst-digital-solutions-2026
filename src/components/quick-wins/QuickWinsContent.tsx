@@ -225,7 +225,12 @@ export default function QuickWinsContent() {
         </div>
       </section>
 
-      {/* ============ SECTION 3 : CREDIT MECHANIC ============ */}
+      {/* ============ SECTION 3 : CREDIT MECHANIC (hidden until Mario sets % / window) ============ */}
+      {/* Intentionally not published with [X]% / [Y] placeholders. Restore when numbers are final.
+      <section style={{ position: "relative", overflow: "hidden", textAlign: "center", padding: "clamp(80px,10vw,130px) clamp(20px,5vw,64px)", borderTop: "1px solid rgba(255,255,255,.06)" }}>
+        ...
+      </section>
+      */}
       <section style={{ position: "relative", overflow: "hidden", textAlign: "center", padding: "clamp(80px,10vw,130px) clamp(20px,5vw,64px)", borderTop: "1px solid rgba(255,255,255,.06)" }}>
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "780px", height: "780px", maxWidth: "130vw", background: "radial-gradient(circle,rgba(128,0,255,.18),transparent 64%)", filter: "blur(24px)", pointerEvents: "none", animation: "floatY 12s ease-in-out infinite" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: "780px", margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", gap: "22px" }}>
@@ -234,11 +239,8 @@ export default function QuickWinsContent() {
             Every dollar credits toward the real thing.
           </h2>
           <p style={{ fontSize: "clamp(16px,1.25vw,18px)", color: "#c8c8c8", lineHeight: 1.7, margin: 0, maxWidth: "620px", textWrap: "pretty" }}>
-            If you like what a Quick Win does for your business, <span style={{ color: "#80ff80", fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: ".9em" }}>[X]%</span> of what you paid credits directly toward your first month on any monthly plan &mdash; or toward your custom website build &mdash; if you upgrade within <span style={{ color: "#80ff80", fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: ".9em" }}>[Y]</span> days. You&apos;re not starting over. You&apos;re picking up where you left off.
+            Like what a Quick Win does for your business? Ask us about applying that investment toward a monthly plan or a custom website build when you&apos;re ready to go further. You&apos;re not starting over — you&apos;re picking up where you left off.
           </p>
-          {/* Internal note — do not publish. Uncomment only if intentionally left visible pending Mario's final credit %/window call.
-          <p style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "12px", color: "#7f8896", margin: "6px 0 0" }}>[Placeholder — final credit % and window pending Mario's call. Do not publish as-is.]</p>
-          */}
         </div>
       </section>
 

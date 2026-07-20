@@ -48,13 +48,10 @@ const OBJECTIONS: Obj[] = [
   { q: "“I’ve been burned by an agency before.”", a: "So have a lot of our clients. That’s why there are no long-term contracts. We start with a small commitment, then go month-to-month." },
 ];
 
-type Demo = { href: string; domain: string; img: string; name: string; blurb: string; badgeBg: string; badgeColor: string };
+type Demo = { href: string; domain: string; img: string; name: string; blurb: string; badgeBg: string; badgeColor: string; hover: string; ret: string };
 const DEMOS: Demo[] = [
-  { href: "https://construction1.catalyst-demos.com", domain: "construction1.catalyst-demos.com", img: "/assets/demo-full-apex.jpeg", name: "Apex Construction", blurb: "Design-build for commercial work. Bold, structured, sunset-warm.", badgeBg: "#FFAE3A", badgeColor: "#000" },
-  { href: "https://construction2.catalyst-demos.com", domain: "construction2.catalyst-demos.com", img: "/assets/demo-full-holloway.jpeg", name: "Holloway", blurb: "Employee-owned Colorado builder. Red, human, people-first.", badgeBg: "#8F1A25", badgeColor: "#fff" },
-  { href: "https://construction3.catalyst-demos.com", domain: "construction3.catalyst-demos.com", img: "/assets/demo-full-monolith.jpeg", name: "Monolith", blurb: "Earthwork and heavy civil. Blunt type, dirt-and-orange.", badgeBg: "#FD5D09", badgeColor: "#000" },
-  { href: "https://construction4.catalyst-demos.com", domain: "construction4.catalyst-demos.com", img: "/assets/demo-full-voltaic.jpeg", name: "Voltaic", blurb: "Critical power & HVAC. Dark, technical, live telemetry.", badgeBg: "#3EC7FF", badgeColor: "#000" },
-  { href: "https://construction5.catalyst-demos.com", domain: "construction5.catalyst-demos.com", img: "/assets/demo-full-meridian.jpeg", name: "Meridian", blurb: "Quiet luxury design-build. Editorial, calm, warm-toned.", badgeBg: "#C49A3F", badgeColor: "#fff" },
+  { href: "https://construction3.catalyst-demos.com", domain: "construction3.catalyst-demos.com", img: "/assets/demo-full-monolith.jpeg", name: "Monolith", blurb: "Earthwork and heavy civil. Blunt type, dirt-and-orange.", badgeBg: "#FD5D09", badgeColor: "#000", hover: "48s", ret: "12s" },
+  { href: "https://construction2.catalyst-demos.com", domain: "construction2.catalyst-demos.com", img: "/assets/demo-full-holloway.jpeg", name: "Holloway", blurb: "Employee-owned Colorado builder. Red, human, people-first.", badgeBg: "#8F1A25", badgeColor: "#fff", hover: "44s", ret: "11.1s" },
 ];
 
 const mono = (color: string, size = 13, ls = 3): CSSProperties => ({
@@ -552,7 +549,7 @@ export default function HomeV3() {
             <div style={{ maxWidth: "720px" }}>
               <div style={{ ...mono("#00d4ff"), marginBottom: "18px" }}>Proof, not promises</div>
               <h2 style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontWeight: 400, textTransform: "uppercase", fontSize: "clamp(44px,5.6vw,92px)", lineHeight: 0.9, letterSpacing: "1px", color: "#fafafa", margin: 0, textWrap: "balance" }}>We&rsquo;d rather prove it than promise it.</h2>
-              <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", color: "#c8c8c8", lineHeight: 1.75, margin: "24px 0 0", maxWidth: "640px", textWrap: "pretty" }}>Talk is cheap. Here&rsquo;s the work. Real, live sites we built specifically for contractors. Fast, sharp, made to win jobs. No Wordpress templates here. Just modern Next.js/React. The gold standard for <span style={{ background: "linear-gradient(90deg,#b56bff,#00d4ff)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>speed</span>. Built for <span style={{ background: "linear-gradient(90deg,#b56bff,#00d4ff)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>search visibility</span>. When you choose Catalyst, you get the best.</p>
+              <p style={{ fontSize: "clamp(15.5px,1.15vw,17.5px)", color: "#c8c8c8", lineHeight: 1.75, margin: "24px 0 0", maxWidth: "640px", textWrap: "pretty" }}>Talk is cheap. Here&rsquo;s the proof. These are real, live sites, built for contractors. No two look alike — every one is custom-built around how that business actually works. They load fast, so nobody clicks away before they see what you do. They look like the company that should win the job. And when someone searches for what you do, you show up first. This is the difference between looking like a real company and looking like they did it themselves.</p>
               <Iceberg label="What websites do you know that run on Next.js/React?">Netflix, Apple, Nike, and Walmart, to name a few &mdash; the biggest names on the web run on the same Next.js/React stack we build you on.</Iceberg>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 12px", ...mono("#00d4ff", 11.5, 1.5) }}>
@@ -560,10 +557,10 @@ export default function HomeV3() {
               <span style={{ color: "#9aa3b0", border: "1px solid rgba(0,212,255,.28)", borderRadius: "100px", padding: "5px 12px" }}>looking small online</span>
             </div>
           </div>
-          {/* demo grid */}
+          {/* demo grid — Monolith + Holloway; full gallery on /services/websites */}
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "clamp(18px,2.4vw,28px)", marginTop: "clamp(36px,4.5vw,52px)" }}>
             {DEMOS.map((d) => (
-              <a key={d.name} href={d.href} target="_blank" rel="noopener" className="demo-card" style={{ flex: "1 1 460px", minWidth: "290px", maxWidth: "575px", display: "block", textDecoration: "none", background: "linear-gradient(180deg,#0c1016,#090c11)", border: "1px solid rgba(255,255,255,.09)", borderRadius: "16px", overflow: "hidden", boxShadow: "0 24px 60px rgba(0,0,0,.45)", transition: "border-color .35s ease" }}>
+              <a key={d.name} href={d.href} target="_blank" rel="noopener" className="demo-card" style={{ "--thumb-hover": d.hover, "--thumb-return": d.ret, flex: "1 1 460px", minWidth: "290px", maxWidth: "575px", display: "block", textDecoration: "none", background: "linear-gradient(180deg,#0c1016,#090c11)", border: "1px solid rgba(255,255,255,.09)", borderRadius: "16px", overflow: "hidden", boxShadow: "0 24px 60px rgba(0,0,0,.45)", transition: "border-color .35s ease" } as CSSProperties}>
                 <div style={{ display: "flex", alignItems: "center", gap: "7px", background: "#0c1016", borderBottom: "1px solid rgba(255,255,255,.07)", padding: "11px 16px" }}>
                   <span style={{ width: "9px", height: "9px", borderRadius: "50%", background: "rgba(255,255,255,.14)" }} /><span style={{ width: "9px", height: "9px", borderRadius: "50%", background: "rgba(255,255,255,.14)" }} /><span style={{ width: "9px", height: "9px", borderRadius: "50%", background: "rgba(255,255,255,.14)" }} />
                   <span style={{ flex: 1, textAlign: "center", ...mono("#7f8896", 11, 0), textTransform: "none" }}>{d.domain}</span>
@@ -580,6 +577,11 @@ export default function HomeV3() {
                 </div>
               </a>
             ))}
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", marginTop: "clamp(24px,3vw,36px)" }}>
+            <Link href="/services/websites" style={{ display: "inline-flex", alignItems: "center", gap: "10px", minHeight: "48px", fontFamily: "var(--font-inter), sans-serif", fontSize: "15.5px", fontWeight: 600, color: "#fafafa", background: "rgba(255,255,255,.04)", border: "1px solid rgba(255,255,255,.18)", padding: "14px 26px", borderRadius: "11px", textDecoration: "none" }}>
+              See More Sites Here <span style={{ fontSize: "17px" }}>&rarr;</span>
+            </Link>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "24px", marginTop: "clamp(36px,4.5vw,52px)" }}>
             <div style={{ maxWidth: "620px" }}>

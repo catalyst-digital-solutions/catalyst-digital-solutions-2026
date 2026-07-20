@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import type { CSSProperties } from "react";
+import Link from "next/link";
 
 /* CDS Contact page — recreated from "CDS Contact.dc.html" (design handoff).
    The form POSTs to /api/contact, which forwards to a webhook or emails
-   hello@ (see app/api/contact/route.ts). Includes contact/SMS consent, a
-   honeypot, and per-form tracking metadata so multiple forms can be told apart. */
+   hello@ (see app/api/contact/route.ts). Includes contact consent, a
+   honeypot, and per-form tracking metadata so multiple forms can be told apart.
+   SMS consent / Twilio opt-in is intentionally deferred until A2P texting is live. */
 
 const fieldBase: CSSProperties = {
   minHeight: "48px",
@@ -44,20 +46,15 @@ export default function ContactContent() {
   const [submitted, setSubmitted] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [agreeContact, setAgreeContact] = useState(false);
-  const [agreeSms, setAgreeSms] = useState(false);
   const [botField, setBotField] = useState("");
   const [form, setForm] = useState<FormState>({ name: "", company: "", email: "", phone: "", trade: "", tradeOther: "", revenue: "", url: "", challenge: "", source: "", sourceOther: "" });
   const set = (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
-  // Phone <-> SMS-consent interdependency + US phone validity (10 digits).
+  // Phone optional; if entered, must be a valid 10-digit U.S. number.
   const phoneDigits = form.phone.replace(/\D/g, "");
-  const validPhone = phoneDigits.length === 10;
   const phoneProvided = phoneDigits.length > 0;
-  const needPhone = agreeSms || phoneProvided; // opting into SMS (or entering a number) requires a valid number
-  const needSms = phoneProvided; // entering a number requires SMS consent
-  const phoneInvalid = needPhone && !validPhone;
-  const smsMissing = needSms && !agreeSms;
-  const canSubmit = agreeContact && !phoneInvalid && !smsMissing;
+  const phoneInvalid = phoneProvided && phoneDigits.length !== 10;
+  const canSubmit = agreeContact && !phoneInvalid;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -72,7 +69,6 @@ export default function ContactContent() {
           formName: "Contact — Let's talk about your pipeline",
           ...form,
           consentToContact: agreeContact,
-          consentToSms: agreeSms,
           botField,
           meta: {
             submittedAt: new Date().toISOString(),
@@ -121,7 +117,7 @@ export default function ContactContent() {
               </div>
               <div style={{ display: "inline-flex", alignItems: "flex-start", gap: "12px", color: "#c8c8c8", fontSize: "15px", lineHeight: 1.6 }}>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none", marginTop: "3px" }}><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
-                <span>Mon&ndash;Fri, 8am&ndash;6pm PT.<br /><span style={{ color: "#b56bff" }}>After-hours? Our AI is always on.</span></span>
+                <span>Mon&ndash;Fri, 8am&ndash;6pm PT.<br /><span style={{ color: "#b56bff" }}>Leave a message after hours — we&apos;ll get back next business day.</span></span>
               </div>
             </div>
 
@@ -169,7 +165,7 @@ export default function ContactContent() {
                     <input className="contact-field" type="email" required value={form.email} onChange={set("email")} placeholder="you@company.com" style={fieldBase} />
                   </label>
                   <label style={labelWrap}>
-                    <span style={labelText}>Phone <span style={{ color: "#7f8896", fontWeight: 400 }}>(for a call or text)</span>{needPhone && <span style={{ color: "#b56bff" }}> *</span>}</span>
+                    <span style={labelText}>Phone <span style={{ color: "#7f8896", fontWeight: 400 }}>(optional — for a call back)</span></span>
                     <input className="contact-field" type="tel" inputMode="tel" value={form.phone} onChange={(e) => setForm((f) => ({ ...f, phone: formatUsPhone(e.target.value) }))} placeholder="(661) 555-0123" aria-invalid={phoneInvalid} style={{ ...fieldBase, border: phoneInvalid ? "1px solid rgba(255,138,138,.6)" : "1px solid rgba(255,255,255,.14)" }} />
                     {phoneInvalid && <span style={{ fontSize: "12.5px", color: "#ff8a8a" }}>Enter a valid 10-digit U.S. phone number.</span>}
                   </label>
@@ -216,17 +212,12 @@ export default function ContactContent() {
                   </label>
                 )}
 
-                {/* Consent */}
+                {/* Consent — phone/email contact only. SMS opt-in returns when Twilio A2P is live. */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "24px" }}>
                   <label style={{ display: "flex", gap: "11px", alignItems: "flex-start", cursor: "pointer" }}>
                     <input type="checkbox" checked={agreeContact} onChange={(e) => setAgreeContact(e.target.checked)} required style={{ marginTop: "2px", width: "17px", height: "17px", accentColor: "#8000ff", flex: "none", cursor: "pointer" }} />
-                    <span style={{ fontSize: "13.5px", lineHeight: 1.55, color: "#c8c8c8" }}>I agree to be contacted by Catalyst Digital Solutions about my request. <span style={{ color: "#b56bff" }}>*</span></span>
+                    <span style={{ fontSize: "13.5px", lineHeight: 1.55, color: "#c8c8c8" }}>I agree to be contacted by Catalyst Digital Solutions by phone and/or email about my request. <span style={{ color: "#b56bff" }}>*</span></span>
                   </label>
-                  <label style={{ display: "flex", gap: "11px", alignItems: "flex-start", cursor: "pointer" }}>
-                    <input type="checkbox" checked={agreeSms} onChange={(e) => setAgreeSms(e.target.checked)} style={{ marginTop: "2px", width: "17px", height: "17px", accentColor: "#8000ff", flex: "none", cursor: "pointer" }} />
-                    <span style={{ fontSize: "13.5px", lineHeight: 1.55, color: "#9aa3b0" }}>I also agree to receive text messages (SMS) at the number I provide. Message &amp; data rates may apply; reply STOP to opt out. {needSms ? <span style={{ color: "#b56bff" }}>*</span> : <span style={{ color: "#7f8896" }}>(optional)</span>}</span>
-                  </label>
-                  {smsMissing && <span style={{ fontSize: "12.5px", color: "#ff8a8a", marginLeft: "28px" }}>Check this to receive texts, or clear the phone number above.</span>}
                 </div>
 
                 <button
@@ -236,6 +227,12 @@ export default function ContactContent() {
                 >
                   {status === "submitting" ? "Sending…" : <>Send My Audit Request <span style={{ fontSize: "18px" }}>&rarr;</span></>}
                 </button>
+                <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "13px", color: "var(--cds-muted)", lineHeight: 1.6, maxWidth: "520px", marginTop: "16px", textWrap: "pretty" }}>
+                  By submitting this form, you agree to be contacted by Catalyst Digital Solutions about your request by phone and/or email. View our{" "}
+                  <Link href="/privacy" style={{ color: "var(--cds-cyan)", textDecoration: "underline" }}>Privacy Policy</Link>
+                  {" "}and{" "}
+                  <Link href="/terms" style={{ color: "var(--cds-cyan)", textDecoration: "underline" }}>Terms of Service</Link>.
+                </p>
                 {status === "error" && (
                   <p style={{ color: "#ff8a8a", fontSize: "13.5px", lineHeight: 1.6, margin: "12px 0 0", textWrap: "pretty" }}>
                     Something went wrong sending your request. Please call or text <a href="tel:+16615359927" style={{ color: "#00d4ff", textDecoration: "none" }}>(661) 535-9927</a> or email <a href="mailto:hello@catalyst-digital-solutions.com" style={{ color: "#00d4ff", textDecoration: "none" }}>hello@catalyst-digital-solutions.com</a>.

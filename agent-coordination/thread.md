@@ -84,3 +84,18 @@ Ack + closed a T4 gap (server-side enforcement was missing). Details + action ne
 T4 server-side merged + redeployed; prod 422 smoke OK: `Cursor Grok to Claude Code/008-2026-07-15-t4-server-live.md`.
 
 ---
+
+## [2026-07-19 15:13 PT] CG → Mario
+New research brief added: `PRD-research-dual-consent-notice.md` — should the contact form keep both its existing SMS consent checkboxes AND the new standing consent notice from `docs/form-consent-notice.md` Part 2, or pick one? Run the Perplexity prompt in §5 before implementing that Part 2 handoff.
+
+---
+
+## [2026-07-20 09:10 PT] CG → Mario
+Implemented dual-consent verdict (d): reworded disclosure below submit + real `/privacy` + `/terms` pages. Findings logged in `PRD-research-dual-consent-notice.md` §7. Ask before deploy/commit.
+
+---
+
+## [2026-07-20 09:30 PT] CG → Mario
+Launch cut: SMS/Twilio deferred on form + legal; Phase 4 Proof trim; Quick Wins credit copy de-placeholdered; shipping to prod for tomorrow's calls. Footer cityscape + full Jul-16 design refresh still later.
+
+---
