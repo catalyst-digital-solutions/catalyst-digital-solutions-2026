@@ -1,7 +1,7 @@
 # Terms of Service
 
 **Effective date:** July 17, 2026
-**Last updated:** July 17, 2026
+**Last updated:** July 25, 2026
 
 These Terms of Service ("Terms") govern your use of the website at catalyst-digital-solutions.com (the "Site"), operated by Catalyst Digital Solutions LLC ("Catalyst," "we," "us," or "our").
 
@@ -52,14 +52,15 @@ You may view and print pages for your own reference. You may not copy, reproduce
 
 ## 6. Text messaging
 
-If you provide your mobile number to us, you consent to receive text messages from Catalyst related to your inquiry.
+**Opt-in.** You consent to receive SMS/text messages from Catalyst Digital Solutions by submitting a contact or quote request form on this Site and checking the SMS consent box. Consent is not a condition of purchase. You may only provide a mobile number that you own or are authorized to use.
 
-- Message frequency varies.
-- **Message and data rates may apply.**
-- **Reply STOP** to opt out. **Reply HELP** for help, or call (661) 535-9927.
-- Carriers are not liable for delayed or undelivered messages.
+**Program description.** Messages may include lead follow-ups (for example, quote-request callbacks and replies to your inquiry), appointment confirmations and reminders, booking links, two-way replies, and service demos you request on the Site (for example, a self-initiated demo of how instant SMS could work for your business).
 
-How we handle mobile information — including that we never share it with third parties for marketing — is described in our [Privacy Policy](/privacy).
+**Message frequency varies based on your interactions with us.** **Message and data rates may apply.**
+
+**Opt-out.** Reply **STOP** at any time to unsubscribe. Reply **HELP** for support, or call (661) 535-9927. Carriers are not liable for delayed or undelivered messages.
+
+How we handle mobile information — including that mobile opt-in data and phone numbers collected for SMS purposes will not be shared or sold to third parties for marketing purposes — is described in our [Privacy Policy](/privacy).
 
 ## 7. Third-party links and services
 

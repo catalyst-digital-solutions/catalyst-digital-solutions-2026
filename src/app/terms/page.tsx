@@ -13,7 +13,7 @@ export default function Page() {
     <LegalPage
       title="Terms of Service"
       effectiveDate="July 17, 2026"
-      lastUpdated="July 20, 2026"
+      lastUpdated="July 25, 2026"
     >
       <p>
         These Terms of Service (&quot;Terms&quot;) govern your use of the website at
@@ -110,23 +110,30 @@ export default function Page() {
 
       <h2>6. Text messaging</h2>
       <p>
-        If you provide your mobile number to us, you consent to receive text messages from Catalyst
-        related to your inquiry.
+        <strong>Opt-in.</strong> You consent to receive SMS/text messages from Catalyst Digital
+        Solutions by submitting a contact or quote request form on this Site and checking the SMS
+        consent box. Consent is not a condition of purchase. You may only provide a mobile number
+        that you own or are authorized to use.
       </p>
-      <ul>
-        <li>Message frequency varies.</li>
-        <li>
-          <strong>Message and data rates may apply.</strong>
-        </li>
-        <li>
-          <strong>Reply STOP</strong> to opt out. <strong>Reply HELP</strong> for help, or call
-          (661) 535-9927.
-        </li>
-        <li>Carriers are not liable for delayed or undelivered messages.</li>
-      </ul>
       <p>
-        How we handle mobile information — including that we never share it with third parties for
-        marketing — is described in our <Link href="/privacy">Privacy Policy</Link>.
+        <strong>Program description.</strong> Messages may include lead follow-ups (for example,
+        quote-request callbacks and replies to your inquiry), appointment confirmations and
+        reminders, booking links, two-way replies, and service demos you request on the Site (for
+        example, a self-initiated demo of how instant SMS could work for your business).
+      </p>
+      <p>
+        <strong>Message frequency varies based on your interactions with us.</strong>{" "}
+        <strong>Message and data rates may apply.</strong>
+      </p>
+      <p>
+        <strong>Opt-out.</strong> Reply <strong>STOP</strong> at any time to unsubscribe. Reply{" "}
+        <strong>HELP</strong> for support, or call (661) 535-9927. Carriers are not liable for
+        delayed or undelivered messages.
+      </p>
+      <p>
+        How we handle mobile information — including that mobile opt-in data and phone numbers
+        collected for SMS purposes will not be shared or sold to third parties for marketing
+        purposes — is described in our <Link href="/privacy">Privacy Policy</Link>.
       </p>
 
       <h2>7. Third-party links and services</h2>

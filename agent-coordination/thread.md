@@ -104,3 +104,8 @@ Launch cut: SMS/Twilio deferred on form + legal; Phase 4 Proof trim; Quick Wins 
 A2P-ready restore: full SMS legal + dual-consent form (collect now, send after approval). Shipping to prod.
 
 ---
+
+## [2026-07-25 20:05 PT] CG → Mario
+A2P PRD: Privacy §4 + Terms §6 tightened for TCR (frequency phrase, non-share, opt-in/program/STOP-HELP); `/privacy-policy` → `/privacy` redirect.
+
+---

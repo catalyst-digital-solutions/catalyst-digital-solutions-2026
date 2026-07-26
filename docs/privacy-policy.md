@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date:** July 17, 2026
-**Last updated:** July 17, 2026
+**Last updated:** July 25, 2026
 
 Catalyst Digital Solutions LLC ("Catalyst," "we," "us," or "our") operates the website at catalyst-digital-solutions.com (the "Site"). This policy explains what information we collect, why we collect it, and what we do with it.
 
@@ -57,21 +57,19 @@ We use the information we collect to:
 - Understand how the Site is used and make it better
 - Comply with legal obligations and protect our rights
 
-## 4. SMS and text messaging
+## 4. SMS/Text Messaging Communications
 
-If you provide us your mobile number — through a form on our Site, a lead form, or by calling or texting us — you consent to receive text messages from Catalyst Digital Solutions relating to your inquiry. These may include a reply to your request, questions about your availability, appointment confirmations and reminders, and follow-up about your inquiry.
+If you provide your mobile number on our Site — including through our contact or quote request form, and by checking the SMS consent box — you consent to receive text messages from Catalyst Digital Solutions. These messages may include lead follow-ups, replies to your inquiry, appointment confirmations and reminders, booking links, and service demos you request on the Site (for example, a self-initiated demo of how instant SMS could work for your business).
 
-- **Message frequency varies.**
-- **Message and data rates may apply.**
-- **Reply STOP** to any message to opt out. You will receive one confirmation and no further messages. You may reply START to resubscribe.
-- **Reply HELP** for help, or call us at (661) 535-9927.
-- Carriers are not liable for delayed or undelivered messages.
+**Message frequency varies based on your interactions with us.**
 
-### Mobile information sharing
+**Message and data rates may apply.**
 
-**No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.** All other categories of information described in this policy exclude text messaging originator opt-in data and consent; **this information will not be shared with any third parties.**
+**Reply STOP** to any message to opt out. You will receive one confirmation and no further messages. You may reply START to resubscribe. **Reply HELP** for help, or call us at (661) 535-9927. Carriers are not liable for delayed or undelivered messages.
 
-Mobile numbers and SMS consent data are used solely to communicate with you about your inquiry and are shared only with the service providers strictly necessary to deliver those messages (for example, our messaging platform), and never for their own marketing purposes.
+**Mobile opt-in data and phone numbers collected for SMS purposes will not be shared or sold to third parties for marketing purposes.** No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. All other categories of information described in this policy exclude text messaging originator opt-in data and consent; **this information will not be shared with any third parties.**
+
+Mobile numbers and SMS consent data are used solely to communicate with you about your inquiry or the demo you requested, and are shared only with the service providers strictly necessary to deliver those messages (for example, our messaging platform), and never for their own marketing purposes.
 
 ## 5. How we share information
 
