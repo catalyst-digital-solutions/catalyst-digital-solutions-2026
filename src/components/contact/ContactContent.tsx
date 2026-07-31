@@ -4,11 +4,8 @@ import { useState } from "react";
 import type { CSSProperties } from "react";
 import Link from "next/link";
 
-/* CDS Contact page — recreated from "CDS Contact.dc.html" (design handoff).
-   The form POSTs to /api/contact, which forwards to a webhook or emails
-   hello@ (see app/api/contact/route.ts). Includes contact/SMS consent, a
-   honeypot, and per-form tracking metadata so multiple forms can be told apart.
-   SMS consent is collected for A2P 10DLC; outbound texting starts after campaign approval. */
+/* CDS Contact page — form POSTs to /api/contact. Includes contact/SMS consent,
+   honeypot, and per-form tracking. SMS consent collected for A2P 10DLC. */
 
 const fieldBase: CSSProperties = {
   minHeight: "48px",
@@ -94,7 +91,7 @@ export default function ContactContent() {
   return (
     <div style={{ background: "#080b0f", fontFamily: "var(--font-inter), sans-serif", color: "#c8c8c8" }}>
       {/* ============ HERO + FORM ============ */}
-      <section style={{ position: "relative", overflow: "hidden", padding: "clamp(90px,12vw,150px) clamp(20px,5vw,64px) clamp(80px,9vw,120px)" }}>
+      <section style={{ position: "relative", overflow: "hidden", padding: "clamp(150px,16vw,210px) clamp(20px,5vw,64px) clamp(80px,9vw,120px)" }}>
         <div style={{ position: "absolute", top: "-16%", left: "-10%", width: "620px", height: "620px", maxWidth: "90vw", background: "radial-gradient(circle at center,rgba(128,0,255,.15),transparent 64%)", filter: "blur(28px)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1180px", margin: "0 auto", display: "flex", flexWrap: "wrap", gap: "clamp(44px,5vw,80px)", alignItems: "flex-start" }}>
 
@@ -113,9 +110,9 @@ export default function ContactContent() {
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none" }}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                 (661) 535-9927
               </a>
-              <a href="mailto:hello@catalyst-digital-solutions.com" style={{ display: "inline-flex", alignItems: "center", gap: "12px", color: "#fafafa", fontSize: "15.5px", fontWeight: 600, textDecoration: "none", width: "fit-content", wordBreak: "break-all" }}>
+              <a href="mailto:info@catalyst-digital-solutions.com" style={{ display: "inline-flex", alignItems: "center", gap: "12px", color: "#fafafa", fontSize: "15.5px", fontWeight: 600, textDecoration: "none", width: "fit-content", wordBreak: "break-all" }}>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none" }}><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
-                hello@catalyst-digital-solutions.com
+                info@catalyst-digital-solutions.com
               </a>
               <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", color: "#c8c8c8", fontSize: "15px" }}>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none" }}><path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
@@ -247,7 +244,7 @@ export default function ContactContent() {
                 </p>
                 {status === "error" && (
                   <p style={{ color: "#ff8a8a", fontSize: "13.5px", lineHeight: 1.6, margin: "12px 0 0", textWrap: "pretty" }}>
-                    Something went wrong sending your request. Please call or text <a href="tel:+16615359927" style={{ color: "#00d4ff", textDecoration: "none" }}>(661) 535-9927</a> or email <a href="mailto:hello@catalyst-digital-solutions.com" style={{ color: "#00d4ff", textDecoration: "none" }}>hello@catalyst-digital-solutions.com</a>.
+                    Something went wrong sending your request. Please call or text <a href="tel:+16615359927" style={{ color: "#00d4ff", textDecoration: "none" }}>(661) 535-9927</a> or email <a href="mailto:info@catalyst-digital-solutions.com" style={{ color: "#00d4ff", textDecoration: "none" }}>info@catalyst-digital-solutions.com</a>.
                   </p>
                 )}
               </form>

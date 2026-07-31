@@ -1,353 +1,296 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const NAV_LINKS = [
+const SERVICES = [
+  { label: "Websites & Branding", href: "/services/websites" },
+  { label: "SEO", href: "/services/seo" },
+  { label: "Google Optimization & Reviews", href: "/services/google-reviews" },
+  { label: "Advertising", href: "/services/advertising" },
+  { label: "Content Generation", href: "/services/content" },
+  { label: "Operations & Automation", href: "/services/automation" },
+  { label: "Construction RFP AI", href: "/services/rfp-ai" },
+];
+
+const TOP = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  {
-    label: "Services",
-    href: "/services",
-    children: [
-      { label: "Websites & Branding", href: "/services/websites" },
-      { label: "SEO", href: "/services/seo" },
-      { label: "Google Optimization & Reviews", href: "/services/google-reviews" },
-      { label: "Advertising", href: "/services/advertising" },
-      { label: "Content Generation", href: "/services/content" },
-      { label: "Operations & Automation", href: "/services/automation" },
-      { label: "Construction RFP AI", href: "/services/rfp-ai" },
-    ],
-  },
+  { label: "Services", href: "/services", children: SERVICES },
   { label: "Quick Wins", href: "/quick-wins" },
   { label: "Pricing", href: "/pricing" },
   { label: "Contact", href: "/contact" },
 ];
 
-function isActivePath(pathname: string, href: string) {
-  return href === "/" ? pathname === "/" : pathname.startsWith(href);
+function isActive(pathname: string, href: string) {
+  return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
 }
 
-export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
+const linkBase: CSSProperties = { color: "#c8c8c8", textDecoration: "none" };
+const linkActive: CSSProperties = { color: "#fafafa", fontWeight: 600, textDecoration: "none" };
 
-  // Scroll detection — glassmorphic transition (fires on the very first pixel of scroll)
+export default function Nav() {
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 0);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close services dropdown on outside click
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setServicesOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
+    setMobileOpen(false);
+  }, [pathname]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileOpen]);
 
+  const servicesActive = pathname.startsWith("/services");
+
   return (
-    <>
-      <header
+    <header
+      data-screen-label="Nav"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 24,
+        flexWrap: "wrap",
+        padding: "20px clamp(20px,5vw,64px)",
+      }}
+    >
+      <div
+        aria-hidden
         style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 100,
-          height: "64px",
+          position: "absolute",
+          inset: 0,
+          zIndex: 0,
+          background: "rgba(9,12,17,.61)",
+          backdropFilter: "blur(18px) saturate(135%)",
+          WebkitBackdropFilter: "blur(18px) saturate(135%)",
+          borderBottom: "1px solid rgba(255,255,255,.08)",
+          boxShadow: "0 8px 30px rgba(0,0,0,.35)",
+          opacity: scrolled ? 1 : 0,
+          transition: "opacity .4s ease",
+          pointerEvents: "none",
+        }}
+      />
+
+      <Link href="/" style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", textDecoration: "none", flex: "none" }}>
+        <Image src="/assets/cds-wordmark.png" alt="Catalyst Digital Solutions" width={150} height={36} style={{ display: "block", width: 150, height: "auto" }} priority />
+      </Link>
+
+      <nav
+        className="nav-links"
+        style={{
+          position: "relative",
+          zIndex: 1,
           display: "flex",
           alignItems: "center",
-          padding: "0 24px",
-          transition: "background 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease",
-          background: scrolled ? "rgba(0, 0, 0, 0.5)" : "transparent",
-          backdropFilter: scrolled ? "blur(18px) saturate(135%)" : "none",
-          WebkitBackdropFilter: scrolled ? "blur(18px) saturate(135%)" : "none",
-          borderBottom: scrolled
-            ? "1px solid rgba(255, 255, 255, 0.06)"
-            : "1px solid transparent",
-          willChange: "transform",
+          gap: "clamp(18px,2.4vw,36px)",
+          fontSize: 14.5,
+          color: "#c8c8c8",
+          flexWrap: "wrap",
         }}
       >
-        {/* Wordmark */}
-        <Link href="/" style={{ flexShrink: 0, display: "flex", alignItems: "center" }}>
-          <Image
-            src="/assets/cds-wordmark.png"
-            alt="Catalyst Digital Solutions"
-            width={834}
-            height={292}
-            style={{ width: "150px", height: "auto" }}
-            priority
-          />
-        </Link>
-
-        {/* Desktop Nav */}
-        <nav
-          aria-label="Main navigation"
-          className="nav-desktop"
-          style={{
-            alignItems: "center",
-            gap: "32px",
-            margin: "0 auto",
-          }}
-        >
-          {NAV_LINKS.map((link) => {
-            const active = isActivePath(pathname, link.href);
-            return link.children ? (
-              <div
-                key={link.label}
-                ref={dropdownRef}
-                style={{ position: "relative" }}
+        {TOP.map((item) =>
+          item.children ? (
+            <div key={item.href} className="nav-drop" style={{ display: "inline-flex" }}>
+              <Link
+                href={item.href}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 5,
+                  ...(servicesActive ? linkActive : linkBase),
+                }}
               >
-                <button
-                  onClick={() => setServicesOpen((v) => !v)}
-                  aria-expanded={servicesOpen}
-                  aria-haspopup="true"
+                Services <span style={{ fontSize: 10, color: "#7f8896" }}>▾</span>
+              </Link>
+              <div className="nav-drop-menu">
+                <div
                   style={{
                     display: "flex",
-                    alignItems: "center",
-                    gap: "4px",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    color: active ? "var(--cds-heading)" : "var(--cds-body)",
-                    fontSize: "14.5px",
-                    fontFamily: "var(--font-inter)",
-                    fontWeight: active ? 600 : 400,
-                    padding: 0,
-                    transition: "color 0.2s",
+                    flexDirection: "column",
+                    gap: 2,
+                    width: 264,
+                    padding: 10,
+                    background: "rgba(9,12,17,.96)",
+                    backdropFilter: "blur(18px) saturate(135%)",
+                    WebkitBackdropFilter: "blur(18px) saturate(135%)",
+                    border: "1px solid rgba(255,255,255,.1)",
+                    borderRadius: 14,
+                    boxShadow: "0 24px 60px rgba(0,0,0,.55)",
                   }}
-                  onMouseEnter={(e) =>
-                    ((e.currentTarget as HTMLButtonElement).style.color =
-                      "var(--cds-heading)")
-                  }
-                  onMouseLeave={(e) =>
-                    ((e.currentTarget as HTMLButtonElement).style.color =
-                      active ? "var(--cds-heading)" : "var(--cds-body)")
-                  }
                 >
-                  {link.label}
-                  <svg
-                    width="10"
-                    height="10"
-                    viewBox="0 0 10 10"
-                    fill="currentColor"
-                    style={{
-                      transition: "transform 0.2s",
-                      transform: servicesOpen ? "rotate(180deg)" : "none",
-                    }}
-                  >
-                    <path d="M1 3l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-                  </svg>
-                </button>
-
-                {/* Dropdown */}
-                {servicesOpen && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "calc(100% + 16px)",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      background: "rgba(8, 11, 15, 0.95)",
-                      backdropFilter: "blur(20px)",
-                      border: "1px solid rgba(255, 255, 255, 0.09)",
-                      borderRadius: "12px",
-                      padding: "8px",
-                      minWidth: "200px",
-                      boxShadow: "0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(128,0,255,0.12)",
-                    }}
-                  >
-                    {link.children.map((child) => (
+                  {item.children.map((child) => {
+                    const active = isActive(pathname, child.href);
+                    return (
                       <Link
-                        key={child.label}
+                        key={child.href}
                         href={child.href}
-                        onClick={() => setServicesOpen(false)}
                         style={{
                           display: "block",
                           padding: "10px 14px",
-                          borderRadius: "8px",
-                          fontSize: "13px",
-                          color: "var(--cds-body)",
-                          fontFamily: "var(--font-inter)",
-                          transition: "background 0.15s, color 0.15s",
-                          whiteSpace: "nowrap",
-                        }}
-                        onMouseEnter={(e) => {
-                          const el = e.currentTarget as HTMLAnchorElement;
-                          el.style.background = "rgba(128, 0, 255, 0.12)";
-                          el.style.color = "var(--cds-purple-light)";
-                        }}
-                        onMouseLeave={(e) => {
-                          const el = e.currentTarget as HTMLAnchorElement;
-                          el.style.background = "transparent";
-                          el.style.color = "var(--cds-body)";
+                          borderRadius: 9,
+                          color: active ? "#fafafa" : "#c8c8c8",
+                          fontWeight: active ? 600 : 400,
+                          background: active ? "rgba(128,0,255,.14)" : "transparent",
+                          textDecoration: "none",
+                          fontSize: 14,
                         }}
                       >
                         {child.label}
                       </Link>
-                    ))}
-                  </div>
-                )}
+                    );
+                  })}
+                </div>
               </div>
-            ) : (
-              <Link
-                key={link.label}
-                href={link.href}
-                aria-current={active ? "page" : undefined}
-                style={{
-                  fontSize: "14.5px",
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: active ? 600 : 400,
-                  color: active ? "var(--cds-heading)" : "var(--cds-body)",
-                  transition: "color 0.2s",
-                }}
-                onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLAnchorElement).style.color =
-                    "var(--cds-heading)")
-                }
-                onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLAnchorElement).style.color =
-                    active ? "var(--cds-heading)" : "var(--cds-body)")
-                }
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
+            </div>
+          ) : (
+            <Link key={item.href} href={item.href} style={isActive(pathname, item.href) ? linkActive : linkBase}>
+              {item.label}
+            </Link>
+          )
+        )}
+      </nav>
 
-        {/* Right: Phone + CTA */}
-        <div
-          className="nav-desktop"
-          style={{ alignItems: "center", gap: "16px", marginLeft: "auto" }}
-        >
-          <a
-            href="tel:+16615359927"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-              fontSize: "14px",
-              color: "var(--cds-heading)",
-              fontFamily: "var(--font-inter)",
-              fontWeight: 500,
-              whiteSpace: "nowrap",
-              transition: "color 0.2s",
-            }}
-            onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLAnchorElement).style.color = "var(--cds-cyan)")
-            }
-            onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLAnchorElement).style.color = "var(--cds-heading)")
-            }
-          >
-            {/* Phone icon */}
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ color: "var(--cds-cyan)", flexShrink: 0 }}>
-              <path
-                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-                fill="currentColor"
-              />
-            </svg>
-            (661) 535-9927
-          </a>
-
-          <Link href="/contact" className="btn-primary" style={{ padding: "10px 20px", fontSize: "14px" }}>
-            Get a Free Audit
-          </Link>
-        </div>
-
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-          className="nav-hamburger"
+      <div style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", gap: "clamp(14px,1.8vw,24px)", flex: "none" }}>
+        <a
+          href="tel:+16615359927"
+          className="nav-phone"
           style={{
-            marginLeft: "auto",
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            color: "var(--cds-heading)",
-            padding: "8px",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            textDecoration: "none",
+            fontFamily: "var(--font-inter), Inter, sans-serif",
+            fontSize: 15,
+            fontWeight: 600,
+            color: "#fafafa",
+            whiteSpace: "nowrap",
           }}
         >
-          {mobileOpen ? (
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <path d="M1 1l20 20M21 1L1 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          ) : (
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <path d="M1 4h20M1 11h20M1 18h20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          )}
-        </button>
-      </header>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none" }} aria-hidden>
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          <span className="nav-phone-num">(661) 535-9927</span>
+        </a>
+        <Link
+          href="/contact"
+          style={{
+            fontFamily: "var(--font-inter), Inter, sans-serif",
+            fontSize: 14.5,
+            fontWeight: 600,
+            color: "#fff",
+            background: "linear-gradient(135deg,#8000ff,#5600ab)",
+            border: "none",
+            padding: "11px 20px",
+            borderRadius: 9,
+            boxShadow: "0 6px 24px rgba(128,0,255,.35)",
+            cursor: "pointer",
+            textDecoration: "none",
+          }}
+        >
+          Book a 20-Minute Call
+        </Link>
+      </div>
 
-      {/* Mobile menu overlay */}
+      <button
+        type="button"
+        className="nav-burger"
+        aria-label={mobileOpen ? "Close menu" : "Open menu"}
+        aria-expanded={mobileOpen}
+        onClick={() => setMobileOpen((v) => !v)}
+        style={{
+          position: "relative",
+          zIndex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+          width: 44,
+          height: 44,
+          borderRadius: 10,
+          border: "1px solid rgba(255,255,255,.14)",
+          background: "rgba(255,255,255,.04)",
+          cursor: "pointer",
+          flex: "none",
+          display: "none",
+          color: "#fafafa",
+        }}
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
+          {mobileOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M3 6h18M3 12h18M3 18h18" />}
+        </svg>
+      </button>
+
       {mobileOpen && (
         <div
+          className="nav-panel nav-panel-open"
           style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 99,
-            background: "rgba(8, 11, 15, 0.98)",
-            backdropFilter: "blur(20px)",
+            position: "absolute",
+            top: "100%",
+            left: 0,
+            right: 0,
+            zIndex: 1,
             display: "flex",
             flexDirection: "column",
-            padding: "80px 32px 40px",
-            gap: "8px",
+            alignItems: "stretch",
+            gap: 2,
+            padding: "16px clamp(20px,5vw,64px) 26px",
+            fontSize: 17,
+            background: "rgba(9,12,17,.96)",
+            backdropFilter: "blur(18px) saturate(135%)",
+            WebkitBackdropFilter: "blur(18px) saturate(135%)",
+            borderBottom: "1px solid rgba(255,255,255,.08)",
+            boxShadow: "0 24px 50px rgba(0,0,0,.5)",
           }}
         >
-          {NAV_LINKS.map((link) => {
-            const active = isActivePath(pathname, link.href);
-            return (
-            <div key={link.label}>
+          {TOP.map((item) => (
+            <div key={item.href}>
               <Link
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                aria-current={active ? "page" : undefined}
+                href={item.href}
                 style={{
                   display: "block",
-                  fontSize: "28px",
-                  fontFamily: "var(--font-bebas-neue)",
-                  textTransform: "uppercase",
-                  letterSpacing: "1px",
-                  color: active ? "var(--cds-purple-light)" : "var(--cds-heading)",
-                  padding: "10px 0",
-                  borderBottom: "1px solid rgba(255,255,255,0.06)",
+                  padding: "9px 0",
+                  ...(isActive(pathname, item.href) || (item.children && servicesActive) ? linkActive : linkBase),
                 }}
               >
-                {link.label}
+                {item.label}
               </Link>
-              {link.children && (
-                <div style={{ paddingLeft: "16px", paddingBottom: "8px" }}>
-                  {link.children.map((child) => (
+              {item.children && (
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    paddingLeft: 16,
+                    borderLeft: "1px solid rgba(255,255,255,.12)",
+                    margin: "2px 0 6px",
+                  }}
+                >
+                  {item.children.map((child) => (
                     <Link
-                      key={child.label}
+                      key={child.href}
                       href={child.href}
-                      onClick={() => setMobileOpen(false)}
                       style={{
-                        display: "block",
-                        fontSize: "15px",
-                        fontFamily: "var(--font-inter)",
-                        color: "var(--cds-muted)",
-                        padding: "6px 0",
+                        color: isActive(pathname, child.href) ? "#fafafa" : "#9aa3b0",
+                        fontWeight: isActive(pathname, child.href) ? 600 : 400,
+                        textDecoration: "none",
+                        fontSize: 15,
+                        padding: "9px 0",
                       }}
                     >
                       {child.label}
@@ -356,32 +299,12 @@ export default function Nav() {
                 </div>
               )}
             </div>
-            );
-          })}
-
-          <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: "12px" }}>
-            <a
-              href="tel:+16615359927"
-              style={{
-                fontSize: "16px",
-                color: "var(--cds-cyan)",
-                fontFamily: "var(--font-inter)",
-                fontWeight: 500,
-              }}
-            >
-              (661) 535-9927
-            </a>
-            <Link
-              href="/contact"
-              className="btn-primary"
-              onClick={() => setMobileOpen(false)}
-              style={{ justifyContent: "center" }}
-            >
-              Get a Free Audit
-            </Link>
-          </div>
+          ))}
+          <a href="tel:+16615359927" style={{ color: "#00d4ff", textDecoration: "none", fontWeight: 600, padding: "9px 0" }}>
+            Call (661) 535-9927
+          </a>
         </div>
       )}
-    </>
+    </header>
   );
 }

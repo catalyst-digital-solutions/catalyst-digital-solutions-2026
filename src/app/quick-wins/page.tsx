@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import QuickWinsContent from "@/components/quick-wins/QuickWinsContent";
+import QuickWinsV4 from "@/components/v4/QuickWinsV4";
 
 export const metadata: Metadata = {
   title: "Quick Wins — Catalyst Digital Solutions",
   description:
-    "Not ready for a full monthly plan? Start small. Leak Finder, Bid Finder AI, Speed-to-Lead, Lead Reactivation, and 5-Star Autopilot — each solves one problem fast, with every dollar crediting toward the real thing.",
+    "Fast, high-leverage improvements for construction companies — including Bid Finder AI and other systems you can put to work quickly.",
 };
 
 export default function Page() {
-  return <QuickWinsContent />;
+  return <QuickWinsV4 />;
 }

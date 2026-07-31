@@ -772,3 +772,150 @@ select option {
   mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
   pointer-events: none;
 }
+
+/* ─────────────────────────────────────────────
+   V4 DESIGN PORT — page styles from Claude Design
+───────────────────────────────────────────── */
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: .55; }
+  50%      { opacity: .95; }
+}
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 10px 34px rgba(128,0,255,.4); }
+  50%      { box-shadow: 0 14px 50px rgba(128,0,255,.72); }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .45; transform: scale(.82); }
+}
+@keyframes thumbScroll {
+  0%, 8%   { transform: translateY(0); }
+  48%, 58% { transform: translateY(min(0px, calc(100cqh - 100%))); }
+  98%, 100%{ transform: translateY(0); }
+}
+@keyframes caretBlink {
+  0%, 45% { opacity: 1; }
+  50%, 95%{ opacity: 0; }
+  100%    { opacity: 1; }
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, #00d4ff 0%, #7fb0ff 42%, #b56bff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-gradient-stat {
+  background: linear-gradient(160deg, #fafafa 0%, #00d4ff 62%, #5f8dd6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+  padding-top: 0.04em;
+}
+
+.see-live-tap { display: none; }
+@media (hover: none) {
+  .demo-thumb-img { animation: thumbScroll 108s ease-in-out infinite; }
+  .see-live-tap { display: inline; }
+  .see-live-click { display: none; }
+}
+
+.presence-grid { align-items: stretch; }
+.presence-rail {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px 2px 18px;
+  -webkit-overflow-scrolling: touch;
+}
+.presence-rail img {
+  flex: none;
+  width: min(72vw, 220px);
+  scroll-snap-align: center;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 24px 44px rgba(0,0,0,.55));
+}
+@media (min-width: 721px) {
+  .presence-rail { align-items: center; }
+  .presence-rail img { height: clamp(300px, 34vw, 440px); width: auto; }
+}
+
+.rv { opacity: 0; }
+.rv.in { opacity: 1; animation: revealUp .8s cubic-bezier(.2,.8,.2,1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .rv { opacity: 1 !important; }
+}
+
+.nav-drop { position: relative; }
+.nav-drop-menu {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .22s ease, transform .22s ease, visibility .22s;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -132px;
+  padding-top: 14px;
+  z-index: 60;
+}
+.nav-drop:hover .nav-drop-menu,
+.nav-drop:focus-within .nav-drop-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+.nav-burger { display: none !important; }
+.nav-panel { display: none; }
+.nav-panel-open { display: flex !important; }
+
+@media (max-width: 1040px) {
+  .nav-links { display: none !important; }
+  .nav-phone-num { display: none !important; }
+  .nav-phone { padding: 10px !important; }
+  .nav-burger { display: flex !important; }
+}
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .shift-grid { grid-template-columns: 1fr !important; }
+  .blog-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 880px) {
+  .footer-grid { grid-template-columns: 1fr 1fr !important; row-gap: 44px !important; }
+}
+@media (max-width: 540px) {
+  .footer-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 600px) {
+  .cta-full { width: 100%; justify-content: center; }
+}
+
+#bid-finder-ai {
+  scroll-margin-top: 110px;
+}
+
+details summary::-webkit-details-marker { display: none; }
+details summary { list-style: none; }
+

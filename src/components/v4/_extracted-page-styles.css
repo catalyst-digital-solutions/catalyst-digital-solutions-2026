@@ -1,0 +1,385 @@
+/* from CDS Homepage v4.dc.html */
+*{box-sizing:border-box;}
+  body{margin:0;background:#080b0f;}
+  a{color:#00d4ff;}
+  a:hover{color:#5fe3ff;}
+  @keyframes wordIn{from{opacity:0;transform:translateY(.55em);}to{opacity:1;transform:translateY(0);}}
+  @keyframes glowPulse{0%,100%{opacity:.55;}50%{opacity:.95;}}
+  @keyframes gridDrift{from{background-position:0 0,0 0;}to{background-position:54px 54px,54px 54px;}}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes revealUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes caretBlink{0%,45%{opacity:1;}50%,95%{opacity:0;}100%{opacity:1;}}
+  @keyframes ctaPulse{0%,100%{box-shadow:0 10px 34px rgba(128,0,255,.4);}50%{box-shadow:0 14px 50px rgba(128,0,255,.72);}}
+  @keyframes scanDown{0%{transform:translateY(-16px);opacity:0;}12%{opacity:1;}86%{opacity:1;}100%{transform:translateY(470px);opacity:0;}}
+  @keyframes bDraw{from{stroke-dasharray:2400;stroke-dashoffset:2400;}to{stroke-dasharray:2400;stroke-dashoffset:0;}}
+  @keyframes bFrame{from{opacity:0;}to{opacity:1;}}
+  @keyframes bClad{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes bWin{0%{opacity:0;}60%{opacity:0;}100%{opacity:1;}}
+  @keyframes winPulse{0%,100%{opacity:.3;}50%{opacity:.9;}}
+  @keyframes craneSwing{0%,100%{transform:rotate(0deg);}50%{transform:rotate(2.4deg);}}
+  @keyframes dotPulse{0%,100%{opacity:.5;}50%{opacity:1;}}
+  @keyframes flow{to{stroke-dashoffset:-170;}}
+  @keyframes thumbScroll{0%,8%{transform:translateY(0);}48%,58%{transform:translateY(min(0px,calc(100cqh - 100%)));}98%,100%{transform:translateY(0);}}
+  @media (hover:none){.demo-thumb-img{animation:thumbScroll 108s ease-in-out infinite;}}
+  .see-live-tap{display:none;}
+  @media (hover:none){.see-live-tap{display:inline;}.see-live-click{display:none;}}
+  @media (max-width:600px){.cta-full{width:100%;justify-content:center;}}
+  @media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr !important;row-gap:44px !important;}}
+  @media (max-width:540px){.footer-grid{grid-template-columns:1fr !important;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+
+  .presence-grid{align-items:stretch;}
+  .presence-rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 18px;-webkit-overflow-scrolling:touch;}
+  .presence-rail img{flex:none;width:min(72vw,220px);scroll-snap-align:center;height:auto;display:block;filter:drop-shadow(0 24px 44px rgba(0,0,0,.55));}
+  @media (min-width:721px){
+    .presence-rail{align-items:center;}
+    .presence-rail img{height:clamp(300px,34vw,440px);width:auto;}
+  }
+
+  .rv{opacity:0;}
+  .rv.in{opacity:1;animation:revealUp .8s cubic-bezier(.2,.8,.2,1) both;}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1 !important;}}
+
+  .nav-drop{position:relative;}
+  .nav-drop-menu{visibility:hidden;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;position:absolute;top:100%;left:50%;margin-left:-132px;padding-top:14px;z-index:60;}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{visibility:visible;opacity:1;transform:translateY(0);}
+  .nav-burger{display:none;}
+  .nav-panel{display:none;}
+  @media (max-width:1040px){
+    .nav-links{display:none !important;}
+    .nav-phone-num{display:none !important;}
+    .nav-phone{padding:10px !important;}
+    .nav-burger{display:flex !important;}
+    .nav-toggle:checked ~ .nav-panel{display:flex !important;}
+    .nav-panel a,.nav-panel span{padding:9px 0;}
+  }
+
+/* from CDS About v2.dc.html */
+*{box-sizing:border-box;}
+  body{margin:0;background:#080b0f;}
+  a{color:#00d4ff;}
+  a:hover{color:#b56bff;}
+  @keyframes glowPulse{0%,100%{opacity:.55;}50%{opacity:.95;}}
+  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  @media (max-width:600px){.cta-full{width:100%;justify-content:center;}}
+  @media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr !important;row-gap:44px !important;}}
+  @media (max-width:540px){.footer-grid{grid-template-columns:1fr !important;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+  image-slot{display:block;width:100%;height:100%;}
+
+  .nav-drop{position:relative;}
+  .nav-drop-menu{visibility:hidden;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;position:absolute;top:100%;left:50%;margin-left:-132px;padding-top:14px;z-index:60;}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{visibility:visible;opacity:1;transform:translateY(0);}
+  .nav-burger{display:none;}
+  .nav-panel{display:none;}
+  @media (max-width:1040px){
+    .nav-links{display:none !important;}
+    .nav-phone-num{display:none !important;}
+    .nav-phone{padding:10px !important;}
+    .nav-burger{display:flex !important;}
+    .nav-toggle:checked ~ .nav-panel{display:flex !important;}
+    .nav-panel a,.nav-panel span{padding:9px 0;}
+  }
+
+/* from CDS Services.dc.html */
+*{box-sizing:border-box;}
+  body{margin:0;background:#080b0f;}
+  a{color:#00d4ff;}
+  a:hover{color:#b56bff;}
+  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+  @media (max-width:600px){.cta-full{width:100%;justify-content:center;}}
+  @media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr !important;row-gap:44px !important;}}
+  @media (max-width:540px){.footer-grid{grid-template-columns:1fr !important;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+
+  .nav-drop{position:relative;}
+  .nav-drop-menu{visibility:hidden;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;position:absolute;top:100%;left:50%;margin-left:-132px;padding-top:14px;z-index:60;}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{visibility:visible;opacity:1;transform:translateY(0);}
+  .nav-burger{display:none;}
+  .nav-panel{display:none;}
+  @media (max-width:1040px){
+    .nav-links{display:none !important;}
+    .nav-phone-num{display:none !important;}
+    .nav-phone{padding:10px !important;}
+    .nav-burger{display:flex !important;}
+    .nav-toggle:checked ~ .nav-panel{display:flex !important;}
+    .nav-panel a,.nav-panel span{padding:9px 0;}
+  }
+
+/* from CDS Service Websites.dc.html */
+*{box-sizing:border-box;}
+  body{margin:0;background:#080b0f;}
+  a{color:#00d4ff;}
+  a:hover{color:#b56bff;}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes thumbScroll{0%,8%{transform:translateY(0);}48%,58%{transform:translateY(min(0px,calc(100cqh - 100%)));}98%,100%{transform:translateY(0);}}
+  @media (hover:none){.demo-thumb-img{animation:thumbScroll 108s ease-in-out infinite;}}
+  .see-live-tap{display:none;}
+  @media (hover:none){.see-live-tap{display:inline;}.see-live-click{display:none;}}
+  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+  @media (max-width:600px){.cta-full{width:100%;justify-content:center;}}
+  @media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr !important;row-gap:44px !important;}}
+  @media (max-width:540px){.footer-grid{grid-template-columns:1fr !important;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+
+  .nav-drop{position:relative;}
+  .nav-drop-menu{visibility:hidden;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;position:absolute;top:100%;left:50%;margin-left:-132px;padding-top:14px;z-index:60;}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{visibility:visible;opacity:1;transform:translateY(0);}
+  .nav-burger{display:none;}
+  .nav-panel{display:none;}
+  @media (max-width:1040px){
+    .nav-links{display:none !important;}
+    .nav-phone-num{display:none !important;}
+    .nav-phone{padding:10px !important;}
+    .nav-burger{display:flex !important;}
+    .nav-toggle:checked ~ .nav-panel{display:flex !important;}
+    .nav-panel a,.nav-panel span{padding:9px 0;}
+  }
+
+/* from CDS Service SEO.dc.html */
+*{box-sizing:border-box;}
+  body{margin:0;background:#080b0f;}
+  a{color:#00d4ff;}
+  a:hover{color:#b56bff;}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes caretBlink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  @keyframes sweep{0%{transform:translateX(-100%);}100%{transform:translateX(320%);}}
+  @media (max-width:600px){.cta-full{width:100%;justify-content:center;}}
+  @media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr !important;row-gap:44px !important;}}
+  @media (max-width:540px){.footer-grid{grid-template-columns:1fr !important;}}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr !important;}.shift-grid{grid-template-columns:1fr !important;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+
+  .nav-drop{position:relative;}
+  .nav-drop-menu{visibility:hidden;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;position:absolute;top:100%;left:50%;margin-left:-132px;padding-top:14px;z-index:60;}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{visibility:visible;opacity:1;transform:translateY(0);}
+  .nav-burger{display:none;}
+  .nav-panel{display:none;}
+  @media (max-width:1040px){
+    .nav-links{display:none !important;}
+    .nav-phone-num{display:none !important;}
+    .nav-phone{padding:10px !important;}
+    .nav-burger{display:flex !important;}
+    .nav-toggle:checked ~ .nav-panel{display:flex !important;}
+    .nav-panel a,.nav-panel span{padding:9px 0;}
+  }
+
+/* from CDS Service Google Reviews.dc.html */
+*{box-sizing:border-box;}
+  body{margin:0;background:#080b0f;}
+  a{color:#00d4ff;}
+  a:hover{color:#b56bff;}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.45;transform:scale(.82);}}
+  @media (max-width:600px){.cta-full{width:100%;justify-content:center;}}
+  @media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr !important;row-gap:44px !important;}}
+  @media (max-width:540px){.footer-grid{grid-template-columns:1fr !important;}}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr !important;}.shift-grid{grid-template-columns:1fr !important;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+
+  .nav-drop{position:relative;}
+  .nav-drop-menu{visibility:hidden;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;position:absolute;top:100%;left:50%;margin-left:-132px;padding-top:14px;z-index:60;}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{visibility:visible;opacity:1;transform:translateY(0);}
+  .nav-burger{display:none;}
+  .nav-panel{display:none;}
+  @media (max-width:1040px){
+    .nav-links{display:none !important;}
+    .nav-phone-num{display:none !important;}
+    .nav-phone{padding:10px !important;}
+    .nav-burger{display:flex !important;}
+    .nav-toggle:checked ~ .nav-panel{display:flex !important;}
+    .nav-panel a,.nav-panel span{padding:9px 0;}
+  }
+
+/* from CDS Service Advertising.dc.html */
+*{box-sizing:border-box;}
+  body{margin:0;background:#080b0f;}
+  a{color:#00d4ff;}
+  a:hover{color:#b56bff;}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.45;transform:scale(.82);}}
+  @media (max-width:600px){.cta-full{width:100%;justify-content:center;}}
+  @media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr !important;row-gap:44px !important;}}
+  @media (max-width:540px){.footer-grid{grid-template-columns:1fr !important;}}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr !important;}.shift-grid{grid-template-columns:1fr !important;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+
+  .nav-drop{position:relative;}
+  .nav-drop-menu{visibility:hidden;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;position:absolute;top:100%;left:50%;margin-left:-132px;padding-top:14px;z-index:60;}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{visibility:visible;opacity:1;transform:translateY(0);}
+  .nav-burger{display:none;}
+  .nav-panel{display:none;}
+  @media (max-width:1040px){
+    .nav-links{display:none !important;}
+    .nav-phone-num{display:none !important;}
+    .nav-phone{padding:10px !important;}
+    .nav-burger{display:flex !important;}
+    .nav-toggle:checked ~ .nav-panel{display:flex !important;}
+    .nav-panel a,.nav-panel span{padding:9px 0;}
+  }
+
+/* from CDS Service Content.dc.html */
+*{box-sizing:border-box;}
+  body{margin:0;background:#080b0f;}
+  a{color:#00d4ff;}
+  a:hover{color:#b56bff;}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.45;transform:scale(.82);}}
+  @media (max-width:600px){.cta-full{width:100%;justify-content:center;}}
+  @media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr !important;row-gap:44px !important;}}
+  @media (max-width:540px){.footer-grid{grid-template-columns:1fr !important;}}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr !important;}.shift-grid{grid-template-columns:1fr !important;}.blog-grid > div:first-child{order:2;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+
+  .nav-drop{position:relative;}
+  .nav-drop-menu{visibility:hidden;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;position:absolute;top:100%;left:50%;margin-left:-132px;padding-top:14px;z-index:60;}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{visibility:visible;opacity:1;transform:translateY(0);}
+  .nav-burger{display:none;}
+  .nav-panel{display:none;}
+  @media (max-width:1040px){
+    .nav-links{display:none !important;}
+    .nav-phone-num{display:none !important;}
+    .nav-phone{padding:10px !important;}
+    .nav-burger{display:flex !important;}
+    .nav-toggle:checked ~ .nav-panel{display:flex !important;}
+    .nav-panel a,.nav-panel span{padding:9px 0;}
+  }
+
+/* from CDS Service Automation.dc.html */
+*{box-sizing:border-box;}
+  body{margin:0;background:#080b0f;}
+  a{color:#00d4ff;}
+  a:hover{color:#b56bff;}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.45;transform:scale(.82);}}
+  @media (max-width:600px){.cta-full{width:100%;justify-content:center;}}
+  @media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr !important;row-gap:44px !important;}}
+  @media (max-width:540px){.footer-grid{grid-template-columns:1fr !important;}}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr !important;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+
+  .nav-drop{position:relative;}
+  .nav-drop-menu{visibility:hidden;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;position:absolute;top:100%;left:50%;margin-left:-132px;padding-top:14px;z-index:60;}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{visibility:visible;opacity:1;transform:translateY(0);}
+  .nav-burger{display:none;}
+  .nav-panel{display:none;}
+  @media (max-width:1040px){
+    .nav-links{display:none !important;}
+    .nav-phone-num{display:none !important;}
+    .nav-phone{padding:10px !important;}
+    .nav-burger{display:flex !important;}
+    .nav-toggle:checked ~ .nav-panel{display:flex !important;}
+    .nav-panel a,.nav-panel span{padding:9px 0;}
+  }
+
+/* from CDS Service RFP AI.dc.html */
+*{box-sizing:border-box;}
+  body{margin:0;background:#080b0f;}
+  a{color:#00d4ff;}
+  a:hover{color:#b56bff;}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  @media (max-width:600px){.cta-full{width:100%;justify-content:center;}}
+  @media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr !important;row-gap:44px !important;}}
+  @media (max-width:540px){.footer-grid{grid-template-columns:1fr !important;}}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr !important;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+
+  .nav-drop{position:relative;}
+  .nav-drop-menu{visibility:hidden;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;position:absolute;top:100%;left:50%;margin-left:-132px;padding-top:14px;z-index:60;}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{visibility:visible;opacity:1;transform:translateY(0);}
+  .nav-burger{display:none;}
+  .nav-panel{display:none;}
+  @media (max-width:1040px){
+    .nav-links{display:none !important;}
+    .nav-phone-num{display:none !important;}
+    .nav-phone{padding:10px !important;}
+    .nav-burger{display:flex !important;}
+    .nav-toggle:checked ~ .nav-panel{display:flex !important;}
+    .nav-panel a,.nav-panel span{padding:9px 0;}
+  }
+
+/* from CDS Quick Wins.dc.html */
+*{box-sizing:border-box;}
+  body{margin:0;background:#080b0f;}
+  a{color:#00d4ff;}
+  a:hover{color:#b56bff;}
+  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  @media (max-width:600px){.cta-full{width:100%;justify-content:center;}}
+  @media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr !important;row-gap:44px !important;}}
+  @media (max-width:540px){.footer-grid{grid-template-columns:1fr !important;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+
+  .nav-drop{position:relative;}
+  .nav-drop-menu{visibility:hidden;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;position:absolute;top:100%;left:50%;margin-left:-132px;padding-top:14px;z-index:60;}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{visibility:visible;opacity:1;transform:translateY(0);}
+  .nav-burger{display:none;}
+  .nav-panel{display:none;}
+  @media (max-width:1040px){
+    .nav-links{display:none !important;}
+    .nav-phone-num{display:none !important;}
+    .nav-phone{padding:10px !important;}
+    .nav-burger{display:flex !important;}
+    .nav-toggle:checked ~ .nav-panel{display:flex !important;}
+    .nav-panel a,.nav-panel span{padding:9px 0;}
+  }
+
+/* from CDS Pricing.dc.html */
+*{box-sizing:border-box;}
+  body{margin:0;background:#080b0f;}
+  a{color:#00d4ff;}
+  a:hover{color:#b56bff;}
+  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  @media (max-width:600px){.cta-full{width:100%;justify-content:center;}}
+  @media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr !important;row-gap:44px !important;}}
+  @media (max-width:540px){.footer-grid{grid-template-columns:1fr !important;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+
+  .nav-drop{position:relative;}
+  .nav-drop-menu{visibility:hidden;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;position:absolute;top:100%;left:50%;margin-left:-132px;padding-top:14px;z-index:60;}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{visibility:visible;opacity:1;transform:translateY(0);}
+  .nav-burger{display:none;}
+  .nav-panel{display:none;}
+  @media (max-width:1040px){
+    .nav-links{display:none !important;}
+    .nav-phone-num{display:none !important;}
+    .nav-phone{padding:10px !important;}
+    .nav-burger{display:flex !important;}
+    .nav-toggle:checked ~ .nav-panel{display:flex !important;}
+    .nav-panel a,.nav-panel span{padding:9px 0;}
+  }
+
+/* from CDS Contact.dc.html */
+*{box-sizing:border-box;}
+  body{margin:0;background:#080b0f;}
+  a{color:#00d4ff;}
+  a:hover{color:#b56bff;}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+  select option{background:#12161d;color:#fafafa;}
+  @media (max-width:600px){.cta-full{width:100%;justify-content:center;}}
+  @media (max-width:880px){.footer-grid{grid-template-columns:1fr 1fr !important;row-gap:44px !important;}}
+  @media (max-width:540px){.footer-grid{grid-template-columns:1fr !important;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+
+  .nav-drop{position:relative;}
+  .nav-drop-menu{visibility:hidden;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;position:absolute;top:100%;left:50%;margin-left:-132px;padding-top:14px;z-index:60;}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{visibility:visible;opacity:1;transform:translateY(0);}
+  .nav-burger{display:none;}
+  .nav-panel{display:none;}
+  @media (max-width:1040px){
+    .nav-links{display:none !important;}
+    .nav-phone-num{display:none !important;}
+    .nav-phone{padding:10px !important;}
+    .nav-burger{display:flex !important;}
+    .nav-toggle:checked ~ .nav-panel{display:flex !important;}
+    .nav-panel a,.nav-panel span{padding:9px 0;}
+  }

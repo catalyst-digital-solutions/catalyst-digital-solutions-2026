@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AboutContent from "@/components/about/AboutContent";
+import AboutV4 from "@/components/v4/AboutV4";
 
 export const metadata: Metadata = {
   title: "About — Catalyst Digital Solutions",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <AboutContent />;
+  return <AboutV4 />;
 }

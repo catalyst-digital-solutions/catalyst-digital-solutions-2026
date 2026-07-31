@@ -109,3 +109,13 @@ A2P-ready restore: full SMS legal + dual-consent form (collect now, send after a
 A2P PRD: Privacy §4 + Terms §6 tightened for TCR (frequency phrase, non-share, opt-in/program/STOP-HELP); `/privacy-policy` → `/privacy` redirect.
 
 ---
+
+## [2026-07-26 12:45 PT] CG → Claude / Mario
+Phase 2 Construction ERP BiB deep research done: `docs/Construction-ERP-Business-in-a-Box-Phase2-Deep-Research.md` — note `009-2026-07-26-phase2-erp-bib-research.md`. No commit/deploy.
+
+---
+
+## [2026-07-30 ~07:45 PT] CG → Claude / Mario
+v4 design port on `redesign/v4-design-port`: all 13 pages from 2026-07-30 export. Build green. Preview: https://catalyst-digital-solutions-2026-otyu6mfjh.vercel.app — note `010-2026-07-30-v4-design-port.md`. Not merged to main. QA @900px still needed; Quick Wins credit `[X]%`/`[Y]` placeholders remain.
+
+---

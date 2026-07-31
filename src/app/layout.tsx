@@ -5,6 +5,8 @@ import LenisProvider from "@/components/LenisProvider";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
+/* v4 design: fixed overlay nav — page heroes own their top padding (no main offset). */
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -35,6 +37,9 @@ export const metadata: Metadata = {
     "AI marketing construction",
     "Bakersfield",
   ],
+  icons: {
+    icon: "/assets/catalyst-digital-solutions-favicon-circle.png",
+  },
   openGraph: {
     title: "Catalyst Digital Solutions",
     description:
@@ -42,6 +47,21 @@ export const metadata: Metadata = {
     url: "https://catalyst-digital-solutions.com",
     siteName: "Catalyst Digital Solutions",
     type: "website",
+    images: [
+      {
+        url: "/assets/og-share.jpg",
+        width: 1024,
+        height: 537,
+        alt: "Catalyst Digital Solutions — Better jobs. Bigger margins.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Catalyst Digital Solutions",
+    description:
+      "Revenue growth for construction companies. AI-powered. Construction-only.",
+    images: ["/assets/og-share.jpg"],
   },
 };
 
@@ -58,7 +78,7 @@ export default function RootLayout({
       <body>
         <LenisProvider>
           <Nav />
-          <main style={{ paddingTop: "64px" }}>{children}</main>
+          <main>{children}</main>
           <Footer />
         </LenisProvider>
       </body>

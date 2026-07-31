@@ -13,124 +13,139 @@ const PAGES = [
   { label: "Contact", href: "/contact" },
 ];
 
+function isActive(pathname: string, href: string) {
+  return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
+}
+
 export default function Footer() {
   const pathname = usePathname();
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
-    <footer className="footer-root">
-      {/* Main grid */}
-      <div className="footer-grid">
-        {/* Col 1 — Brand */}
-        <div className="footer-brand">
-          <Link href="/">
-            <Image
-              src="/assets/cds-wordmark.png"
-              alt="Catalyst Digital Solutions"
-              width={834}
-              height={292}
-              style={{ width: "172px", height: "auto" }}
-            />
-          </Link>
-          <p className="footer-tagline">
-            Bakersfield&apos;s construction growth partner.
+    <footer
+      data-screen-label="Footer"
+      style={{
+        position: "relative",
+        background: "#080b0f",
+        borderTop: "1px solid rgba(255,255,255,.08)",
+        fontFamily: "var(--font-inter), Inter, sans-serif",
+        color: "#c8c8c8",
+        padding: "clamp(56px,7vw,88px) clamp(20px,5vw,64px) 0",
+      }}
+    >
+      <div
+        className="footer-grid"
+        style={{
+          maxWidth: 1180,
+          margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "1.3fr 1fr 1.2fr 1.1fr",
+          gap: "clamp(32px,4vw,56px)",
+        }}
+      >
+        <div>
+          <Image src="/assets/cds-wordmark.png" alt="Catalyst Digital Solutions" width={172} height={40} style={{ display: "block", width: 172, height: "auto" }} />
+          <p style={{ fontSize: 14, color: "#9aa3b0", lineHeight: 1.6, margin: "20px 0 0", maxWidth: 240 }}>
+            Your construction growth partner.
           </p>
         </div>
 
-        {/* Col 2 — Pages */}
         <div>
-          <p className="footer-col-heading eyebrow">Pages</p>
-          <nav aria-label="Footer pages">
-            <ul className="footer-link-list">
-              {PAGES.map((page) => (
-                <li key={page.label}>
-                  <Link
-                    href={page.href}
-                    className="footer-link"
-                    aria-current={isActive(page.href) ? "page" : undefined}
-                    style={
-                      isActive(page.href)
-                        ? { color: "var(--cds-heading)", fontWeight: 600 }
-                        : undefined
-                    }
-                  >
-                    {page.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: "1.5px", textTransform: "uppercase", color: "#7f8896", marginBottom: 20 }}>
+            Pages
+          </div>
+          <nav style={{ display: "flex", flexDirection: "column", gap: 13, fontSize: 14.5 }}>
+            {PAGES.map((p) => {
+              const active = isActive(pathname, p.href);
+              return (
+                <Link
+                  key={p.href}
+                  href={p.href}
+                  style={{
+                    color: active ? "#fafafa" : "#c8c8c8",
+                    fontWeight: active ? 600 : 400,
+                    textDecoration: "none",
+                    width: "fit-content",
+                  }}
+                >
+                  {p.label}
+                </Link>
+              );
+            })}
           </nav>
         </div>
 
-        {/* Col 3 — Contact */}
         <div>
-          <p className="footer-col-heading eyebrow">Get in Touch</p>
-          <ul className="footer-link-list">
-            <li>
-              <a href="tel:+16615359927" className="footer-link footer-contact-link">
-                <PhoneIcon />
-                (661) 535-9927
-              </a>
-            </li>
-            <li>
-              <a
-                href="mailto:info@catalyst-digital-solutions.com"
-                className="footer-link footer-contact-link"
-              >
-                <MailIcon />
-                info@catalyst-digital-solutions.com
-              </a>
-            </li>
-            <li>
-              <span className="footer-contact-link">
-                <PinIcon />
-                Bakersfield, CA 93306
-              </span>
-            </li>
-          </ul>
+          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: "1.5px", textTransform: "uppercase", color: "#7f8896", marginBottom: 20 }}>
+            Get in touch
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 14, fontSize: 14.5 }}>
+            <a href="tel:+16615359927" style={{ display: "inline-flex", alignItems: "center", gap: 10, color: "#c8c8c8", textDecoration: "none", width: "fit-content" }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none" }} aria-hidden>
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              (661) 535-9927
+            </a>
+            <a
+              href="mailto:info@catalyst-digital-solutions.com"
+              style={{ display: "inline-flex", alignItems: "center", gap: 10, color: "#c8c8c8", textDecoration: "none", width: "fit-content", wordBreak: "break-all" }}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none" }} aria-hidden>
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-10 6L2 7" />
+              </svg>
+              info@catalyst-digital-solutions.com
+            </a>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, color: "#c8c8c8" }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none" }} aria-hidden>
+                <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              Bakersfield, CA 93306
+            </div>
+          </div>
         </div>
 
-        {/* Col 4 — Start (hidden on mobile) */}
-        <div className="footer-start-col">
-          <p className="footer-col-heading eyebrow">Start</p>
-          <Link href="/contact" className="btn-primary footer-cta">
-            {pathname === "/" ? "Book a 20-Min Call →" : "Get a Free Audit →"}
+        <div>
+          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: "1.5px", textTransform: "uppercase", color: "#7f8896", marginBottom: 20 }}>
+            Start
+          </div>
+          <Link
+            href="/contact"
+            className="cta-full"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 9,
+              minHeight: 46,
+              font: "600 15px var(--font-inter), Inter, sans-serif",
+              color: "#fff",
+              background: "linear-gradient(135deg,#8000ff,#5600ab)",
+              border: "none",
+              padding: "14px 24px",
+              borderRadius: 11,
+              boxShadow: "0 10px 34px rgba(128,0,255,.4)",
+              cursor: "pointer",
+              textDecoration: "none",
+            }}
+          >
+            Book a 20-Minute Call <span style={{ fontSize: 17 }}>→</span>
           </Link>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="footer-bottom">
-        <span>© 2026 Catalyst Digital Solutions, LLC. All rights reserved.</span>
-        <span className="footer-dot">·</span>
-        <Link href="/privacy" className="footer-link">Privacy Policy</Link>
-        <span className="footer-dot">·</span>
-        <Link href="/terms" className="footer-link">Terms</Link>
+      <div style={{ maxWidth: 1180, margin: "clamp(44px,5vw,64px) auto 0", borderTop: "1px solid rgba(255,255,255,.06)", padding: "24px 0 32px" }}>
+        <p style={{ fontSize: 13, color: "#7f8896", lineHeight: 1.7, textAlign: "center", margin: 0, textWrap: "pretty" }}>
+          © 2026 Catalyst Digital Solutions, LLC. All rights reserved. ·{" "}
+          <Link href="/privacy" style={{ color: "#00d4ff", textDecoration: "none" }}>
+            Privacy Policy
+          </Link>{" "}
+          ·{" "}
+          <Link href="/terms" style={{ color: "#00d4ff", textDecoration: "none" }}>
+            Terms
+          </Link>
+        </p>
       </div>
     </footer>
-  );
-}
-
-function PhoneIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={{ color: "var(--cds-cyan)", flexShrink: 0 }}>
-      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor" />
-    </svg>
-  );
-}
-
-function MailIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={{ color: "var(--cds-cyan)", flexShrink: 0 }}>
-      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor" />
-    </svg>
-  );
-}
-
-function PinIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={{ color: "var(--cds-cyan)", flexShrink: 0 }}>
-      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor" />
-    </svg>
   );
 }
