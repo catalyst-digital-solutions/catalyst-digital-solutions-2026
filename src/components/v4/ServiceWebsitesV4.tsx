@@ -140,7 +140,7 @@ export default function ServiceWebsitesV4() {
     <div style={{display:'flex',flexWrap:'wrap',justifyContent:'center',gap:'clamp(18px,2.4vw,28px)',marginTop:'clamp(36px,4.5vw,52px)'}}>
 
       
-      <a href="https://construction1.catalyst-demos.com" target="_blank" rel="noopener" style={{flex:'1 1 460px',minWidth:'290px',maxWidth:'575px',display:'block',textDecoration:'none',background:'linear-gradient(180deg,#0c1016,#090c11)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'16px',overflow:'hidden',boxShadow:'0 24px 60px rgba(0,0,0,.45)',transition:'border-color .35s ease'}}>
+      <a href="https://construction1.catalyst-demos.com" target="_blank" rel="noopener" className="demo-card" style={{flex:'1 1 460px',minWidth:'290px',maxWidth:'575px',display:'block',textDecoration:'none',background:'linear-gradient(180deg,#0c1016,#090c11)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'16px',overflow:'hidden',boxShadow:'0 24px 60px rgba(0,0,0,.45)',transition:'border-color .35s ease'}}>
         <div style={{display:'flex',alignItems:'center',gap:'7px',background:'#0c1016',borderBottom:'1px solid rgba(255,255,255,.07)',padding:'11px 16px'}}>
           <span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span><span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span><span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span>
           <span style={{flex:'1',textAlign:'center',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',color:'#7f8896'}}>construction1.catalyst-demos.com</span>
@@ -157,7 +157,7 @@ export default function ServiceWebsitesV4() {
       </a>
 
       
-      <a href="https://construction2.catalyst-demos.com" target="_blank" rel="noopener" style={{flex:'1 1 460px',minWidth:'290px',maxWidth:'575px',display:'block',textDecoration:'none',background:'linear-gradient(180deg,#0c1016,#090c11)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'16px',overflow:'hidden',boxShadow:'0 24px 60px rgba(0,0,0,.45)',transition:'border-color .35s ease'}}>
+      <a href="https://construction2.catalyst-demos.com" target="_blank" rel="noopener" className="demo-card" style={{flex:'1 1 460px',minWidth:'290px',maxWidth:'575px',display:'block',textDecoration:'none',background:'linear-gradient(180deg,#0c1016,#090c11)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'16px',overflow:'hidden',boxShadow:'0 24px 60px rgba(0,0,0,.45)',transition:'border-color .35s ease'}}>
         <div style={{display:'flex',alignItems:'center',gap:'7px',background:'#0c1016',borderBottom:'1px solid rgba(255,255,255,.07)',padding:'11px 16px'}}>
           <span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span><span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span><span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span>
           <span style={{flex:'1',textAlign:'center',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',color:'#7f8896'}}>construction2.catalyst-demos.com</span>
@@ -174,7 +174,7 @@ export default function ServiceWebsitesV4() {
       </a>
 
       
-      <a href="https://construction3.catalyst-demos.com" target="_blank" rel="noopener" style={{flex:'1 1 460px',minWidth:'290px',maxWidth:'575px',display:'block',textDecoration:'none',background:'linear-gradient(180deg,#0c1016,#090c11)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'16px',overflow:'hidden',boxShadow:'0 24px 60px rgba(0,0,0,.45)',transition:'border-color .35s ease'}}>
+      <a href="https://construction3.catalyst-demos.com" target="_blank" rel="noopener" className="demo-card" style={{flex:'1 1 460px',minWidth:'290px',maxWidth:'575px',display:'block',textDecoration:'none',background:'linear-gradient(180deg,#0c1016,#090c11)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'16px',overflow:'hidden',boxShadow:'0 24px 60px rgba(0,0,0,.45)',transition:'border-color .35s ease'}}>
         <div style={{display:'flex',alignItems:'center',gap:'7px',background:'#0c1016',borderBottom:'1px solid rgba(255,255,255,.07)',padding:'11px 16px'}}>
           <span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span><span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span><span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span>
           <span style={{flex:'1',textAlign:'center',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',color:'#7f8896'}}>construction3.catalyst-demos.com</span>
@@ -191,7 +191,7 @@ export default function ServiceWebsitesV4() {
       </a>
 
       
-      <a href="https://construction4.catalyst-demos.com" target="_blank" rel="noopener" style={{flex:'1 1 460px',minWidth:'290px',maxWidth:'575px',display:'block',textDecoration:'none',background:'linear-gradient(180deg,#0c1016,#090c11)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'16px',overflow:'hidden',boxShadow:'0 24px 60px rgba(0,0,0,.45)',transition:'border-color .35s ease'}}>
+      <a href="https://construction4.catalyst-demos.com" target="_blank" rel="noopener" className="demo-card" style={{flex:'1 1 460px',minWidth:'290px',maxWidth:'575px',display:'block',textDecoration:'none',background:'linear-gradient(180deg,#0c1016,#090c11)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'16px',overflow:'hidden',boxShadow:'0 24px 60px rgba(0,0,0,.45)',transition:'border-color .35s ease'}}>
         <div style={{display:'flex',alignItems:'center',gap:'7px',background:'#0c1016',borderBottom:'1px solid rgba(255,255,255,.07)',padding:'11px 16px'}}>
           <span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span><span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span><span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span>
           <span style={{flex:'1',textAlign:'center',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',color:'#7f8896'}}>construction4.catalyst-demos.com</span>
@@ -208,7 +208,7 @@ export default function ServiceWebsitesV4() {
       </a>
 
       
-      <a href="https://construction5.catalyst-demos.com" target="_blank" rel="noopener" style={{flex:'1 1 460px',minWidth:'290px',maxWidth:'575px',display:'block',textDecoration:'none',background:'linear-gradient(180deg,#0c1016,#090c11)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'16px',overflow:'hidden',boxShadow:'0 24px 60px rgba(0,0,0,.45)',transition:'border-color .35s ease'}}>
+      <a href="https://construction5.catalyst-demos.com" target="_blank" rel="noopener" className="demo-card" style={{flex:'1 1 460px',minWidth:'290px',maxWidth:'575px',display:'block',textDecoration:'none',background:'linear-gradient(180deg,#0c1016,#090c11)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'16px',overflow:'hidden',boxShadow:'0 24px 60px rgba(0,0,0,.45)',transition:'border-color .35s ease'}}>
         <div style={{display:'flex',alignItems:'center',gap:'7px',background:'#0c1016',borderBottom:'1px solid rgba(255,255,255,.07)',padding:'11px 16px'}}>
           <span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span><span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span><span style={{width:'9px',height:'9px',borderRadius:'50%',background:'rgba(255,255,255,.14)'}}></span>
           <span style={{flex:'1',textAlign:'center',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',color:'#7f8896'}}>construction5.catalyst-demos.com</span>
