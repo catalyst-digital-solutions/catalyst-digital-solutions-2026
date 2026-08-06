@@ -70,7 +70,7 @@ export default function ServiceSeoV4() {
   <div className="shift-grid" style={{position:'relative',zIndex:'1',maxWidth:'1180px',margin:'0 auto',display:'grid',gridTemplateColumns:'1fr 1fr',gap:'clamp(36px,4.5vw,64px)',alignItems:'center'}}>
     <div>
       <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'12px',letterSpacing:'3px',textTransform:'uppercase',color:'#b56bff',marginBottom:'18px'}}>The new battlefield</div>
-      <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'clamp(34px,4.2vw,68px)',lineHeight:'.94',letterSpacing:'1px',color:'#fafafa',margin:'0',textWrap:'balance'}}>Now there's a second search engine to win — and it doesn't work like Google.</h2>
+      <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'clamp(34px,4.2vw,68px)',lineHeight:'.94',letterSpacing:'1px',color:'#fafafa',margin:'0',textWrap:'balance'}}>We rank your business with AI answers — and it doesn't work like Google.</h2>
       <p style={{fontSize:'clamp(15.5px,1.2vw,18px)',color:'#c8c8c8',lineHeight:'1.75',margin:'22px 0 0',textWrap:'pretty'}}>Buyers are starting to ask ChatGPT and Perplexity who the best contractor is, not just Google. AI recommendation traffic has grown fast — up sharply in the last year — and getting recommended there takes different groundwork than ranking on Google. Most contractors haven't touched it. <span style={{color:'#fafafa',fontWeight:'600'}}>That's your window.</span></p>
       <div style={{marginTop:'24px'}}>
         <button type="button" data-expand-toggle="true" style={{display:'inline-flex',alignItems:'center',gap:'9px',fontFamily:'\'Inter\',sans-serif',fontSize:'14px',fontWeight:'600',color:'#b56bff',background:'none',border:'none',padding:'0',cursor:'pointer',textAlign:'left'}}><span style={{fontSize:'16px',lineHeight:'1'}}>⊕</span> What is GEO/AEO?</button>
@@ -116,7 +116,7 @@ export default function ServiceSeoV4() {
     <div style={{position:'relative',marginTop:'clamp(40px,5vw,60px)',paddingLeft:'clamp(0px,4vw,58px)'}}>
       <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
 
-        <div style={{position:'relative',background:'rgba(255,255,255,.022)',border:'1px solid rgba(255,255,255,.1)',borderRadius:'18px',padding:'clamp(24px,3vw,36px)'}}>
+        <div style={{position:'relative',display:'flex',flexDirection:'column',background:'rgba(255,255,255,.022)',border:'1px solid rgba(255,255,255,.1)',borderRadius:'18px',padding:'clamp(24px,3vw,36px)'}}>
           <div style={{display:'flex',flexWrap:'wrap',alignItems:'baseline',gap:'14px'}}>
             <span style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',letterSpacing:'2px',color:'#7f8896'}}>01</span>
             <span style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'clamp(26px,2.4vw,36px)',letterSpacing:'1.5px',textTransform:'uppercase',color:'#fafafa',lineHeight:'1'}}>Foundation</span>
@@ -126,9 +126,12 @@ export default function ServiceSeoV4() {
             <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>On-page + technical SEO</strong> — the groundwork every ranking depends on</span></div>
             <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Google Business Profile setup</strong> — built out, not left half-empty</span></div>
           </div>
+          <div style={{display:'flex',justifyContent:'flex-end',marginTop:'26px'}}>
+            <a href="/pricing#foundation" className="ghost-program-btn">See the full Foundation program here.</a>
+          </div>
         </div>
 
-        <div style={{position:'relative',background:'linear-gradient(135deg,rgba(128,0,255,.13),rgba(255,255,255,.02) 58%)',border:'1px solid rgba(128,0,255,.42)',borderRadius:'18px',padding:'clamp(24px,3vw,36px)',boxShadow:'0 26px 70px rgba(0,0,0,.45),0 0 50px rgba(128,0,255,.1)'}}>
+        <div style={{position:'relative',display:'flex',flexDirection:'column',background:'linear-gradient(135deg,rgba(128,0,255,.13),rgba(255,255,255,.02) 58%)',border:'1px solid rgba(128,0,255,.42)',borderRadius:'18px',padding:'clamp(24px,3vw,36px)',boxShadow:'0 26px 70px rgba(0,0,0,.45),0 0 50px rgba(128,0,255,.1)'}}>
           <div style={{display:'flex',flexWrap:'wrap',alignItems:'baseline',gap:'14px'}}>
             <span style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',letterSpacing:'2px',color:'#b56bff'}}>02</span>
             <span style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'clamp(26px,2.4vw,36px)',letterSpacing:'1.5px',textTransform:'uppercase',color:'#fafafa',lineHeight:'1'}}>Framework</span>
@@ -136,7 +139,7 @@ export default function ServiceSeoV4() {
           </div>
           <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,300px),1fr))',gap:'12px 28px',marginTop:'22px'}}>
             <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#b56bff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Local SEO + citations</strong> — shows up in the map pack for your city</span></div>
-            <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#b56bff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Programmatic SEO</strong> — hundreds of location + service pages built at scale</span></div>
+            <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#b56bff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Programmatic SEO</strong> — dozens of location + service pages built at scale</span></div>
             <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#b56bff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>GEO/AEO optimization</strong> — tuned so ChatGPT, Perplexity, and Google AI Overviews find and recommend you</span></div>
             <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#b56bff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Keyword + competitor tracking</strong> — know where you rank and what's beating you</span></div>
           </div>
@@ -144,9 +147,12 @@ export default function ServiceSeoV4() {
             <span style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'30px',lineHeight:'.85',color:'#00d4ff',flex:'none'}}>42%</span>
             <span style={{fontSize:'13.5px',color:'#9aa3b0',lineHeight:'1.6',textWrap:'pretty'}}>of local search clicks go to the Local Pack alone. Miss it and those calls go to whoever's in it.</span>
           </div>
+          <div style={{display:'flex',justifyContent:'flex-end',marginTop:'26px'}}>
+            <a href="/pricing#framework" className="ghost-program-btn">See the full Framework program here.</a>
+          </div>
         </div>
 
-        <div style={{position:'relative',background:'rgba(255,255,255,.022)',border:'1px solid rgba(255,255,255,.1)',borderRadius:'18px',padding:'clamp(24px,3vw,36px)'}}>
+        <div style={{position:'relative',display:'flex',flexDirection:'column',background:'rgba(255,255,255,.022)',border:'1px solid rgba(255,255,255,.1)',borderRadius:'18px',padding:'clamp(24px,3vw,36px)'}}>
           <div style={{display:'flex',flexWrap:'wrap',alignItems:'baseline',gap:'14px'}}>
             <span style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',letterSpacing:'2px',color:'#7f8896'}}>03</span>
             <span style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'clamp(26px,2.4vw,36px)',letterSpacing:'1.5px',textTransform:'uppercase',color:'#fafafa',lineHeight:'1'}}>Landmark</span>
@@ -154,6 +160,9 @@ export default function ServiceSeoV4() {
           </div>
           <div style={{marginTop:'22px'}}>
             <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',maxWidth:'760px',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Everything above</strong>, plus a steady stream of blog and video content written to be the exact source an AI cites when someone asks who's best in your trade and city</span></div>
+          </div>
+          <div style={{display:'flex',justifyContent:'flex-end',marginTop:'26px'}}>
+            <a href="/pricing#landmark" className="ghost-program-btn">See the full Landmark program here.</a>
           </div>
         </div>
 
@@ -217,7 +226,7 @@ export default function ServiceSeoV4() {
       </div>
       <div style={{background:'rgba(255,255,255,.025)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'14px',overflow:'hidden'}}>
         <button type="button" data-expand-toggle="true" style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:'16px',width:'100%',fontFamily:'\'Inter\',sans-serif',fontSize:'clamp(15px,1.15vw,17px)',fontWeight:'600',color:'#fafafa',background:'none',border:'none',padding:'20px 24px',cursor:'pointer',textAlign:'left'}}>"Do I really need the AI-search stuff yet?"<span style={{fontSize:'19px',color:'#00d4ff',flex:'none',lineHeight:'1'}}>+</span></button>
-        <div data-expand-panel="true" hidden style={{padding:'0 24px 22px',animation:'panelIn .3s ease'}}><p style={{fontSize:'15px',color:'#9aa3b0',lineHeight:'1.75',margin:'0',textWrap:'pretty'}}>Right now, barely any contractor has touched it — which means it's cheap to win and easy to look like the only real option. That won't stay true.</p></div>
+        <div data-expand-panel="true" hidden style={{padding:'0 24px 22px',animation:'panelIn .3s ease'}}><p style={{fontSize:'15px',color:'#9aa3b0',lineHeight:'1.75',margin:'0',textWrap:'pretty'}}>Right now, barely any contractor has touched it — which means it's cheap to win and easy to look like the only real option. That won't stay true forever.</p></div>
       </div>
     </div>
   </div>

@@ -157,6 +157,36 @@ a {
   transform: translateY(-1px);
 }
 
+/* Program tier CTA — purple at rest, white/black on hover */
+a.ghost-program-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 18px;
+  font-family: var(--font-body), "Inter", sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #8000ff;
+  background-image: linear-gradient(135deg, #8000ff, #5600ab);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(128, 0, 255, 0.35), 0 8px 28px rgba(128, 0, 255, 0.22);
+  transition: color 0.2s ease, background-color 0.2s ease, background-image 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+a.ghost-program-btn:hover,
+a.ghost-program-btn:focus-visible {
+  color: #000;
+  background-color: #fff;
+  background-image: none;
+  border-color: #fff;
+  box-shadow: none;
+}
+
 /* Standard card */
 .card {
   background: rgba(255, 255, 255, 0.025);
@@ -896,10 +926,112 @@ select option {
   .nav-burger { display: flex !important; }
 }
 
+/* Websites service hero — flat #07080a matches websites-hero-devices.jpg */
+.hero-web {
+  position: relative;
+  background: #07080a; /* measured from the hero JPEG — do not change independently of the asset */
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+  /* top padding clears fixed overlay nav */
+  padding: clamp(120px, 14vw, 180px) clamp(24px, 5vw, 96px) clamp(56px, 7vw, 110px);
+  overflow: hidden;
+  isolation: isolate;
+}
+/* Screen-blend glow on the left — behind copy, over bg + left edge of the devices */
+.hero-web::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(65% 60% at 28% 48%, rgba(128, 0, 255, 0.3) 0%, rgba(128, 0, 255, 0.12) 45%, transparent 72%),
+    radial-gradient(42% 42% at 10% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+}
+.hero-web__copy { position: relative; z-index: 3; }
+.hero-web__eyebrow {
+  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cds-cyan);
+  margin: 0 0 20px;
+}
+.hero-web h1 {
+  font-family: var(--font-display), "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: clamp(46px, 6vw, 96px);
+  line-height: 0.94;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 24px;
+  text-wrap: balance;
+}
+.hero-web__lede {
+  font-family: var(--font-body), Inter, system-ui, sans-serif;
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.6;
+  color: #9aa4b2;
+  max-width: 46ch;
+  margin: 0 0 40px;
+  text-wrap: pretty;
+}
+.hero-web__cta { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero-web__btn {
+  font-family: var(--font-body), Inter, system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+.hero-web__btn--primary {
+  background: var(--cds-purple);
+  color: #fff;
+  border: 1px solid var(--cds-purple);
+}
+.hero-web__btn--primary:hover {
+  background: #9526ff;
+  border-color: #9526ff;
+  transform: translateY(-2px);
+}
+.hero-web__btn--ghost {
+  color: #e6eaf0;
+  border: 1px solid #2b333d;
+  background: transparent;
+}
+.hero-web__btn--ghost:hover {
+  border-color: #4a5561;
+  transform: translateY(-2px);
+}
+.hero-web__devices {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  overflow: hidden; /* crop JPEG edge seams */
+}
+.hero-web__devices img {
+  display: block;
+  width: calc(100% + 4px);
+  max-width: none;
+  height: auto;
+  margin-left: -2px; /* hide ~1–2px left/right compression seams */
+}
+
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr !important; }
   .shift-grid { grid-template-columns: 1fr !important; }
   .blog-grid { grid-template-columns: 1fr !important; }
+  .hero-web {
+    grid-template-columns: 1fr;
+    text-align: left;
+    padding-inline: clamp(20px, 6vw, 40px);
+  }
 }
 
 @media (max-width: 880px) {

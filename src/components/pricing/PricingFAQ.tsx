@@ -11,8 +11,8 @@ const FAQS = [
   { q: "How is this different from an in-house hire?", a: "A competent in-house digital marketer costs $65,000–$85,000/year and doesn't come with AI video pipelines, programmatic SEO, or RFP monitoring." },
   { q: "Can I start at Tier 1 and upgrade?", a: "Yes — seamless, no rebuild required." },
   { q: "What trades do you work with?", a: "General contractors, commercial builders, specialty trades (electrical, plumbing, HVAC, roofing), civil contractors, demolition companies." },
-  { q: "What happens if I cancel?", a: "You keep everything built — website, content, analytics setup." },
-  { q: "Is there a setup fee?", a: "No. First month covers onboarding, deployment, and configuration." },
+  { q: "What happens if I cancel?", a: "Your content, analytics, and accounts are yours from day one. Your website becomes fully yours after six months with us — after that, cancel anything you want and keep the site for just the cost of hosting. Larger custom builds vest on a schedule we agree on upfront, in writing." },
+  { q: "Is there a setup fee?", a: "Not on our three programs — your first month covers onboarding, deployment, and configuration. Standalone website builds and ad campaigns are priced separately, and we'll quote those numbers before you sign anything." },
 ];
 
 export default function PricingFAQ() {

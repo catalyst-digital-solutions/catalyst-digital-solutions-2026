@@ -20,7 +20,7 @@ export default function PricingV4() {
   <div style={{maxWidth:'1180px',margin:'0 auto',display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,310px),1fr))',gap:'clamp(20px,2.2vw,26px)',alignItems:'stretch'}}>
 
     
-    <div style={{background:'rgba(255,255,255,.025)',border:'1px solid rgba(255,255,255,.10)',borderRadius:'18px',padding:'34px 30px',display:'flex',flexDirection:'column',gap:'0'}}>
+    <div id="foundation" style={{background:'rgba(255,255,255,.025)',border:'1px solid rgba(255,255,255,.10)',borderRadius:'18px',padding:'34px 30px',display:'flex',flexDirection:'column',gap:'0',scrollMarginTop:'100px'}}>
       <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'12px',letterSpacing:'2.5px',textTransform:'uppercase',color:'#00d4ff'}}>Tier 1</div>
       <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'40px',lineHeight:'1',letterSpacing:'1px',color:'#fafafa',margin:'10px 0 0'}}>Launchpad</h2>
       <div style={{display:'flex',alignItems:'baseline',gap:'6px',marginTop:'16px'}}>
@@ -45,7 +45,7 @@ export default function PricingV4() {
     </div>
 
     
-    <div style={{position:'relative',background:'linear-gradient(180deg,rgba(128,0,255,.12),rgba(128,0,255,.03)),rgba(255,255,255,.02)',border:'1px solid rgba(128,0,255,.55)',borderRadius:'18px',padding:'34px 30px',display:'flex',flexDirection:'column',boxShadow:'0 0 60px rgba(128,0,255,.16)'}}>
+    <div id="framework" style={{position:'relative',background:'linear-gradient(180deg,rgba(128,0,255,.12),rgba(128,0,255,.03)),rgba(255,255,255,.02)',border:'1px solid rgba(128,0,255,.55)',borderRadius:'18px',padding:'34px 30px',display:'flex',flexDirection:'column',boxShadow:'0 0 60px rgba(128,0,255,.16)',scrollMarginTop:'100px'}}>
       <div style={{position:'absolute',top:'-13px',left:'50%',transform:'translateX(-50%)',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',letterSpacing:'2px',textTransform:'uppercase',color:'#fff',background:'linear-gradient(135deg,#8000ff,#5600ab)',borderRadius:'999px',padding:'6px 16px',whiteSpace:'nowrap',boxShadow:'0 6px 20px rgba(128,0,255,.5)'}}>Most Popular</div>
       <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'12px',letterSpacing:'2.5px',textTransform:'uppercase',color:'#b56bff'}}>Tier 2</div>
       <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'40px',lineHeight:'1',letterSpacing:'1px',color:'#fafafa',margin:'10px 0 0'}}>Growth Engine</h2>
@@ -73,7 +73,7 @@ export default function PricingV4() {
     </div>
 
     
-    <div style={{background:'rgba(255,255,255,.025)',border:'1px solid rgba(0,212,255,.3)',borderRadius:'18px',padding:'34px 30px',display:'flex',flexDirection:'column'}}>
+    <div id="landmark" style={{background:'rgba(255,255,255,.025)',border:'1px solid rgba(0,212,255,.3)',borderRadius:'18px',padding:'34px 30px',display:'flex',flexDirection:'column',scrollMarginTop:'100px'}}>
       <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'12px',letterSpacing:'2.5px',textTransform:'uppercase',color:'#00d4ff'}}>Tier 3</div>
       <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'40px',lineHeight:'1',letterSpacing:'1px',color:'#fafafa',margin:'10px 0 0'}}>Domination</h2>
       <div style={{display:'flex',alignItems:'baseline',gap:'6px',marginTop:'16px'}}>
@@ -189,8 +189,8 @@ export default function PricingV4() {
         { q: "How is this different from an in-house hire?", a: "A competent in-house digital marketer costs $65,000–$85,000/year and doesn't come with AI video pipelines, programmatic SEO, or RFP monitoring." },
         { q: "Can I start at Tier 1 and upgrade?", a: "Yes — seamless, no rebuild required." },
         { q: "What trades do you work with?", a: "General contractors, commercial builders, specialty trades (electrical, plumbing, HVAC, roofing), civil contractors, demolition companies." },
-        { q: "What happens if I cancel?", a: "You keep everything built — website, content, analytics setup." },
-        { q: "Is there a setup fee?", a: "No. First month covers onboarding, deployment, and configuration." },
+        { q: "What happens if I cancel?", a: "Your content, analytics, and accounts are yours from day one. Your website becomes fully yours after six months with us — after that, cancel anything you want and keep the site for just the cost of hosting. Larger custom builds vest on a schedule we agree on upfront, in writing." },
+        { q: "Is there a setup fee?", a: "Not on our three programs — your first month covers onboarding, deployment, and configuration. Standalone website builds and ad campaigns are priced separately, and we'll quote those numbers before you sign anything." },
       ].map((faq) => (
         <div key={faq.q} style={{background:'rgba(255,255,255,.025)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'14px',overflow:'hidden'}}>
           <button type="button" data-expand-toggle="true" style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:'16px',width:'100%',background:'none',border:'none',padding:'20px 24px',fontFamily:'\'Inter\',sans-serif',fontSize:'16px',fontWeight:'600',color:'#fafafa',textAlign:'left',cursor:'pointer'}}>
@@ -217,7 +217,7 @@ export default function PricingV4() {
       <a href="/contact" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'10px',minHeight:'48px',fontFamily:'\'Inter\',sans-serif',fontSize:'16px',fontWeight:'600',color:'#fff',background:'linear-gradient(135deg,#8000ff,#5600ab)',border:'none',padding:'16px 30px',borderRadius:'11px',boxShadow:'0 10px 34px rgba(128,0,255,.4)',cursor:'pointer',textDecoration:'none'}}>Book a 15-Minute Call <span style={{fontSize:'18px'}}>→</span></a>
       <a href="tel:+16615359927" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'10px',minHeight:'48px',fontFamily:'\'Inter\',sans-serif',fontSize:'16px',fontWeight:'600',color:'#fafafa',background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.18)',padding:'16px 28px',borderRadius:'11px',cursor:'pointer',textDecoration:'none'}}>Call (661) 535-9927</a>
     </div>
-    <p style={{fontSize:'13px',color:'#7f8896',margin:'4px 0 0'}}>Month-to-month. No setup fee. You keep everything we build.</p>
+    <p style={{fontSize:'13px',color:'#7f8896',margin:'4px 0 0'}}>Month-to-month. No long-term contracts. Six months in, the website we built you is yours to keep.</p>
   </div>
 </section>
 

@@ -74,15 +74,18 @@ export default function ServiceAutomationV4() {
 
     <div style={{position:'relative',marginTop:'clamp(40px,5vw,60px)',paddingLeft:'clamp(0px,4vw,58px)'}}>
       <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
-        <div style={{background:'rgba(255,255,255,.022)',border:'1px solid rgba(255,255,255,.1)',borderRadius:'18px',padding:'clamp(22px,2.6vw,32px)'}}>
+        <div style={{display:'flex',flexDirection:'column',background:'rgba(255,255,255,.022)',border:'1px solid rgba(255,255,255,.1)',borderRadius:'18px',padding:'clamp(22px,2.6vw,32px)'}}>
           <div style={{display:'flex',flexWrap:'wrap',alignItems:'baseline',gap:'14px'}}>
             <span style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',letterSpacing:'2px',color:'#7f8896'}}>01</span>
             <span style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'clamp(26px,2.4vw,36px)',letterSpacing:'1.5px',textTransform:'uppercase',color:'#fafafa',lineHeight:'1'}}>Framework</span>
             <span style={{fontSize:'14px',color:'#9aa3b0'}}>the foundation of "it's handled"</span>
           </div>
           <div style={{display:'flex',alignItems:'flex-start',gap:'12px',marginTop:'20px'}}><span style={{color:'#00d4ff',fontSize:'15px',lineHeight:'1.5',flex:'none'}}>✓</span><p style={{fontSize:'15px',color:'#c8c8c8',lineHeight:'1.7',margin:'0',textWrap:'pretty'}}><span style={{color:'#fafafa',fontWeight:'600'}}>CRM setup + automation</span> — leads get followed up every time, automatically, with nobody having to remember.</p></div>
+          <div style={{display:'flex',justifyContent:'flex-end',marginTop:'26px'}}>
+            <a href="/pricing#framework" className="ghost-program-btn">See the full Framework program here.</a>
+          </div>
         </div>
-        <div style={{background:'linear-gradient(135deg,rgba(128,0,255,.13),rgba(255,255,255,.02) 58%)',border:'1px solid rgba(128,0,255,.42)',borderRadius:'18px',padding:'clamp(22px,2.6vw,32px)',boxShadow:'0 26px 70px rgba(0,0,0,.45),0 0 50px rgba(128,0,255,.1)'}}>
+        <div style={{display:'flex',flexDirection:'column',background:'linear-gradient(135deg,rgba(128,0,255,.13),rgba(255,255,255,.02) 58%)',border:'1px solid rgba(128,0,255,.42)',borderRadius:'18px',padding:'clamp(22px,2.6vw,32px)',boxShadow:'0 26px 70px rgba(0,0,0,.45),0 0 50px rgba(128,0,255,.1)'}}>
           <div style={{display:'flex',flexWrap:'wrap',alignItems:'baseline',gap:'14px'}}>
             <span style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',letterSpacing:'2px',color:'#b56bff'}}>02</span>
             <span style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'clamp(26px,2.4vw,36px)',letterSpacing:'1.5px',textTransform:'uppercase',color:'#fafafa',lineHeight:'1'}}>Landmark</span>
@@ -93,6 +96,9 @@ export default function ServiceAutomationV4() {
             <div style={{display:'flex',alignItems:'flex-start',gap:'12px'}}><span style={{color:'#b56bff',fontSize:'15px',lineHeight:'1.5',flex:'none'}}>✓</span><p style={{fontSize:'15px',color:'#c8c8c8',lineHeight:'1.7',margin:'0',textWrap:'pretty'}}><span style={{color:'rgb(250, 250, 250)',fontWeight:'600'}}>AI website chatbot</span> — trained on your services, answers questions like someone who actually works there.</p></div>
             <div style={{display:'flex',alignItems:'flex-start',gap:'12px'}}><span style={{color:'#b56bff',fontSize:'15px',lineHeight:'1.5',flex:'none'}}>✓</span><p style={{fontSize:'15px',color:'#c8c8c8',lineHeight:'1.7',margin:'0',textWrap:'pretty'}}><span style={{color:'rgb(250, 250, 250)',fontWeight:'600'}}>Invoice and collections automation</span> — stops hours of chasing payments.</p></div>
             <div style={{display:'flex',alignItems:'flex-start',gap:'12px'}}><span style={{color:'#b56bff',fontSize:'15px',lineHeight:'1.5',flex:'none'}}>✓</span><p style={{fontSize:'15px',color:'#c8c8c8',lineHeight:'1.7',margin:'0',textWrap:'pretty'}}><span style={{color:'#fafafa',fontWeight:'600'}}>Full automation suite</span> — lead routing, email sequences, and proposal automation running in the background.</p></div>
+          </div>
+          <div style={{display:'flex',justifyContent:'flex-end',marginTop:'26px'}}>
+            <a href="/pricing#landmark" className="ghost-program-btn">See the full Landmark program here.</a>
           </div>
         </div>
       </div>

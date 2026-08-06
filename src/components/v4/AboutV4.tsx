@@ -32,18 +32,10 @@ export default function AboutV4() {
       <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'13px',letterSpacing:'3px',textTransform:'uppercase',color:'#00d4ff'}}>Why Catalyst exists</div>
       <h2 style={{fontFamily:'\'Inter\',sans-serif',fontWeight:'700',fontSize:'clamp(28px,2.8vw,40px)',lineHeight:'1.2',color:'#fafafa',margin:'16px 0 0',textWrap:'balance'}}>The thing that kills most construction companies isn’t what you think.</h2>
 
-      <div style={{display:'flex',alignItems:'center',gap:'10px',margin:'26px 0 0'}}>
-        <div style={{width:'44px',height:'44px',borderRadius:'50%',background:'linear-gradient(135deg,#8000ff,#5600ab)',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'24px',color:'#fff',flex:'none'}}>M</div>
-        <div>
-          <div style={{fontSize:'14px',fontWeight:'600',color:'#fafafa'}}>Mario</div>
-          <div style={{fontSize:'12.5px',color:'#7f8896'}}>Founder · 4 min read</div>
-        </div>
-      </div>
-
       <div style={{marginTop:'34px',fontSize:'clamp(16px,1.2vw,17.5px)',lineHeight:'1.85',color:'#c8c8c8'}}>
-        <p style={{margin:'0',textWrap:'pretty'}}><span style={{float:'left',fontFamily:'&quot',fontSize:'76px',lineHeight:'0.78',color:'rgb(181, 107, 255)',padding:'6px 14px 0px 0px'}}>H</span>ere’s what nobody wants to say out loud: the thing that kills most construction companies isn’t the economy, a lack of skilled workers, or even slow-paying clients.</p>
+        <p style={{margin:'0',textWrap:'pretty'}}><span style={{float:'left',fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'76px',lineHeight:'0.78',color:'rgb(181, 107, 255)',padding:'6px 14px 0px 0px'}}>H</span>ere’s what nobody wants to say out loud: the thing that kills most construction companies isn’t the economy, a lack of skilled workers, or even slow-paying clients.</p>
 
-        <p style={{margin:'26px 0 0',fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'clamp(28px,2.6vw,38px)',letterSpacing:'1px',color:'#fafafa',textTransform:'uppercase'}}>It’s pride.</p>
+        <p style={{margin:'26px 0 0',fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'clamp(28px,2.6vw,38px)',letterSpacing:'1px',color:'#fafafa',textTransform:'uppercase',textAlign:'center'}}>It’s pride.</p>
 
         <p style={{margin:'26px 0 0',textWrap:'pretty'}}>It’s the owner who won’t look at his own numbers because he’s afraid of what he’ll find. The one who knows his systems are held together with duct tape and a shared spreadsheet, but says, “It’s worked fine so far.” The one who’d rather lose the bid quietly than risk looking foolish trying something new.</p>
 

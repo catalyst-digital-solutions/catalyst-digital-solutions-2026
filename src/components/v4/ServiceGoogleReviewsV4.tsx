@@ -122,7 +122,7 @@ export default function ServiceGoogleReviewsV4() {
     <div style={{position:'relative',marginTop:'clamp(40px,5vw,60px)',paddingLeft:'clamp(0px,4vw,58px)'}}>
       <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
 
-        <div style={{position:'relative',background:'rgba(255,255,255,.022)',border:'1px solid rgba(255,255,255,.1)',borderRadius:'18px',padding:'clamp(24px,3vw,36px)'}}>
+        <div style={{position:'relative',display:'flex',flexDirection:'column',background:'rgba(255,255,255,.022)',border:'1px solid rgba(255,255,255,.1)',borderRadius:'18px',padding:'clamp(24px,3vw,36px)'}}>
           <div style={{display:'flex',flexWrap:'wrap',alignItems:'baseline',gap:'14px'}}>
             <span style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',letterSpacing:'2px',color:'#7f8896'}}>01</span>
             <span style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'clamp(26px,2.4vw,36px)',letterSpacing:'1.5px',textTransform:'uppercase',color:'#fafafa',lineHeight:'1'}}>Foundation</span>
@@ -133,9 +133,12 @@ export default function ServiceGoogleReviewsV4() {
             <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Regular GBP posts</strong> — keeps your profile active, which Google rewards</span></div>
             <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Google Maps optimization</strong> — verified, complete, positioned to compete for the 3-pack</span></div>
           </div>
+          <div style={{display:'flex',justifyContent:'flex-end',marginTop:'26px'}}>
+            <a href="/pricing#foundation" className="ghost-program-btn">See the full Foundation program here.</a>
+          </div>
         </div>
 
-        <div style={{position:'relative',background:'linear-gradient(135deg,rgba(128,0,255,.13),rgba(255,255,255,.02) 58%)',border:'1px solid rgba(128,0,255,.42)',borderRadius:'18px',padding:'clamp(24px,3vw,36px)',boxShadow:'0 26px 70px rgba(0,0,0,.45),0 0 50px rgba(128,0,255,.1)'}}>
+        <div style={{position:'relative',display:'flex',flexDirection:'column',background:'linear-gradient(135deg,rgba(128,0,255,.13),rgba(255,255,255,.02) 58%)',border:'1px solid rgba(128,0,255,.42)',borderRadius:'18px',padding:'clamp(24px,3vw,36px)',boxShadow:'0 26px 70px rgba(0,0,0,.45),0 0 50px rgba(128,0,255,.1)'}}>
           <div style={{display:'flex',flexWrap:'wrap',alignItems:'baseline',gap:'14px'}}>
             <span style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',letterSpacing:'2px',color:'#b56bff'}}>02</span>
             <span style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'clamp(26px,2.4vw,36px)',letterSpacing:'1.5px',textTransform:'uppercase',color:'#fafafa',lineHeight:'1'}}>Framework</span>
@@ -145,9 +148,12 @@ export default function ServiceGoogleReviewsV4() {
             <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#b56bff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Local SEO + citations</strong> — the third-party mentions Google (and AI tools) use to confirm you're real and established, built as part of your SEO program</span></div>
             <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#b56bff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Review monitoring</strong> — we watch every new review so nothing slips by</span></div>
           </div>
+          <div style={{display:'flex',justifyContent:'flex-end',marginTop:'26px'}}>
+            <a href="/pricing#framework" className="ghost-program-btn">See the full Framework program here.</a>
+          </div>
         </div>
 
-        <div style={{position:'relative',background:'rgba(255,255,255,.022)',border:'1px solid rgba(255,255,255,.1)',borderRadius:'18px',padding:'clamp(24px,3vw,36px)'}}>
+        <div style={{position:'relative',display:'flex',flexDirection:'column',background:'rgba(255,255,255,.022)',border:'1px solid rgba(255,255,255,.1)',borderRadius:'18px',padding:'clamp(24px,3vw,36px)'}}>
           <div style={{display:'flex',flexWrap:'wrap',alignItems:'baseline',gap:'14px'}}>
             <span style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',letterSpacing:'2px',color:'#7f8896'}}>03</span>
             <span style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'clamp(26px,2.4vw,36px)',letterSpacing:'1.5px',textTransform:'uppercase',color:'#fafafa',lineHeight:'1'}}>Landmark</span>
@@ -156,6 +162,9 @@ export default function ServiceGoogleReviewsV4() {
           <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,300px),1fr))',gap:'12px 28px',marginTop:'22px'}}>
             <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Automated AI review generation</strong> — every finished job triggers a request by text, right when your client's happiest</span></div>
             <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Review response on autopilot</strong> — a professional reply to every review, good or bad, without you lifting a finger</span></div>
+          </div>
+          <div style={{display:'flex',justifyContent:'flex-end',marginTop:'26px'}}>
+            <a href="/pricing#landmark" className="ghost-program-btn">See the full Landmark program here.</a>
           </div>
         </div>
 
@@ -220,7 +229,7 @@ export default function ServiceGoogleReviewsV4() {
       </div>
       <div style={{background:'rgba(255,255,255,.025)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'14px',overflow:'hidden'}}>
         <button type="button" data-expand-toggle="true" style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:'16px',width:'100%',fontFamily:'\'Inter\',sans-serif',fontSize:'clamp(15px,1.15vw,17px)',fontWeight:'600',color:'#fafafa',background:'none',border:'none',padding:'20px 24px',cursor:'pointer',textAlign:'left'}}>"What if I get a bad review?"<span style={{fontSize:'19px',color:'#00d4ff',flex:'none',lineHeight:'1'}}>+</span></button>
-        <div data-expand-panel="true" hidden style={{padding:'0 24px 22px',animation:'panelIn .3s ease'}}><p style={{fontSize:'15px',color:'#9aa3b0',lineHeight:'1.75',margin:'0',textWrap:'pretty'}}>Every real business gets one eventually. What matters is a fast, professional, human response — which we handle so it never sits there unanswered for weeks looking neglected.</p></div>
+        <div data-expand-panel="true" hidden style={{padding:'0 24px 22px',animation:'panelIn .3s ease'}}><p style={{fontSize:'15px',color:'#9aa3b0',lineHeight:'1.75',margin:'0',textWrap:'pretty'}}>You’ll know within minutes. Our system flags it immediately and drafts a professional public response for you to approve — you’re never stuck for half an hour trying to find the right words. We also send you a private resolution script in case you want to reach out directly, since you know the details of the job, and what you might be prepared to offer as a remedy. Once you approve, we post the response. If the situation gets resolved on your end, just let us know — we’ll follow up with the customer’s revision link so they can update the review if they choose to.</p></div>
       </div>
     </div>
   </div>

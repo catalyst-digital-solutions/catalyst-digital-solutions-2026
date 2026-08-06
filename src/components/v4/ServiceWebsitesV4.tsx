@@ -6,15 +6,24 @@ export default function ServiceWebsitesV4() {
   return (
     <Expandable>
 
-<section data-screen-label="Hero" style={{position:'relative',overflow:'hidden',padding:'clamp(150px,16vw,220px) clamp(20px,5vw,64px) clamp(60px,7vw,100px)'}}>
-  <div style={{position:'absolute',top:'-18%',right:'-10%',width:'640px',height:'640px',maxWidth:'90vw',background:'radial-gradient(circle at center,rgba(0,212,255,.13),transparent 64%)',filter:'blur(28px)',pointerEvents:'none'}}></div>
-  <div style={{position:'relative',zIndex:'1',maxWidth:'1180px',margin:'0 auto'}}>
-    <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'12px',letterSpacing:'2px',color:'#7f8896',marginBottom:'16px'}}><a href="/services" style={{color:'#7f8896',textDecoration:'none'}}>SERVICES</a> / <span style={{color:'#00d4ff'}}>WEBSITES & BRANDING</span></div>
-    <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'13px',letterSpacing:'3px',textTransform:'uppercase',color:'#00d4ff'}}>The ground floor</div>
-    <h1 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'clamp(44px,5.4vw,88px)',lineHeight:'.9',letterSpacing:'1px',color:'#fafafa',margin:'18px 0 0',maxWidth:'940px',textWrap:'balance'}}>Your website is your first impression. Let's make it the right one.</h1>
-    <p style={{fontSize:'clamp(16px,1.25vw,18px)',color:'#c8c8c8',lineHeight:'1.7',margin:'24px 0 0',maxWidth:'620px',textWrap:'pretty'}}>Before anyone calls you, they look you up. What they find in the next 20 seconds decides if you get the job or lose it to someone who looks more professional online — even if your work is better.</p>
-    <div style={{display:'flex',flexWrap:'wrap',gap:'16px',marginTop:'36px'}}><a href="/contact" className="cta-full" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'10px',minHeight:'48px',fontFamily:'\'Inter\',sans-serif',fontSize:'16px',fontWeight:'600',color:'#fff',background:'linear-gradient(135deg,#8000ff,#5600ab)',border:'none',padding:'16px 30px',borderRadius:'11px',boxShadow:'0 10px 34px rgba(128,0,255,.4)',cursor:'pointer',textDecoration:'none'}}>Book a 20-Min Call <span style={{fontSize:'18px'}}>→</span></a></div>
+<section className="hero-web" data-screen-label="Hero">
+  <div className="hero-web__copy">
+    <p className="hero-web__eyebrow">Websites</p>
+    <h1>Your site should be <span style={{background:'linear-gradient(90deg,#b56bff,#00d4ff)',WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>your best salesperson.</span></h1>
+    <p className="hero-web__lede">Custom-built, fast, and engineered to turn search traffic into booked estimates.</p>
+    <div className="hero-web__cta">
+      <a className="hero-web__btn hero-web__btn--primary" href="/contact">Book a call</a>
+      <a className="hero-web__btn hero-web__btn--ghost" href="#work">See the work</a>
+    </div>
   </div>
+  <figure className="hero-web__devices">
+    <img
+      src="/assets/websites-hero-devices.jpg"
+      alt="A construction company website shown on a laptop and phone"
+      width={1918}
+      height={1080}
+    />
+  </figure>
 </section>
 
 <section data-screen-label="What's included" style={{position:'relative',padding:'clamp(60px,7vw,100px) clamp(20px,5vw,64px)',borderTop:'1px solid rgba(255,255,255,.06)'}}>
@@ -103,7 +112,7 @@ export default function ServiceWebsitesV4() {
 </section>
 
 
-<section data-screen-label="Proof not promises" style={{position:'relative',background:'#080b0f',fontFamily:'\'Inter\',sans-serif',color:'#c8c8c8',overflow:'hidden',padding:'clamp(80px,10vw,150px) clamp(20px,5vw,64px)'}}>
+<section id="work" data-screen-label="Proof not promises" style={{position:'relative',background:'#080b0f',fontFamily:'\'Inter\',sans-serif',color:'#c8c8c8',overflow:'hidden',padding:'clamp(80px,10vw,150px) clamp(20px,5vw,64px)',scrollMarginTop:'100px'}}>
   <div style={{position:'absolute',bottom:'-12%',right:'-8%',width:'640px',height:'640px',maxWidth:'90vw',background:'radial-gradient(circle at center,rgba(128,0,255,.2),transparent 62%)',filter:'blur(28px)',pointerEvents:'none'}}></div>
 
   <div style={{position:'relative',zIndex:'1',maxWidth:'1220px',margin:'0 auto'}}>
@@ -111,7 +120,7 @@ export default function ServiceWebsitesV4() {
       <div style={{maxWidth:'720px'}}>
         <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'13px',fontWeight:'500',letterSpacing:'3px',textTransform:'uppercase',color:'#00d4ff',marginBottom:'18px'}}>Your digital money-maker</div>
         <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'clamp(44px,5.6vw,92px)',lineHeight:'.9',letterSpacing:'1px',color:'#fafafa',margin:'0',textWrap:'balance'}}>Websites that pay for themselves.</h2>
-        <p style={{fontSize:'clamp(15.5px,1.15vw,17.5px)',color:'#c8c8c8',lineHeight:'1.75',margin:'24px 0 0',maxWidth:'640px',textWrap:'pretty'}}>Fast, sharp sites built to turn lookers into leads. Our sites are <em style={{fontStyle:'italic'}}>much more</em> than online brochures. They actually make you <span style={{color:'#80ff80',fontWeight:'600'}}>money</span>.</p>
+        <p style={{fontSize:'clamp(15.5px,1.15vw,17.5px)',color:'#c8c8c8',lineHeight:'1.75',margin:'24px 0 0',maxWidth:'640px',textWrap:'pretty'}}>Fast, sharp sites built to turn views into leads. Our sites are <em style={{fontStyle:'italic'}}>much more</em> than online brochures. They actually make you <span style={{color:'#80ff80',fontWeight:'600'}}>money</span>.</p>
         <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,280px),1fr))',gap:'12px 26px',margin:'26px 0 0',maxWidth:'720px'}}>
           <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Shows up when they search</strong> — SEO-built so the next job finds you first</span></div>
           <div style={{display:'flex',gap:'11px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.6',textWrap:'pretty'}}><strong style={{color:'#fafafa',fontWeight:'600'}}>Never miss a lead</strong> — every form hits your phone the second they submit</span></div>
