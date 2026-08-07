@@ -12,6 +12,8 @@ Append-only notes about what changed over time. **Do not use this as the source 
 - Demo scroll previews require `demo-card` + `demo-thumb-img` (was missing on v4 websites cards until restored).
 - Favicon: circular Catalyst mark (`catalyst-digital-solutions-favicon-circle.png` + `src/app/favicon.ico`).
 - Pricing FAQ updated for setup fees, cancellation/vesting, and month-to-month ownership language.
+- Quick Wins credit section finalized (Leak Finder full credit; builds credit back on 12-month terms; month-to-month remains available). Placeholders removed.
+- Pricing tier labels restored to Foundation / Framework / Landmark after v4 port had reintroduced Launchpad / Growth Engine / Domination from the design export.
 
 ## 2026-07 — v3 handoff era (superseded by v4)
 

@@ -22,7 +22,7 @@ export default function PricingV4() {
     
     <div id="foundation" style={{background:'rgba(255,255,255,.025)',border:'1px solid rgba(255,255,255,.10)',borderRadius:'18px',padding:'34px 30px',display:'flex',flexDirection:'column',gap:'0',scrollMarginTop:'100px'}}>
       <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'12px',letterSpacing:'2.5px',textTransform:'uppercase',color:'#00d4ff'}}>Tier 1</div>
-      <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'40px',lineHeight:'1',letterSpacing:'1px',color:'#fafafa',margin:'10px 0 0'}}>Launchpad</h2>
+      <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'40px',lineHeight:'1',letterSpacing:'1px',color:'#fafafa',margin:'10px 0 0'}}>Foundation</h2>
       <div style={{display:'flex',alignItems:'baseline',gap:'6px',marginTop:'16px'}}>
         <span style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'52px',lineHeight:'1',color:'#fafafa'}}>$1,497</span>
         <span style={{fontSize:'14px',color:'#7f8896'}}>/mo</span>
@@ -41,14 +41,14 @@ export default function PricingV4() {
         <div style={{display:'flex',gap:'10px',alignItems:'flex-start'}}><span style={{color:'#7f8896',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>—</span><span style={{fontSize:'13.5px',lineHeight:'1.6',color:'#7f8896'}}>No call tracking</span></div>
         <div style={{display:'flex',gap:'10px',alignItems:'flex-start'}}><span style={{color:'#7f8896',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>—</span><span style={{fontSize:'13.5px',lineHeight:'1.6',color:'#7f8896'}}>No programmatic SEO</span></div>
       </div>
-      <a href="/contact" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'9px',minHeight:'48px',fontFamily:'\'Inter\',sans-serif',fontSize:'15px',fontWeight:'600',color:'#fafafa',background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.2)',padding:'14px 24px',borderRadius:'11px',marginTop:'28px',textDecoration:'none'}}>Start With Launchpad</a>
+      <a href="/contact" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'9px',minHeight:'48px',fontFamily:'\'Inter\',sans-serif',fontSize:'15px',fontWeight:'600',color:'#fafafa',background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.2)',padding:'14px 24px',borderRadius:'11px',marginTop:'28px',textDecoration:'none'}}>Start With Foundation</a>
     </div>
 
     
     <div id="framework" style={{position:'relative',background:'linear-gradient(180deg,rgba(128,0,255,.12),rgba(128,0,255,.03)),rgba(255,255,255,.02)',border:'1px solid rgba(128,0,255,.55)',borderRadius:'18px',padding:'34px 30px',display:'flex',flexDirection:'column',boxShadow:'0 0 60px rgba(128,0,255,.16)',scrollMarginTop:'100px'}}>
       <div style={{position:'absolute',top:'-13px',left:'50%',transform:'translateX(-50%)',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11px',letterSpacing:'2px',textTransform:'uppercase',color:'#fff',background:'linear-gradient(135deg,#8000ff,#5600ab)',borderRadius:'999px',padding:'6px 16px',whiteSpace:'nowrap',boxShadow:'0 6px 20px rgba(128,0,255,.5)'}}>Most Popular</div>
       <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'12px',letterSpacing:'2.5px',textTransform:'uppercase',color:'#b56bff'}}>Tier 2</div>
-      <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'40px',lineHeight:'1',letterSpacing:'1px',color:'#fafafa',margin:'10px 0 0'}}>Growth Engine</h2>
+      <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'40px',lineHeight:'1',letterSpacing:'1px',color:'#fafafa',margin:'10px 0 0'}}>Framework</h2>
       <div style={{display:'flex',alignItems:'baseline',gap:'6px',marginTop:'16px'}}>
         <span style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'52px',lineHeight:'1',color:'#fafafa'}}>$2,997</span>
         <span style={{fontSize:'14px',color:'#7f8896'}}>/mo</span>
@@ -56,7 +56,7 @@ export default function PricingV4() {
       <p style={{fontSize:'14.5px',fontStyle:'italic',color:'#c8a8ff',margin:'12px 0 0'}}>"Become the contractor they call first."</p>
       <div style={{width:'100%',height:'1px',background:'rgba(128,0,255,.3)',margin:'24px 0'}}></div>
       <div style={{display:'flex',flexDirection:'column',gap:'12px',flex:'1'}}>
-        <div style={{display:'flex',gap:'10px',alignItems:'flex-start'}}><span style={{color:'#b56bff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14px',lineHeight:'1.6',color:'#fafafa',fontWeight:'600'}}>Everything in Launchpad, plus:</span></div>
+        <div style={{display:'flex',gap:'10px',alignItems:'flex-start'}}><span style={{color:'#b56bff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14px',lineHeight:'1.6',color:'#fafafa',fontWeight:'600'}}>Everything in Foundation, plus:</span></div>
         <div style={{display:'flex',gap:'10px',alignItems:'flex-start'}}><span style={{color:'#b56bff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14px',lineHeight:'1.6',color:'#c8c8c8'}}>12–16 AI-generated videos/month</span></div>
         <div style={{display:'flex',gap:'10px',alignItems:'flex-start'}}><span style={{color:'#b56bff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14px',lineHeight:'1.6',color:'#c8c8c8'}}>36–96 short-form clips/month auto-distributed to YouTube, TikTok, IG Reels, LinkedIn</span></div>
         <div style={{display:'flex',gap:'10px',alignItems:'flex-start'}}><span style={{color:'#b56bff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14px',lineHeight:'1.6',color:'#c8c8c8'}}>Advanced SEO + keyword tracking + competitor analysis</span></div>
@@ -69,13 +69,13 @@ export default function PricingV4() {
       <div style={{background:'rgba(128,0,255,.10)',border:'1px solid rgba(128,0,255,.35)',borderRadius:'11px',padding:'14px 16px',marginTop:'20px'}}>
         <p style={{fontSize:'13px',color:'#d9c2ff',lineHeight:'1.6',margin:'0',textWrap:'pretty'}}>For $1,500 more than Tier 1, this includes an entire AI content factory (48–112 pieces/month) plus programmatic SEO that alone costs $3,000+ elsewhere.</p>
       </div>
-      <a href="/contact" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'9px',minHeight:'48px',fontFamily:'\'Inter\',sans-serif',fontSize:'15px',fontWeight:'600',color:'#fff',background:'linear-gradient(135deg,#8000ff,#5600ab)',border:'none',padding:'14px 24px',borderRadius:'11px',marginTop:'20px',boxShadow:'0 10px 34px rgba(128,0,255,.4)',textDecoration:'none'}}>Get Growth Engine</a>
+      <a href="/contact" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'9px',minHeight:'48px',fontFamily:'\'Inter\',sans-serif',fontSize:'15px',fontWeight:'600',color:'#fff',background:'linear-gradient(135deg,#8000ff,#5600ab)',border:'none',padding:'14px 24px',borderRadius:'11px',marginTop:'20px',boxShadow:'0 10px 34px rgba(128,0,255,.4)',textDecoration:'none'}}>Get Framework</a>
     </div>
 
     
     <div id="landmark" style={{background:'rgba(255,255,255,.025)',border:'1px solid rgba(0,212,255,.3)',borderRadius:'18px',padding:'34px 30px',display:'flex',flexDirection:'column',scrollMarginTop:'100px'}}>
       <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'12px',letterSpacing:'2.5px',textTransform:'uppercase',color:'#00d4ff'}}>Tier 3</div>
-      <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'40px',lineHeight:'1',letterSpacing:'1px',color:'#fafafa',margin:'10px 0 0'}}>Domination</h2>
+      <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'40px',lineHeight:'1',letterSpacing:'1px',color:'#fafafa',margin:'10px 0 0'}}>Landmark</h2>
       <div style={{display:'flex',alignItems:'baseline',gap:'6px',marginTop:'16px'}}>
         <span style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'52px',lineHeight:'1',color:'#fafafa'}}>$7,997</span>
         <span style={{fontSize:'14px',color:'#7f8896'}}>/mo</span>
@@ -83,7 +83,7 @@ export default function PricingV4() {
       <p style={{fontSize:'14.5px',fontStyle:'italic',color:'#8fdcff',margin:'12px 0 0'}}>"The obvious choice in every market you enter."</p>
       <div style={{width:'100%',height:'1px',background:'rgba(0,212,255,.25)',margin:'24px 0'}}></div>
       <div style={{display:'flex',flexDirection:'column',gap:'12px',flex:'1'}}>
-        <div style={{display:'flex',gap:'10px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14px',lineHeight:'1.6',color:'#fafafa',fontWeight:'600'}}>Everything in Growth Engine, plus:</span></div>
+        <div style={{display:'flex',gap:'10px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14px',lineHeight:'1.6',color:'#fafafa',fontWeight:'600'}}>Everything in Framework, plus:</span></div>
         <div style={{display:'flex',gap:'10px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14px',lineHeight:'1.6',color:'#c8c8c8'}}>20–30 AI videos/month + 60–180 short-form clips</span></div>
         <div style={{display:'flex',gap:'10px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14px',lineHeight:'1.6',color:'#c8c8c8'}}>24/7 AI Voice Agent</span></div>
         <div style={{display:'flex',gap:'10px',alignItems:'flex-start'}}><span style={{color:'#00d4ff',fontSize:'14px',lineHeight:'1.6',flex:'none'}}>✓</span><span style={{fontSize:'14px',lineHeight:'1.6',color:'#c8c8c8'}}>AI website chatbot (RAG-powered)</span></div>
@@ -97,7 +97,7 @@ export default function PricingV4() {
       <div style={{background:'rgba(0,212,255,.06)',border:'1px solid rgba(0,212,255,.25)',borderRadius:'11px',padding:'14px 16px',marginTop:'20px'}}>
         <p style={{fontSize:'13px',color:'#9fdfff',lineHeight:'1.6',margin:'0',textWrap:'pretty'}}>RFP AI alone: comparable tools (Loopio) cost $20,000–$55,000/yr; AutoRFP starts at $899/mo. Included free here.</p>
       </div>
-      <a href="/contact" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'9px',minHeight:'48px',fontFamily:'\'Inter\',sans-serif',fontSize:'15px',fontWeight:'600',color:'#fafafa',background:'rgba(0,212,255,.08)',border:'1px solid rgba(0,212,255,.4)',padding:'14px 24px',borderRadius:'11px',marginTop:'20px',textDecoration:'none'}}>Let's Talk Domination</a>
+      <a href="/contact" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'9px',minHeight:'48px',fontFamily:'\'Inter\',sans-serif',fontSize:'15px',fontWeight:'600',color:'#fafafa',background:'rgba(0,212,255,.08)',border:'1px solid rgba(0,212,255,.4)',padding:'14px 24px',borderRadius:'11px',marginTop:'20px',textDecoration:'none'}}>Let's Talk Landmark</a>
     </div>
   </div>
 </section>

@@ -57,7 +57,7 @@ export default function QuickWinsV4() {
       <p style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.7',margin:'0',flex:'1',textWrap:'pretty'}}>The same AI that powers our top-tier clients' bid pipeline — monitoring thousands of public bid portals 24/7, filtered to your trade and geography, delivered straight to your inbox. This is the fastest way to see what Catalyst can do, because the results show up as literal opportunities in your inbox within days.</p>
       <button data-expand-toggle="true" style={{display:'inline-flex',alignItems:'center',gap:'7px',background:'none',border:'none',padding:'0',fontFamily:'\'Inter\',sans-serif',fontSize:'13px',fontWeight:'600',color:'#b56bff',cursor:'pointer',textAlign:'left'}}><span style={{fontSize:'15px',lineHeight:'1'}}>⊕</span> Is this the same as the Construction RFP AI on the pricing page?</button>
       <div data-expand-panel="true" hidden style={{borderLeft:'2px solid #8000ff',padding:'4px 0 4px 16px',animation:'panelIn .35s cubic-bezier(.4,0,.2,1)'}}>
-          <p style={{fontSize:'13.5px',color:'#c8c8c8',lineHeight:'1.7',margin:'0',textWrap:'pretty'}}>Yes — same tool. This is the on-ramp; the <a href="/pricing" style={{color:'#00d4ff',textDecoration:'none',borderBottom:'1px solid rgba(0,212,255,.4)'}}>Domination tier</a> includes it free once you're ready to go all-in.</p>
+          <p style={{fontSize:'13.5px',color:'#c8c8c8',lineHeight:'1.7',margin:'0',textWrap:'pretty'}}>Yes — same tool. This is the on-ramp; the <a href="/pricing#landmark" style={{color:'#00d4ff',textDecoration:'none',borderBottom:'1px solid rgba(0,212,255,.4)'}}>Landmark tier</a> includes it free once you're ready to go all-in.</p>
         </div>
       <a href="/contact" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'9px',minHeight:'48px',fontFamily:'\'Inter\',sans-serif',fontSize:'15px',fontWeight:'600',color:'#fff',background:'linear-gradient(135deg,#8000ff,#5600ab)',border:'none',padding:'14px 22px',borderRadius:'11px',boxShadow:'0 10px 34px rgba(128,0,255,.4)',textDecoration:'none'}}>Start Finding Bids</a>
     </div>
@@ -160,10 +160,13 @@ export default function QuickWinsV4() {
 <section data-screen-label="Credit mechanic" style={{position:'relative',overflow:'hidden',textAlign:'center',padding:'clamp(80px,10vw,130px) clamp(20px,5vw,64px)',borderTop:'1px solid rgba(255,255,255,.06)'}}>
   <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:'780px',height:'780px',maxWidth:'130vw',background:'radial-gradient(circle,rgba(128,0,255,.18),transparent 64%)',filter:'blur(24px)',pointerEvents:'none',animation:'floatY 12s ease-in-out infinite'}}></div>
   <div style={{position:'relative',zIndex:'1',maxWidth:'780px',margin:'0 auto',display:'flex',flexDirection:'column',alignItems:'center',gap:'22px'}}>
-    <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'13px',letterSpacing:'3px',textTransform:'uppercase',color:'#b56bff'}}>Nothing you spend here is wasted</div>
-    <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'clamp(40px,4.8vw,76px)',lineHeight:'.92',letterSpacing:'1px',color:'#fafafa',margin:'0',textWrap:'balance'}}>Every dollar credits toward the real thing.</h2>
-    <p style={{fontSize:'clamp(16px,1.25vw,18px)',color:'#c8c8c8',lineHeight:'1.7',margin:'0',maxWidth:'620px',textWrap:'pretty'}}>If you like what a Quick Win does for your business, <span style={{color:'#80ff80',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'.9em'}}>[X]%</span> of what you paid credits directly toward your first month on any monthly plan — or toward your custom website build — if you upgrade within <span style={{color:'#80ff80',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'.9em'}}>[Y]</span> days. You're not starting over. You're picking up where you left off.</p>
-    <p style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'12px',color:'#7f8896',margin:'6px 0 0'}}>[Placeholder — final credit % and window pending Mario's call. Do not publish as-is.]</p>
+    <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'13px',letterSpacing:'3px',textTransform:'uppercase',color:'#b56bff'}}>Nothing here is a dead end</div>
+    <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'clamp(40px,4.8vw,76px)',lineHeight:'.92',letterSpacing:'1px',color:'#fafafa',margin:'0',textWrap:'balance'}}>Start anywhere. It all credits back.</h2>
+    <div style={{fontSize:'clamp(16px,1.25vw,18px)',color:'#c8c8c8',lineHeight:'1.7',maxWidth:'620px',textAlign:'center',display:'flex',flexDirection:'column',gap:'18px'}}>
+      <p style={{margin:'0',textWrap:'pretty'}}>Leak Finder credits back in full, immediately — the entire $497 applies to your first month on any plan.</p>
+      <p style={{margin:'0',textWrap:'pretty'}}>The builds credit back too. Start a monthly plan on a twelve-month term and we return the full build price, spread evenly across the year. Prefer month-to-month? That stays available — always has.</p>
+      <p style={{margin:'0',textWrap:'pretty'}}>Either way, you're not starting over. You're picking up where you left off.</p>
+    </div>
   </div>
 </section>
 

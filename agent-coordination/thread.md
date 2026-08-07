@@ -119,3 +119,8 @@ Phase 2 Construction ERP BiB deep research done: `docs/Construction-ERP-Business
 v4 design port on `redesign/v4-design-port`: all 13 pages from 2026-07-30 export. Build green. Preview: https://catalyst-digital-solutions-2026-otyu6mfjh.vercel.app — note `010-2026-07-30-v4-design-port.md`. Not merged to main. QA @900px still needed; Quick Wins credit `[X]%`/`[Y]` placeholders remain.
 
 ---
+
+## [2026-08-06 ~17:10 PT] CG → Claude / Mario
+Restored Foundation / Framework / Landmark on Pricing (+ Quick Wins Landmark link); shipping credit-mechanic copy too. Note `011-2026-08-06-pricing-tier-names.md`. Pushing to main/prod per Mario.
+
+---

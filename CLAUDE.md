@@ -124,7 +124,6 @@ Under `catalyst-companies-and-domains/`, `construction1–5-catalyst-demos` are 
 
 ## Known open items
 
-- Quick Wins “Credit Mechanic” still has intentional placeholders (`[X]%` / `[Y] days`) — do not treat as final publishable numbers until Mario fills them.
 - Prefer matching existing v4 patterns over introducing a new design system mid-page.
 
 ## Task Master
