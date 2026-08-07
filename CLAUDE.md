@@ -126,6 +126,16 @@ Under `catalyst-companies-and-domains/`, `construction1–5-catalyst-demos` are 
 
 - Prefer matching existing v4 patterns over introducing a new design system mid-page.
 
+## Pricing uncertainty — video tools (HeyGen / OpusClip)
+
+**Trigger:** revisit before selling ~the 8th client who needs video generation (Framework/Landmark AI video). Research note from Claude Opus (2026-08).
+
+**HeyGen is not the risk.** Business is $149/mo with 1,500 credits; Avatar IV burns 20 credits per minute; top-ups run $0.05/credit. At 10 clients you're around $420/mo total — roughly $42 per client, and it drops as you grow. The old "$212 / $494 per client" numbers were badly wrong in your favor.
+
+**OpusClip is the risk.** Pro is $29/mo for 300 source-minutes and caps at 2–4 seats. At 10 clients you need ~346 minutes. You break Pro at roughly client #8, and the tier above it has no published price. **Get a Business quote before you sell the eighth seat** — that's the one number that can quietly eat the margin.
+
+**API caveat (can invalidate HeyGen math entirely):** the HeyGen API is a completely separate pay-as-you-go subscription from the web plan. If the pipeline generates video via API, web-plan credits don't apply at all. Confirm before building.
+
 ## Task Master
 
 If using Task Master, treat `@./.taskmaster/CLAUDE.md` as imported here.
