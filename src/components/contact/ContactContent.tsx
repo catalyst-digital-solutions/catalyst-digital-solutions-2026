@@ -106,9 +106,9 @@ export default function ContactContent() {
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginTop: "36px" }}>
-              <a href="tel:+16615359927" style={{ display: "inline-flex", alignItems: "center", gap: "12px", color: "#fafafa", fontSize: "15.5px", fontWeight: 600, textDecoration: "none", width: "fit-content" }}>
+              <a href="tel:+16618884837" style={{ display: "inline-flex", alignItems: "center", gap: "12px", color: "#fafafa", fontSize: "15.5px", fontWeight: 600, textDecoration: "none", width: "fit-content" }}>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none" }}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                (661) 535-9927
+                (661) 888-4837
               </a>
               <a href="mailto:info@catalyst-digital-solutions.com" style={{ display: "inline-flex", alignItems: "center", gap: "12px", color: "#fafafa", fontSize: "15.5px", fontWeight: 600, textDecoration: "none", width: "fit-content", wordBreak: "break-all" }}>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none" }}><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
@@ -120,7 +120,7 @@ export default function ContactContent() {
               </div>
               <div style={{ display: "inline-flex", alignItems: "flex-start", gap: "12px", color: "#c8c8c8", fontSize: "15px", lineHeight: 1.6 }}>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none", marginTop: "3px" }}><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
-                <span>Mon&ndash;Fri, 8am&ndash;6pm PT.<br /><span style={{ color: "#b56bff" }}>Leave a message after hours — we&apos;ll get back next business day.</span></span>
+                <span>Mon&ndash;Fri, 8am&ndash;6pm PT.<br /><span style={{ color: "#b56bff" }}>Send a message any time &mdash; we reply the next business morning.</span></span>
               </div>
             </div>
 
@@ -244,7 +244,7 @@ export default function ContactContent() {
                 </p>
                 {status === "error" && (
                   <p style={{ color: "#ff8a8a", fontSize: "13.5px", lineHeight: 1.6, margin: "12px 0 0", textWrap: "pretty" }}>
-                    Something went wrong sending your request. Please call or text <a href="tel:+16615359927" style={{ color: "#00d4ff", textDecoration: "none" }}>(661) 535-9927</a> or email <a href="mailto:info@catalyst-digital-solutions.com" style={{ color: "#00d4ff", textDecoration: "none" }}>info@catalyst-digital-solutions.com</a>.
+                    Something went wrong sending your request. Please call or text <a href="tel:+16618884837" style={{ color: "#00d4ff", textDecoration: "none" }}>(661) 888-4837</a> or email <a href="mailto:info@catalyst-digital-solutions.com" style={{ color: "#00d4ff", textDecoration: "none" }}>info@catalyst-digital-solutions.com</a>.
                   </p>
                 )}
               </form>

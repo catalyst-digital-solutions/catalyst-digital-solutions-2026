@@ -666,7 +666,7 @@ export default function HomeV3() {
           <p style={{ fontSize: "clamp(16px,1.3vw,19px)", color: "#c8c8c8", lineHeight: 1.7, margin: "30px 0 0", maxWidth: "580px", textWrap: "pretty" }}>Book a quick 20-minute call. We&rsquo;ll show you exactly what&rsquo;s costing you jobs and how to fix it. No pressure. No jargon.</p>
           <div style={{ marginTop: "40px", display: "flex", flexDirection: "column", alignItems: "center", gap: "15px", width: "100%" }}>
             <Link href="/contact" className="cta-full" style={{ ...primaryCta, fontSize: "17px", padding: "17px 34px", animation: "ctaPulse 3.4s ease-in-out infinite" }}>Book a 20-Min Call <span style={{ fontSize: "19px" }}>&rarr;</span></Link>
-            <div style={{ fontSize: "13.5px", color: "#7f8896" }}>Or call or text us &mdash; <a href="tel:+16615359927" style={{ color: "#9aa3b0", textDecoration: "none", fontWeight: 600 }}>(661) 535-9927</a>.</div>
+            <div style={{ fontSize: "13.5px", color: "#7f8896" }}>Or call or text us &mdash; <a href="tel:+16618884837" style={{ color: "#9aa3b0", textDecoration: "none", fontWeight: 600 }}>(661) 888-4837</a>.</div>
           </div>
         </div>
       </section>
@@ -715,7 +715,7 @@ export default function HomeV3() {
             <p style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: "clamp(30px,3vw,48px)", letterSpacing: "1px", textTransform: "uppercase", color: "#fafafa", lineHeight: 1, margin: "40px 0 0" }}>Let&rsquo;s build the system.</p>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "14px", marginTop: "26px" }}>
               <Link href="/contact" className="cta-full" style={{ ...primaryCta, fontSize: "17px", padding: "17px 34px" }}>Book a 20-Min Call <span style={{ fontSize: "19px" }}>&rarr;</span></Link>
-              <div style={{ fontSize: "13.5px", color: "#7f8896" }}>Or call or text &mdash; <a href="tel:+16615359927" style={{ color: "#9aa3b0", textDecoration: "none", fontWeight: 600 }}>(661) 535-9927</a>.</div>
+              <div style={{ fontSize: "13.5px", color: "#7f8896" }}>Or call or text &mdash; <a href="tel:+16618884837" style={{ color: "#9aa3b0", textDecoration: "none", fontWeight: 600 }}>(661) 888-4837</a>.</div>
             </div>
           </div>
           <div style={{ flex: "1 1 400px", minWidth: "290px", maxWidth: "560px", position: "relative" }}>

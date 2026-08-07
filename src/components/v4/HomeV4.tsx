@@ -367,7 +367,7 @@ export default function HomeV4() {
       </a>
     </div>
     <div style={{display:'flex',flexWrap:'wrap',alignItems:'center',justifyContent:'space-between',gap:'18px',marginTop:'clamp(28px,3.5vw,40px)'}}>
-      <p style={{fontSize:'clamp(15.5px,1.2vw,18px)',fontWeight:'600',color:'#fafafa',margin:'0',textWrap:'pretty'}}>Not sure which fits? Give us a call at <a href="tel:+16615359927" style={{color:'#00d4ff',textDecoration:'none'}}>(661) 535-9927</a>.</p>
+      <p style={{fontSize:'clamp(15.5px,1.2vw,18px)',fontWeight:'600',color:'#fafafa',margin:'0',textWrap:'pretty'}}>Not sure which fits? Give us a call at <a href="tel:+16618884837" style={{color:'#00d4ff',textDecoration:'none'}}>(661) 888-4837</a>.</p>
       <div style={{display:'flex',flexWrap:'wrap',alignItems:'center',gap:'12px'}}>
         <a href="/pricing#tiers" style={{display:'inline-flex',alignItems:'center',gap:'10px',minHeight:'48px',fontFamily:'\'Inter\',sans-serif',fontSize:'16px',fontWeight:'600',color:'#fafafa',background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.18)',padding:'14px 28px',borderRadius:'11px',cursor:'pointer',textDecoration:'none'}}>See all programs and features <span style={{fontSize:'18px'}}>→</span></a>
         <a href="https://cal.com/catalystdigitalsolutions/20min" target="_blank" rel="noopener" className="cta-full" style={{display:'inline-flex',alignItems:'center',gap:'10px',minHeight:'48px',fontFamily:'\'Inter\',sans-serif',fontSize:'16px',fontWeight:'700',color:'#fff',background:'linear-gradient(135deg,#8000ff,#5600ab)',border:'none',padding:'14px 28px',borderRadius:'11px',boxShadow:'0 8px 28px rgba(128,0,255,.35)',cursor:'pointer',textDecoration:'none'}}>Book a short meeting <span style={{fontSize:'18px'}}>→</span></a>

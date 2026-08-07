@@ -242,7 +242,7 @@ export default function ServiceWebsitesV4() {
     <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'13px',letterSpacing:'3px',textTransform:'uppercase',color:'#00d4ff'}}>Next step</div>
     <h2 style={{fontFamily:'\'Inter\',sans-serif',fontWeight:'700',fontSize:'clamp(26px,2.6vw,36px)',lineHeight:'1.25',color:'#fafafa',margin:'0',textWrap:'balance'}}>Twenty seconds decides if you get the job. Let's make them count.</h2>
     <div style={{display:'flex',flexWrap:'wrap',justifyContent:'center',gap:'16px',marginTop:'10px'}}><a href="/contact" className="cta-full" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'10px',minHeight:'48px',fontFamily:'\'Inter\',sans-serif',fontSize:'16px',fontWeight:'600',color:'#fff',background:'linear-gradient(135deg,#8000ff,#5600ab)',border:'none',padding:'16px 30px',borderRadius:'11px',boxShadow:'0 10px 34px rgba(128,0,255,.4)',cursor:'pointer',textDecoration:'none'}}>Book a 20-Min Call <span style={{fontSize:'18px'}}>→</span></a></div>
-    <div style={{fontSize:'13.5px',color:'#7f8896'}}>Or call or text — <a href="tel:+16615359927" style={{color:'#9aa3b0',textDecoration:'none',fontWeight:'600'}}>(661) 535-9927</a></div>
+    <div style={{fontSize:'13.5px',color:'#7f8896'}}>Or call or text — <a href="tel:+16618884837" style={{color:'#9aa3b0',textDecoration:'none',fontWeight:'600'}}>(661) 888-4837</a></div>
   </div>
 </section>
 

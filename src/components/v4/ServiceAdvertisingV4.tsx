@@ -22,7 +22,7 @@ export default function ServiceAdvertisingV4() {
       </div>
       <div style={{display:'flex',flexWrap:'wrap',alignItems:'center',gap:'18px',marginTop:'34px'}}>
         <a href="/contact" className="cta-full" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'10px',minHeight:'54px',fontFamily:'\'Inter\',sans-serif',fontSize:'17px',fontWeight:'700',color:'#fff',background:'linear-gradient(135deg,#8000ff,#5600ab)',border:'none',padding:'18px 34px',borderRadius:'11px',boxShadow:'0 10px 34px rgba(128,0,255,.42)',cursor:'pointer',textDecoration:'none'}}>Book a 20-Minute Call <span style={{fontSize:'18px'}}>→</span></a>
-        <a href="tel:+16615359927" style={{fontSize:'14.5px',color:'#9aa3b0',textDecoration:'none',fontWeight:'600'}}>or call (661) 535-9927</a>
+        <a href="tel:+16618884837" style={{fontSize:'14.5px',color:'#9aa3b0',textDecoration:'none',fontWeight:'600'}}>or call (661) 888-4837</a>
       </div>
     </div>
     <div style={{position:'relative'}}>
@@ -130,7 +130,7 @@ export default function ServiceAdvertisingV4() {
       <div style={{display:'flex',alignItems:'center',gap:'12px',padding:'0 4px'}}><div style={{flex:'1',height:'1px',background:'linear-gradient(90deg,transparent,rgba(255,255,255,.14))'}}></div><span style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',color:'#7f8896'}}>versus</span><div style={{flex:'1',height:'1px',background:'linear-gradient(90deg,rgba(255,255,255,.14),transparent)'}}></div></div>
       <div style={{background:'linear-gradient(180deg,rgba(128,255,128,.07),rgba(10,14,19,.9))',border:'1px solid rgba(128,255,128,.32)',borderRadius:'16px',padding:'18px',boxShadow:'0 24px 70px rgba(0,0,0,.55),0 0 46px rgba(128,255,128,.07)'}}>
         <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:'12px',marginBottom:'15px'}}><div style={{display:'inline-flex',alignItems:'center',gap:'7px',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',color:'#80ff80'}}><span style={{width:'6px',height:'6px',borderRadius:'50%',background:'#80ff80',animation:'pulseDot 2.4s ease-in-out infinite'}}></span>Ad → landing page</div><div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'10px',color:'#c8c8c8'}}>8–15% convert</div></div>
-        <div style={{display:'flex',alignItems:'center',gap:'9px',paddingBottom:'14px',borderBottom:'1px solid rgba(255,255,255,.07)'}}><div style={{width:'22px',height:'8px',borderRadius:'3px',background:'rgba(255,255,255,.28)',flex:'none'}}></div><div style={{marginLeft:'auto',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'9.5px',color:'#9aa3b0'}}>(661) 535-9927</div></div>
+        <div style={{display:'flex',alignItems:'center',gap:'9px',paddingBottom:'14px',borderBottom:'1px solid rgba(255,255,255,.07)'}}><div style={{width:'22px',height:'8px',borderRadius:'3px',background:'rgba(255,255,255,.28)',flex:'none'}}></div><div style={{marginLeft:'auto',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'9.5px',color:'#9aa3b0'}}>(661) 888-4837</div></div>
         <div style={{display:'flex',flexDirection:'column',gap:'9px',margin:'16px 0 14px'}}><div style={{height:'13px',width:'88%',borderRadius:'4px',background:'rgba(255,255,255,.36)'}}></div><div style={{height:'13px',width:'62%',borderRadius:'4px',background:'rgba(255,255,255,.36)'}}></div><div style={{height:'6px',width:'74%',borderRadius:'3px',background:'rgba(255,255,255,.14)',marginTop:'3px'}}></div></div>
         <div style={{background:'rgba(255,255,255,.04)',border:'1px solid rgba(0,212,255,.24)',borderRadius:'11px',padding:'13px',display:'flex',flexDirection:'column',gap:'8px'}}>
           <div style={{height:'26px',borderRadius:'7px',background:'rgba(255,255,255,.06)',border:'1px solid rgba(255,255,255,.1)'}}></div>
@@ -172,7 +172,7 @@ export default function ServiceAdvertisingV4() {
     <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'12px',letterSpacing:'3px',textTransform:'uppercase',color:'#00d4ff'}}>Next step</div>
     <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'clamp(42px,5.6vw,96px)',lineHeight:'.9',letterSpacing:'1px',color:'#fafafa',margin:'0',textWrap:'balance'}}>Get leads flowing while the long game builds.</h2>
     <a href="/contact" className="cta-full" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'10px',minHeight:'56px',fontFamily:'\'Inter\',sans-serif',fontSize:'17px',fontWeight:'700',color:'#fff',background:'linear-gradient(135deg,#8000ff,#5600ab)',border:'none',padding:'19px 36px',borderRadius:'11px',boxShadow:'0 10px 34px rgba(128,0,255,.42)',cursor:'pointer',textDecoration:'none'}}>Book a 20-Minute Call <span style={{fontSize:'18px'}}>→</span></a>
-    <div style={{fontSize:'13.5px',color:'#7f8896'}}>Or call or text — <a href="tel:+16615359927" style={{color:'#9aa3b0',textDecoration:'none',fontWeight:'600'}}>(661) 535-9927</a></div>
+    <div style={{fontSize:'13.5px',color:'#7f8896'}}>Or call or text — <a href="tel:+16618884837" style={{color:'#9aa3b0',textDecoration:'none',fontWeight:'600'}}>(661) 888-4837</a></div>
   </div>
 </section>
 

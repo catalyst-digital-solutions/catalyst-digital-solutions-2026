@@ -13,7 +13,7 @@ We're a small company in Bakersfield, California. We don't sell your data. We do
 
 **Catalyst Digital Solutions LLC**
 4012 Foxwood St, Bakersfield, CA 93306
-(661) 535-9927
+(661) 888-4837
 mario@catalyst-digital-solutions.com
 
 ## 2. Information we collect
@@ -65,7 +65,7 @@ If you provide your mobile number on our Site — including through our contact 
 
 **Message and data rates may apply.**
 
-**Reply STOP** to any message to opt out. You will receive one confirmation and no further messages. You may reply START to resubscribe. **Reply HELP** for help, or call us at (661) 535-9927. Carriers are not liable for delayed or undelivered messages.
+**Reply STOP** to any message to opt out. You will receive one confirmation and no further messages. You may reply START to resubscribe. **Reply HELP** for help, or call us at (661) 888-4837. Carriers are not liable for delayed or undelivered messages.
 
 **Mobile opt-in data and phone numbers collected for SMS purposes will not be shared or sold to third parties for marketing purposes.** No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. All other categories of information described in this policy exclude text messaging originator opt-in data and consent; **this information will not be shared with any third parties.**
 
@@ -109,7 +109,7 @@ Depending on the circumstances, California law may give you the right to:
 
 **We do not sell or share personal information as those terms are defined under the California Consumer Privacy Act.**
 
-To exercise any of these rights, contact us at mario@catalyst-digital-solutions.com or (661) 535-9927. We may need to verify your identity before responding.
+To exercise any of these rights, contact us at mario@catalyst-digital-solutions.com or (661) 888-4837. We may need to verify your identity before responding.
 
 ## 9. Other
 
@@ -126,4 +126,4 @@ Questions about this policy, or about the information we hold about you:
 **Catalyst Digital Solutions LLC**
 4012 Foxwood St, Bakersfield, CA 93306
 mario@catalyst-digital-solutions.com
-(661) 535-9927
+(661) 888-4837

@@ -171,7 +171,7 @@ export default function Nav() {
 
       <div style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", gap: "clamp(14px,1.8vw,24px)", flex: "none" }}>
         <a
-          href="tel:+16615359927"
+          href="tel:+16618884837"
           className="nav-phone"
           style={{
             display: "inline-flex",
@@ -188,7 +188,7 @@ export default function Nav() {
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none" }} aria-hidden>
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
           </svg>
-          <span className="nav-phone-num">(661) 535-9927</span>
+          <span className="nav-phone-num">(661) 888-4837</span>
         </a>
         <Link
           href="/contact"
@@ -300,8 +300,8 @@ export default function Nav() {
               )}
             </div>
           ))}
-          <a href="tel:+16615359927" style={{ color: "#00d4ff", textDecoration: "none", fontWeight: 600, padding: "9px 0" }}>
-            Call (661) 535-9927
+          <a href="tel:+16618884837" style={{ color: "#00d4ff", textDecoration: "none", fontWeight: 600, padding: "9px 0" }}>
+            Call (661) 888-4837
           </a>
         </div>
       )}

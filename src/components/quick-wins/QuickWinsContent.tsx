@@ -5,9 +5,7 @@ import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 
 /* CDS Quick Wins page — recreated from "CDS Quick Wins.dc.html" (design handoff).
-   Copy is locked; transcribed verbatim. NOTE: the Credit Mechanic section copy
-   contains an intentional placeholder ("[X]% / [Y] days") flagged in the design
-   as "Do not publish as-is" — preserved verbatim per the transcribe-exactly rule. */
+   Live route uses QuickWinsV4; this file kept as legacy. Credit terms locked 2026-08-07. */
 
 const ghostCta: CSSProperties = {
   display: "inline-flex",
@@ -119,6 +117,7 @@ export default function QuickWinsContent() {
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [openFaq, setOpenFaq] = useState(-1);
+  const [creditOpen, setCreditOpen] = useState(false);
 
   return (
     <div style={{ background: "#080b0f", fontFamily: "var(--font-inter), sans-serif", color: "#c8c8c8" }}>
@@ -225,12 +224,7 @@ export default function QuickWinsContent() {
         </div>
       </section>
 
-      {/* ============ SECTION 3 : CREDIT MECHANIC (hidden until Mario sets % / window) ============ */}
-      {/* Intentionally not published with [X]% / [Y] placeholders. Restore when numbers are final.
-      <section style={{ position: "relative", overflow: "hidden", textAlign: "center", padding: "clamp(80px,10vw,130px) clamp(20px,5vw,64px)", borderTop: "1px solid rgba(255,255,255,.06)" }}>
-        ...
-      </section>
-      */}
+      {/* ============ SECTION 3 : CREDIT MECHANIC ============ */}
       <section style={{ position: "relative", overflow: "hidden", textAlign: "center", padding: "clamp(80px,10vw,130px) clamp(20px,5vw,64px)", borderTop: "1px solid rgba(255,255,255,.06)" }}>
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "780px", height: "780px", maxWidth: "130vw", background: "radial-gradient(circle,rgba(128,0,255,.18),transparent 64%)", filter: "blur(24px)", pointerEvents: "none", animation: "floatY 12s ease-in-out infinite" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: "780px", margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", gap: "22px" }}>
@@ -238,9 +232,39 @@ export default function QuickWinsContent() {
           <h2 style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontWeight: 400, textTransform: "uppercase", fontSize: "clamp(40px,4.8vw,76px)", lineHeight: 0.92, letterSpacing: "1px", color: "#fafafa", margin: 0, textWrap: "balance" }}>
             Every dollar credits toward the real thing.
           </h2>
-          <p style={{ fontSize: "clamp(16px,1.25vw,18px)", color: "#c8c8c8", lineHeight: 1.7, margin: 0, maxWidth: "620px", textWrap: "pretty" }}>
-            Like what a Quick Win does for your business? Ask us about applying that investment toward a monthly plan or a custom website build when you&apos;re ready to go further. You&apos;re not starting over — you&apos;re picking up where you left off.
-          </p>
+          <div style={{ fontSize: "clamp(16px,1.25vw,18px)", color: "#c8c8c8", lineHeight: 1.7, margin: 0, maxWidth: "620px", textWrap: "pretty", display: "flex", flexDirection: "column", gap: "18px", textAlign: "center" }}>
+            <p style={{ margin: 0 }}>
+              Leak Finder is a diagnostic, so it credits back in full &mdash; the entire $497
+              applies to your first month on any monthly program, or to a custom website
+              build, if you start within 60 days.
+            </p>
+            <p style={{ margin: 0 }}>
+              The builds work differently, and better: you own them. When you move to a
+              monthly program, we don&apos;t rebuild what you already have. We wire it into the
+              larger system, where it starts feeding everything else.
+            </p>
+            <p style={{ margin: 0 }}>
+              Either way, you&apos;re not starting over. You&apos;re picking up where you left off.
+            </p>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0 }}>
+            <button
+              type="button"
+              onClick={() => setCreditOpen((v) => !v)}
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-inter), sans-serif", fontSize: "13px", fontWeight: 600, color: "#8000ff", padding: 0 }}
+            >
+              <span style={{ fontSize: "16px", lineHeight: 1 }}>⊕</span> How the Leak Finder credit works
+            </button>
+            {creditOpen && (
+              <div style={{ marginTop: "16px", maxWidth: "600px", borderLeft: "2px solid #8000ff", padding: "6px 0 6px 20px", textAlign: "left" }}>
+                <p style={{ fontSize: "14.5px", color: "#c8c8c8", lineHeight: 1.65, margin: 0, textWrap: "pretty" }}>
+                  One credit per company. Applies to your first month or your build deposit &mdash;
+                  not to ad spend or third-party costs. The 60-day window runs from the date
+                  your report is delivered.
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 

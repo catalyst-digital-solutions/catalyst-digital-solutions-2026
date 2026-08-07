@@ -33,7 +33,7 @@ export default function Page() {
         <br />
         4012 Foxwood St, Bakersfield, CA 93306
         <br />
-        (661) 535-9927
+        (661) 888-4837
         <br />
         <a href="mailto:mario@catalyst-digital-solutions.com">
           mario@catalyst-digital-solutions.com
@@ -127,7 +127,7 @@ export default function Page() {
       </p>
       <p>
         <strong>Opt-out.</strong> Reply <strong>STOP</strong> at any time to unsubscribe. Reply{" "}
-        <strong>HELP</strong> for support, or call (661) 535-9927. Carriers are not liable for
+        <strong>HELP</strong> for support, or call (661) 888-4837. Carriers are not liable for
         delayed or undelivered messages.
       </p>
       <p>
@@ -251,7 +251,7 @@ export default function Page() {
           mario@catalyst-digital-solutions.com
         </a>
         <br />
-        (661) 535-9927
+        (661) 888-4837
       </p>
     </LegalPage>
   );

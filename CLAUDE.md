@@ -9,7 +9,7 @@ Guidance for agents working in this repository. **This file is current state onl
 - **Production:** https://catalyst-digital-solutions.com (also `www` and `catalyst-digital.solutions`)
 - **Vercel:** project `catalyst-digital-solutions-2026`, team `catalyst-digital-solutions-projects`
 - **Canonical email (sitewide):** `info@catalyst-digital-solutions.com`
-- **Phone:** `(661) 535-9927`
+- **Phone:** `(661) 888-4837`
 - **Booking:** Cal.com `https://cal.com/catalystdigitalsolutions/20min` (used heavily in CTAs)
 
 **Positioning rule:** Headlines sell the destination (jobs, revenue, profit, margins) — never the vehicle (websites, SEO, AI) as the hero claim.

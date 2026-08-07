@@ -179,7 +179,7 @@ export default function AboutContent() {
               </p>
 
               <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", marginTop: "36px" }}>
-                <a href="tel:+16615359927" className="cta-full" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "10px", minHeight: "48px", fontFamily: "var(--font-inter), sans-serif", fontSize: "15.5px", fontWeight: 600, color: "#fff", background: "linear-gradient(135deg,#8000ff,#5600ab)", padding: "15px 28px", borderRadius: "11px", boxShadow: "0 10px 34px rgba(128,0,255,.4)", textDecoration: "none" }}>
+                <a href="tel:+16618884837" className="cta-full" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "10px", minHeight: "48px", fontFamily: "var(--font-inter), sans-serif", fontSize: "15.5px", fontWeight: 600, color: "#fff", background: "linear-gradient(135deg,#8000ff,#5600ab)", padding: "15px 28px", borderRadius: "11px", boxShadow: "0 10px 34px rgba(128,0,255,.4)", textDecoration: "none" }}>
                   Call Mario Now
                   <PhoneIcon stroke="#fff" />
                 </a>

@@ -23,7 +23,7 @@ export default function ServiceAutomationV4() {
       </div>
       <div style={{display:'flex',flexWrap:'wrap',alignItems:'center',gap:'18px',marginTop:'34px'}}>
         <a href="/contact" className="cta-full" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'10px',minHeight:'54px',fontFamily:'\'Inter\',sans-serif',fontSize:'17px',fontWeight:'700',color:'#fff',background:'linear-gradient(135deg,#8000ff,#5600ab)',border:'none',padding:'18px 34px',borderRadius:'11px',boxShadow:'0 10px 34px rgba(128,0,255,.42)',cursor:'pointer',textDecoration:'none'}}>Book a 20-Minute Call <span style={{fontSize:'18px'}}>→</span></a>
-        <a href="tel:+16615359927" style={{fontSize:'14.5px',color:'#9aa3b0',textDecoration:'none',fontWeight:'600'}}>or call (661) 535-9927</a>
+        <a href="tel:+16618884837" style={{fontSize:'14.5px',color:'#9aa3b0',textDecoration:'none',fontWeight:'600'}}>or call (661) 888-4837</a>
       </div>
     </div>
     <div style={{position:'relative'}}>
@@ -171,7 +171,7 @@ export default function ServiceAutomationV4() {
     <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'12px',letterSpacing:'3px',textTransform:'uppercase',color:'#00d4ff'}}>Next step</div>
     <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'clamp(42px,5.6vw,96px)',lineHeight:'.9',letterSpacing:'1px',color:'#fafafa',margin:'0',textWrap:'balance'}}>Stop being the bottleneck in your own company.</h2>
     <a href="/contact" className="cta-full" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:'10px',minHeight:'56px',fontFamily:'\'Inter\',sans-serif',fontSize:'17px',fontWeight:'700',color:'#fff',background:'linear-gradient(135deg,#8000ff,#5600ab)',border:'none',padding:'19px 36px',borderRadius:'11px',boxShadow:'0 10px 34px rgba(128,0,255,.42)',cursor:'pointer',textDecoration:'none'}}>Book a 20-Minute Call <span style={{fontSize:'18px'}}>→</span></a>
-    <div style={{fontSize:'13.5px',color:'#7f8896'}}>Or call or text — <a href="tel:+16615359927" style={{color:'#9aa3b0',textDecoration:'none',fontWeight:'600'}}>(661) 535-9927</a></div>
+    <div style={{fontSize:'13.5px',color:'#7f8896'}}>Or call or text — <a href="tel:+16618884837" style={{color:'#9aa3b0',textDecoration:'none',fontWeight:'600'}}>(661) 888-4837</a></div>
   </div>
 </section>
 

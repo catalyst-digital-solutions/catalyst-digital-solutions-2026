@@ -163,9 +163,13 @@ export default function QuickWinsV4() {
     <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'13px',letterSpacing:'3px',textTransform:'uppercase',color:'#b56bff'}}>Nothing here is a dead end</div>
     <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'clamp(40px,4.8vw,76px)',lineHeight:'.92',letterSpacing:'1px',color:'#fafafa',margin:'0',textWrap:'balance'}}>Start anywhere. It all credits back.</h2>
     <div style={{fontSize:'clamp(16px,1.25vw,18px)',color:'#c8c8c8',lineHeight:'1.7',maxWidth:'620px',textAlign:'center',display:'flex',flexDirection:'column',gap:'18px'}}>
-      <p style={{margin:'0',textWrap:'pretty'}}>Leak Finder credits back in full, immediately — the entire $497 applies to your first month on any plan.</p>
-      <p style={{margin:'0',textWrap:'pretty'}}>The builds credit back too. Start a monthly plan on a twelve-month term and we return the full build price, spread evenly across the year. Prefer month-to-month? That stays available — always has.</p>
+      <p style={{margin:'0',textWrap:'pretty'}}>Leak Finder is a diagnostic, so it credits back in full — the entire $497 applies to your first month on any monthly program, or to a custom website build, if you start within 60 days.</p>
+      <p style={{margin:'0',textWrap:'pretty'}}>The builds work differently, and better: you own them. When you move to a monthly program, we don't rebuild what you already have. We wire it into the larger system, where it starts feeding everything else.</p>
       <p style={{margin:'0',textWrap:'pretty'}}>Either way, you're not starting over. You're picking up where you left off.</p>
+    </div>
+    <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:0,marginTop:4}}>
+      <button type="button" data-expand-toggle="true" style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'none',border:'none',cursor:'pointer',fontFamily:'\'Inter\',sans-serif',fontSize:'13px',fontWeight:'600',color:'#8000ff',padding:0}}><span style={{fontSize:'16px',lineHeight:1}}>⊕</span> How the Leak Finder credit works</button>
+      <div data-expand-panel="true" hidden style={{marginTop:'16px',maxWidth:'600px',borderLeft:'2px solid #8000ff',padding:'6px 0 6px 20px',animation:'panelIn .42s ease',textAlign:'left'}}><p style={{fontSize:'14.5px',color:'#c8c8c8',lineHeight:'1.65',margin:0,textWrap:'pretty'}}>One credit per company. Applies to your first month or your build deposit — not to ad spend or third-party costs. The 60-day window runs from the date your report is delivered.</p></div>
     </div>
   </div>
 </section>

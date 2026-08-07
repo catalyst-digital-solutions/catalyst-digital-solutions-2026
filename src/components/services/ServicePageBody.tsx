@@ -116,7 +116,7 @@ export default function ServicePageBody({
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px", marginTop: "10px" }}>
             <Link href="/contact" className="cta-full" style={primaryCta}>{ctaLabel} <span style={{ fontSize: "18px" }}>&rarr;</span></Link>
           </div>
-          <div style={{ fontSize: "13.5px", color: "#7f8896" }}>Or call or text &mdash; <a href="tel:+16615359927" style={{ color: "#9aa3b0", textDecoration: "none", fontWeight: 600 }}>(661) 535-9927</a></div>
+          <div style={{ fontSize: "13.5px", color: "#7f8896" }}>Or call or text &mdash; <a href="tel:+16618884837" style={{ color: "#9aa3b0", textDecoration: "none", fontWeight: 600 }}>(661) 888-4837</a></div>
         </div>
       </section>
     </div>

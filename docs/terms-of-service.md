@@ -13,7 +13,7 @@ By using the Site, you agree to these Terms. If you don't agree, please don't us
 
 **Catalyst Digital Solutions LLC**
 4012 Foxwood St, Bakersfield, CA 93306
-(661) 535-9927
+(661) 888-4837
 mario@catalyst-digital-solutions.com
 
 ## 2. What this Site is
@@ -58,7 +58,7 @@ You may view and print pages for your own reference. You may not copy, reproduce
 
 **Message frequency varies based on your interactions with us.** **Message and data rates may apply.**
 
-**Opt-out.** Reply **STOP** at any time to unsubscribe. Reply **HELP** for support, or call (661) 535-9927. Carriers are not liable for delayed or undelivered messages.
+**Opt-out.** Reply **STOP** at any time to unsubscribe. Reply **HELP** for support, or call (661) 888-4837. Carriers are not liable for delayed or undelivered messages.
 
 How we handle mobile information — including that mobile opt-in data and phone numbers collected for SMS purposes will not be shared or sold to third parties for marketing purposes — is described in our [Privacy Policy](/privacy).
 
@@ -115,4 +115,4 @@ Any dispute arising out of or relating to these Terms or the Site will be brough
 **Catalyst Digital Solutions LLC**
 4012 Foxwood St, Bakersfield, CA 93306
 mario@catalyst-digital-solutions.com
-(661) 535-9927
+(661) 888-4837

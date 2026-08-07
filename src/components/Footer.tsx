@@ -79,11 +79,11 @@ export default function Footer() {
             Get in touch
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 14, fontSize: 14.5 }}>
-            <a href="tel:+16615359927" style={{ display: "inline-flex", alignItems: "center", gap: 10, color: "#c8c8c8", textDecoration: "none", width: "fit-content" }}>
+            <a href="tel:+16618884837" style={{ display: "inline-flex", alignItems: "center", gap: 10, color: "#c8c8c8", textDecoration: "none", width: "fit-content" }}>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none" }} aria-hidden>
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
-              (661) 535-9927
+              (661) 888-4837
             </a>
             <a
               href="mailto:info@catalyst-digital-solutions.com"
