@@ -9,12 +9,15 @@ Guidance for agents working in this repository. **This file is current state onl
 - **Production:** https://catalyst-digital-solutions.com (also `www` and `catalyst-digital.solutions`)
 - **Vercel:** project `catalyst-digital-solutions-2026`, team `catalyst-digital-solutions-projects`
 - **Canonical email (sitewide):** `info@catalyst-digital-solutions.com`
-- **Phone:** `(661) 888-4837`
+- **Phone (NAP / RingCentral):** `(661) 888-4837` — `tel:+16618884837` (do not reintroduce `(661) 535-9927`)
+- **Hours:** Monday–Friday, 8:00 AM – 6:00 PM PT (site + GBP)
 - **Booking:** Cal.com `https://cal.com/catalystdigitalsolutions/20min` (used heavily in CTAs)
 
 **Positioning rule:** Headlines sell the destination (jobs, revenue, profit, margins) — never the vehicle (websites, SEO, AI) as the hero claim.
 
-**Program names (sitewide):** Foundation → Framework → Landmark (pricing tiers / service cards). Pricing page cards also carry legacy labels Launchpad / Growth Engine / Domination with anchors `#foundation` `#framework` `#landmark`.
+**Program names (sitewide):** Foundation → Framework → Landmark. Anchors: `#foundation` `#framework` `#landmark`. **Inclusive progression:** each program includes everything in the one below it, at one price — never imply stacking `$1,497 + $2,997`. Prices: Foundation `$1,497` / Framework `$2,997` / Landmark `$7,997` (do not change without Mario).
+
+**Pricing authority:** intended source of truth is `docs/pricing/tiers-canonical.md` (v2.0+) — **file not yet in this repo** as of 2026-08-07; add it before further pricing copy passes.
 
 ## Roles & coordination
 
@@ -95,12 +98,23 @@ Thin `src/app/**/page.tsx` files import v4 page bodies from `src/components/v4/*
 | `/services/automation` | `ServiceAutomationV4.tsx` |
 | `/services/rfp-ai` | `ServiceRfpAiV4.tsx` |
 | `/pricing` | `PricingV4.tsx` (`#tiers`, `#foundation`, `#framework`, `#landmark`) |
-| `/quick-wins` | `QuickWinsV4.tsx` (and/or `quick-wins/QuickWinsContent.tsx`) |
+| `/quick-wins` | `QuickWinsV4.tsx` (live; `quick-wins/QuickWinsContent.tsx` is legacy) |
 | `/contact` | `ContactContent.tsx` + `POST /api/contact` (Resend) |
 | `/privacy`, `/terms` | Legal pages (A2P/SMS language included) |
 
 ### Homepage
 `HomeV4` is the live homepage (single client component assembling sections). Demo site cards use class `demo-card` + image class `demo-thumb-img` for hover scroll-through previews.
+
+### Pricing (`PricingV4.tsx`)
+- Foundation card lists capabilities only (no “No X” exclusion bullets).
+- Framework must **not** claim Speed-to-Lead or 5-Star Autopilot until Twilio infrastructure is live.
+- Landmark may list client-facing `24/7 AI Voice Agent` as a **product** feature — do not claim Catalyst’s own after-hours phone line is AI-covered (it is not deployed).
+
+### Quick Wins credit
+Leak Finder `$497` credits in full toward first month on any monthly program or a custom website build **within 60 days** of report delivery. Builds: client owns them; monthly onboarding wires them in (no rebuild). Fine-print ⊕ panel documents one-credit / no ad-spend rules.
+
+### Contact hours copy
+`Mon–Fri, 8am–6pm PT` + purple accent: *Send a message any time — we reply the next business morning.* Do not restore “After-hours? Our AI is always on.”
 
 ### Websites service hero
 - Class `.hero-web`: flat `#07080a`, copy left / devices right
@@ -125,6 +139,10 @@ Under `catalyst-companies-and-domains/`, `construction1–5-catalyst-demos` are 
 ## Known open items
 
 - Prefer matching existing v4 patterns over introducing a new design system mid-page.
+- Add `docs/pricing/tiers-canonical.md` (v2.0.1 hours + changelog) — missing; blocks Task 6 of the 2026-08-07 alignment PRD.
+- Homepage presence coverflow (`CoverflowCarousel` + stacked Bad/Good rails) may be WIP locally — confirm before treating as live.
+- Program-relationship copy still needs judgment calls (do not auto-edit): HomeV4 “Three separate monthly options…”, Pricing “Add RFP AI to My Stack”, Advertising “layered on top of any”.
+- Foundation pricing card may look shorter than Framework/Landmark after exclusion bullets were removed — filler is a separate copy decision.
 
 ## Pricing uncertainty — video tools (HeyGen / OpusClip)
 
