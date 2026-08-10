@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Bebas_Neue, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 
 /* v4 design: fixed overlay nav — page heroes own their top padding (no main offset). */
 
@@ -76,11 +74,7 @@ export default function RootLayout({
       className={`${inter.variable} ${bebasNeue.variable} ${jetbrainsMono.variable}`}
     >
       <body>
-        <LenisProvider>
-          <Nav />
-          <main>{children}</main>
-          <Footer />
-        </LenisProvider>
+        <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
   );

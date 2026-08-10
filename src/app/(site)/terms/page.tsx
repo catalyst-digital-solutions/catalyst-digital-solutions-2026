@@ -25,6 +25,11 @@ export default function Page() {
         the Site.
       </p>
 
+      <p>
+        For the terms governing our monthly marketing programs, see the{" "}
+        <Link href="/legal/service-agreement">Client Service Agreement</Link>.
+      </p>
+
       <hr />
 
       <h2>1. Who we are</h2>
