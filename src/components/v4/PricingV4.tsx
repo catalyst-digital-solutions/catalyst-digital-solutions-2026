@@ -134,40 +134,8 @@ export default function PricingV4() {
 </section>
 
 
-<section data-screen-label="Client results" style={{position:'relative',overflow:'hidden',padding:'clamp(70px,8vw,110px) clamp(20px,5vw,64px)',borderTop:'1px solid rgba(255,255,255,.06)'}}>
-  <div style={{position:'absolute',bottom:'-24%',right:'-10%',width:'640px',height:'640px',maxWidth:'90vw',background:'radial-gradient(circle at center,rgba(0,212,255,.10),transparent 64%)',filter:'blur(28px)',pointerEvents:'none'}}></div>
-  <div style={{position:'relative',zIndex:'1',maxWidth:'1180px',margin:'0 auto'}}>
-    <div style={{textAlign:'center',maxWidth:'640px',margin:'0 auto clamp(44px,5vw,64px)'}}>
-      <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'13px',letterSpacing:'3px',textTransform:'uppercase',color:'#00d4ff'}}>Client results</div>
-      <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'clamp(38px,4.4vw,68px)',lineHeight:'.94',letterSpacing:'1px',color:'#fafafa',margin:'14px 0 0',textWrap:'balance'}}>Don't take our word for it</h2>
-    </div>
-
-    <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,380px),1fr))',gap:'clamp(20px,2.4vw,28px)',alignItems:'stretch'}}>
-      <figure style={{background:'rgba(255,255,255,.025)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'18px',padding:'clamp(28px,3vw,40px)',margin:'0',display:'flex',flexDirection:'column',gap:'22px'}}>
-        <div style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'64px',lineHeight:'.5',color:'rgba(0,212,255,.5)',marginTop:'14px'}}>"</div>
-        <blockquote style={{margin:'0',fontSize:'15.5px',lineHeight:'1.75',color:'#c8c8c8',textWrap:'pretty'}}>Before Catalyst, I was spending hours every week hunting for bids on government portals and still missing half of them. Within 30 days of turning on their RFP AI, I had a pipeline full of opportunities I never would have found on my own. In the first quarter, we submitted 40% more bids than the same period last year — and won three projects that more than covered the entire annual cost of the program. Mario doesn't sell you 'marketing.' He builds you infrastructure that scales your company to the 9-digit mark!</blockquote>
-        <div style={{display:'flex',flexWrap:'wrap',gap:'8px'}}>
-          <span style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11.5px',color:'#00d4ff',background:'rgba(0,212,255,.07)',border:'1px solid rgba(0,212,255,.3)',borderRadius:'999px',padding:'5px 12px',whiteSpace:'nowrap'}}>+40% bids submitted Q1</span>
-          <span style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11.5px',color:'#80ff80',background:'rgba(128,255,128,.07)',border:'1px solid rgba(128,255,128,.3)',borderRadius:'999px',padding:'5px 12px',whiteSpace:'nowrap'}}>3 projects won from RFP AI</span>
-          <span style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'11.5px',color:'#b56bff',background:'rgba(128,0,255,.08)',border:'1px solid rgba(128,0,255,.3)',borderRadius:'999px',padding:'5px 12px',whiteSpace:'nowrap'}}>ROI in first 90 days</span>
-        </div>
-        <figcaption style={{marginTop:'auto',paddingTop:'6px'}}>
-          <div style={{fontWeight:'700',fontSize:'15px',color:'#fafafa'}}>Scott Baxter</div>
-          <div style={{fontSize:'13px',color:'#7f8896',marginTop:'3px'}}>Freedom Engineering, Inc. — Commercial GC, Bakersfield, CA</div>
-        </figcaption>
-      </figure>
-
-      <figure style={{background:'rgba(255,255,255,.025)',border:'1px solid rgba(255,255,255,.09)',borderRadius:'18px',padding:'clamp(28px,3vw,40px)',margin:'0',display:'flex',flexDirection:'column',gap:'22px'}}>
-        <div style={{fontFamily:'\'Bebas Neue\',sans-serif',fontSize:'64px',lineHeight:'.5',color:'rgba(181,107,255,.5)',marginTop:'14px'}}>"</div>
-        <blockquote style={{margin:'0',fontSize:'15.5px',lineHeight:'1.75',color:'#c8c8c8',textWrap:'pretty'}}>We came to Mario needing a website. What we left with was an entirely different operation. He built us a professional site that actually converts, set up an AI content system that keeps our name in front of clients without us lifting a finger, and then built our entire Digital Operations Hub — our internal intranet — from scratch. Our team went from using a dozen disconnected tools to having everything in one place. The website alone paid for itself in the first month.</blockquote>
-        <figcaption style={{marginTop:'auto',paddingTop:'6px'}}>
-          <div style={{fontWeight:'700',fontSize:'15px',color:'#fafafa'}}>Evert Calderon</div>
-          <div style={{fontSize:'13px',color:'#7f8896',marginTop:'3px'}}>Mesa Group Consulting — Founder/CEO, Bakersfield, CA</div>
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
+{/* Client testimonials section temporarily removed pending real quotes.
+   Restore when Mario supplies approved testimonials (was Scott Baxter / Evert Calderon). */}
 
 
 <section data-screen-label="FAQ" style={{position:'relative',padding:'clamp(70px,8vw,110px) clamp(20px,5vw,64px)',borderTop:'1px solid rgba(255,255,255,.06)'}}>
