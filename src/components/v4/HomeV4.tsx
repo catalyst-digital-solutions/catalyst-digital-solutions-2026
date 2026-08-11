@@ -3,6 +3,23 @@
 import { Globe, Award, Star, ShieldCheck, PhoneCall } from "lucide-react";
 import Expandable from "@/components/v4/Expandable";
 import MockSearchBar from "@/components/v4/MockSearchBar";
+import CoverflowCarousel from "@/components/v4/CoverflowCarousel";
+
+const BAD_PRESENCE_SLIDES = [
+  { src: "/assets/01-bad-google-search-result-page.jpeg", alt: "Bad Google search result — buried below competitors" },
+  { src: "/assets/02-bad-google-business-profile-page.jpeg", alt: "Bad Google Business profile — no reviews, no website" },
+  { src: "/assets/03-bad-google-maps-result-page.jpeg", alt: "Bad Google Maps result — unverified, sparse listing" },
+  { src: "/assets/04-bad-mobile-website-design.jpeg", alt: "Bad mobile website — cluttered and dated" },
+  { src: "/assets/05-bad-facebook-page.jpeg", alt: "Bad Facebook page — few followers, no recent posts" },
+] as const;
+
+const GOOD_PRESENCE_SLIDES = [
+  { src: "/assets/01-good-google-search-result-page.jpeg", alt: "Good Google search result — top spot, rich profile, many reviews" },
+  { src: "/assets/02-good-google-business-profile-page.jpeg", alt: "Good Google Business profile — verified, 5 stars, complete" },
+  { src: "/assets/03-good-google-maps-result-page.jpeg", alt: "Good Google Maps result — verified with photos and reviews" },
+  { src: "/assets/04-good-mobile-website-design.jpeg", alt: "Good mobile website — clean, modern, fast" },
+  { src: "/assets/05-good-facebook-page.jpeg", alt: "Good Facebook page — active, polished, thousands of followers" },
+] as const;
 
 const gText = {
   background: "linear-gradient(90deg,#b56bff,#00d4ff)",
@@ -177,14 +194,14 @@ export default function HomeV4() {
       <p style={{fontSize:'clamp(15.5px,1.1vw,17px)',color:'#c8c8c8',lineHeight:'1.7',margin:'16px 0 0',textWrap:'pretty'}}>Your work might be the best in town, but a dead website and one old Google review will keep prospects from ever finding that out. If you look small online, you lose jobs you never even knew about.</p>
     </div>
 
-    <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,420px),1fr))',gap:'clamp(24px,3vw,40px)',marginTop:'clamp(44px,5vw,64px)'}} className="presence-grid">
-      <div>
-        <div style={{display:'inline-flex',alignItems:'center',gap:'9px',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'12px',letterSpacing:'2px',textTransform:'uppercase',color:'#ff6b6b',marginBottom:'16px'}}><span style={{width:'8px',height:'8px',borderRadius:'50%',background:'#ff6b6b'}}></span>Bad presence</div>
-        <div className="presence-rail"><img src="/assets/01-bad-google-search-result-page.jpeg" alt="Bad Google search result — buried below competitors" /><img src="/assets/02-bad-google-business-profile-page.jpeg" alt="Bad Google Business profile — no reviews, no website" /><img src="/assets/03-bad-google-maps-result-page.jpeg" alt="Bad Google Maps result — unverified, sparse listing" /><img src="/assets/04-bad-mobile-website-design.jpeg" alt="Bad mobile website — cluttered and dated" /><img src="/assets/05-bad-facebook-page.jpeg" alt="Bad Facebook page — few followers, no recent posts" /></div>
+    <div style={{display:'flex',flexDirection:'column',gap:'clamp(40px,5vw,72px)',marginTop:'clamp(44px,5vw,64px)'}}>
+      <div style={{width:'100%',textAlign:'center'}}>
+        <p style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:400,textTransform:'uppercase',fontSize:'clamp(34px,4vw,64px)',lineHeight:'.95',letterSpacing:'1px',color:'#ff6b6b',margin:'0 0 8px'}}>Bad presence</p>
+        <CoverflowCarousel slides={[...BAD_PRESENCE_SLIDES]} label="Bad online presence examples" />
       </div>
-      <div>
-        <div style={{display:'inline-flex',alignItems:'center',gap:'9px',fontFamily:'\'JetBrains Mono\',monospace',fontSize:'12px',letterSpacing:'2px',textTransform:'uppercase',color:'#80ff80',marginBottom:'16px'}}><span style={{width:'8px',height:'8px',borderRadius:'50%',background:'#80ff80'}}></span>Good presence</div>
-        <div className="presence-rail"><img src="/assets/01-good-google-search-result-page.jpeg" alt="Good Google search result — top spot, rich profile, many reviews" /><img src="/assets/02-good-google-business-profile-page.jpeg" alt="Good Google Business profile — verified, 5 stars, complete" /><img src="/assets/03-good-google-maps-result-page.jpeg" alt="Good Google Maps result — verified with photos and reviews" /><img src="/assets/04-good-mobile-website-design.jpeg" alt="Good mobile website — clean, modern, fast" /><img src="/assets/05-good-facebook-page.jpeg" alt="Good Facebook page — active, polished, thousands of followers" /></div>
+      <div style={{width:'100%',textAlign:'center'}}>
+        <p style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:400,textTransform:'uppercase',fontSize:'clamp(34px,4vw,64px)',lineHeight:'.95',letterSpacing:'1px',color:'#80ff80',margin:'0 0 8px'}}>Good presence</p>
+        <CoverflowCarousel slides={[...GOOD_PRESENCE_SLIDES]} label="Good online presence examples" />
       </div>
     </div>
     <div style={{textAlign:'center',margin:'clamp(20px,2.4vw,30px) auto 0'}}>
