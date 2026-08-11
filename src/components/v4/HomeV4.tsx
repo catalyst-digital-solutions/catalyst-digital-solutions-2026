@@ -3,6 +3,7 @@
 import { Globe, Award, Star, ShieldCheck, PhoneCall } from "lucide-react";
 import Expandable from "@/components/v4/Expandable";
 import MockSearchBar from "@/components/v4/MockSearchBar";
+import TestimonialsSection from "@/components/v4/TestimonialsSection";
 
 const gText = {
   background: "linear-gradient(90deg,#b56bff,#00d4ff)",
@@ -68,6 +69,7 @@ export default function HomeV4() {
   </div>
 </section>
 
+<TestimonialsSection contractorsOnly />
 
 <section data-screen-label="Which one are you" style={{position:'relative',background:'#080b0f',fontFamily:'\'Inter\',sans-serif',color:'#c8c8c8',overflow:'hidden',padding:'clamp(80px,10vw,150px) clamp(20px,5vw,64px)'}}>
   <div style={{maxWidth:'1180px',margin:'0 auto'}}>

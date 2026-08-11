@@ -1,6 +1,7 @@
 /* Auto-ported from CDS Pricing.dc.html — visual fidelity port; do not redesign */
 "use client";
 import Expandable from "@/components/v4/Expandable";
+import TestimonialsSection from "@/components/v4/TestimonialsSection";
 
 export default function PricingV4() {
   return (
@@ -134,8 +135,7 @@ export default function PricingV4() {
 </section>
 
 
-{/* Client testimonials section temporarily removed pending real quotes.
-   Restore when Mario supplies approved testimonials (was Scott Baxter / Evert Calderon). */}
+<TestimonialsSection />
 
 
 <section data-screen-label="FAQ" style={{position:'relative',padding:'clamp(70px,8vw,110px) clamp(20px,5vw,64px)',borderTop:'1px solid rgba(255,255,255,.06)'}}>
