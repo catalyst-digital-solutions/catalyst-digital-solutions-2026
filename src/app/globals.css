@@ -1051,3 +1051,74 @@ select option {
 details summary::-webkit-details-marker { display: none; }
 details summary { list-style: none; }
 
+/* /trades offer landing — responsive grids + sticky mobile CTA */
+.trades-sticky-cta {
+  display: none;
+}
+@media (max-width: 767px) {
+  .trades-page--sticky {
+    padding-bottom: 72px;
+  }
+  .trades-sticky-cta {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(8, 11, 15, 0.94);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+  }
+  .trades-header-cta {
+    display: none !important;
+  }
+  .trades-hero {
+    grid-template-columns: 1fr !important;
+  }
+  .trades-ladder-grid,
+  .trades-package-grid,
+  .trades-why-grid,
+  .trades-pay-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .trades-demo-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .trades-steps {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .trades-steps-rule {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1040px) {
+  .trades-hero {
+    grid-template-columns: 1fr !important;
+  }
+  .trades-package-grid,
+  .trades-why-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .trades-demo-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .trades-steps {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .trades-steps-rule {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trades-hero-frame {
+    transform: none !important;
+  }
+}
+

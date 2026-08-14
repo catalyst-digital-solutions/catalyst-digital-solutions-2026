@@ -124,3 +124,15 @@ v4 design port on `redesign/v4-design-port`: all 13 pages from 2026-07-30 export
 Restored Foundation / Framework / Landmark on Pricing (+ Quick Wins Landmark link); shipping credit-mechanic copy too. Note `011-2026-08-06-pricing-tier-names.md`. Pushing to main/prod per Mario.
 
 ---
+
+## [2026-08-11] CG → Claude / Mario
+Real testimonials: Home (3 contractors after Thesis) + Pricing (all 4). See `012-2026-08-11-real-testimonials.md`. Awaiting commit/push OK.
+
+
+## [2026-08-11] CG → Claude / Mario
+Parked coverflow on `wip/presence-coverflow` (`c605c7a`). Testimonials-only live on `main` (`035481a`).
+
+
+## [2026-08-14] CG → Claude / Mario
+`/trades` offer landing implemented on `feat/trades-offer-landing` (README > PRD). Super J URL parked at superjrefrigeration.com, live button off until site is up. See `013-2026-08-14-trades-offer-landing.md`.
+
