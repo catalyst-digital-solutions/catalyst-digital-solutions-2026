@@ -334,9 +334,19 @@ export default function TradesOfferLanding() {
               margin: 0,
             }}
           >
-            Think of your biggest competitor. You know the one. His trucks look sharp. His website looks like a real
-            company. That&apos;s not luck — he paid a national agency a fortune for it.{" "}
-            <strong style={{ color: "#fafafa" }}>We&apos;ll build you the same thing for $4,000.</strong>
+            Think of your biggest competitor. You know the one. Their trucks look sharp. Their website looks like a big
+            company&apos;s. That&apos;s not luck. They paid a national agency a fortune for it.{" "}
+            <span
+              style={{
+                background: "linear-gradient(90deg,#b56bff,#00d4ff)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+                fontWeight: 700,
+              }}
+            >
+              We&apos;ll build you the same thing for $4,000.
+            </span>
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, alignItems: "center" }}>
             <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={primaryCta}>
@@ -572,7 +582,7 @@ export default function TradesOfferLanding() {
             textTransform: "uppercase",
           }}
         >
-          Your customer is comparing you right now.
+          A customer is comparing you right now.
         </h2>
         <p style={{ maxWidth: 720, fontSize: 19, lineHeight: 1.7, color: "#c8c8c8", margin: 0 }}>
           He&apos;s got two tabs open. Yours and his. Same license. Same trucks. Same twenty years on the job. One of you
@@ -580,7 +590,7 @@ export default function TradesOfferLanding() {
           tech. He&apos;s picking the one that looks safer to call.
         </p>
         <div style={{ fontWeight: 600, fontSize: 18, color: "#b56bff" }}>
-          That decision takes about four seconds.
+          That decision takes 4 seconds.
         </div>
       </section>
 
@@ -607,7 +617,7 @@ export default function TradesOfferLanding() {
               color: "#00d4ff",
             }}
           >
-            What $4,000 Looks Like
+            Meet Super J
           </div>
           <h2
             style={{
@@ -621,13 +631,12 @@ export default function TradesOfferLanding() {
               textTransform: "uppercase",
             }}
           >
-            Meet Super J.
+            The kind of package you can expect for your money.
           </h2>
           <p style={{ fontSize: 18, lineHeight: 1.65, color: "#c8c8c8", margin: 0 }}>
-            One of our partners needed a brand that could strut into commercial accounts looking like an established
-            name, not the new guy. So we built the whole brand. Character, logo, colors, trucks, shirts, socials, and a
-            ten-page website with an AI assistant that answers questions at 2am. Everything below came out of one
-            package.
+            Recently, a partner needed a brand that looked like an established name, not the new guy. So we built the
+            Super J brand. Character, logo, colors, trucks, shirts, socials, and a website with an AI assistant that
+            answers questions at 2am. Everything below came in one package. Yours will look all your own.
           </p>
           <div style={{ color: "#7f8896", fontSize: 14 }}>
             A full concept built for one of our partners. Every asset below is real, finished work.
@@ -665,11 +674,12 @@ export default function TradesOfferLanding() {
               </div>
               <figcaption
                 style={{
-                  fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                  fontSize: 12,
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  color: "#7f8896",
+                  fontFamily: "var(--font-body), Inter, sans-serif",
+                  fontSize: 15,
+                  fontWeight: 600,
+                  letterSpacing: 0.2,
+                  color: "#fafafa",
+                  lineHeight: 1.45,
                 }}
               >
                 {item.caption}
