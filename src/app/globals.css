@@ -1086,6 +1086,11 @@ details summary { list-style: none; }
   .trades-faq-grid {
     grid-template-columns: 1fr !important;
   }
+  .trades-value-total {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
   .trades-demo-grid {
     grid-template-columns: 1fr !important;
   }

@@ -174,6 +174,16 @@ const SITE_ITEMS = [
   "AI chatbot trained on your services",
 ];
 
+const VALUE_ROWS = [
+  { item: "Brand strategy + logo suite", cost: "$6,000 – $15,000" },
+  { item: "Custom mascot / character illustration", cost: "$2,500 – $8,000" },
+  { item: "Full asset kit (social, embroidery, OG, guidelines)", cost: "$2,000 – $5,000" },
+  { item: "Vehicle wrap design", cost: "$1,000 – $2,500" },
+  { item: "Custom 10-page website (not a template)", cost: "$12,000 – $30,000" },
+  { item: "On-page SEO build-out", cost: "$2,500 – $6,000" },
+  { item: "AI chatbot build + training", cost: "$3,000 – $10,000" },
+] as const;
+
 const DEMOS = [
   { label: "APEX", src: `${ASSET}/01-apex.jpg`, href: "https://construction1.catalyst-demos.com" },
   { label: "HOLLOWAY", src: `${ASSET}/02-holloway.jpg`, href: "https://construction2.catalyst-demos.com" },
@@ -519,6 +529,7 @@ const secondaryCta: CSSProperties = {
 export default function TradesOfferLanding() {
   const slots = getSlotState();
   const [openFaq, setOpenFaq] = useState(-1);
+  const [numbersOpen, setNumbersOpen] = useState(false);
   const [stickyVisible, setStickyVisible] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -1195,6 +1206,131 @@ export default function TradesOfferLanding() {
             A full brand identity, logo, social assets, vehicle wrap file, and a custom 10-page website with an AI
             chatbot that answers customers at 2am. Bundled into one flat price.
           </p>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 18, maxWidth: 920, width: "100%" }}>
+            {numbersOpen && (
+              <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
+                <div
+                  style={{
+                    background: "rgba(128,0,255,.07)",
+                    border: "1px solid rgba(128,0,255,.45)",
+                    boxShadow: "0 0 40px rgba(128,0,255,.12)",
+                    borderRadius: 16,
+                    padding: 30,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 12,
+                    textAlign: "left",
+                  }}
+                >
+                  <div style={{ fontWeight: 700, fontSize: 19, color: "#fafafa", lineHeight: 1.45 }}>
+                    The big agency isn&apos;t selling you a website. They&apos;re renting you one. If you stop paying, it
+                    goes offline.
+                  </div>
+                  <div style={{ fontSize: 16, lineHeight: 1.6, color: "#c8c8c8" }}>
+                    When you purchase a website from Catalyst, you own it. Reusable, graphic-designer-friendly vector
+                    files, source files, everything — yours on final payment. Hand them to any wrap shop, embroiderer,
+                    or designer and they can work with them directly.
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  {VALUE_ROWS.map((row) => (
+                    <div
+                      key={row.item}
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        gap: 20,
+                        padding: "15px 4px",
+                        borderBottom: "1px solid rgba(255,255,255,.09)",
+                        fontSize: 15,
+                      }}
+                    >
+                      <span style={{ color: "#c8c8c8" }}>{row.item}</span>
+                      <span
+                        style={{
+                          color: "#7f8896",
+                          fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+                          fontSize: 13,
+                          letterSpacing: 1,
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {row.cost}
+                      </span>
+                    </div>
+                  ))}
+                  <div
+                    className="trades-value-total"
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "baseline",
+                      gap: 20,
+                      padding: "22px 4px 6px",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    <span style={{ color: "#7f8896", fontSize: 16, textDecoration: "line-through" }}>
+                      TYPICAL TOTAL: $29,000 – $76,500
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
+                        fontSize: "clamp(40px,4vw,60px)",
+                        color: "#fafafa",
+                        lineHeight: 1,
+                        letterSpacing: 1,
+                      }}
+                    >
+                      YOUR PRICE: <span style={{ color: "#b56bff" }}>$4,000</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    borderLeft: "2px solid #8000ff",
+                    padding: "4px 0 4px 18px",
+                    fontSize: 15,
+                    lineHeight: 1.65,
+                    color: "#c8c8c8",
+                    maxWidth: 760,
+                  }}
+                >
+                  These are standard U.S. agency and senior-freelance rates for each piece bought separately. The ranges
+                  are wide because agencies charge differently — a national firm charges the top, a good freelancer the
+                  bottom. We&apos;re not comparing ourselves to the cheapest option. We&apos;re showing what this work
+                  costs when somebody does it properly.
+                </div>
+              </div>
+            )}
+
+            <button
+              type="button"
+              onClick={() => setNumbersOpen((v) => !v)}
+              aria-expanded={numbersOpen}
+              style={{
+                background: "none",
+                border: "none",
+                color: "#00d4ff",
+                fontFamily: "var(--font-body), Inter, sans-serif",
+                fontSize: 15,
+                fontWeight: 600,
+                cursor: "pointer",
+                padding: 0,
+                textAlign: "left",
+                alignSelf: "flex-start",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+              }}
+            >
+              <span aria-hidden>{numbersOpen ? "⊖" : "⊕"}</span>
+              <span>Where did we get these numbers?</span>
+            </button>
+          </div>
         </div>
 
         <div className="trades-package-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 28 }}>
