@@ -935,12 +935,18 @@ export default function TradesOfferLanding() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 22, marginTop: 12 }}>
-          <div
+          <a
+            href={SUPER_J_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               border: "1px solid rgba(255,255,255,.14)",
               borderRadius: 12,
               overflow: "hidden",
               background: "#e8eaed",
+              display: "block",
+              textDecoration: "none",
+              color: "inherit",
             }}
           >
             <div
@@ -978,7 +984,7 @@ export default function TradesOfferLanding() {
               height={900}
               style={{ display: "block", width: "100%", height: "auto" }}
             />
-          </div>
+          </a>
           <h3
             style={{
               fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
@@ -993,8 +999,13 @@ export default function TradesOfferLanding() {
             And the website.
           </h3>
           <p style={{ fontSize: 17, lineHeight: 1.6, color: "#c8c8c8", margin: 0, maxWidth: 720 }}>
-            Ten pages. Loads fast. Works on a phone. Built to be found on Google. And an AI assistant trained on your
-            own services that answers customers while you&apos;re on a roof or under a sink.
+            Loads fast. Optimized for mobile / tablet / laptop / desktop. Built to get found on Google and AI answers.
+            And an AI assistant trained on your own services that answers customers while you&apos;re on a roof or under
+            a sink.
+          </p>
+          <p style={{ fontSize: 14, lineHeight: 1.55, color: "#7f8896", margin: 0, maxWidth: 720 }}>
+            This Super J site is a demo version. The client&apos;s site is still in active development — you&apos;re
+            seeing it before it goes live.
           </p>
           {SUPER_J_IS_LIVE ? (
             <a
@@ -1066,8 +1077,8 @@ export default function TradesOfferLanding() {
           </h2>
           <p style={{ fontSize: 18, lineHeight: 1.6, color: "#c8c8c8", margin: 0 }}>
             Super J shows the whole package: website homepage, brand, character, assets, social icons, headers, color
-            scheme. These five brand concepts show how far the website design can range. Clean and corporate. Bold and
-            industrial. Doesn&apos;t need to be a superhero.
+            scheme. These five brand concepts prove our versatility. Clean and corporate. Bold and industrial.
+            Doesn&apos;t need to be a superhero.
           </p>
         </div>
         <div
@@ -1128,8 +1139,7 @@ export default function TradesOfferLanding() {
           Website design concepts from our studio. Built to show our design range.
         </div>
         <div style={{ fontWeight: 600, fontSize: 17, color: "#fafafa" }}>
-          You don&apos;t have to choose one of these. Your website will be 100% custom-built. Your branding, messaging,
-          services, colors, and more.
+          Your website will be 100% custom-built. Your branding, messaging, services, colors, and more.
         </div>
       </section>
 
