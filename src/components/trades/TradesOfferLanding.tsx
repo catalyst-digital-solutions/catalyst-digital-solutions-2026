@@ -586,8 +586,8 @@ export default function TradesOfferLanding() {
         </h2>
         <p style={{ maxWidth: 720, fontSize: 19, lineHeight: 1.7, color: "#c8c8c8", margin: 0 }}>
           A customer has two tabs open. Yours and your competitor&apos;s. Same license. Same trucks. Same twenty years on
-          the job. One of you looks like a real company. The other looks like a guy with a phone number. He&apos;s not
-          picking the better tech. He&apos;s picking the one that looks safer to call.
+          the job. One of you looks like a real company. The other looks like a guy with a phone number. The customer
+          isn&apos;t picking the better tech. He&apos;s picking the one that looks more professional.
         </p>
         <div style={{ fontWeight: 600, fontSize: 18, color: "#b56bff" }}>
           That decision takes 4 seconds.
