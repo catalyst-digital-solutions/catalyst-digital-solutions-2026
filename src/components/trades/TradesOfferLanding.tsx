@@ -1511,6 +1511,72 @@ export default function TradesOfferLanding() {
         </div>
       </section>
 
+      {/* SECTION 11 — FINAL CTA */}
+      <section
+        data-screen-label="Final CTA"
+        style={{
+          padding: "clamp(72px,9vw,130px) clamp(20px,5vw,64px)",
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          gap: 26,
+          alignItems: "center",
+          borderTop: "1px solid rgba(255,255,255,.07)",
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
+            fontWeight: 400,
+            fontSize: "clamp(42px,5.4vw,86px)",
+            lineHeight: 0.9,
+            letterSpacing: 1,
+            color: "#fafafa",
+            margin: 0,
+            maxWidth: 820,
+            textTransform: "uppercase",
+          }}
+        >
+          How does your brand compare?
+        </h2>
+        <p style={{ maxWidth: 640, fontSize: 18, lineHeight: 1.65, color: "#c8c8c8", margin: 0 }}>
+          Look at Super J one more time. Then look at your own website. If the difference bothers you, let&apos;s talk.
+        </p>
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 12,
+            border: "1px solid rgba(255,255,255,.12)",
+            borderRadius: 999,
+            padding: "9px 18px",
+            background: "rgba(255,255,255,.025)",
+          }}
+        >
+          <SlotDots dots={slots.dots} size={9} />
+          <span
+            style={{
+              fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+              fontSize: 13,
+              letterSpacing: 2,
+              textTransform: "uppercase",
+              color: "#fafafa",
+            }}
+          >
+            {slots.counterText}
+          </span>
+        </div>
+        <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...primaryCta, padding: "17px 34px" }}>
+          Book a 20-Minute Call →
+        </a>
+        <div style={{ color: "#7f8896", fontSize: 15 }}>
+          Or call or text{" "}
+          <a href={`tel:${PHONE_TEL}`} style={{ color: "#c8c8c8", fontWeight: 600, textDecoration: "none" }}>
+            {PHONE_DISPLAY}
+          </a>
+        </div>
+      </section>
+
       {/* SECTION 10 — FAQ */}
       <section
         data-screen-label="FAQ"
@@ -1581,72 +1647,6 @@ export default function TradesOfferLanding() {
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* SECTION 11 — FINAL CTA */}
-      <section
-        data-screen-label="Final CTA"
-        style={{
-          padding: "clamp(72px,9vw,130px) clamp(20px,5vw,64px)",
-          textAlign: "center",
-          display: "flex",
-          flexDirection: "column",
-          gap: 26,
-          alignItems: "center",
-          borderTop: "1px solid rgba(255,255,255,.07)",
-        }}
-      >
-        <h2
-          style={{
-            fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
-            fontWeight: 400,
-            fontSize: "clamp(42px,5.4vw,86px)",
-            lineHeight: 0.9,
-            letterSpacing: 1,
-            color: "#fafafa",
-            margin: 0,
-            maxWidth: 820,
-            textTransform: "uppercase",
-          }}
-        >
-          How does your brand compare?
-        </h2>
-        <p style={{ maxWidth: 640, fontSize: 18, lineHeight: 1.65, color: "#c8c8c8", margin: 0 }}>
-          Look at Super J one more time. Then look at your own website. If the difference bothers you, let&apos;s talk.
-        </p>
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 12,
-            border: "1px solid rgba(255,255,255,.12)",
-            borderRadius: 999,
-            padding: "9px 18px",
-            background: "rgba(255,255,255,.025)",
-          }}
-        >
-          <SlotDots dots={slots.dots} size={9} />
-          <span
-            style={{
-              fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-              fontSize: 13,
-              letterSpacing: 2,
-              textTransform: "uppercase",
-              color: "#fafafa",
-            }}
-          >
-            {slots.counterText}
-          </span>
-        </div>
-        <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...primaryCta, padding: "17px 34px" }}>
-          Book a 20-Minute Call →
-        </a>
-        <div style={{ color: "#7f8896", fontSize: 15 }}>
-          Or call or text{" "}
-          <a href={`tel:${PHONE_TEL}`} style={{ color: "#c8c8c8", fontWeight: 600, textDecoration: "none" }}>
-            {PHONE_DISPLAY}
-          </a>
         </div>
       </section>
 
