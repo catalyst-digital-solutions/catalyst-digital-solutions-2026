@@ -1115,12 +1115,18 @@ export default function TradesOfferLanding() {
                   background: "#12161c",
                   borderRadius: 8,
                   padding: 8,
-                  aspectRatio: "1600/1139",
-                  position: "relative",
                   overflow: "hidden",
                 }}
               >
-                <Image src={d.src} alt={`${d.label} demo screenshot`} fill sizes="(max-width:768px) 50vw, 20vw" style={{ objectFit: "cover" }} />
+                <Image
+                  src={d.src}
+                  alt={`${d.label} demo screenshot`}
+                  width={1600}
+                  height={1139}
+                  sizes="(max-width:767px) 100vw, 50vw"
+                  quality={92}
+                  style={{ display: "block", width: "100%", height: "auto", borderRadius: 3 }}
+                />
               </div>
               <span
                 style={{
