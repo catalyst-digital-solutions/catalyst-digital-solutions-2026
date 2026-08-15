@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, type CSSProperties, type MouseEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type MouseEvent, type PointerEvent, type ReactNode } from "react";
 import {
   CAL_URL,
   EMAIL,
@@ -210,6 +210,7 @@ type GalleryImage = {
   src: string;
   alt: string;
   caption: string;
+  disclaimer?: string;
   bg: string;
   imgStyle?: CSSProperties;
 };
@@ -221,7 +222,14 @@ type GalleryCarousel = {
   bg: string;
 };
 
-const GALLERY: (GalleryImage | GalleryCarousel)[] = [
+type GalleryPoses = {
+  kind: "poses";
+  poses: { src: string; alt: string }[];
+  caption: string;
+  bg: string;
+};
+
+const GALLERY: (GalleryImage | GalleryCarousel | GalleryPoses)[] = [
   {
     src: `${ASSET}/super-j-brand-identity-system.png`,
     alt: "Super J brand identity system sheet: primary stacked lockup, compact horizontal lockup, one-color dark, and reversed versions with the full core palette",
@@ -247,22 +255,35 @@ const GALLERY: (GalleryImage | GalleryCarousel)[] = [
     bg: "#12161c",
   },
   {
-    src: `${ASSET}/super-j-pointing-pose.png`,
-    alt: "Super J mascot character in a presenting pose — caped superhero technician in a navy and white suit with a J chest emblem",
+    kind: "poses",
+    poses: [
+      {
+        src: `${ASSET}/mascot-thumbs-up.jpeg`,
+        alt: "Super J mascot giving a thumbs up — navy and white suit with caped shoulders",
+      },
+      {
+        src: `${ASSET}/mascot-arms-crossed.jpeg`,
+        alt: "Super J mascot standing with arms crossed — confident technician pose",
+      },
+      {
+        src: `${ASSET}/super-j-pointing-pose.png`,
+        alt: "Super J mascot in a presenting pose — pointing forward in a navy and white suit with a J chest emblem",
+      },
+    ],
     caption: "The Character — multiple poses for ads, trucks, and print",
     bg: "#fdfdfd",
-    imgStyle: { width: "40%", maxWidth: 480, margin: "0 auto" },
   },
   {
     src: `${ASSET}/van-wrap-front.jpeg`,
     alt: "Super J vehicle wrap design shown on a Sprinter van — front driver side with the mascot, lockup, and phone number",
-    caption: "Wrap File: one print-ready design file for your wrap shop to install",
+    caption: "Vehicle Wrap File: one print-ready van/truck/car design file for your wrap shop to install",
     bg: "#12161c",
   },
   {
     src: `${ASSET}/super-j-flatlay-v2.jpg`,
     alt: "Super J brand flatlay: embroidered cap and polo, business cards, sticker, and phone showing the Instagram profile",
     caption: "Your files: embroidery- and screen-print-compatible files for any shop",
+    disclaimer: "Files-only — no collaterals provided in package",
     bg: "#12161c",
   },
   {
@@ -281,16 +302,48 @@ function MarkCarousel({
   bg: string;
 }) {
   const [index, setIndex] = useState(0);
+  const [autoplay, setAutoplay] = useState(true);
+  const pointerStartX = useRef<number | null>(null);
+  const pointerDeltaX = useRef(0);
   const count = slides.length;
 
   useEffect(() => {
+    if (!autoplay) return;
     const id = window.setInterval(() => {
       setIndex((i) => (i + 1) % count);
     }, 3200);
     return () => window.clearInterval(id);
-  }, [count]);
+  }, [autoplay, count]);
 
-  const go = (next: number) => setIndex((next + count) % count);
+  const stopAutoplay = () => setAutoplay(false);
+
+  const go = (next: number) => {
+    stopAutoplay();
+    setIndex((next + count) % count);
+  };
+
+  const onPointerDown = (e: PointerEvent) => {
+    pointerStartX.current = e.clientX;
+    pointerDeltaX.current = 0;
+    (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId);
+  };
+
+  const onPointerMove = (e: PointerEvent) => {
+    if (pointerStartX.current == null) return;
+    pointerDeltaX.current = e.clientX - pointerStartX.current;
+  };
+
+  const onPointerUp = () => {
+    if (pointerStartX.current == null) return;
+    const dx = pointerDeltaX.current;
+    pointerStartX.current = null;
+    pointerDeltaX.current = 0;
+    if (Math.abs(dx) < 40) return;
+    stopAutoplay();
+    if (dx < 0) setIndex((i) => (i + 1) % count);
+    else setIndex((i) => (i - 1 + count) % count);
+  };
+
   const slide = slides[index];
 
   return (
@@ -306,7 +359,13 @@ function MarkCarousel({
         justifyContent: "center",
         gap: 14,
         position: "relative",
+        touchAction: "pan-y",
+        userSelect: "none",
       }}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerCancel={onPointerUp}
     >
       <div
         style={{
@@ -315,6 +374,7 @@ function MarkCarousel({
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          cursor: "grab",
         }}
       >
         <Image
@@ -323,12 +383,14 @@ function MarkCarousel({
           alt={slide.alt}
           width={900}
           height={900}
+          draggable={false}
           style={{
             display: "block",
             width: "44%",
             maxWidth: 420,
             height: "auto",
             borderRadius: 3,
+            pointerEvents: "none",
           }}
         />
       </div>
@@ -358,7 +420,7 @@ function MarkCarousel({
               type="button"
               aria-label={`Show mark ${i + 1}`}
               aria-current={i === index}
-              onClick={() => setIndex(i)}
+              onClick={() => go(i)}
               style={{
                 width: i === index ? 22 : 8,
                 height: 8,
@@ -751,53 +813,115 @@ export default function TradesOfferLanding() {
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 56 }}>
-          {GALLERY.map((item) => (
-            <figure
-              key={item.kind === "carousel" ? "mark-carousel" : item.src}
-              style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12 }}
-            >
-              {item.kind === "carousel" ? (
-                <MarkCarousel slides={item.slides} bg={item.bg} />
-              ) : (
-                <div
-                  style={{
-                    border: "1px solid rgba(255,255,255,.14)",
-                    background: item.bg,
-                    borderRadius: 8,
-                    padding: 12,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    width={1600}
-                    height={900}
+          {GALLERY.map((item) => {
+            const key =
+              item.kind === "carousel"
+                ? "mark-carousel"
+                : item.kind === "poses"
+                  ? "character-poses"
+                  : item.src;
+            return (
+              <figure key={key} style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+                {item.kind === "carousel" ? (
+                  <MarkCarousel slides={item.slides} bg={item.bg} />
+                ) : item.kind === "poses" ? (
+                  <div
+                    className="trades-poses-grid"
                     style={{
-                      display: "block",
-                      height: "auto",
-                      borderRadius: 3,
-                      ...(item.imgStyle ? item.imgStyle : { width: "100%" }),
+                      border: "1px solid rgba(255,255,255,.14)",
+                      background: item.bg,
+                      borderRadius: 8,
+                      padding: 12,
+                      display: "grid",
+                      gridTemplateColumns: "repeat(3, 1fr)",
+                      gap: 12,
+                      alignItems: "center",
                     }}
-                  />
-                </div>
-              )}
-              <figcaption
-                style={{
-                  fontFamily: "var(--font-body), Inter, sans-serif",
-                  fontSize: 15,
-                  fontWeight: 600,
-                  letterSpacing: 0.2,
-                  color: "#fafafa",
-                  lineHeight: 1.45,
-                }}
-              >
-                {item.caption}
-              </figcaption>
-            </figure>
-          ))}
+                  >
+                    {item.poses.map((pose) => (
+                      <div
+                        key={pose.src}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          minHeight: "clamp(160px,28vw,320px)",
+                        }}
+                      >
+                        <Image
+                          src={pose.src}
+                          alt={pose.alt}
+                          width={800}
+                          height={1000}
+                          style={{
+                            display: "block",
+                            width: "100%",
+                            height: "auto",
+                            maxHeight: 360,
+                            objectFit: "contain",
+                            borderRadius: 3,
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      border: "1px solid rgba(255,255,255,.14)",
+                      background: item.bg,
+                      borderRadius: 8,
+                      padding: 12,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      width={1600}
+                      height={900}
+                      style={{
+                        display: "block",
+                        height: "auto",
+                        borderRadius: 3,
+                        ...(item.imgStyle ? item.imgStyle : { width: "100%" }),
+                      }}
+                    />
+                  </div>
+                )}
+                <figcaption style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-body), Inter, sans-serif",
+                      fontSize: 15,
+                      fontWeight: 600,
+                      letterSpacing: 0.2,
+                      color: "#fafafa",
+                      lineHeight: 1.45,
+                    }}
+                  >
+                    {item.caption}
+                  </span>
+                  {"disclaimer" in item && item.disclaimer ? (
+                    <span
+                      style={{
+                        fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+                        fontSize: 13,
+                        letterSpacing: 2,
+                        textTransform: "uppercase",
+                        color: "#7f8896",
+                        lineHeight: 1.45,
+                      }}
+                    >
+                      {item.disclaimer}
+                    </span>
+                  ) : null}
+                </figcaption>
+              </figure>
+            );
+          })}
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 22, marginTop: 12 }}>

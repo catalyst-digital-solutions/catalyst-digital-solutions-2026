@@ -143,9 +143,10 @@ Standalone cold-outbound funnel for HVAC / refrigeration / plumbing brand+websit
 - **URLs:** `https://catalyst-digital-solutions.com/trades` and **`https://getbranded.catalyst-digital-solutions.com`** (host rewrite via `src/proxy.ts` → `/trades`)
 - **DNS:** Namecheap CNAME `getbranded` → `cname.vercel-dns.com` (Vercel project already has the domain attached)
 - **Component:** `src/components/trades/TradesOfferLanding.tsx`
-- **Assets:** `public/assets/trades/` — Super J proof gallery (identity, mark carousel, socials, character, wrap, flatlay v2, OG). Mark carousel slides: `j-shield-emblem-social_*` + `j-shield-emblem-*-bg.webp`. Flatlay: `super-j-flatlay-v2.jpg` (source: Super J `public/brand/`).
+- **Assets:** `public/assets/trades/` — Super J proof gallery (identity, mark carousel, socials, character 3-pose row, wrap, flatlay v2, OG). Mark carousel slides: `j-shield-emblem-social_*` + `j-shield-emblem-*-bg.webp`. Character poses: `mascot-thumbs-up.jpeg`, `mascot-arms-crossed.jpeg`, `super-j-pointing-pose.png`. Flatlay: `super-j-flatlay-v2.jpg` (source: Super J `public/brand/`).
 - **Slot counter:** edit `SLOTS_SOLD` only in `src/config/slots.ts` (0–10). Super J live link: `SUPER_J_IS_LIVE` + `SUPER_J_URL`
 - **CTA:** Cal.com 20-min everywhere. Header/footer: logo → main site; Privacy/Terms absolute to main site; phone `(661) 888-4837`; email `hello@catalyst-digital.solutions` on this page
+- **DNS for getbranded:** subdomain is already attached in Vercel to this project, but Namecheap still has **no record** (`NXDOMAIN`). Add at Namecheap → Advanced DNS for `catalyst-digital-solutions.com`: **CNAME** host `getbranded` → `cname.vercel-dns.com` (or **A** `getbranded` → `76.76.21.21`). Do not change apex nameservers unless migrating the whole domain to Vercel DNS.
 - **Copy/layout notes (live):** Price ladder sits under the package `$4,000` card — title “Only 5 available at this price.” How-it-works (30-day / three steps) lives in FAQ, not a standalone section. Demo grid has CLICK/TAP TO SEE THESE LIVE. Final CTA: “How does your brand compare?” README in `branding-and-website-landing-page/` supersedes the PRD where they conflict; Mario’s live edits take priority after ship
 
 ## Known open items
