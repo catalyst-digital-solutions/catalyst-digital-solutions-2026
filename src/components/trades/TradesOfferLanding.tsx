@@ -237,12 +237,6 @@ const GALLERY: (GalleryImage | GalleryCarousel | GalleryPoses)[] = [
     bg: "#fdfdfd",
   },
   {
-    kind: "carousel",
-    slides: MARK_SLIDES,
-    caption: "The Mark — works at 32px on a phone or 32 inches on a truck",
-    bg: "#fdfdfd",
-  },
-  {
     src: `${ASSET}/super-j-social-header-system.png`,
     alt: "Super J coordinated social header system for Facebook, LinkedIn, and X — matching deep blue banners with the mascot and shield lockup",
     caption: "Social Headers — Facebook, LinkedIn, X, all matching",
@@ -274,6 +268,12 @@ const GALLERY: (GalleryImage | GalleryCarousel | GalleryPoses)[] = [
     bg: "#fdfdfd",
   },
   {
+    kind: "carousel",
+    slides: MARK_SLIDES,
+    caption: "The Mark — works at 32px on a phone or 32 inches on a truck",
+    bg: "#fdfdfd",
+  },
+  {
     src: `${ASSET}/van-wrap-front.jpeg`,
     alt: "Super J vehicle wrap design shown on a Sprinter van — front driver side with the mascot, lockup, and phone number",
     caption: "Vehicle Wrap File: one print-ready van/truck/car design file for your wrap shop to install",
@@ -289,7 +289,7 @@ const GALLERY: (GalleryImage | GalleryCarousel | GalleryPoses)[] = [
   {
     src: `${ASSET}/super-j-opengraph-image.png`,
     alt: "Super J Open Graph link-preview image: 'Commercial refrigeration first' headline beside the shield badge on a blue burst",
-    caption: "Link Previews — looks like a real company when someone shares you",
+    caption: "Link Previews — looks professional when someone shares your site via text.",
     bg: "#12161c",
   },
 ];
@@ -322,13 +322,14 @@ function MarkCarousel({
     setIndex((next + count) % count);
   };
 
-  const onPointerDown = (e: PointerEvent) => {
+  const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
+    // Only swipe from the image surface — never capture over controls
     pointerStartX.current = e.clientX;
     pointerDeltaX.current = 0;
-    (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId);
+    e.currentTarget.setPointerCapture?.(e.pointerId);
   };
 
-  const onPointerMove = (e: PointerEvent) => {
+  const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
     if (pointerStartX.current == null) return;
     pointerDeltaX.current = e.clientX - pointerStartX.current;
   };
@@ -359,13 +360,7 @@ function MarkCarousel({
         justifyContent: "center",
         gap: 14,
         position: "relative",
-        touchAction: "pan-y",
-        userSelect: "none",
       }}
-      onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
-      onPointerUp={onPointerUp}
-      onPointerCancel={onPointerUp}
     >
       <div
         style={{
@@ -375,7 +370,13 @@ function MarkCarousel({
           alignItems: "center",
           justifyContent: "center",
           cursor: "grab",
+          touchAction: "pan-y",
+          userSelect: "none",
         }}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
       >
         <Image
           key={slide.src}
@@ -398,7 +399,10 @@ function MarkCarousel({
         <button
           type="button"
           aria-label="Previous mark"
-          onClick={() => go(index - 1)}
+          onClick={(e) => {
+            e.stopPropagation();
+            go(index - 1);
+          }}
           style={{
             width: 36,
             height: 36,
@@ -420,7 +424,10 @@ function MarkCarousel({
               type="button"
               aria-label={`Show mark ${i + 1}`}
               aria-current={i === index}
-              onClick={() => go(i)}
+              onClick={(e) => {
+                e.stopPropagation();
+                go(i);
+              }}
               style={{
                 width: i === index ? 22 : 8,
                 height: 8,
@@ -437,7 +444,10 @@ function MarkCarousel({
         <button
           type="button"
           aria-label="Next mark"
-          onClick={() => go(index + 1)}
+          onClick={(e) => {
+            e.stopPropagation();
+            go(index + 1);
+          }}
           style={{
             width: 36,
             height: 36,
@@ -991,7 +1001,7 @@ export default function TradesOfferLanding() {
               href={SUPER_J_URL}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ ...secondaryCta, alignSelf: "flex-start", padding: "15px 26px" }}
+              style={{ ...primaryCta, alignSelf: "flex-start", padding: "15px 26px" }}
             >
               Visit the live site →
             </a>
@@ -1254,6 +1264,9 @@ export default function TradesOfferLanding() {
             </div>
           </div>
         </div>
+        <p style={{ maxWidth: 560, margin: "0 auto", fontSize: 17, lineHeight: 1.6, color: "#c8c8c8" }}>
+          Only 10 packages available in this promotion. After it ends, it is unlikely to return.
+        </p>
         <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...secondaryCta, alignSelf: "center", padding: "15px 26px" }}>
           Book a 20-Minute Call →
         </a>

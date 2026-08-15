@@ -6,11 +6,28 @@ export const metadata: Metadata = {
   description:
     "Complete brand + website package for HVAC, refrigeration, and plumbing owners. First 5 companies $4,000. Book a 20-minute call.",
   robots: { index: false, follow: false },
+  icons: {
+    icon: [{ url: "/assets/trades/j-shield-emblem_circle-favicon.png", type: "image/png", sizes: "64x64" }],
+    apple: [{ url: "/assets/trades/j-shield-emblem_circle-favicon.png", type: "image/png" }],
+  },
   openGraph: {
     title: "Be the one they call first.",
     description: "Complete brand + website for HVAC, refrigeration & plumbing — $4,000 for the first 5.",
     url: "https://getbranded.catalyst-digital-solutions.com",
-    images: [{ url: "/assets/trades/super-j-opengraph-image.png", width: 1200, height: 630 }],
+    images: [
+      {
+        url: "/assets/trades/super-j-opengraph-image.png",
+        width: 1731,
+        height: 909,
+        alt: "Super J Open Graph preview — commercial refrigeration brand system",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Be the one they call first.",
+    description: "Complete brand + website for HVAC, refrigeration & plumbing — $4,000 for the first 5.",
+    images: ["/assets/trades/super-j-opengraph-image.png"],
   },
 };
 
