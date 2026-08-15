@@ -1128,7 +1128,8 @@ export default function TradesOfferLanding() {
           Website design concepts from our studio. Built to show our design range.
         </div>
         <div style={{ fontWeight: 600, fontSize: 17, color: "#fafafa" }}>
-          Clean and corporate. Bold and industrial. A character on the truck. Your call. The price doesn&apos;t change.
+          You don&apos;t have to choose one of these. Your website will be 100% custom-built. Your branding, messaging,
+          services, colors, and more.
         </div>
       </section>
 
@@ -1413,102 +1414,6 @@ export default function TradesOfferLanding() {
         <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...secondaryCta, alignSelf: "center", padding: "15px 26px" }}>
           Book a 20-Minute Call →
         </a>
-      </section>
-
-      {/* SECTION 9 — THE PRICE */}
-      <section data-screen-label="The Price" style={{ background: "#050709", borderTop: "1px solid rgba(255,255,255,.07)" }}>
-        <div
-          style={{
-            maxWidth: 760,
-            margin: "0 auto",
-            padding: "clamp(64px,8vw,120px) clamp(20px,5vw,64px)",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <div
-            style={{
-              background: "rgba(128,0,255,.07)",
-              border: "1px solid rgba(128,0,255,.45)",
-              boxShadow: "0 0 40px rgba(128,0,255,.12)",
-              borderRadius: 16,
-              padding: "clamp(32px,5vw,56px)",
-              display: "flex",
-              flexDirection: "column",
-              gap: 22,
-              alignItems: "center",
-              textAlign: "center",
-              width: "100%",
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                fontSize: 13,
-                letterSpacing: 3,
-                textTransform: "uppercase",
-                color: "#00d4ff",
-              }}
-            >
-              Complete Brand + Website Package
-            </div>
-            <div
-              style={{
-                fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
-                fontSize: "clamp(72px,10vw,140px)",
-                lineHeight: 0.9,
-                color: "#fafafa",
-              }}
-            >
-              {slots.priceShown}
-            </div>
-            <div style={{ fontSize: 15, color: "#c8c8c8" }}>
-              $2,000 down · $2,000 at handoff · You own everything on final payment
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "center" }}>
-              <SlotDots dots={slots.dots} size={15} />
-              <div
-                style={{
-                  fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                  fontSize: 13,
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  color: "#fafafa",
-                }}
-              >
-                {slots.counterText}
-              </div>
-              {slots.showUrgency && slots.urgencyLine && (
-                <div style={{ fontWeight: 600, fontSize: 15, color: "#b56bff" }}>{slots.urgencyLine}</div>
-              )}
-            </div>
-            <div style={{ color: "#7f8896", fontSize: 14 }}>{slots.nextRungLine}</div>
-            <div style={{ width: "100%", height: 1, background: "rgba(255,255,255,.12)" }} />
-            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              <div
-                style={{
-                  fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                  fontSize: 14,
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  color: "#fafafa",
-                }}
-              >
-                After launch: $149/mo
-              </div>
-              <div style={{ fontSize: 15, lineHeight: 1.6, color: "#c8c8c8", maxWidth: 520 }}>
-                Covers hosting, security, backups, updates, and what the AI assistant costs to run. Starts the day the
-                site goes live.
-              </div>
-            </div>
-            <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...primaryCta, padding: "17px 34px" }}>
-              Book a 20-Minute Call →
-            </a>
-            <div style={{ color: "#7f8896", fontSize: 14 }}>
-              No pitch deck. No pressure. If it&apos;s not a fit we&apos;ll tell you in ten minutes.
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* SECTION 11 — FINAL CTA */}
