@@ -1025,6 +1025,113 @@ export default function TradesOfferLanding() {
         </div>
       </section>
 
+      {/* SECTION 7 — MASCOT OPTIONAL */}
+      <section
+        data-screen-label="Mascot Optional"
+        style={{
+          maxWidth: 1360,
+          margin: "0 auto",
+          padding: "clamp(56px,7vw,100px) clamp(20px,5vw,64px)",
+          display: "flex",
+          flexDirection: "column",
+          gap: 34,
+          borderTop: "1px solid rgba(255,255,255,.07)",
+        }}
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: 18, maxWidth: 820 }}>
+          <div
+            style={{
+              fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+              fontSize: 13,
+              letterSpacing: 3,
+              textTransform: "uppercase",
+              color: "#00d4ff",
+            }}
+          >
+            We do more than just mascots.
+          </div>
+          <h2
+            style={{
+              fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
+              fontWeight: 400,
+              fontSize: "clamp(42px,5.4vw,86px)",
+              lineHeight: 0.9,
+              letterSpacing: 1,
+              color: "#fafafa",
+              margin: 0,
+              textTransform: "uppercase",
+            }}
+          >
+            We can design anything.
+          </h2>
+          <p style={{ fontSize: 18, lineHeight: 1.6, color: "#c8c8c8", margin: 0 }}>
+            Super J shows the whole package: website homepage, brand, character, assets, social icons, headers, color
+            scheme. These five brand concepts show how far the website design can range. Clean and corporate. Bold and
+            industrial. Doesn&apos;t need to be a superhero.
+          </p>
+        </div>
+        <div
+          className="trades-demo-live-hint"
+          style={{
+            textAlign: "center",
+            fontFamily: "var(--font-body), Inter, sans-serif",
+            fontWeight: 700,
+            fontSize: "clamp(15px,1.4vw,18px)",
+            letterSpacing: 1.5,
+            color: "#fafafa",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 10,
+          }}
+        >
+          <span className="trades-demo-live-click">CLICK TO SEE THESE LIVE</span>
+          <span className="trades-demo-live-tap">TAP TO SEE THESE LIVE</span>
+          <span aria-hidden style={{ color: "#8000ff", fontSize: 22, lineHeight: 1 }}>↓</span>
+        </div>
+        <div className="trades-demo-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 18 }}>
+          {DEMOS.map((d) => (
+            <a
+              key={d.label}
+              href={d.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "flex", flexDirection: "column", gap: 10, color: "#7f8896", textDecoration: "none" }}
+            >
+              <div
+                style={{
+                  border: "1px solid rgba(255,255,255,.14)",
+                  background: "#12161c",
+                  borderRadius: 8,
+                  padding: 8,
+                  aspectRatio: "1600/1139",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+              >
+                <Image src={d.src} alt={`${d.label} demo screenshot`} fill sizes="(max-width:768px) 50vw, 20vw" style={{ objectFit: "cover" }} />
+              </div>
+              <span
+                style={{
+                  fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+                  fontSize: 12,
+                  letterSpacing: 2,
+                  textTransform: "uppercase",
+                }}
+              >
+                {d.label} ↗
+              </span>
+            </a>
+          ))}
+        </div>
+        <div style={{ color: "#7f8896", fontSize: 14 }}>
+          Website design concepts from our studio. Built to show our design range.
+        </div>
+        <div style={{ fontWeight: 600, fontSize: 17, color: "#fafafa" }}>
+          Clean and corporate. Bold and industrial. A character on the truck. Your call. The price doesn&apos;t change.
+        </div>
+      </section>
+
       {/* SECTION 5 — THE PACKAGE */}
       <section
         id="the-package"
@@ -1145,7 +1252,9 @@ export default function TradesOfferLanding() {
             Typical agency cost: $29,000–$76,500
           </div>
           <div style={{ fontSize: 15, lineHeight: 1.6, color: "#c8c8c8", maxWidth: 480 }}>
-            $2,000 down · $2,000 at handoff · After launch: $149/mo hosting, security &amp; AI hosting
+            $2,000 down · $2,000 at handoff
+            <br />
+            After launch: $149/mo web &amp; AI hosting, security, maintenance, backups, etc.
           </div>
           <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...primaryCta, padding: "17px 34px" }}>
             Book Your 20-Minute Call →
@@ -1270,113 +1379,6 @@ export default function TradesOfferLanding() {
         <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...secondaryCta, alignSelf: "center", padding: "15px 26px" }}>
           Book a 20-Minute Call →
         </a>
-      </section>
-
-      {/* SECTION 7 — MASCOT OPTIONAL */}
-      <section
-        data-screen-label="Mascot Optional"
-        style={{
-          maxWidth: 1360,
-          margin: "0 auto",
-          padding: "clamp(56px,7vw,100px) clamp(20px,5vw,64px)",
-          display: "flex",
-          flexDirection: "column",
-          gap: 34,
-          borderTop: "1px solid rgba(255,255,255,.07)",
-        }}
-      >
-        <div style={{ display: "flex", flexDirection: "column", gap: 18, maxWidth: 820 }}>
-          <div
-            style={{
-              fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-              fontSize: 13,
-              letterSpacing: 3,
-              textTransform: "uppercase",
-              color: "#00d4ff",
-            }}
-          >
-            We do more than just mascots.
-          </div>
-          <h2
-            style={{
-              fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
-              fontWeight: 400,
-              fontSize: "clamp(42px,5.4vw,86px)",
-              lineHeight: 0.9,
-              letterSpacing: 1,
-              color: "#fafafa",
-              margin: 0,
-              textTransform: "uppercase",
-            }}
-          >
-            We can design anything.
-          </h2>
-          <p style={{ fontSize: 18, lineHeight: 1.6, color: "#c8c8c8", margin: 0 }}>
-            Super J shows the whole package: website homepage, brand, character, assets, social icons, headers, color
-            scheme. These five brand concepts show how far the website design can range. Clean and corporate. Bold and
-            industrial. Doesn&apos;t need to be a superhero.
-          </p>
-        </div>
-        <div
-          className="trades-demo-live-hint"
-          style={{
-            textAlign: "center",
-            fontFamily: "var(--font-body), Inter, sans-serif",
-            fontWeight: 700,
-            fontSize: "clamp(15px,1.4vw,18px)",
-            letterSpacing: 1.5,
-            color: "#fafafa",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 10,
-          }}
-        >
-          <span className="trades-demo-live-click">CLICK TO SEE THESE LIVE</span>
-          <span className="trades-demo-live-tap">TAP TO SEE THESE LIVE</span>
-          <span aria-hidden style={{ color: "#8000ff", fontSize: 22, lineHeight: 1 }}>↓</span>
-        </div>
-        <div className="trades-demo-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 18 }}>
-          {DEMOS.map((d) => (
-            <a
-              key={d.label}
-              href={d.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ display: "flex", flexDirection: "column", gap: 10, color: "#7f8896", textDecoration: "none" }}
-            >
-              <div
-                style={{
-                  border: "1px solid rgba(255,255,255,.14)",
-                  background: "#12161c",
-                  borderRadius: 8,
-                  padding: 8,
-                  aspectRatio: "1600/1139",
-                  position: "relative",
-                  overflow: "hidden",
-                }}
-              >
-                <Image src={d.src} alt={`${d.label} demo screenshot`} fill sizes="(max-width:768px) 50vw, 20vw" style={{ objectFit: "cover" }} />
-              </div>
-              <span
-                style={{
-                  fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                  fontSize: 12,
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                }}
-              >
-                {d.label} ↗
-              </span>
-            </a>
-          ))}
-        </div>
-        <div style={{ color: "#7f8896", fontSize: 14 }}>
-          Website design concepts from our studio. Built to show our design range.
-        </div>
-        <div style={{ fontWeight: 600, fontSize: 17, color: "#fafafa" }}>
-          Clean and corporate. Bold and industrial. A character on the truck. Your call. The price doesn&apos;t change.
-        </div>
       </section>
 
       {/* SECTION 9 — THE PRICE */}
