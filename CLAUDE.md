@@ -6,7 +6,7 @@ Guidance for agents working in this repository. **This file is current state onl
 
 **Catalyst Digital Solutions (CDS)** — the agency’s own marketing site for a construction-niche *revenue-growth* company (not a generic marketing agency). Owner: **Mario Garza**, Bakersfield CA.
 
-- **Production:** https://catalyst-digital-solutions.com (also `www` and `catalyst-digital.solutions`)
+- **Production:** https://catalyst-digital-solutions.com (also `www` and `catalyst-digital.solutions`). Trades offer: https://getbranded.catalyst-digital-solutions.com (also `/trades` on the main domain).
 - **Vercel:** project `catalyst-digital-solutions-2026`, team `catalyst-digital-solutions-projects`
 - **Canonical email (sitewide):** `info@catalyst-digital-solutions.com`
 - **Phone (NAP / RingCentral):** `(661) 888-4837` — `tel:+16618884837` (do not reintroduce `(661) 535-9927`)
@@ -135,6 +135,17 @@ Real delivery via `src/app/api/contact/route.ts` (Resend). Form: email, phone, c
 ## Sibling repos (do not confuse)
 
 Under `catalyst-companies-and-domains/`, `construction1–5-catalyst-demos` are **separate demo contractor sites** (Apex, Holloway, Monolith, Voltaic, Meridian) linked from this site. **This repo is the main CDS site.**
+
+## Getbranded offer (`/trades`)
+
+Standalone cold-outbound funnel for HVAC / refrigeration / plumbing brand+website package. **Not linked from main-site nav.**
+
+- **URLs:** `https://catalyst-digital-solutions.com/trades` and **`https://getbranded.catalyst-digital-solutions.com`** (host rewrite via `src/proxy.ts` → `/trades`)
+- **DNS:** Namecheap CNAME `getbranded` → `cname.vercel-dns.com` (Vercel project already has the domain attached)
+- **Component:** `src/components/trades/TradesOfferLanding.tsx`
+- **Slot counter:** edit `SLOTS_SOLD` only in `src/config/slots.ts` (0–10). Super J live link: `SUPER_J_IS_LIVE` + `SUPER_J_URL`
+- **CTA:** Cal.com 20-min everywhere. Header/footer: logo → main site; Privacy/Terms absolute to main site; phone `(661) 888-4837`; email `hello@catalyst-digital.solutions` on this page
+- **Copy/layout:** README in `branding-and-website-landing-page/` supersedes the PRD where they conflict; Mario’s live edits (hero, package card, FAQs 2-col, catch FAQ) take priority after ship
 
 ## Known open items
 

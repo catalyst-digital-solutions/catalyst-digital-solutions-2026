@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, type CSSProperties, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type MouseEvent, type ReactNode } from "react";
 import {
   CAL_URL,
   EMAIL,
@@ -15,7 +15,59 @@ import {
 
 const ASSET = "/assets/trades";
 
-const FAQS: { q: string; a: string }[] = [
+const gText: CSSProperties = {
+  background: "linear-gradient(90deg,#b56bff,#00d4ff)",
+  WebkitBackgroundClip: "text",
+  backgroundClip: "text",
+  color: "transparent",
+  fontWeight: 700,
+};
+
+const FAQS: { q: string; a: ReactNode }[] = [
+  {
+    q: "So what's the catch?",
+    a: (
+      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <p style={{ margin: 0 }}>
+          No catch. Fair question. If somebody offered me forty grand of work for four, I&apos;d hang up too. Here&apos;s
+          the honest answer.
+        </p>
+        <div>
+          <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: 2, color: "#7f8896" }}>
+            01
+          </div>
+          <div style={{ fontWeight: 700, color: "#fafafa", marginTop: 4 }}>There&apos;s no agency between us.</div>
+          <p style={{ margin: "6px 0 0" }}>
+            No salespeople. No account managers. No huge office lease. Most national agencies charge premium prices and
+            outsource overseas. When you call Catalyst, you talk to the guy building it.
+          </p>
+        </div>
+        <div>
+          <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: 2, color: "#7f8896" }}>
+            02
+          </div>
+          <div style={{ fontWeight: 700, color: "#fafafa", marginTop: 4 }}>We build faster than we used to.</div>
+          <p style={{ margin: "6px 0 0" }}>
+            The tools changed. What took a design team six weeks takes us days. We passed that on instead of pocketing
+            it. Same quality, less time, lower price.
+          </p>
+        </div>
+        <div>
+          <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: 2, color: "#7f8896" }}>
+            03
+          </div>
+          <div style={{ fontWeight: 700, color: "#fafafa", marginTop: 4 }}>We want the work in our portfolio.</div>
+          <p style={{ margin: "6px 0 0" }}>
+            We&apos;re new to the trades. Ten great brands out there doing well is worth more to us than the extra money.
+            That&apos;s why there&apos;s a limit, and that&apos;s why the first five are cheaper.
+          </p>
+        </div>
+        <p style={{ margin: 0 }}>
+          After the first five, it&apos;s $6,000. Not a tactic — we just can&apos;t do this many at this price twice.
+        </p>
+      </div>
+    ),
+  },
   {
     q: "Who actually does the work?",
     a: "We do. Same people, start to finish. Nothing gets shipped overseas.",
@@ -51,41 +103,21 @@ const FAQS: { q: string; a: string }[] = [
 ];
 
 const BRAND_ITEMS = [
-  "Custom mascot / character illustration (optional)",
-  "Primary stacked lockup + compact horizontal lockup",
-  "Supporting mark for small applications",
-  "One-color and reversed versions",
-  "Full color palette with hex values",
-  "Typography system",
-  "Embroidery- and screen-print-compatible graphic files — for shirts, hats, jackets at any shop",
-  "All vector source files — reusable, designer-friendly, owned outright on final payment",
+  "Logo, lockups, color palette, typography",
+  "Optional custom mascot / character",
+  "Embroidery + print-ready files, yours to keep",
 ];
 
 const ASSET_ITEMS = [
-  "Vehicle wrap design files — one vehicle, you supply the template, your wrap shop installs",
-  "Social avatars at every platform size (512/400/200/100/48/32px)",
-  "Social header set — Facebook, LinkedIn, X, Instagram",
+  "Vehicle wrap design file",
+  "Social avatars & headers, every platform",
   "Google Business Profile imagery",
-  "Open Graph / link-preview image",
-  "Brand guidelines sheet",
 ];
 
 const SITE_ITEMS = [
-  "10-page custom Next.js/React site — not a template, not WordPress",
-  "Contact and service-request forms",
-  "On-page SEO: titles, meta, schema, headings, alt text, sitemap",
-  "Mobile-first, fast, accessible",
-  "RAG-powered AI chatbot trained on your services, pricing, and service area",
-];
-
-const VALUE_ROWS = [
-  { item: "Brand strategy + logo suite", cost: "$6,000 – $15,000" },
-  { item: "Custom mascot / character illustration", cost: "$2,500 – $8,000" },
-  { item: "Full asset kit (social, embroidery, OG, guidelines)", cost: "$2,000 – $5,000" },
-  { item: "Vehicle wrap design", cost: "$1,000 – $2,500" },
-  { item: "Custom 10-page website (not a template)", cost: "$12,000 – $30,000" },
-  { item: "On-page SEO build-out", cost: "$2,500 – $6,000" },
-  { item: "AI chatbot build + training", cost: "$3,000 – $10,000" },
+  "10-page custom Next.js site (not a template)",
+  "On-page SEO built in",
+  "AI chatbot trained on your services",
 ];
 
 const DEMOS = [
@@ -200,7 +232,6 @@ const secondaryCta: CSSProperties = {
 
 export default function TradesOfferLanding() {
   const slots = getSlotState();
-  const [depthOpen, setDepthOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(-1);
   const [stickyVisible, setStickyVisible] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
@@ -334,19 +365,9 @@ export default function TradesOfferLanding() {
               margin: 0,
             }}
           >
-            Think of your biggest competitor. You know the one. Their trucks look sharp. Their website looks like a big
-            company&apos;s. That&apos;s not luck. They paid a national agency a fortune for it.{" "}
-            <span
-              style={{
-                background: "linear-gradient(90deg,#b56bff,#00d4ff)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
-                fontWeight: 700,
-              }}
-            >
-              We&apos;ll build you the same thing for $4,000.
-            </span>
+            Your biggest competitor didn&apos;t get sharp trucks and a slick website by luck — they paid an agency a
+            fortune.{" "}
+            <span style={gText}>We&apos;ll build you the same thing for $4,000.</span>
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, alignItems: "center" }}>
             <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={primaryCta}>
@@ -582,16 +603,20 @@ export default function TradesOfferLanding() {
             textTransform: "uppercase",
           }}
         >
-          A customer is comparing you right now.
+          When a customer spends 10 seconds comparing you and a competitor…
         </h2>
-        <p style={{ maxWidth: 720, fontSize: 19, lineHeight: 1.7, color: "#c8c8c8", margin: 0 }}>
-          A customer has two tabs open. Yours and your competitor&apos;s. Same license. Same trucks. Same twenty years on
-          the job. One of you looks like a real company. The other looks like a guy with a phone number. The customer
-          isn&apos;t picking the better tech. He&apos;s picking the one that looks more professional.
+        <p
+          style={{
+            maxWidth: 820,
+            fontSize: "clamp(22px,2.4vw,34px)",
+            fontWeight: 600,
+            lineHeight: 1.35,
+            color: "#fafafa",
+            margin: 0,
+          }}
+        >
+          Let&apos;s make you the <span style={gText}>obvious choice</span>.
         </p>
-        <div style={{ fontWeight: 600, fontSize: 18, color: "#b56bff" }}>
-          That decision takes 4 seconds.
-        </div>
       </section>
 
       {/* SECTION 4 — THE PROOF */}
@@ -817,8 +842,14 @@ export default function TradesOfferLanding() {
               textTransform: "uppercase",
             }}
           >
-            Everything below. One price.
+            $29K – $76K of work.
+            <br />
+            Your price: $4,000.
           </h2>
+          <p style={{ fontSize: 18, lineHeight: 1.65, color: "#c8c8c8", margin: 0, maxWidth: 720 }}>
+            A full brand identity, logo, social assets, vehicle wrap file, and a custom 10-page website with an AI
+            chatbot that answers customers at 2am. Bundled into one flat price.
+          </p>
         </div>
 
         <div className="trades-package-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 28 }}>
@@ -857,205 +888,47 @@ export default function TradesOfferLanding() {
             border: "1px solid rgba(128,0,255,.45)",
             boxShadow: "0 0 40px rgba(128,0,255,.12)",
             borderRadius: 16,
-            padding: 30,
+            padding: "clamp(28px,4vw,48px)",
             display: "flex",
             flexDirection: "column",
-            gap: 12,
+            gap: 18,
+            alignItems: "center",
+            textAlign: "center",
+            maxWidth: 640,
+            width: "100%",
+            alignSelf: "center",
           }}
         >
-          <div style={{ fontWeight: 700, fontSize: 19, color: "#fafafa", lineHeight: 1.45 }}>
-            The big agency isn&apos;t selling you a website. They&apos;re renting you one. If you stop paying, it goes
-            offline.
-          </div>
-          <div style={{ fontSize: 16, lineHeight: 1.6, color: "#c8c8c8" }}>
-            When you purchase a website from Catalyst, you own it. Reusable, graphic-designer-friendly vector files,
-            source files, everything — yours on final payment. Hand them to any wrap shop, embroiderer, or designer and
-            they can work with them directly.
-          </div>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          {VALUE_ROWS.map((row) => (
-            <div
-              key={row.item}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 20,
-                padding: "15px 4px",
-                borderBottom: "1px solid rgba(255,255,255,.09)",
-                fontSize: 15,
-              }}
-            >
-              <span style={{ color: "#c8c8c8" }}>{row.item}</span>
-              <span
-                style={{
-                  color: "#7f8896",
-                  fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                  fontSize: 13,
-                  letterSpacing: 1,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {row.cost}
-              </span>
-            </div>
-          ))}
           <div
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "baseline",
-              gap: 20,
-              padding: "22px 4px 6px",
-              flexWrap: "wrap",
-            }}
-          >
-            <span style={{ color: "#7f8896", fontSize: 16, textDecoration: "line-through" }}>
-              TYPICAL TOTAL: $29,000 – $76,500
-            </span>
-            <span
-              style={{
-                fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
-                fontSize: "clamp(40px,4vw,60px)",
-                color: "#fafafa",
-                lineHeight: 1,
-              }}
-            >
-              YOUR PRICE: <span style={{ color: "#b56bff" }}>$4,000</span>
-            </span>
-          </div>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          <button
-            type="button"
-            onClick={() => setDepthOpen((v) => !v)}
-            style={{
-              background: "none",
-              border: "none",
+              fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+              fontSize: 13,
+              letterSpacing: 3,
+              textTransform: "uppercase",
               color: "#00d4ff",
-              fontFamily: "var(--font-body), Inter, sans-serif",
-              fontSize: 15,
-              fontWeight: 600,
-              cursor: "pointer",
-              padding: 0,
-              textAlign: "left",
             }}
           >
-            {depthOpen ? "⊖" : "⊕"} Where do those numbers come from?
-          </button>
-          {depthOpen && (
-            <div
-              style={{
-                borderLeft: "2px solid #8000ff",
-                padding: "4px 0 4px 18px",
-                fontSize: 15,
-                lineHeight: 1.65,
-                color: "#c8c8c8",
-                maxWidth: 760,
-              }}
-            >
-              These are standard U.S. agency and senior-freelance rates for each piece bought separately. The ranges are
-              wide because agencies charge differently — a national firm charges the top, a good freelancer the bottom.
-              We&apos;re not comparing ourselves to the cheapest option. We&apos;re showing what this work costs when
-              somebody does it properly.
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* SECTION 6 — WHY CHEAP */}
-      <section data-screen-label="Why It's This Cheap" style={{ background: "#12161c", borderTop: "1px solid rgba(255,255,255,.07)" }}>
-        <div
-          style={{
-            maxWidth: 1200,
-            margin: "0 auto",
-            padding: "clamp(56px,7vw,100px) clamp(20px,5vw,64px)",
-            display: "flex",
-            flexDirection: "column",
-            gap: 34,
-          }}
-        >
-          <div style={{ display: "flex", flexDirection: "column", gap: 18, maxWidth: 760 }}>
-            <div
-              style={{
-                fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                fontSize: 13,
-                letterSpacing: 3,
-                textTransform: "uppercase",
-                color: "#00d4ff",
-              }}
-            >
-              The Obvious Question
-            </div>
-            <h2
-              style={{
-                fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
-                fontWeight: 400,
-                fontSize: "clamp(42px,5.4vw,86px)",
-                lineHeight: 0.9,
-                letterSpacing: 1,
-                color: "#fafafa",
-                margin: 0,
-                textTransform: "uppercase",
-              }}
-            >
-              So what&apos;s the catch?
-            </h2>
-            <p style={{ fontSize: 18, lineHeight: 1.6, color: "#c8c8c8", margin: 0 }}>
-              Fair question. If somebody offered me forty grand of work for four, I&apos;d hang up too. Here&apos;s the
-              honest answer.
-            </p>
+            Complete Brand + Website Package
           </div>
-          <div className="trades-why-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 22 }}>
-            {[
-              {
-                n: "01",
-                t: "There's no agency between us.",
-                b: "No salespeople. No account managers. No huge office lease. Most national agencies charge premium prices and outsource overseas. When you call Catalyst, you talk to the guy building it.",
-              },
-              {
-                n: "02",
-                t: "We build faster than we used to.",
-                b: "The tools changed. What took a design team six weeks takes us days. We passed that on instead of pocketing it. Same quality, less time, lower price.",
-              },
-              {
-                n: "03",
-                t: "We want the work in our portfolio.",
-                b: "We're new to the trades. Ten great brands out there doing well is worth more to us than the extra money. That's why there's a limit, and that's why the first five are cheaper.",
-              },
-            ].map((c) => (
-              <div
-                key={c.n}
-                style={{
-                  background: "rgba(255,255,255,.025)",
-                  border: "1px solid rgba(255,255,255,.09)",
-                  borderRadius: 16,
-                  padding: 28,
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 12,
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                    fontSize: 13,
-                    letterSpacing: 2,
-                    color: "#7f8896",
-                  }}
-                >
-                  {c.n}
-                </div>
-                <div style={{ fontWeight: 700, fontSize: 18, color: "#fafafa" }}>{c.t}</div>
-                <div style={{ fontSize: 15, lineHeight: 1.6, color: "#c8c8c8" }}>{c.b}</div>
-              </div>
-            ))}
+          <div
+            style={{
+              fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
+              fontSize: "clamp(64px,8vw,110px)",
+              lineHeight: 0.9,
+              color: "#fafafa",
+            }}
+          >
+            $4,000
           </div>
-          <div style={{ fontSize: 16, color: "#c8c8c8", lineHeight: 1.6 }}>
-            After the first five, it&apos;s $6,000. Not a tactic — we just can&apos;t do this many at this price twice.
+          <div style={{ color: "#7f8896", fontSize: 16, textDecoration: "line-through" }}>
+            Typical agency cost: $29,000–$76,500
           </div>
+          <div style={{ fontSize: 15, lineHeight: 1.6, color: "#c8c8c8", maxWidth: 480 }}>
+            $2,000 down · $2,000 at handoff · After launch: $149/mo hosting, security &amp; AI hosting
+          </div>
+          <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...primaryCta, padding: "17px 34px" }}>
+            Book Your 20-Minute Call →
+          </a>
         </div>
       </section>
 
@@ -1390,7 +1263,7 @@ export default function TradesOfferLanding() {
       <section
         data-screen-label="FAQ"
         style={{
-          maxWidth: 760,
+          maxWidth: 1100,
           margin: "0 auto",
           padding: "clamp(56px,7vw,100px) clamp(20px,5vw,64px)",
           display: "flex",
@@ -1411,9 +1284,9 @@ export default function TradesOfferLanding() {
             textTransform: "uppercase",
           }}
         >
-          Straight answers.
+          FAQs
         </h2>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className="trades-faq-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 40px", alignItems: "start" }}>
           {FAQS.map((faq, i) => {
             const open = openFaq === i;
             return (

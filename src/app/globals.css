@@ -1082,7 +1082,8 @@ details summary { list-style: none; }
   .trades-ladder-grid,
   .trades-package-grid,
   .trades-why-grid,
-  .trades-pay-grid {
+  .trades-pay-grid,
+  .trades-faq-grid {
     grid-template-columns: 1fr !important;
   }
   .trades-demo-grid {
