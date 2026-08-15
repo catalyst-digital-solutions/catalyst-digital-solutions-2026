@@ -993,8 +993,8 @@ export default function TradesOfferLanding() {
             And the website.
           </h3>
           <p style={{ fontSize: 17, lineHeight: 1.6, color: "#c8c8c8", margin: 0, maxWidth: 720 }}>
-            Ten pages. Loads fast. Works on a phone. Built to be found on Google. And an AI assistant trained on their
-            own services that answers customers while they&apos;re on a rooftop.
+            Ten pages. Loads fast. Works on a phone. Built to be found on Google. And an AI assistant trained on your
+            own services that answers customers while you&apos;re on a roof or under a sink.
           </p>
           {SUPER_J_IS_LIVE ? (
             <a
