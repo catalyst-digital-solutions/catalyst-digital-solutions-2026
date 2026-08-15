@@ -365,7 +365,7 @@ export default function TradesOfferLanding() {
               margin: 0,
             }}
           >
-            Your biggest competitor didn&apos;t get sharp trucks and a slick website by luck — they paid an agency a
+            Your biggest competitor didn&apos;t get sharp vans and a slick website by luck — they paid an agency a
             fortune.{" "}
             <span style={gText}>We&apos;ll build you the same thing for $4,000.</span>
           </p>
