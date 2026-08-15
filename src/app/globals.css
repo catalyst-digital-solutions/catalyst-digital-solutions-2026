@@ -1087,7 +1087,7 @@ details summary { list-style: none; }
     grid-template-columns: 1fr !important;
   }
   .trades-demo-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: 1fr !important;
   }
   .trades-poses-grid {
     grid-template-columns: 1fr !important;
@@ -1119,9 +1119,6 @@ details summary { list-style: none; }
   .trades-package-grid,
   .trades-why-grid {
     grid-template-columns: 1fr !important;
-  }
-  .trades-demo-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
   }
   .trades-steps {
     grid-template-columns: 1fr !important;

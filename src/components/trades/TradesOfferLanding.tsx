@@ -29,8 +29,7 @@ const FAQS: { q: string; a: ReactNode }[] = [
     a: (
       <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
         <p style={{ margin: 0 }}>
-          No catch. Fair question. If somebody offered me forty grand of work for four, I&apos;d hang up too. Here&apos;s
-          the honest answer.
+          No catch. Here&apos;s why we can offer all this at such a low price.
         </p>
         <div>
           <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: 2, color: "#7f8896" }}>
@@ -48,8 +47,8 @@ const FAQS: { q: string; a: ReactNode }[] = [
           </div>
           <div style={{ fontWeight: 700, color: "#fafafa", marginTop: 4 }}>We build faster than we used to.</div>
           <p style={{ margin: "6px 0 0" }}>
-            The tools changed. What took a design team six weeks takes us days. We passed that on instead of pocketing
-            it. Same quality, less time, lower price.
+            The tools changed. What took a design team six weeks takes us days. We chose to pass that on, instead of
+            pocketing the extra profit on these. Same quality, less time, lower price.
           </p>
         </div>
         <div>
@@ -63,14 +62,15 @@ const FAQS: { q: string; a: ReactNode }[] = [
           </p>
         </div>
         <p style={{ margin: 0 }}>
-          After the first five, it&apos;s $6,000. Not a tactic — we just can&apos;t do this many at this price twice.
+          After the first five, it&apos;s $6,000. That&apos;s not a sales trick. We just can&apos;t do this many at this
+          price twice.
         </p>
       </div>
     ),
   },
 
   {
-    q: "Three steps. You're busy — we know.",
+    q: "What happens after I pay?",
     a: (
       <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
         <div
@@ -144,7 +144,7 @@ const FAQS: { q: string; a: ReactNode }[] = [
   },
   {
     q: "What does the AI chatbot actually do?",
-    a: "It's trained on your company info. Your services, service area, and pricing. A customer at 11pm asks 'do you work on walk-in coolers in Riverside?' and it answers correctly, then hands you the lead.",
+    a: "It's trained on your company info. Your services, service area, and pricing. A customer at 11pm asks 'do you work on walk-in coolers in Riverside?' and it answers correctly and conversationally, then books the lead.",
   },
   {
     q: "Is the counter on this page real?",
@@ -231,7 +231,7 @@ type GalleryPoses = {
 
 const GALLERY: (GalleryImage | GalleryCarousel | GalleryPoses)[] = [
   {
-    src: `${ASSET}/super-j-brand-identity-system.png`,
+    src: `${ASSET}/super-j-brand-identity-system-v2.jpg`,
     alt: "Super J brand identity system sheet: primary stacked lockup, compact horizontal lockup, one-color dark, and reversed versions with the full core palette",
     caption: "The Identity System — four lockups, one-color, reversed, full palette",
     bg: "#fdfdfd",
@@ -243,7 +243,7 @@ const GALLERY: (GalleryImage | GalleryCarousel | GalleryPoses)[] = [
     bg: "#12161c",
   },
   {
-    src: `${ASSET}/super-j-social-avatar-guidelines.png`,
+    src: `${ASSET}/super-j-social-avatar-guidelines-v2.webp`,
     alt: "Super J avatar guidelines: shield avatar shown on Google Business Profile, Facebook, Instagram, LinkedIn, and X at sizes from 512px down to a 32px favicon",
     caption: "Avatars — every platform, every size, sharp",
     bg: "#12161c",
@@ -1089,7 +1089,7 @@ export default function TradesOfferLanding() {
           <span className="trades-demo-live-tap">TAP TO SEE THESE LIVE</span>
           <span aria-hidden style={{ color: "#8000ff", fontSize: 22, lineHeight: 1 }}>↓</span>
         </div>
-        <div className="trades-demo-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 18 }}>
+        <div className="trades-demo-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 18 }}>
           {DEMOS.map((d) => (
             <a
               key={d.label}
