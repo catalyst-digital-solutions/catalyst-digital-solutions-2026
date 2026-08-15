@@ -1246,19 +1246,53 @@ export default function TradesOfferLanding() {
               color: "#fafafa",
             }}
           >
-            $4,000
-          </div>
-          <div style={{ color: "#7f8896", fontSize: 16, textDecoration: "line-through" }}>
-            Typical agency cost: $29,000–$76,500
+            {slots.priceShown}
           </div>
           <div style={{ fontSize: 15, lineHeight: 1.6, color: "#c8c8c8", maxWidth: 480 }}>
-            $2,000 down · $2,000 at handoff
-            <br />
-            After launch: $149/mo web &amp; AI hosting, security, maintenance, backups, etc.
+            $2,000 down · $2,000 at handoff · You own everything on final payment
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "center" }}>
+            <SlotDots dots={slots.dots} size={15} />
+            <div
+              style={{
+                fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+                fontSize: 13,
+                letterSpacing: 2,
+                textTransform: "uppercase",
+                color: "#fafafa",
+              }}
+            >
+              {slots.counterText}
+            </div>
+            {slots.showUrgency && slots.urgencyLine && (
+              <div style={{ fontWeight: 600, fontSize: 15, color: "#b56bff" }}>{slots.urgencyLine}</div>
+            )}
+          </div>
+          <div style={{ color: "#7f8896", fontSize: 14 }}>{slots.nextRungLine}</div>
+          <div style={{ width: "100%", height: 1, background: "rgba(255,255,255,.12)" }} />
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            <div
+              style={{
+                fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+                fontSize: 14,
+                letterSpacing: 2,
+                textTransform: "uppercase",
+                color: "#fafafa",
+              }}
+            >
+              After launch: $149/mo
+            </div>
+            <div style={{ fontSize: 15, lineHeight: 1.6, color: "#c8c8c8", maxWidth: 520 }}>
+              Covers hosting, security, backups, updates, and what the AI assistant costs to run. Starts the day the
+              site goes live.
+            </div>
           </div>
           <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...primaryCta, padding: "17px 34px" }}>
-            Book Your 20-Minute Call →
+            Book a 20-Minute Call →
           </a>
+          <div style={{ color: "#7f8896", fontSize: 14 }}>
+            No pitch deck. No pressure. If it&apos;s not a fit we&apos;ll tell you in ten minutes.
+          </div>
         </div>
       </section>
 
