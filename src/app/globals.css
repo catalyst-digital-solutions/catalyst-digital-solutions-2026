@@ -1089,6 +1089,12 @@ details summary { list-style: none; }
   .trades-demo-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
+  .trades-demo-live-click {
+    display: none !important;
+  }
+  .trades-demo-live-tap {
+    display: inline !important;
+  }
   .trades-steps {
     grid-template-columns: 1fr !important;
     gap: 28px !important;
@@ -1096,6 +1102,12 @@ details summary { list-style: none; }
   .trades-steps-rule {
     display: none !important;
   }
+}
+.trades-demo-live-tap {
+  display: none;
+}
+.trades-demo-live-click {
+  display: inline;
 }
 @media (min-width: 768px) and (max-width: 1040px) {
   .trades-hero {

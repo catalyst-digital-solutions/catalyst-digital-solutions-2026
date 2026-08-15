@@ -68,6 +68,60 @@ const FAQS: { q: string; a: ReactNode }[] = [
       </div>
     ),
   },
+
+  {
+    q: "Three steps. You're busy — we know.",
+    a: (
+      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <div
+          style={{
+            fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+            fontSize: 12,
+            letterSpacing: 2,
+            textTransform: "uppercase",
+            color: "#00d4ff",
+          }}
+        >
+          30 Days
+        </div>
+        <div>
+          <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: 2, color: "#7f8896" }}>
+            01
+          </div>
+          <div style={{ fontWeight: 700, color: "#fafafa", marginTop: 4 }}>
+            We talk <span style={{ color: "#7f8896", fontWeight: 500 }}>(20 minutes)</span>
+          </div>
+          <p style={{ margin: "6px 0 0" }}>
+            Tell us what you do, who you serve, and what you want to look like. That&apos;s the only long conversation
+            you&apos;ll have with us.
+          </p>
+        </div>
+        <div>
+          <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: 2, color: "#7f8896" }}>
+            02
+          </div>
+          <div style={{ fontWeight: 700, color: "#fafafa", marginTop: 4 }}>
+            We build <span style={{ color: "#7f8896", fontWeight: 500 }}>(Days 1–21)</span>
+          </div>
+          <p style={{ margin: "6px 0 0" }}>
+            You see the brand first and approve it. Then the site gets built around it. Two check-ins. Ten minutes each.
+          </p>
+        </div>
+        <div>
+          <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: 2, color: "#7f8896" }}>
+            03
+          </div>
+          <div style={{ fontWeight: 700, color: "#fafafa", marginTop: 4 }}>
+            You launch <span style={{ color: "#7f8896", fontWeight: 500 }}>(Day 30)</span>
+          </div>
+          <p style={{ margin: "6px 0 0" }}>
+            Site goes live. Every file lands in your inbox — logos, vectors, wrap design, embroidery- and
+            print-compatible graphics — ready to hand to any wrap shop, embroiderer, or printer you choose.
+          </p>
+        </div>
+      </div>
+    ),
+  },
   {
     q: "Who actually does the work?",
     a: "We do. Same people, start to finish. Nothing gets shipped overseas.",
@@ -128,7 +182,46 @@ const DEMOS = [
   { label: "MERIDIAN", src: `${ASSET}/05-meridian.jpg`, href: "https://construction5.catalyst-demos.com" },
 ] as const;
 
-const GALLERY = [
+const MARK_SLIDES = [
+  {
+    src: `${ASSET}/j-shield-emblem-social_transparent-bg.png`,
+    alt: "Super J shield mark on a transparent background — navy shield with white J and red trim",
+  },
+  {
+    src: `${ASSET}/j-shield-emblem-social_rounded-rect-app.png`,
+    alt: "Super J shield mark as a rounded-rectangle app icon",
+  },
+  {
+    src: `${ASSET}/j-shield-emblem-social_circle.png`,
+    alt: "Super J shield mark as a circular social avatar",
+  },
+  {
+    src: `${ASSET}/j-shield-emblem-black-bg.webp`,
+    alt: "Super J shield mark on a black square background",
+  },
+  {
+    src: `${ASSET}/j-shield-emblem-white-black-bg.webp`,
+    alt: "Super J white shield mark on a black square background",
+  },
+] as const;
+
+type GalleryImage = {
+  kind?: "image";
+  src: string;
+  alt: string;
+  caption: string;
+  bg: string;
+  imgStyle?: CSSProperties;
+};
+
+type GalleryCarousel = {
+  kind: "carousel";
+  slides: typeof MARK_SLIDES;
+  caption: string;
+  bg: string;
+};
+
+const GALLERY: (GalleryImage | GalleryCarousel)[] = [
   {
     src: `${ASSET}/super-j-brand-identity-system.png`,
     alt: "Super J brand identity system sheet: primary stacked lockup, compact horizontal lockup, one-color dark, and reversed versions with the full core palette",
@@ -136,11 +229,10 @@ const GALLERY = [
     bg: "#fdfdfd",
   },
   {
-    src: `${ASSET}/j-shield-emblem_transparent-bg.png`,
-    alt: "Super J supporting mark: navy shield emblem with a white letter J and red trim",
+    kind: "carousel",
+    slides: MARK_SLIDES,
     caption: "The Mark — works at 32px on a phone or 32 inches on a truck",
     bg: "#fdfdfd",
-    imgStyle: { width: "44%", maxWidth: 520, margin: "0 auto" } as const,
   },
   {
     src: `${ASSET}/super-j-social-header-system.png`,
@@ -159,7 +251,7 @@ const GALLERY = [
     alt: "Super J mascot character in a presenting pose — caped superhero technician in a navy and white suit with a J chest emblem",
     caption: "The Character — multiple poses for ads, trucks, and print",
     bg: "#fdfdfd",
-    imgStyle: { width: "40%", maxWidth: 480, margin: "0 auto" } as const,
+    imgStyle: { width: "40%", maxWidth: 480, margin: "0 auto" },
   },
   {
     src: `${ASSET}/van-wrap-front.jpeg`,
@@ -168,8 +260,8 @@ const GALLERY = [
     bg: "#12161c",
   },
   {
-    src: `${ASSET}/super-j-premium-branding-flatlay.png`,
-    alt: "Super J shield mark embroidered on a navy cap and polo, with business cards, a die-cut sticker, and the Instagram profile on a phone",
+    src: `${ASSET}/super-j-flatlay-v2.jpg`,
+    alt: "Super J brand flatlay: embroidered cap and polo, business cards, sticker, and phone showing the Instagram profile",
     caption: "Your files: embroidery- and screen-print-compatible files for any shop",
     bg: "#12161c",
   },
@@ -179,7 +271,129 @@ const GALLERY = [
     caption: "Link Previews — looks like a real company when someone shares you",
     bg: "#12161c",
   },
-] as const;
+];
+
+function MarkCarousel({
+  slides,
+  bg,
+}: {
+  slides: typeof MARK_SLIDES;
+  bg: string;
+}) {
+  const [index, setIndex] = useState(0);
+  const count = slides.length;
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setIndex((i) => (i + 1) % count);
+    }, 3200);
+    return () => window.clearInterval(id);
+  }, [count]);
+
+  const go = (next: number) => setIndex((next + count) % count);
+  const slide = slides[index];
+
+  return (
+    <div
+      style={{
+        border: "1px solid rgba(255,255,255,.14)",
+        background: bg,
+        borderRadius: 8,
+        padding: 12,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 14,
+        position: "relative",
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          minHeight: "clamp(220px,42vw,420px)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Image
+          key={slide.src}
+          src={slide.src}
+          alt={slide.alt}
+          width={900}
+          height={900}
+          style={{
+            display: "block",
+            width: "44%",
+            maxWidth: 420,
+            height: "auto",
+            borderRadius: 3,
+          }}
+        />
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+        <button
+          type="button"
+          aria-label="Previous mark"
+          onClick={() => go(index - 1)}
+          style={{
+            width: 36,
+            height: 36,
+            borderRadius: "50%",
+            border: "1px solid rgba(8,11,15,.18)",
+            background: "#fff",
+            color: "#080b0f",
+            cursor: "pointer",
+            fontSize: 18,
+            lineHeight: 1,
+          }}
+        >
+          ‹
+        </button>
+        <div style={{ display: "flex", gap: 8 }}>
+          {slides.map((s, i) => (
+            <button
+              key={s.src}
+              type="button"
+              aria-label={`Show mark ${i + 1}`}
+              aria-current={i === index}
+              onClick={() => setIndex(i)}
+              style={{
+                width: i === index ? 22 : 8,
+                height: 8,
+                borderRadius: 999,
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+                background: i === index ? "#8000ff" : "rgba(8,11,15,.22)",
+                transition: "width .2s ease, background .2s ease",
+              }}
+            />
+          ))}
+        </div>
+        <button
+          type="button"
+          aria-label="Next mark"
+          onClick={() => go(index + 1)}
+          style={{
+            width: 36,
+            height: 36,
+            borderRadius: "50%",
+            border: "1px solid rgba(8,11,15,.18)",
+            background: "#fff",
+            color: "#080b0f",
+            cursor: "pointer",
+            fontSize: 18,
+            lineHeight: 1,
+          }}
+        >
+          ›
+        </button>
+      </div>
+    </div>
+  );
+}
 
 function SlotDots({
   dots,
@@ -445,138 +659,6 @@ export default function TradesOfferLanding() {
         </div>
       </section>
 
-      {/* SECTION 2 — PRICE LADDER */}
-      <section
-        data-screen-label="Price Ladder"
-        style={{
-          maxWidth: 860,
-          margin: "0 auto",
-          padding: "clamp(48px,6vw,88px) clamp(20px,5vw,64px)",
-          display: "flex",
-          flexDirection: "column",
-          gap: 28,
-          textAlign: "center",
-          borderTop: "1px solid rgba(255,255,255,.07)",
-        }}
-      >
-        <div
-          style={{
-            fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-            fontSize: 13,
-            letterSpacing: 3,
-            textTransform: "uppercase",
-            color: "#00d4ff",
-          }}
-        >
-          Before Anything Else
-        </div>
-        <h2
-          style={{
-            fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
-            fontWeight: 400,
-            fontSize: "clamp(42px,5.4vw,86px)",
-            lineHeight: 0.9,
-            letterSpacing: 1,
-            color: "#fafafa",
-            margin: 0,
-            textTransform: "uppercase",
-          }}
-        >
-          Here&apos;s the price, and here&apos;s when it goes up.
-        </h2>
-        <div className="trades-ladder-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18, textAlign: "left" }}>
-          <div
-            style={{
-              background: "rgba(128,0,255,.07)",
-              border: "1px solid rgba(128,0,255,.45)",
-              boxShadow: "0 0 40px rgba(128,0,255,.12)",
-              borderRadius: 16,
-              padding: 28,
-              display: "flex",
-              flexDirection: "column",
-              gap: 14,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                fontSize: 13,
-                letterSpacing: 3,
-                textTransform: "uppercase",
-                color: "#00d4ff",
-              }}
-            >
-              First 5 Companies
-            </div>
-            <div
-              style={{
-                fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
-                fontSize: 64,
-                color: "#fafafa",
-                lineHeight: 1,
-              }}
-            >
-              $4,000
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-              <SlotDots dots={slots.dots} size={12} />
-              <span
-                style={{
-                  fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                  fontSize: 13,
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  color: "#fafafa",
-                }}
-              >
-                {slots.counterText}
-              </span>
-            </div>
-          </div>
-          <div
-            style={{
-              background: "rgba(255,255,255,.025)",
-              border: "1px solid rgba(255,255,255,.09)",
-              borderRadius: 16,
-              padding: 28,
-              display: "flex",
-              flexDirection: "column",
-              gap: 14,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                fontSize: 13,
-                letterSpacing: 3,
-                textTransform: "uppercase",
-                color: "#7f8896",
-              }}
-            >
-              Next 5 Companies
-            </div>
-            <div
-              style={{
-                fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
-                fontSize: 64,
-                color: "#7f8896",
-                lineHeight: 1,
-              }}
-            >
-              $6,000
-            </div>
-          </div>
-        </div>
-        <p style={{ maxWidth: 640, margin: "0 auto", fontSize: 17, lineHeight: 1.6, color: "#c8c8c8" }}>
-          We can build one of these a week. That&apos;s the whole reason for the number — not a sales gimmick. We&apos;re
-          telling you now so you&apos;re not surprised later. Come back next month and check the counter. It&apos;ll be
-          accurate.
-        </p>
-        <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...secondaryCta, alignSelf: "center", padding: "15px 26px" }}>
-          Book a 20-Minute Call →
-        </a>
-      </section>
-
       {/* SECTION 3 — THE MIRROR */}
       <section
         data-screen-label="The Mirror"
@@ -670,33 +752,38 @@ export default function TradesOfferLanding() {
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 56 }}>
           {GALLERY.map((item) => (
-            <figure key={item.src} style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-              <div
-                style={{
-                  border: "1px solid rgba(255,255,255,.14)",
-                  background: item.bg,
-                  borderRadius: 8,
-                  padding: 12,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  width={1600}
-                  height={900}
+            <figure
+              key={item.kind === "carousel" ? "mark-carousel" : item.src}
+              style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12 }}
+            >
+              {item.kind === "carousel" ? (
+                <MarkCarousel slides={item.slides} bg={item.bg} />
+              ) : (
+                <div
                   style={{
-                    display: "block",
-                    height: "auto",
-                    borderRadius: 3,
-                    ...("imgStyle" in item && item.imgStyle
-                      ? item.imgStyle
-                      : { width: "100%" }),
+                    border: "1px solid rgba(255,255,255,.14)",
+                    background: item.bg,
+                    borderRadius: 8,
+                    padding: 12,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
-                />
-              </div>
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={1600}
+                    height={900}
+                    style={{
+                      display: "block",
+                      height: "auto",
+                      borderRadius: 3,
+                      ...(item.imgStyle ? item.imgStyle : { width: "100%" }),
+                    }}
+                  />
+                </div>
+              )}
               <figcaption
                 style={{
                   fontFamily: "var(--font-body), Inter, sans-serif",
@@ -932,6 +1019,122 @@ export default function TradesOfferLanding() {
         </div>
       </section>
 
+      {/* SECTION — PRICE LADDER (after package CTA) */}
+      <section
+        data-screen-label="Price Ladder"
+        style={{
+          maxWidth: 860,
+          margin: "0 auto",
+          padding: "clamp(48px,6vw,88px) clamp(20px,5vw,64px)",
+          display: "flex",
+          flexDirection: "column",
+          gap: 28,
+          textAlign: "center",
+          borderTop: "1px solid rgba(255,255,255,.07)",
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
+            fontWeight: 400,
+            fontSize: "clamp(42px,5.4vw,86px)",
+            lineHeight: 0.9,
+            letterSpacing: 1,
+            color: "#fafafa",
+            margin: 0,
+            textTransform: "uppercase",
+          }}
+        >
+          Only 5 available at this price.
+        </h2>
+        <div className="trades-ladder-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18, textAlign: "left" }}>
+          <div
+            style={{
+              background: "rgba(128,0,255,.07)",
+              border: "1px solid rgba(128,0,255,.45)",
+              boxShadow: "0 0 40px rgba(128,0,255,.12)",
+              borderRadius: 16,
+              padding: 28,
+              display: "flex",
+              flexDirection: "column",
+              gap: 14,
+            }}
+          >
+            <div
+              style={{
+                fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+                fontSize: 13,
+                letterSpacing: 3,
+                textTransform: "uppercase",
+                color: "#00d4ff",
+              }}
+            >
+              First 5 Companies
+            </div>
+            <div
+              style={{
+                fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
+                fontSize: 64,
+                color: "#fafafa",
+                lineHeight: 1,
+              }}
+            >
+              $4,000
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+              <SlotDots dots={slots.dots} size={12} />
+              <span
+                style={{
+                  fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+                  fontSize: 13,
+                  letterSpacing: 2,
+                  textTransform: "uppercase",
+                  color: "#fafafa",
+                }}
+              >
+                {slots.counterText}
+              </span>
+            </div>
+          </div>
+          <div
+            style={{
+              background: "rgba(255,255,255,.025)",
+              border: "1px solid rgba(255,255,255,.09)",
+              borderRadius: 16,
+              padding: 28,
+              display: "flex",
+              flexDirection: "column",
+              gap: 14,
+            }}
+          >
+            <div
+              style={{
+                fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+                fontSize: 13,
+                letterSpacing: 3,
+                textTransform: "uppercase",
+                color: "#7f8896",
+              }}
+            >
+              Next 5 Companies
+            </div>
+            <div
+              style={{
+                fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
+                fontSize: 64,
+                color: "#7f8896",
+                lineHeight: 1,
+              }}
+            >
+              $6,000
+            </div>
+          </div>
+        </div>
+        <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...secondaryCta, alignSelf: "center", padding: "15px 26px" }}>
+          Book a 20-Minute Call →
+        </a>
+      </section>
+
       {/* SECTION 7 — MASCOT OPTIONAL */}
       <section
         data-screen-label="Mascot Optional"
@@ -955,7 +1158,7 @@ export default function TradesOfferLanding() {
               color: "#00d4ff",
             }}
           >
-            Not Your Style? Fine.
+            We do more than just mascots.
           </div>
           <h2
             style={{
@@ -969,13 +1172,32 @@ export default function TradesOfferLanding() {
               textTransform: "uppercase",
             }}
           >
-            Mascot optional. Quality comes standard.
+            We can design anything.
           </h2>
           <p style={{ fontSize: 18, lineHeight: 1.6, color: "#c8c8c8", margin: 0 }}>
             Super J shows the whole package: website homepage, brand, character, assets, social icons, headers, color
             scheme. These five brand concepts show how far the website design can range. Clean and corporate. Bold and
             industrial. Doesn&apos;t need to be a superhero.
           </p>
+        </div>
+        <div
+          className="trades-demo-live-hint"
+          style={{
+            textAlign: "center",
+            fontFamily: "var(--font-body), Inter, sans-serif",
+            fontWeight: 700,
+            fontSize: "clamp(15px,1.4vw,18px)",
+            letterSpacing: 1.5,
+            color: "#fafafa",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 10,
+          }}
+        >
+          <span className="trades-demo-live-click">CLICK TO SEE THESE LIVE</span>
+          <span className="trades-demo-live-tap">TAP TO SEE THESE LIVE</span>
+          <span aria-hidden style={{ color: "#8000ff", fontSize: 22, lineHeight: 1 }}>↓</span>
         </div>
         <div className="trades-demo-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 18 }}>
           {DEMOS.map((d) => (
@@ -1017,149 +1239,6 @@ export default function TradesOfferLanding() {
         </div>
         <div style={{ fontWeight: 600, fontSize: 17, color: "#fafafa" }}>
           Clean and corporate. Bold and industrial. A character on the truck. Your call. The price doesn&apos;t change.
-        </div>
-      </section>
-
-      {/* SECTION 8 — HOW IT WORKS */}
-      <section
-        data-screen-label="How It Works"
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "clamp(56px,7vw,100px) clamp(20px,5vw,64px)",
-          display: "flex",
-          flexDirection: "column",
-          gap: 40,
-          borderTop: "1px solid rgba(255,255,255,.07)",
-        }}
-      >
-        <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-          <div
-            style={{
-              fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-              fontSize: 13,
-              letterSpacing: 3,
-              textTransform: "uppercase",
-              color: "#00d4ff",
-            }}
-          >
-            30 Days
-          </div>
-          <h2
-            style={{
-              fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
-              fontWeight: 400,
-              fontSize: "clamp(42px,5.4vw,86px)",
-              lineHeight: 0.9,
-              letterSpacing: 1,
-              color: "#fafafa",
-              margin: 0,
-              textTransform: "uppercase",
-            }}
-          >
-            Three steps. You&apos;re busy — we know.
-          </h2>
-        </div>
-        <div className="trades-steps" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 0, position: "relative" }}>
-          <div
-            className="trades-steps-rule"
-            style={{
-              position: "absolute",
-              top: 23,
-              left: "8%",
-              right: "8%",
-              height: 1,
-              background: "rgba(255,255,255,.12)",
-            }}
-          />
-          {[
-            {
-              n: "01",
-              t: (
-                <>
-                  We talk <span style={{ color: "#7f8896", fontWeight: 500 }}>(20 minutes)</span>
-                </>
-              ),
-              b: "Tell us what you do, who you serve, and what you want to look like. That's the only long conversation you'll have with us.",
-            },
-            {
-              n: "02",
-              t: (
-                <>
-                  We build <span style={{ color: "#7f8896", fontWeight: 500 }}>(Days 1–21)</span>
-                </>
-              ),
-              b: "You see the brand first and approve it. Then the site gets built around it. Two check-ins. Ten minutes each.",
-            },
-            {
-              n: "03",
-              t: (
-                <>
-                  You launch <span style={{ color: "#7f8896", fontWeight: 500 }}>(Day 30)</span>
-                </>
-              ),
-              b: "Site goes live. Every file lands in your inbox — logos, vectors, wrap design, embroidery- and print-compatible graphics — ready to hand to any wrap shop, embroiderer, or printer you choose.",
-            },
-          ].map((s) => (
-            <div key={s.n} style={{ display: "flex", flexDirection: "column", gap: 14, padding: "0 22px", position: "relative" }}>
-              <div
-                style={{
-                  width: 46,
-                  height: 46,
-                  borderRadius: "50%",
-                  background: "#080b0f",
-                  border: "1px solid rgba(128,0,255,.6)",
-                  color: "#b56bff",
-                  fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                  fontSize: 14,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                {s.n}
-              </div>
-              <div style={{ fontWeight: 700, fontSize: 18, color: "#fafafa" }}>{s.t}</div>
-              <div style={{ fontSize: 15, lineHeight: 1.6, color: "#c8c8c8" }}>{s.b}</div>
-            </div>
-          ))}
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 10, alignItems: "center" }}>
-          <div className="trades-pay-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18, width: "100%", maxWidth: 640 }}>
-            <div
-              style={{
-                border: "1px solid rgba(255,255,255,.09)",
-                borderRadius: 16,
-                padding: 20,
-                textAlign: "center",
-                fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                fontSize: 14,
-                letterSpacing: 2,
-                textTransform: "uppercase",
-                color: "#fafafa",
-                background: "rgba(255,255,255,.025)",
-              }}
-            >
-              $2,000 — to start
-            </div>
-            <div
-              style={{
-                border: "1px solid rgba(255,255,255,.09)",
-                borderRadius: 16,
-                padding: 20,
-                textAlign: "center",
-                fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-                fontSize: 14,
-                letterSpacing: 2,
-                textTransform: "uppercase",
-                color: "#fafafa",
-                background: "rgba(255,255,255,.025)",
-              }}
-            >
-              $2,000 — at handoff
-            </div>
-          </div>
-          <div style={{ color: "#7f8896", fontSize: 14 }}>Everything transfers to you on final payment.</div>
         </div>
       </section>
 
@@ -1358,11 +1437,10 @@ export default function TradesOfferLanding() {
             textTransform: "uppercase",
           }}
         >
-          Twenty minutes. Then you decide.
+          How does your brand compare?
         </h2>
         <p style={{ maxWidth: 640, fontSize: 18, lineHeight: 1.65, color: "#c8c8c8", margin: 0 }}>
           Look at Super J one more time. Then look at your own website. If the difference bothers you, let&apos;s talk.
-          If it doesn&apos;t, no hard feelings. We&apos;ll be here when you need us.
         </p>
         <div
           style={{
