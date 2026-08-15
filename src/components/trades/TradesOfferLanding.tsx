@@ -1224,8 +1224,8 @@ export default function TradesOfferLanding() {
                   }}
                 >
                   <div style={{ fontWeight: 700, fontSize: 19, color: "#fafafa", lineHeight: 1.45 }}>
-                    The big agency isn&apos;t selling you a website. They&apos;re renting you one. If you stop paying, it
-                    goes offline.
+                    Worth knowing: Many big agencies don&apos;t sell you a website. They rent you one. If you stop paying,
+                    they take it down.
                   </div>
                   <div style={{ fontSize: 16, lineHeight: 1.6, color: "#c8c8c8" }}>
                     When you purchase a website from Catalyst, you own it. Reusable, graphic-designer-friendly vector
@@ -1235,6 +1235,18 @@ export default function TradesOfferLanding() {
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column" }}>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+                      fontSize: 13,
+                      letterSpacing: 2,
+                      textTransform: "uppercase",
+                      color: "#7f8896",
+                      padding: "0 4px 10px",
+                    }}
+                  >
+                    Typical large agency pricing:
+                  </div>
                   {VALUE_ROWS.map((row) => (
                     <div
                       key={row.item}
