@@ -17,7 +17,18 @@ Stripe changelog 2026-07-29 (dahlia) added `payment_intent_data.setup_future_usa
 - Thank-you page: built now, no separate PRD cycle.
 - Buy button on getbranded page: yes, wired via `slots.ts` + new `src/config/payment-links.ts` after Phase 3 finalizes URLs (Phase 4 runs in both branches).
 
-## Open
-- Stripe MCP now available (test + live). Phase 1 API audit next; STOP-AND-REPORT gates per PRD honored (esp. before Phase 3 live writes).
-- Phase 5 copy awaiting Mario: `$149/mo` line in `TradesOfferLanding.tsx:1448` (proposed wording in audit doc); `mario@` → `info@` sweep on main-site legal pages.
-- Mario manual (Phase 6): Dashboard public details (ToS/privacy URLs, support email/phone, business name) BEFORE Phase 3 verification; Radar rules, store policies off, receipts on, `/terms` PDF snapshot before campaign start.
+## UPDATE (same day, later session) — remediation COMPLETE
+
+- **Phase 1 API audit done:** 20 active live links; 7 campaign + 5 dormant Founding 50 carried the stored-card defect. Zero completed sessions / setup intents / stored cards → no retroactive exposure.
+- **Phase 2 → BRANCH A.** Test-mode empirical test: both `customer_creation` AND `setup_future_usage` updatable in place (changelog was incomplete — `customer_creation` works too). Real headless checkout on the updated link verified: `setup_future_usage: null`, `setup_intent: null`, `customer: null`, consent recorded `accepted`. Markdown links in `custom_text` render as hyperlinks.
+- **Phase 3 done in live mode:** all 7 campaign links remediated in place (URLs unchanged); finals got consent added; per-link `custom_text.submit` now discloses deposit vs package total ("Today's charge: $2,000 (50% deposit). Package total: $4,000…"). Products renamed (shared across rungs, so amount-agnostic names + per-link submit text instead of PRD's per-slot names). 5 Founding 50 links also cleared (kept active — deactivation is Mario's call). Final sweep: **0 defective active links**.
+- **Phase 4 done:** `src/config/payment-links.ts` (registry; no page renders payment links — all landing CTAs are Cal.com).
+- **Phase 5:** `$149/mo` consistent everywhere incl. Stripe Care Plan product — no change needed. `mario@` on main-site legal pages left for Mario.
+- Account-level ToS/Privacy URLs already set correctly (verified via live checkout consent links) — that Phase 6 item is done.
+- Full evidence in the audit doc.
+
+## Remaining for Mario (Phase 6 manual + decisions)
+- Dashboard: support email/phone on public details, business name (drop `.solutions` if still present), Radar review, store policies toggle, email receipts on, `/terms` PDF snapshot before campaign start.
+- Decide: deactivate the 5 dormant Founding 50 links? (defect removed either way)
+- Decide: `mario@` → `info@` on main-site legal pages?
+- Optional: the $1 live smoke-test purchase (confirm with Mario before running), then deactivate the smoke-test link.
