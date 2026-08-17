@@ -13,6 +13,7 @@ import {
   SUPER_J_URL,
 } from "@/config/slots";
 import { decorateUrlWithUtms } from "@/components/AnalyticsProvider";
+import { getOfferCheckout, type OfferCheckout } from "@/config/payment-links";
 
 const ASSET = "/assets/trades";
 
@@ -527,18 +528,52 @@ const secondaryCta: CSSProperties = {
   textDecoration: "none",
 };
 
+function PayButtons({
+  checkout,
+  showFull = false,
+  compact = false,
+}: {
+  checkout: OfferCheckout | null;
+  showFull?: boolean;
+  compact?: boolean;
+}) {
+  if (!checkout) return null;
+  const pad = compact ? { fontSize: 14, padding: "12px 18px" } : {};
+  return (
+    <>
+      <a
+        href={checkout.depositUrl}
+        style={{ ...primaryCta, ...pad }}
+      >
+        {compact ? `Pay ${checkout.depositAmount} deposit` : `Pay ${checkout.depositAmount} deposit →`}
+      </a>
+      {showFull && (
+        <a
+          href={checkout.fullUrl}
+          style={{ ...secondaryCta, ...pad }}
+        >
+          Pay {checkout.fullAmount} in full
+        </a>
+      )}
+    </>
+  );
+}
+
 export default function TradesOfferLanding() {
   const slots = getSlotState();
+  const checkout = getOfferCheckout();
   const [openFaq, setOpenFaq] = useState(-1);
   const [numbersOpen, setNumbersOpen] = useState(false);
   const [stickyVisible, setStickyVisible] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
-  // Carry first-touch UTMs through to Cal.com so bookings keep their source
+  // Carry first-touch UTMs through to Cal.com and Stripe
   useEffect(() => {
-    document.querySelectorAll<HTMLAnchorElement>('a[href^="https://cal.com/"]').forEach((a) => {
-      a.href = decorateUrlWithUtms(a.href);
-    });
+    document
+      .querySelectorAll<HTMLAnchorElement>('a[href^="https://cal.com/"], a[href^="https://buy.stripe.com/"]')
+      .forEach((a) => {
+        a.href = decorateUrlWithUtms(a.href);
+      });
   }, []);
 
   useEffect(() => {
@@ -604,19 +639,21 @@ export default function TradesOfferLanding() {
           >
             <span style={{ color: "#7f8896", fontWeight: 500 }}>Call or text</span> {PHONE_DISPLAY}
           </a>
-          <a
-            href={CAL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="trades-header-cta"
-            style={{
-              ...primaryCta,
-              fontSize: 15,
-              padding: "12px 22px",
-            }}
-          >
-            Book a 20-Minute Call
-          </a>
+          <div className="trades-header-cta" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <PayButtons checkout={checkout} compact />
+            <a
+              href={CAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                ...secondaryCta,
+                fontSize: 15,
+                padding: "12px 22px",
+              }}
+            >
+              Book a 20-Minute Call
+            </a>
+          </div>
         </div>
       </header>
 
@@ -675,7 +712,8 @@ export default function TradesOfferLanding() {
             <span style={gText}>We&apos;ll build you the same thing for $4,000.</span>
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, alignItems: "center" }}>
-            <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={primaryCta}>
+            <PayButtons checkout={checkout} />
+            <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={secondaryCta}>
               Book a 20-Minute Call →
             </a>
             <a href="#the-package" onClick={scrollToPackage} style={secondaryCta}>
@@ -709,7 +747,9 @@ export default function TradesOfferLanding() {
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 24px", color: "#7f8896", fontSize: 14 }}>
             <span>◷ 30 days to launch</span>
-            <span>◈ $2,000 down, $2,000 at handoff</span>
+            <span>
+              ◈ {checkout ? `${checkout.depositAmount} down, ${checkout.remaining} at handoff` : "Paid in two halves"}
+            </span>
             <span>◆ You own everything</span>
           </div>
         </div>
@@ -1422,7 +1462,9 @@ export default function TradesOfferLanding() {
             {slots.priceShown}
           </div>
           <div style={{ fontSize: 15, lineHeight: 1.6, color: "#c8c8c8", maxWidth: 480 }}>
-            $2,000 down · $2,000 at handoff · You own everything on final payment
+            {checkout
+              ? `${checkout.depositAmount} down · ${checkout.remaining} at handoff · You own everything on final payment`
+              : "You own everything on final payment"}
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "center" }}>
             <SlotDots dots={slots.dots} size={15} />
@@ -1460,11 +1502,16 @@ export default function TradesOfferLanding() {
               site goes live.
             </div>
           </div>
-          <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...primaryCta, padding: "17px 34px" }}>
-            Book a 20-Minute Call →
-          </a>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center" }}>
+            <PayButtons checkout={checkout} showFull />
+            <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...secondaryCta, padding: "16px 26px" }}>
+              Book a 20-Minute Call →
+            </a>
+          </div>
           <div style={{ color: "#7f8896", fontSize: 14 }}>
-            No pitch deck. No pressure. If it&apos;s not a fit we&apos;ll tell you in ten minutes.
+            {checkout
+              ? "No card is saved. Nothing bills automatically. Questions first? Book the call."
+              : "No pitch deck. No pressure. If it's not a fit we'll tell you in ten minutes."}
           </div>
         </div>
       </section>
@@ -1583,9 +1630,12 @@ export default function TradesOfferLanding() {
         <p style={{ maxWidth: 560, margin: "0 auto", fontSize: 17, lineHeight: 1.6, color: "#c8c8c8" }}>
           Only 10 packages available in this promotion. After it ends, it is unlikely to return.
         </p>
-        <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...secondaryCta, alignSelf: "center", padding: "15px 26px" }}>
-          Book a 20-Minute Call →
-        </a>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center" }}>
+          <PayButtons checkout={checkout} showFull />
+          <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...secondaryCta, padding: "15px 26px" }}>
+            Book a 20-Minute Call →
+          </a>
+        </div>
       </section>
 
       {/* SECTION 11 — FINAL CTA */}
@@ -1643,9 +1693,12 @@ export default function TradesOfferLanding() {
             {slots.counterText}
           </span>
         </div>
-        <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...primaryCta, padding: "17px 34px" }}>
-          Book a 20-Minute Call →
-        </a>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center" }}>
+          <PayButtons checkout={checkout} showFull />
+          <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={secondaryCta}>
+            Book a 20-Minute Call →
+          </a>
+        </div>
         <div style={{ color: "#7f8896", fontSize: 15 }}>
           Or call or text{" "}
           <a href={`tel:${PHONE_TEL}`} style={{ color: "#c8c8c8", fontWeight: 600, textDecoration: "none" }}>
@@ -1769,7 +1822,7 @@ export default function TradesOfferLanding() {
 
       {/* Sticky mobile CTA — PRD § sticky bar */}
       {stickyVisible && (
-        <div className="trades-sticky-cta" role="region" aria-label="Book a call">
+        <div className="trades-sticky-cta" role="region" aria-label="Pay or book a call">
           <span
             style={{
               fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
@@ -1782,15 +1835,15 @@ export default function TradesOfferLanding() {
           >
             {microCounter}
           </span>
+          <PayButtons checkout={checkout} compact />
           <a
             href={CAL_URL}
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              ...primaryCta,
+              ...secondaryCta,
               fontSize: 14,
-              padding: "12px 18px",
-              flex: 1,
+              padding: "12px 16px",
               textAlign: "center",
               minHeight: 44,
             }}

@@ -9,10 +9,11 @@
  *   (no card is stored, nothing bills automatically)
  * - Public links redirect to https://getbranded.catalyst-digital-solutions.com/thank-you
  *
- * These links are NOT rendered on the landing page (all landing CTAs go to Cal.com).
- * They are sent to buyers directly after the call. The PRIVATE final-payment links
- * must never be published.
+ * Public deposit/full links render on the landing page via getOfferCheckout().
+ * The PRIVATE final-payment links must never be published.
  */
+
+import { getSlotState, SLOTS_SOLD } from "@/config/slots";
 
 export const BRAND_BUILD_LINKS = {
   /** Launch rung — $2,000 deposit ($4,000 total). plink_1U4lv0HtCGFFusafQVENuEjj */
@@ -33,5 +34,38 @@ export const BRAND_BUILD_FINAL_LINKS = {
   finalStandard: "https://buy.stripe.com/3cIdR95884RQaHm09ZfEk0m",
 } as const;
 
-/** INTERNAL — $1 live smoke test (plink_1U4n74HtCGFFusafoi9gwJvJ). Deactivate after validation. */
+/** INTERNAL — $1 live smoke test (plink_1U4n74HtCGFFusafoi9gwJvJ). Deactivated after validation. */
 export const SMOKE_TEST_LINK = "https://buy.stripe.com/28E28rbww8428zecWLfEk0n";
+
+export type OfferCheckout = {
+  depositUrl: string;
+  fullUrl: string;
+  depositAmount: string;
+  fullAmount: string;
+  remaining: string;
+  packageTotal: string;
+};
+
+/** Current-rung public checkout. Null when all 10 slots are sold. */
+export function getOfferCheckout(soldInput = SLOTS_SOLD): OfferCheckout | null {
+  const slots = getSlotState(soldInput);
+  if (slots.booked) return null;
+  if (slots.rung2) {
+    return {
+      depositUrl: BRAND_BUILD_LINKS.depositStandard,
+      fullUrl: BRAND_BUILD_LINKS.fullStandard,
+      depositAmount: "$3,000",
+      fullAmount: "$6,000",
+      remaining: "$3,000",
+      packageTotal: "$6,000",
+    };
+  }
+  return {
+    depositUrl: BRAND_BUILD_LINKS.depositLaunch,
+    fullUrl: BRAND_BUILD_LINKS.fullLaunch,
+    depositAmount: "$2,000",
+    fullAmount: "$4,000",
+    remaining: "$2,000",
+    packageTotal: "$4,000",
+  };
+}

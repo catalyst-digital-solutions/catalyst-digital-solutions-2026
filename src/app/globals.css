@@ -1057,7 +1057,7 @@ details summary { list-style: none; }
 }
 @media (max-width: 767px) {
   .trades-page--sticky {
-    padding-bottom: 72px;
+    padding-bottom: 88px;
   }
   .trades-sticky-cta {
     display: flex;
