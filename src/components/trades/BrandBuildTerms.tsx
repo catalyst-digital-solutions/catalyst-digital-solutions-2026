@@ -84,18 +84,12 @@ export default function BrandBuildTerms() {
           padding: "16px 32px",
         }}
       >
-        <div
-          style={{
-            width: 24,
-            height: 24,
-            borderRadius: 6,
-            background: "linear-gradient(135deg,#8000ff,#5600ab)",
-            flexShrink: 0,
-          }}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/trades/cds-wordmark.png"
+          alt="Catalyst Digital Solutions"
+          style={{ height: 30, width: "auto", display: "block" }}
         />
-        <span style={{ font: "600 15px var(--font-inter), sans-serif", color: "#1a1a1a" }}>
-          Catalyst Digital Solutions
-        </span>
       </header>
 
       <div

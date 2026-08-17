@@ -1200,7 +1200,7 @@ export default function TradesOfferLanding() {
           >
             $29K – $76K of work.
             <br />
-            Your price: $4,000.
+            <span style={gText}>Your price: $4,000.</span>
           </h2>
           <p style={{ fontSize: 18, lineHeight: 1.65, color: "#c8c8c8", margin: 0, maxWidth: 720 }}>
             A full brand identity, logo, social assets, vehicle wrap file, and a custom 10-page website with an AI

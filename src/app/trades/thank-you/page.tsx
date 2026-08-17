@@ -49,18 +49,12 @@ export default function TradesThankYouPage() {
           padding: "16px 32px",
         }}
       >
-        <div
-          style={{
-            width: 24,
-            height: 24,
-            borderRadius: 6,
-            background: "linear-gradient(135deg,#8000ff,#5600ab)",
-            flexShrink: 0,
-          }}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/trades/cds-wordmark.png"
+          alt="Catalyst Digital Solutions"
+          style={{ height: 30, width: "auto", display: "block" }}
         />
-        <span style={{ font: "600 15px var(--font-inter), sans-serif" }}>
-          Catalyst Digital Solutions
-        </span>
       </header>
 
       <main style={{ maxWidth: 640, margin: "0 auto", padding: "72px 24px 96px" }}>
@@ -75,7 +69,7 @@ export default function TradesThankYouPage() {
         >
           Payment received
         </p>
-        <h1 style={{ font: "700 36px/1.2 var(--font-inter), sans-serif", margin: "0 0 16px" }}>
+        <h1 style={{ font: "700 36px/1.2 var(--font-inter), sans-serif", color: "#1a1a1a", margin: "0 0 16px" }}>
           You&rsquo;re in. Here&rsquo;s what happens next.
         </h1>
         <p style={{ fontSize: 17, lineHeight: 1.7, color: "#2b2b2b", margin: "0 0 40px" }}>
