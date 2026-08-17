@@ -206,8 +206,8 @@ const MARK_SLIDES = [
     alt: "Super J shield mark as a circular social avatar",
   },
   {
-    src: `${ASSET}/j-shield-emblem-black-bg.webp`,
-    alt: "Super J shield mark on a black square background",
+    src: `${ASSET}/j-shield-emblem-white-bg.webp`,
+    alt: "Super J shield mark on a white background",
   },
   {
     src: `${ASSET}/j-shield-emblem-white-black-bg.webp`,

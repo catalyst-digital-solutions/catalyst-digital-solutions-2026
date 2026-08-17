@@ -107,6 +107,23 @@ export default function Nav() {
           flexWrap: "wrap",
         }}
       >
+        <Link
+          href="/trades"
+          style={{
+            fontFamily: "var(--font-inter), Inter, sans-serif",
+            fontSize: 13.5,
+            fontWeight: 700,
+            color: "#05070a",
+            background: "linear-gradient(90deg,#b56bff,#00d4ff)",
+            padding: "8px 14px",
+            borderRadius: 9,
+            boxShadow: "0 6px 22px rgba(0,212,255,.25)",
+            textDecoration: "none",
+            whiteSpace: "nowrap",
+          }}
+        >
+          Branding/Website Special!
+        </Link>
         {TOP.map((item) =>
           item.children ? (
             <div key={item.href} className="nav-drop" style={{ display: "inline-flex" }}>
@@ -259,6 +276,23 @@ export default function Nav() {
             boxShadow: "0 24px 50px rgba(0,0,0,.5)",
           }}
         >
+          <Link
+            href="/trades"
+            style={{
+              alignSelf: "flex-start",
+              fontFamily: "var(--font-inter), Inter, sans-serif",
+              fontSize: 15,
+              fontWeight: 700,
+              color: "#05070a",
+              background: "linear-gradient(90deg,#b56bff,#00d4ff)",
+              padding: "10px 16px",
+              borderRadius: 9,
+              textDecoration: "none",
+              margin: "6px 0 8px",
+            }}
+          >
+            Branding/Website Special!
+          </Link>
           {TOP.map((item) => (
             <div key={item.href}>
               <Link

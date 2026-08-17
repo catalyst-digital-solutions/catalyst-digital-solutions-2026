@@ -84,12 +84,14 @@ export default function BrandBuildTerms() {
           padding: "16px 32px",
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/assets/trades/cds-wordmark.png"
-          alt="Catalyst Digital Solutions"
-          style={{ height: 30, width: "auto", display: "block" }}
-        />
+        <a href="https://getbranded.catalyst-digital-solutions.com" style={{ display: "block" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/trades/cds-wordmark.png"
+            alt="Catalyst Digital Solutions"
+            style={{ width: 150, height: "auto", display: "block" }}
+          />
+        </a>
       </header>
 
       <div
