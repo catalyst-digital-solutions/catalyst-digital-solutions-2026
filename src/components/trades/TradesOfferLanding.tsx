@@ -12,6 +12,7 @@ import {
   SUPER_J_IS_LIVE,
   SUPER_J_URL,
 } from "@/config/slots";
+import { decorateUrlWithUtms } from "@/components/AnalyticsProvider";
 
 const ASSET = "/assets/trades";
 
@@ -532,6 +533,13 @@ export default function TradesOfferLanding() {
   const [numbersOpen, setNumbersOpen] = useState(false);
   const [stickyVisible, setStickyVisible] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
+
+  // Carry first-touch UTMs through to Cal.com so bookings keep their source
+  useEffect(() => {
+    document.querySelectorAll<HTMLAnchorElement>('a[href^="https://cal.com/"]').forEach((a) => {
+      a.href = decorateUrlWithUtms(a.href);
+    });
+  }, []);
 
   useEffect(() => {
     const el = heroRef.current;

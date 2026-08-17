@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter, Bebas_Neue, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
+import AnalyticsProvider from "@/components/AnalyticsProvider";
 
 /* v4 design: fixed overlay nav — page heroes own their top padding (no main offset). */
 
@@ -75,6 +78,10 @@ export default function RootLayout({
     >
       <body>
         <LenisProvider>{children}</LenisProvider>
+        <Suspense fallback={null}>
+          <AnalyticsProvider />
+        </Suspense>
+        <Analytics />
       </body>
     </html>
   );
