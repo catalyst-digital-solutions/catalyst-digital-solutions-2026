@@ -8,8 +8,8 @@ const GETBRANDED_HOSTS = new Set([
 
 /**
  * getbranded.* serves the /trades offer at the root.
- * Other paths on that host rewrite under /trades when needed;
- * privacy/terms stay on the main site via absolute footer links.
+ * /terms serves ToS v1.0 + Schedule A (Stripe checkout consent links here).
+ * /privacy redirects to the main site. Other paths rewrite to the offer.
  */
 export function proxy(request: NextRequest) {
   const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
@@ -32,6 +32,25 @@ export function proxy(request: NextRequest) {
     const url = request.nextUrl.clone();
     url.pathname = "/trades";
     return NextResponse.rewrite(url);
+  }
+
+  // ToS v1.0 (+ Schedule A) — checkout consent links point here
+  if (pathname === "/terms") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/trades/terms";
+    return NextResponse.rewrite(url);
+  }
+
+  // Post-purchase redirect target for Stripe Payment Links
+  if (pathname === "/thank-you") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/trades/thank-you";
+    return NextResponse.rewrite(url);
+  }
+
+  // Privacy lives on the main site
+  if (pathname === "/privacy") {
+    return NextResponse.redirect("https://catalyst-digital-solutions.com/privacy");
   }
 
   // Keep /trades URL working on the subdomain too

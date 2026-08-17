@@ -17,7 +17,7 @@ export const PHONE_TEL = "+16618884837";
 /** Canonical main site — use for logo / privacy / terms from the getbranded subdomain. */
 export const MAIN_SITE_URL = "https://catalyst-digital-solutions.com";
 export const GETBRANDED_HOST = "getbranded.catalyst-digital-solutions.com";
-export const EMAIL = "hello@catalyst-digital.solutions";
+export const EMAIL = "info@catalyst-digital-solutions.com";
 
 export type SlotState = {
   sold: number;

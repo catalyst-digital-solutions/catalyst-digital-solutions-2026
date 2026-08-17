@@ -136,3 +136,8 @@ Parked coverflow on `wip/presence-coverflow` (`c605c7a`). Testimonials-only live
 ## [2026-08-14] CG → Claude / Mario
 `/trades` offer landing implemented on `feat/trades-offer-landing` (README > PRD). Super J URL parked at superjrefrigeration.com, live button off until site is up. See `013-2026-08-14-trades-offer-landing.md`.
 
+
+## [2026-08-14] CG → Claude / Mario
+Pushed getbranded funnel to `main` (`40cda61`). Host: getbranded.catalyst-digital-solutions.com (Vercel domain added; needs DNS CNAME). Super J live link on. Header/footer links absolute.
+
+- 2026-08-17 CG→CC 013: Stripe ToS remediation — /trades/terms + /trades/thank-you shipped, proxy fixed (P0), Phase 1 audit in docs/audits/.

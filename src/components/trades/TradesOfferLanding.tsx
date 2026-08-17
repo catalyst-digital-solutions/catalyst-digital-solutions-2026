@@ -1753,7 +1753,7 @@ export default function TradesOfferLanding() {
           <a href={`${MAIN_SITE_URL}/privacy`} style={{ color: "#7f8896", textDecoration: "none" }}>
             Privacy
           </a>
-          <a href={`${MAIN_SITE_URL}/terms`} style={{ color: "#7f8896", textDecoration: "none" }}>
+          <a href="/trades/terms" style={{ color: "#7f8896", textDecoration: "none" }}>
             Terms
           </a>
         </div>

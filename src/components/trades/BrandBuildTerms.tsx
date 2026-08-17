@@ -1,0 +1,759 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+/**
+ * Terms of Service v1.0 + Schedule A (Brand Build Program).
+ * Ported from branding-and-website-landing-page/Terms & Conditions Page/Terms of Service.dc.html
+ * Legal copy — do not edit wording without Mario's approval.
+ */
+
+const h2Style: React.CSSProperties = {
+  font: "700 22px/1.3 var(--font-inter), sans-serif",
+  color: "#8000ff",
+  margin: "40px 0 14px",
+};
+
+const hrStyle: React.CSSProperties = {
+  border: "none",
+  borderTop: "1px solid #e6e6e6",
+  margin: "32px 0",
+};
+
+const tocLabelStyle: React.CSSProperties = {
+  margin: "16px 0 6px",
+  font: "600 11px var(--font-inter), sans-serif",
+  color: "#7f8896",
+  letterSpacing: ".5px",
+  textTransform: "uppercase",
+};
+
+const tocListStyle: React.CSSProperties = {
+  listStyle: "none",
+  margin: "0 0 20px",
+  padding: 0,
+  display: "flex",
+  flexDirection: "column",
+  gap: 9,
+  fontSize: 14,
+  lineHeight: 1.4,
+};
+
+export default function BrandBuildTerms() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width:860px)");
+    setIsMobile(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  return (
+    <div
+      className="bbterms"
+      style={{
+        background: "#f8f8f8",
+        minHeight: "100vh",
+        fontFamily: "var(--font-inter), sans-serif",
+        color: "#1a1a1a",
+      }}
+    >
+      <style>{`
+        .bbterms a { color: #8000ff; text-decoration: none; }
+        .bbterms a:hover { color: #5600ab; text-decoration: underline; }
+        .bbterms { scroll-behavior: smooth; }
+        @media print {
+          .bbterms header, .bbterms nav[aria-label="Table of contents"] { display: none !important; }
+          .bbterms .bbterms-grid { display: block !important; }
+          .bbterms article { max-width: 100% !important; }
+        }
+      `}</style>
+
+      <header
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 20,
+          background: "#ffffff",
+          borderBottom: "1px solid #e6e6e6",
+          display: "flex",
+          alignItems: "center",
+          gap: 12,
+          padding: "16px 32px",
+        }}
+      >
+        <div
+          style={{
+            width: 24,
+            height: 24,
+            borderRadius: 6,
+            background: "linear-gradient(135deg,#8000ff,#5600ab)",
+            flexShrink: 0,
+          }}
+        />
+        <span style={{ font: "600 15px var(--font-inter), sans-serif", color: "#1a1a1a" }}>
+          Catalyst Digital Solutions
+        </span>
+      </header>
+
+      <div
+        className="bbterms-grid"
+        style={{
+          maxWidth: 1200,
+          margin: "0 auto",
+          padding: "56px 32px 96px",
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "240px 1fr",
+          gap: 64,
+          alignItems: "start",
+        }}
+      >
+        <nav
+          aria-label="Table of contents"
+          style={
+            isMobile
+              ? { marginBottom: 8 }
+              : {
+                  position: "sticky",
+                  top: 88,
+                  maxHeight: "calc(100vh - 120px)",
+                  overflowY: "auto",
+                }
+          }
+        >
+          <details
+            open={!isMobile}
+            style={
+              isMobile
+                ? {
+                    background: "#ffffff",
+                    border: "1px solid #e6e6e6",
+                    borderRadius: 10,
+                    padding: "14px 16px",
+                  }
+                : undefined
+            }
+          >
+            <summary
+              style={
+                isMobile
+                  ? {
+                      font: "600 14px var(--font-inter), sans-serif",
+                      color: "#1a1a1a",
+                      cursor: "pointer",
+                    }
+                  : {
+                      font: "600 12px var(--font-inter), sans-serif",
+                      color: "#7f8896",
+                      letterSpacing: "1px",
+                      textTransform: "uppercase",
+                      listStyle: "none",
+                      cursor: "default",
+                    }
+              }
+            >
+              Table of contents
+            </summary>
+            <p style={tocLabelStyle}>Terms of Service</p>
+            <ol style={tocListStyle}>
+              <li><a href="#1">1. How this agreement is put together</a></li>
+              <li><a href="#2">2. Versions</a></li>
+              <li><a href="#3">3. Which document wins if they conflict</a></li>
+              <li><a href="#4">4. Price and payment</a></li>
+              <li><a href="#5">5. Ongoing services and recurring charges</a></li>
+              <li><a href="#6">6. What we need from you</a></li>
+              <li><a href="#7">7. Intellectual property</a></li>
+              <li><a href="#8">8. Revisions and approvals</a></li>
+              <li><a href="#9">9. Refunds and cancellation</a></li>
+              <li><a href="#10">10. Confidentiality</a></li>
+              <li><a href="#11">11. No guarantee of results</a></li>
+              <li><a href="#12">12. Limitation of liability</a></li>
+              <li><a href="#13">13. Third-party services</a></li>
+              <li><a href="#14">14. Content and compliance</a></li>
+              <li><a href="#15">15. Termination</a></li>
+              <li><a href="#16">16. Governing law and disputes</a></li>
+              <li><a href="#17">17. Everything else</a></li>
+              <li><a href="#sec-contact">Questions</a></li>
+            </ol>
+            <p style={{ ...tocLabelStyle, margin: "0 0 6px" }}>Schedule A</p>
+            <ol style={{ ...tocListStyle, margin: 0 }}>
+              <li><a href="#A.1">A.1 What&rsquo;s included</a></li>
+              <li><a href="#A.2">A.2 What&rsquo;s not included</a></li>
+              <li><a href="#A.3">A.3 Statement of Work</a></li>
+              <li><a href="#A.4">A.4 Payment</a></li>
+              <li><a href="#A.5">A.5 Timeline and process</a></li>
+              <li><a href="#A.6">A.6 Care Plan</a></li>
+              <li><a href="#A.7">A.7 What you own, and when</a></li>
+              <li><a href="#A.8">A.8 Limited slots and pricing</a></li>
+              <li><a href="#A.9">A.9 Uniqueness</a></li>
+              <li><a href="#A.10">A.10 Your responsibilities</a></li>
+            </ol>
+          </details>
+        </nav>
+
+        <article style={{ maxWidth: 720, fontSize: 16, lineHeight: 1.7, color: "#2b2b2b" }}>
+          <h1 style={{ font: "700 34px/1.25 var(--font-inter), sans-serif", color: "#1a1a1a", margin: "0 0 8px" }}>
+            Terms of Service
+          </h1>
+          <p style={{ fontSize: 14, color: "#6b6b6b", margin: "0 0 32px" }}>
+            Version 1.0 &nbsp;&middot;&nbsp; Effective date: August 17, 2026 &nbsp;&middot;&nbsp; Last updated: August 17, 2026
+          </p>
+
+          <p>
+            These Terms of Service (the &ldquo;Terms&rdquo;) govern your purchase of services from{" "}
+            <strong>Catalyst Digital Solutions, LLC</strong> (&ldquo;Catalyst,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
+            &ldquo;our&rdquo;), a California limited liability company located at 4012 Foxwood St, Bakersfield, CA 93306.
+          </p>
+          <p>
+            By completing a purchase, signing a Statement of Work, or accepting these Terms at checkout, you
+            (&ldquo;Client,&rdquo; &ldquo;you,&rdquo; or &ldquo;your&rdquo;) agree to be bound by them.
+          </p>
+          <p>
+            These Terms are written for business customers. If you are purchasing on behalf of a company, you represent
+            that you have authority to bind that company.
+          </p>
+
+          <hr style={hrStyle} />
+
+          <h2 id="1" style={h2Style}>1. How this agreement is put together</h2>
+          <p>Your agreement with us is made up of the following documents:</p>
+          <p><strong>These Terms</strong> — the baseline rules that apply to every purchase.</p>
+          <p>
+            <strong>The applicable Schedule</strong> — offer-specific terms for the particular program or package you
+            bought. Schedules appear at the bottom of this page. The Schedule that applies to you is the one named on
+            your checkout page, invoice, or Statement of Work.
+          </p>
+          <p>
+            <strong>Your Statement of Work, proposal, or order form</strong>, if we signed one — the specific scope,
+            price, and dates for your project.
+          </p>
+          <p><strong>Any signed change order</strong> that modifies the above.</p>
+          <p>
+            Each Schedule on this page is incorporated into these Terms by reference and forms part of your agreement
+            when it applies to your purchase.
+          </p>
+
+          <h2 id="2" style={h2Style}>2. Versions</h2>
+          <p>
+            We may update these Terms. <strong>Changes apply only to purchases made after the updated version is
+            posted.</strong> The version in effect on the date you paid or signed governs your project for its duration.
+            Each version carries a version number and effective date at the top of this page.
+          </p>
+          <p>
+            Material changes to an active project — scope, price, payment schedule, intellectual property, or recurring
+            billing — require your written approval. We will not change them by posting a new version of these Terms.
+          </p>
+
+          <h2 id="3" style={h2Style}>3. Which document wins if they conflict</h2>
+          <p>
+            We interpret all of the documents together and give effect to each wherever reasonably possible. If there is
+            a genuine conflict that cannot be reconciled, the following order controls, and only to the extent of that
+            conflict:
+          </p>
+          <p>
+            1. A written change order signed by both parties<br />
+            2. Your signed Statement of Work, proposal, or order form<br />
+            3. The applicable Schedule on this page<br />
+            4. These Terms<br />
+            5. Any invoice, receipt, checkout page, marketing page, email, or other informational material
+          </p>
+          <p>
+            A payment receipt or checkout confirmation confirms that a transaction happened. It does not change your
+            agreement unless it says so explicitly and we both agree in writing.
+          </p>
+
+          <h2 id="4" style={h2Style}>4. Price and payment</h2>
+          <p>Prices are stated at checkout or in your Statement of Work. All amounts are in US dollars.</p>
+          <p>
+            Payment schedules are set out in the applicable Schedule or Statement of Work. Where a project is paid in
+            installments, <strong>we are not obligated to publish your website, release source files, or transfer any
+            ownership until we have received payment in full.</strong>
+          </p>
+          <p>
+            <strong>Bank transfers (ACH).</strong> If you pay by bank transfer, the payment is not final when it appears
+            as submitted. Bank transfers can be returned for several business days afterward. We do not begin production
+            work on a bank transfer until the funds have cleared. Card payments clear immediately and we can begin right
+            away.
+          </p>
+          <p>
+            <strong>Late payment.</strong> Invoices are due on receipt unless stated otherwise. If an invoice goes more
+            than fifteen (15) days past due, we may pause all work on your account until it is paid. Work resumes when
+            payment clears, and your timeline extends accordingly.
+          </p>
+          <p>
+            <strong>Chargebacks.</strong> If you dispute a charge for work already delivered or in progress, we may
+            suspend all services and withhold delivery of files pending resolution. Please contact us first — we would
+            rather solve the problem than fight about it.
+          </p>
+
+          <h2 id="5" style={h2Style}>5. Ongoing services and recurring charges</h2>
+          <p>
+            Some of our services are billed monthly. <strong>We do not enroll you in any recurring charge
+            automatically, and we do not save your payment card at checkout for future charges.</strong>
+          </p>
+          <p>
+            Any monthly service — including hosting and care plans — is a separate purchase that you enroll in yourself,
+            at the time that service begins, through a separate checkout where the monthly amount, the billing date, and
+            the cancellation method are all disclosed before you enter payment information.
+          </p>
+          <p>
+            <strong>Cancelling a monthly service.</strong> You may cancel any monthly service at any time by emailing
+            info@catalyst-digital-solutions.com or calling or texting (661) 888-4837. We will confirm your cancellation
+            in writing and stop future charges. We do not require a phone call, a meeting, or a retention conversation
+            to cancel. Cancellation stops future billing; it does not refund the current month, and it does not entitle
+            you to a refund of one-time project fees already paid.
+          </p>
+          <p>
+            <strong>If you cancel hosting</strong>, your website files remain yours. We will provide your files and
+            reasonable assistance to move them to a host of your choosing. Continued hosting, uptime, security patching,
+            backups, and any AI assistant features are not our responsibility after cancellation.
+          </p>
+
+          <h2 id="6" style={h2Style}>6. What we need from you</h2>
+          <p>
+            To do our work we need timely information, materials, feedback, and approvals from you. Where a project has
+            a target timeline, that timeline assumes you respond to our requests within three (3) business days.
+          </p>
+          <p>
+            You are responsible for the accuracy of everything you give us — your license number, service areas,
+            pricing, service descriptions, certifications, and claims about your business. We publish what you tell us.
+            We do not independently verify it.
+          </p>
+          <p>
+            You confirm that you have the right to use any logo, photo, video, text, font, or other material you supply
+            to us, and that using it does not infringe anyone&rsquo;s rights.
+          </p>
+
+          <h2 id="7" style={h2Style}>7. Intellectual property</h2>
+          <p>Ownership is split into four buckets. This matters, so read it.</p>
+          <p>
+            <strong>Your materials.</strong> Anything you gave us — your existing logo, photos, copy, customer lists,
+            business information — remains yours. We use it only to perform the services.
+          </p>
+          <p>
+            <strong>Project deliverables.</strong> For project-based work, the specific deliverables created for you
+            (your logo files, your brand assets, your website design and page code) are assigned to you{" "}
+            <strong>upon our receipt of payment in full for that project.</strong> Until then, we retain all rights, and
+            you have no license to use, publish, modify, or register any deliverable. The exact list of what transfers
+            is set out in the applicable Schedule or Statement of Work.
+          </p>
+          <p>
+            <strong>Our materials.</strong> Our methods, templates, code frameworks, component libraries, AI prompts and
+            configurations, automation blueprints, know-how, internal tooling, and anything we developed before or
+            independently of your project remain ours. Your deliverables may include or be built on these. Where they
+            are, you receive a perpetual, non-exclusive license to use them <strong>as part of your delivered
+            deliverables</strong> — you do not acquire the underlying materials themselves and may not resell,
+            redistribute, or license them separately.
+          </p>
+          <p>
+            <strong>Third-party materials.</strong> Stock images, fonts, plugins, hosting, AI models, and
+            software-as-a-service accounts are governed by their own licenses. Some are not transferable. We will tell
+            you what falls into this category and what it requires you to maintain. We do not warrant that third-party
+            licenses can be assigned to you.
+          </p>
+          <p>
+            <strong>Drafts and unused concepts.</strong> Concepts you did not select, and drafts from any project not
+            paid in full, remain ours. You receive no license to use them.
+          </p>
+          <p>
+            <strong>Our portfolio.</strong> We may display work we produced for you in our portfolio, case studies,
+            social media, and marketing materials, and identify you as a client. If you would rather we didn&rsquo;t,
+            tell us in writing and we will honor that.
+          </p>
+
+          <h2 id="8" style={h2Style}>8. Revisions and approvals</h2>
+          <p>
+            Revision rounds are defined in the applicable Schedule or Statement of Work. Revisions within the agreed
+            scope are included. Requests that change the agreed direction after you have approved it, or that exceed the
+            stated revision rounds, are additional work and are quoted separately before we do them.
+          </p>
+          <p>
+            Approval means approval. Once you approve a brand direction or a design, subsequent changes to that decision
+            are new work.
+          </p>
+
+          <h2 id="9" style={h2Style}>9. Refunds and cancellation</h2>
+          <p>
+            <strong>One-time projects.</strong> Deposits secure your production slot and are non-refundable once
+            production begins, because your slot is committed and work has started. If you cancel before production
+            begins, we will refund your deposit less any work already performed and any third-party costs already
+            incurred on your behalf. If we cancel or cannot deliver, you receive a full refund of amounts paid for
+            undelivered work.
+          </p>
+          <p>Refund terms specific to a program are set out in its Schedule and control over this section where they differ.</p>
+          <p>
+            <strong>Monthly services.</strong> Monthly fees pay for that month&rsquo;s work. They are not refundable
+            after the month begins. Cancel any time under §5 and you will not be billed again.
+          </p>
+          <p>
+            <strong>What is never refundable:</strong> work already delivered, files already transferred, third-party
+            costs already paid on your behalf, and time already spent on a project you abandoned.
+          </p>
+
+          <h2 id="10" style={h2Style}>10. Confidentiality</h2>
+          <p>
+            Each of us will keep the other&rsquo;s non-public business information confidential and use it only to
+            perform or receive the services. This does not apply to information that is public, that we already had, or
+            that we are legally required to disclose.
+          </p>
+
+          <h2 id="11" style={h2Style}>11. No guarantee of results</h2>
+          <p>We will do professional work. <strong>We do not guarantee business outcomes.</strong></p>
+          <p>
+            Specifically, we do not guarantee search engine rankings, positions on Google Maps, traffic volume, number
+            of leads, quality of leads, conversion rates, bid wins, revenue, or profit. Search engines, advertising
+            platforms, and AI assistants control their own algorithms and change them without notice. Your results also
+            depend on your market, your pricing, your capacity, your reputation, how fast you answer your phone, and how
+            well you close.
+          </p>
+          <p>
+            Any figure we mention in a conversation, proposal, or on our website is an example or an illustration of
+            what has been possible — not a promise, projection, or guarantee of what you will achieve.
+          </p>
+          <p>We do not provide legal, tax, accounting, insurance, or licensing advice.</p>
+
+          <h2 id="12" style={h2Style}>12. Limitation of liability</h2>
+          <p>To the maximum extent permitted by law:</p>
+          <p>
+            <strong>We are not liable for indirect, incidental, special, consequential, punitive, or exemplary
+            damages</strong>, including lost profits, lost revenue, lost business opportunity, lost bids, loss of
+            goodwill, or loss of data, even if we were told those damages were possible.
+          </p>
+          <p>
+            <strong>Our total liability</strong> for any and all claims arising out of or relating to your purchase is
+            limited to <strong>the amount you actually paid us for the specific project or, for monthly services, the
+            fees you paid us in the six (6) months before the claim arose.</strong>
+          </p>
+          <p>
+            Nothing in this section limits liability that cannot lawfully be limited, including liability for fraud,
+            intentional misconduct, or gross negligence.
+          </p>
+          <p>
+            We provide our services &ldquo;as is&rdquo; and disclaim all implied warranties, including merchantability,
+            fitness for a particular purpose, and non-infringement, except as expressly stated in these Terms.
+          </p>
+
+          <h2 id="13" style={h2Style}>13. Third-party services and things outside our control</h2>
+          <p>
+            Our work depends on services we do not operate — hosting providers, domain registrars, Google, Meta, payment
+            processors, AI model providers, and software vendors. We are not responsible for their outages, policy
+            changes, price increases, account suspensions, or discontinued features. Where a third party&rsquo;s change
+            affects your service, we will tell you and propose a path forward.
+          </p>
+          <p>
+            We are not responsible for delays or failures caused by anything outside our reasonable control, including
+            your delays, third-party failures, natural disasters, labor disruptions, or changes in law.
+          </p>
+
+          <h2 id="14" style={h2Style}>14. Your obligations regarding content and compliance</h2>
+          <p>
+            You are responsible for the legality of your own business. You will not ask us to publish anything false,
+            misleading, defamatory, discriminatory, or unlawful, and you will not ask us to publish claims about your
+            services that you cannot substantiate.
+          </p>
+          <p>
+            If we run reviews or reputation services for you, we follow platform policies. We will not filter, gate, or
+            suppress reviews based on how a customer feels about you, and we will not write reviews on your behalf or on
+            behalf of your customers.
+          </p>
+          <p>
+            If we run advertising for you, you remain the advertiser of record for compliance purposes and are
+            responsible for the accuracy of your offers and claims.
+          </p>
+
+          <h2 id="15" style={h2Style}>15. Termination</h2>
+          <p>Either of us may terminate an ongoing monthly service under §5.</p>
+          <p>
+            We may suspend or terminate services immediately if you fail to pay, if you use our work unlawfully, or if
+            you ask us to do something we believe is unlawful or deceptive.
+          </p>
+          <p>
+            On termination: you pay for work performed through the termination date. Deliverables you have paid for in
+            full are yours. Deliverables you have not paid for in full remain ours.
+          </p>
+
+          <h2 id="16" style={h2Style}>16. Governing law and disputes</h2>
+          <p>
+            These Terms are governed by the laws of the State of California, without regard to its conflict-of-laws
+            rules.
+          </p>
+          <p>
+            Before filing anything, we both agree to try to resolve the dispute directly — one written notice describing
+            the problem and thirty (30) days to work it out in good faith. Most problems get solved here.
+          </p>
+          <p>
+            If that fails, any action must be brought in the state or federal courts located in Kern County, California,
+            and we each consent to that venue.
+          </p>
+
+          <h2 id="17" style={h2Style}>17. Everything else</h2>
+          <p>
+            <strong>Independent contractor.</strong> We are an independent contractor, not your employee, partner,
+            agent, or joint venturer.
+          </p>
+          <p>
+            <strong>Assignment.</strong> Neither of us may assign this agreement without the other&rsquo;s written
+            consent, except in connection with a sale of substantially all of our business.
+          </p>
+          <p>
+            <strong>Notices.</strong> Written notice to us goes to info@catalyst-digital-solutions.com. Notice to you
+            goes to the email address on your account.
+          </p>
+          <p>
+            <strong>Severability.</strong> If any part of these Terms is found unenforceable, the rest stays in effect.
+          </p>
+          <p>
+            <strong>No waiver.</strong> If we don&rsquo;t enforce a provision right away, that doesn&rsquo;t mean
+            we&rsquo;ve given it up.
+          </p>
+          <p>
+            <strong>Entire agreement.</strong> These Terms, the applicable Schedule, and any signed Statement of Work or
+            change order are the entire agreement between us. They replace any prior discussions, emails, proposals, or
+            marketing materials.
+          </p>
+
+          <hr style={{ ...hrStyle, margin: "48px 0 32px" }} />
+
+          <div id="sec-contact">
+            <p style={{ fontWeight: 600, color: "#1a1a1a", margin: "0 0 8px" }}>Questions</p>
+            <p style={{ margin: 0 }}>
+              Catalyst Digital Solutions, LLC
+              <br />
+              4012 Foxwood St, Bakersfield, CA 93306
+              <br />
+              Email: <a href="mailto:info@catalyst-digital-solutions.com">info@catalyst-digital-solutions.com</a>
+              <br />
+              Call or text: (661) 888-4837
+            </p>
+          </div>
+
+          <p style={{ fontSize: 13, color: "#9a9a9a", margin: "32px 0 0" }}>
+            Terms of Service — Version 1.0 — Effective August 17, 2026
+          </p>
+
+          <div
+            style={{
+              margin: "56px -4px 0",
+              padding: "28px 32px",
+              background: "rgba(128,0,255,.06)",
+              borderTop: "2px solid #8000ff",
+              borderRadius: "4px 4px 0 0",
+            }}
+          >
+            <p
+              style={{
+                font: "600 12px var(--font-inter), sans-serif",
+                color: "#8000ff",
+                letterSpacing: "1.5px",
+                textTransform: "uppercase",
+                margin: "0 0 10px",
+              }}
+            >
+              Schedule A
+            </p>
+            <h1 style={{ font: "700 28px/1.3 var(--font-inter), sans-serif", color: "#1a1a1a", margin: "0 0 8px" }}>
+              Brand Build Program
+            </h1>
+            <p style={{ fontSize: 14, color: "#6b6b6b", margin: 0 }}>
+              Version 1.0 &nbsp;&middot;&nbsp; Effective date: August 17, 2026
+            </p>
+          </div>
+
+          <p style={{ margin: "28px 0 24px" }}>
+            This Schedule applies if you purchased the Brand Build package (complete brand identity plus custom
+            website). It is incorporated into and forms part of the Terms of Service above. Where this Schedule and the
+            Terms differ, this Schedule controls for Brand Build purchases.
+          </p>
+
+          <h2 id="A.1" style={h2Style}>A.1 What&rsquo;s included</h2>
+          <p><strong>Brand identity</strong></p>
+          <p>
+            Primary logo lockup, compact horizontal lockup, supporting mark or emblem, one-color version, reversed
+            version for dark backgrounds, color palette with hex, RGB, and CMYK values, typography system,
+            embroidery-ready file formats, a custom character or mascot illustration if you want one, and a written
+            brand guidelines sheet.
+          </p>
+          <p><strong>Applied assets</strong></p>
+          <p>
+            Vehicle wrap design for <strong>one</strong> vehicle type, using <strong>one</strong> template that you
+            supply; social profile avatars sized for major platforms; social header images; a Google Business Profile
+            image set; an Open Graph link-preview image.
+          </p>
+          <p><strong>Website</strong></p>
+          <p>
+            A custom <strong>ten-page</strong> website built in Next.js and React; contact and service-request forms;
+            on-page search optimization; an AI assistant trained on the business information you provide;
+            mobile-responsive across phones, tablets, and desktops.
+          </p>
+          <p>
+            <strong>File formats.</strong> You receive editable vector source files (.ai or .svg), print-ready .pdf,
+            transparent .png at multiple sizes, and embroidery-ready formats.
+          </p>
+
+          <h2 id="A.2" style={h2Style}>A.2 What&rsquo;s not included</h2>
+          <p>
+            Anything not listed in §A.1, including: additional website pages; additional vehicle templates; printing;
+            embroidery; wrap fabrication or installation; signage fabrication; photography; videography; copywriting
+            beyond the pages in scope; paid advertising and ad spend; ongoing search optimization; social media
+            management; domain registration; and hosting after launch.
+          </p>
+          <p>These are available separately and quoted before we start.</p>
+          <p>
+            <strong>Domain and hosting.</strong> You are responsible for owning your domain. Hosting for the first
+            thirty (30) days after launch is included so you can go live. Ongoing hosting is a separate monthly service
+            under §5 of the Terms — see §A.6 below.
+          </p>
+
+          <h2 id="A.3" style={h2Style}>A.3 Statement of Work required before production</h2>
+          <p>
+            Your deposit reserves your production slot. <strong>Before we begin production, we will send you a
+            Statement of Work</strong> setting out your specific scope, price, payment dates, page list, and delivery
+            target.
+          </p>
+          <p>
+            Production does not begin, and no final invoice will issue, until you sign it. If you decide not to sign,
+            tell us and we will refund your deposit in full under §9 of the Terms, less any third-party costs already
+            incurred.
+          </p>
+          <p>
+            This protects both of us. You get the scope in writing before work starts. We don&rsquo;t build $4,000 of
+            work against a verbal description.
+          </p>
+
+          <h2 id="A.4" style={h2Style}>A.4 Payment</h2>
+          <p>
+            The package price is stated at checkout. Payment is <strong>50% deposit</strong> to reserve your slot and
+            begin, and <strong>50% balance</strong> when your website is complete and ready to publish.
+          </p>
+          <p>
+            We will not publish your site or release source files until the balance clears. Ownership transfers on
+            payment in full — see §A.7.
+          </p>
+
+          <h2 id="A.5" style={h2Style}>A.5 Timeline and process</h2>
+          <p>
+            We target <strong>thirty (30) calendar days</strong> from the date your deposit clears and your Statement of
+            Work is signed, to launch.
+          </p>
+          <p>
+            1. <strong>Kickoff call</strong> — about twenty minutes. We learn your services, your service area, and how
+            you want to be seen.
+            <br />
+            2. <strong>Brand directions</strong> — we present multiple directions. You pick one.
+            <br />
+            3. <strong>Brand refinement</strong> — up to <strong>two (2) rounds</strong> of revisions on the direction
+            you selected.
+            <br />
+            4. <strong>Website build</strong> — we build the site around the approved brand.
+            <br />
+            5. <strong>Website review</strong> — up to <strong>two (2) rounds</strong> of revisions on content and
+            layout.
+            <br />
+            6. <strong>Launch</strong> — balance clears, we publish, you own it.
+          </p>
+          <p>
+            <strong>The thirty-day target assumes you respond within three (3) business days</strong> at each approval
+            point. If you take longer, the timeline extends by at least the length of the delay and we will tell you
+            when that happens.
+          </p>
+          <p>
+            <strong>Project pause.</strong> If we do not hear from you for thirty (30) consecutive days after requesting
+            information or approval, we may pause your project and reassign your production slot. Restarting a paused
+            project is subject to our then-current availability and may carry a restart fee. Deposits on paused projects
+            are not refunded.
+          </p>
+
+          <h2 id="A.6" style={h2Style}>A.6 Care Plan — separate, optional, and not charged automatically</h2>
+          <p>
+            After your site launches, ongoing hosting, security updates, backups, uptime monitoring, and the operating
+            costs of your AI assistant are covered by our Care Plan at <strong>$149 per month.</strong>
+          </p>
+          <p>
+            <strong>This is a separate purchase.</strong> We do not save your card at checkout and we do not enroll you
+            automatically. Near the end of your build we will send you a separate checkout link that shows the monthly
+            amount, the date of the first charge, and how to cancel, before you enter any payment information. You
+            choose whether to enroll.
+          </p>
+          <p>
+            <strong>If you don&rsquo;t enroll</strong>, your files are yours and we will hand them over with reasonable
+            help moving to a host of your choosing. Your site, uptime, security, backups, and any AI assistant features
+            become your responsibility. The AI assistant requires a paid model provider account to function; without one
+            it will not run.
+          </p>
+          <p>
+            <strong>Cancelling.</strong> Cancel any time by email or text under §5 of the Terms.
+          </p>
+
+          <h2 id="A.7" style={h2Style}>A.7 What you own, and when</h2>
+          <p>
+            <strong>On payment in full</strong>, we assign to you all rights in: your logo files and all lockup
+            variations, your color palette and typography specifications, your custom character or mascot illustration,
+            your brand guidelines sheet, your vehicle wrap design, your social and profile assets, and the design and
+            page code of your website.
+          </p>
+          <p>
+            <strong>Before payment in full</strong>, we own all of it and you have no license to use it — including for
+            signage, wraps, apparel, print, or online.
+          </p>
+          <p>
+            <strong>What we keep</strong> (§7 of the Terms): our Next.js component library, code frameworks, AI
+            assistant configuration and prompt architecture, design system methodology, and internal tooling. Your
+            website is built on these, and you receive a perpetual license to use them as part of your delivered site.
+            You do not acquire the underlying frameworks and may not resell or redistribute them.
+          </p>
+          <p>
+            <strong>Third-party items</strong> — fonts, stock assets, plugins, AI model access, hosting — are governed
+            by their own licenses and may require you to maintain your own account. We will identify these at handoff.
+          </p>
+          <p>
+            <strong>Fonts specifically:</strong> some typefaces are licensed per-user and cannot be transferred. Where
+            your brand uses one, we will tell you what license you need to buy and what it costs. Where possible we use
+            open-license typefaces so this doesn&rsquo;t come up.
+          </p>
+
+          <h2 id="A.8" style={h2Style}>A.8 Limited slots and pricing</h2>
+          <p>
+            We build these one at a time. When we say a limited number of slots are available at a given price, that is
+            a real production constraint, and the price genuinely increases once those slots are sold. Your price is the
+            price stated on your checkout page at the time you paid, and it does not change afterward.
+          </p>
+
+          <h2 id="A.9" style={h2Style}>A.9 Uniqueness</h2>
+          <p>
+            We do not reuse a brand identity. No two clients receive the same logo, character, color system, or website
+            design. We do not use logo templates or website themes.
+          </p>
+          <p>
+            We do not offer geographic or category exclusivity. We may work with another company in your trade,
+            including in your market, unless we have separately agreed in writing not to.
+          </p>
+
+          <h2 id="A.10" style={h2Style}>A.10 Your responsibilities on this project</h2>
+          <p>
+            Provide your service list, service area, license number, and business details.
+            <br />
+            Provide a vehicle template from your wrap installer if you want the wrap design.
+            <br />
+            Provide photos of your trucks, crew, and completed work if you want them used.
+            <br />
+            Own your domain, or authorize us to purchase it on your behalf at cost.
+            <br />
+            Respond to approval requests within three (3) business days.
+            <br />
+            Confirm that any existing brand element you ask us to build on is yours to use.
+          </p>
+
+          <hr style={{ ...hrStyle, margin: "40px 0 24px" }} />
+          <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
+            Schedule A — Version 1.0 — Effective August 17, 2026
+          </p>
+          <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 32px" }}>
+            Terms of Service — Version 1.0 — Effective August 17, 2026
+          </p>
+        </article>
+      </div>
+    </div>
+  );
+}
