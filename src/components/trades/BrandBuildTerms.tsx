@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * Terms of Service v1.0 + Schedule A (Brand Build Program).
+ * Terms of Service v1.0 + Schedule A v1.1 (Brand Build Program).
  * Ported from branding-and-website-landing-page/Terms & Conditions Page/Terms of Service.dc.html
  * Legal copy — do not edit wording without Mario's approval.
  */
@@ -286,8 +286,10 @@ export default function BrandBuildTerms() {
 
           <h2 id="5" style={h2Style}>5. Ongoing services and recurring charges</h2>
           <p>
-            Some of our services are billed monthly. <strong>We do not enroll you in any recurring charge
-            automatically, and we do not save your payment card at checkout for future charges.</strong>
+            Some of our services are billed monthly. We do not enroll you in any recurring charge automatically, and we
+            do not save your payment card at your project checkout. When you separately enroll in a monthly service, you
+            provide a payment method at that time and authorize automatic monthly billing — the terms for that service
+            are set out in its Schedule.
           </p>
           <p>
             Any monthly service — including hosting and care plans — is a separate purchase that you enroll in yourself,
@@ -553,7 +555,7 @@ export default function BrandBuildTerms() {
               Brand Build Program
             </h1>
             <p style={{ fontSize: 14, color: "#6b6b6b", margin: 0 }}>
-              Version 1.0 &nbsp;&middot;&nbsp; Effective date: August 17, 2026
+              Version 1.1 &nbsp;&middot;&nbsp; Effective date: August 18, 2026
             </p>
           </div>
 
@@ -583,6 +585,12 @@ export default function BrandBuildTerms() {
             on-page search optimization; an AI assistant trained on the business information you provide;
             mobile-responsive across phones, tablets, and desktops.
           </p>
+          <p><strong>Getting you online</strong></p>
+          <p>
+            We connect your domain to your new site and set up your security certificate. If you don&rsquo;t have a
+            domain yet, we&rsquo;ll find one and register it for you — in your name, with you as the legal owner (see
+            §A.2). Hosting for the first thirty (30) days after launch is included so you can go live.
+          </p>
           <p>
             <strong>File formats.</strong> You receive editable vector source files (.ai or .svg), print-ready .pdf,
             transparent .png at multiple sizes, and embroidery-ready formats.
@@ -592,21 +600,50 @@ export default function BrandBuildTerms() {
           <p>
             Anything not listed in §A.1, including: additional website pages; additional vehicle templates; printing;
             embroidery; wrap fabrication or installation; signage fabrication; photography; videography; copywriting
-            beyond the pages in scope; paid advertising and ad spend; ongoing search optimization; social media
-            management; domain registration; and hosting after launch.
+            beyond the pages in scope; a blog, blog posts, or ongoing article writing; paid advertising and ad spend;
+            ongoing search optimization; and social media management.
           </p>
           <p>These are available separately and quoted before we start.</p>
           <p>
-            <strong>Domain and hosting.</strong> You are responsible for owning your domain. Hosting for the first
-            thirty (30) days after launch is included so you can go live. Ongoing hosting is a separate monthly service
-            under §5 of the Terms — see §A.6 below.
+            Domain registration and hosting past the first thirty (30) days are not part of the build price. We offer
+            both — here&rsquo;s how they work.
+          </p>
+          <p><strong>Domain.</strong></p>
+          <p>You own your domain. If you already have one, you keep it, and we point it at your new site.</p>
+          <p>
+            If you don&rsquo;t have one — or you&rsquo;d rather we handle it — we&rsquo;ll get one for you. We search
+            for available names, recommend options, and register the one you approve.{" "}
+            <strong>The domain is registered in your name. You are the legal owner from day one.</strong> We&rsquo;re
+            listed only as the technical contact so we can manage the settings and keep your site running.
+          </p>
+          <p>
+            We cover the registration cost up to $30 for the first year, for a standard name. Some names are premium,
+            resale, or held by a third party and cost more than that — sometimes far more. If the name you want falls
+            into that category, we&rsquo;ll tell you the price before we buy anything, and you decide. We can&rsquo;t
+            promise any specific name will be available.
+          </p>
+          <p><strong>Hosting.</strong></p>
+          <p>
+            After the first thirty (30) days, hosting continues under our Care Plan at $149 per month, billed in
+            advance — see §A.6. That covers hosting, your security certificate, uptime monitoring, backups, keeping the
+            AI assistant running, and yearly renewal of any domain we registered for you, for as long as your account is
+            active and paid.
+          </p>
+          <p>
+            If your account goes unpaid, we&rsquo;ll give you ten (10) days&rsquo; written notice. After that, your site
+            comes down. Your domain is still yours: tell us where to send it and we&rsquo;ll transfer it to you at no
+            charge within ten (10) business days. We&rsquo;ll also hand over a copy of your site files. We don&rsquo;t
+            hold domains, files, or accounts hostage.
+          </p>
+          <p>
+            If you move your site to another host, just tell us. We&rsquo;ll point your domain wherever you want, once,
+            at no charge — and hosting ends with your current billing period. No cancellation fee.
           </p>
 
           <h2 id="A.3" style={h2Style}>A.3 Statement of Work required before production</h2>
           <p>
-            Your deposit reserves your production slot. <strong>Before we begin production, we will send you a
-            Statement of Work</strong> setting out your specific scope, price, payment dates, page list, and delivery
-            target.
+            Your deposit reserves your production slot. Before we begin production, we will send you a Statement of Work
+            setting out your specific scope, price, payment dates, page list, and delivery target.
           </p>
           <p>
             Production does not begin, and no final invoice will issue, until you sign it. If you decide not to sign,
@@ -620,8 +657,8 @@ export default function BrandBuildTerms() {
 
           <h2 id="A.4" style={h2Style}>A.4 Payment</h2>
           <p>
-            The package price is stated at checkout. Payment is <strong>50% deposit</strong> to reserve your slot and
-            begin, and <strong>50% balance</strong> when your website is complete and ready to publish.
+            The package price is stated at checkout. Payment is 50% deposit to reserve your slot and begin, and 50%
+            balance when your website is complete and ready to publish.
           </p>
           <p>
             We will not publish your site or release source files until the balance clears. Ownership transfers on
@@ -630,29 +667,26 @@ export default function BrandBuildTerms() {
 
           <h2 id="A.5" style={h2Style}>A.5 Timeline and process</h2>
           <p>
-            We target <strong>thirty (30) calendar days</strong> from the date your deposit clears and your Statement of
-            Work is signed, to launch.
+            We target thirty (30) calendar days from the date your deposit clears and your Statement of Work is signed,
+            to launch.
           </p>
           <p>
-            1. <strong>Kickoff call</strong> — about twenty minutes. We learn your services, your service area, and how
-            you want to be seen.
+            1. Kickoff call — about twenty minutes. We learn your services, your service area, and how you want to be
+            seen.
             <br />
-            2. <strong>Brand directions</strong> — we present multiple directions. You pick one.
+            2. Brand directions — we present multiple directions. You pick one.
             <br />
-            3. <strong>Brand refinement</strong> — up to <strong>two (2) rounds</strong> of revisions on the direction
-            you selected.
+            3. Brand refinement — up to two (2) rounds of revisions on the direction you selected.
             <br />
-            4. <strong>Website build</strong> — we build the site around the approved brand.
+            4. Website build — we build the site around the approved brand.
             <br />
-            5. <strong>Website review</strong> — up to <strong>two (2) rounds</strong> of revisions on content and
-            layout.
+            5. Website review — up to two (2) rounds of revisions on content and layout.
             <br />
-            6. <strong>Launch</strong> — balance clears, we publish, you own it.
+            6. Launch — balance clears, we publish, you own it.
           </p>
           <p>
-            <strong>The thirty-day target assumes you respond within three (3) business days</strong> at each approval
-            point. If you take longer, the timeline extends by at least the length of the delay and we will tell you
-            when that happens.
+            The thirty-day target assumes you respond within three (3) business days at each approval point. If you take
+            longer, the timeline extends by at least the length of the delay and we will tell you when that happens.
           </p>
           <p>
             <strong>Project pause.</strong> If we do not hear from you for thirty (30) consecutive days after requesting
@@ -661,22 +695,46 @@ export default function BrandBuildTerms() {
             are not refunded.
           </p>
 
-          <h2 id="A.6" style={h2Style}>A.6 Care Plan — separate, optional, and not charged automatically</h2>
+          <h2 id="A.6" style={h2Style}>A.6 Care Plan</h2>
           <p>
-            After your site launches, ongoing hosting, security updates, backups, uptime monitoring, and the operating
-            costs of your AI assistant are covered by our Care Plan at <strong>$149 per month.</strong>
+            After your site launches, hosting, your security certificate, security updates, backups, uptime monitoring,
+            yearly renewal of any domain we registered for you, and the operating costs of your AI assistant are covered
+            by our Care Plan at $149 per month, billed in advance.
           </p>
           <p>
-            <strong>This is a separate purchase.</strong> We do not save your card at checkout and we do not enroll you
-            automatically. Near the end of your build we will send you a separate checkout link that shows the monthly
-            amount, the date of the first charge, and how to cancel, before you enter any payment information. You
-            choose whether to enroll.
+            This is a separate purchase, and it is optional. We do not save your card at your build checkout and we do
+            not enroll you automatically. Near the end of your build we will send you a separate checkout that shows the
+            monthly amount, the date of the first charge, what&rsquo;s included, and how to cancel, before you enter any
+            payment information. You choose whether to enroll.
+          </p>
+          <p>
+            <strong>Payment authorization.</strong> When you enroll, you provide a credit or debit card or a bank
+            account, and you authorize us to charge it on the same day each month for that month&rsquo;s Care Plan and
+            for any usage charges incurred during the prior month. Invoices are emailed at least three (3) days before
+            the charge date. Automatic payment is a condition of the Care Plan. You are responsible for keeping a valid
+            payment method on file. If a payment fails, we will notify you and retry within five (5) business days. If
+            payment is not received within ten (10) days of the due date, we may suspend the service under §A.2.
+          </p>
+          <p>
+            <strong>AI assistant usage.</strong> Your Care Plan includes 2,000 AI assistant replies per month. A reply
+            is one answer the assistant sends to a visitor.
+          </p>
+          <p>
+            If you use all 2,000 in a billing month, the assistant continues without interruption. Additional replies
+            are added in blocks of 500 at $10 per block. Blocks used during a billing month appear as a single line item
+            on your next monthly invoice — you are not charged separately at the time of use. You are billed only for
+            the blocks you use. Unused replies do not carry over to the next month.
+          </p>
+          <p>
+            We will notify you by email when you reach 80% of your included replies, and you can request your usage
+            figures at any time. Automated traffic, scraping, and abusive requests are filtered and are not billed to
+            your account. We may block sources that abuse the assistant.
           </p>
           <p>
             <strong>If you don&rsquo;t enroll</strong>, your files are yours and we will hand them over with reasonable
-            help moving to a host of your choosing. Your site, uptime, security, backups, and any AI assistant features
-            become your responsibility. The AI assistant requires a paid model provider account to function; without one
-            it will not run.
+            help moving to a host of your choosing. Your site, uptime, security, backups, domain renewal, and any AI
+            assistant features become your responsibility. The AI assistant requires a paid model provider account to
+            function; without one it will not run.
           </p>
           <p>
             <strong>Cancelling.</strong> Cancel any time by email or text under §5 of the Terms.
@@ -684,14 +742,14 @@ export default function BrandBuildTerms() {
 
           <h2 id="A.7" style={h2Style}>A.7 What you own, and when</h2>
           <p>
-            <strong>On payment in full</strong>, we assign to you all rights in: your logo files and all lockup
-            variations, your color palette and typography specifications, your custom character or mascot illustration,
-            your brand guidelines sheet, your vehicle wrap design, your social and profile assets, and the design and
-            page code of your website.
+            On payment in full, we assign to you all rights in: your logo files and all lockup variations, your color
+            palette and typography specifications, your custom character or mascot illustration, your brand guidelines
+            sheet, your vehicle wrap design, your social and profile assets, and the design and page code of your
+            website.
           </p>
           <p>
-            <strong>Before payment in full</strong>, we own all of it and you have no license to use it — including for
-            signage, wraps, apparel, print, or online.
+            Before payment in full, we own all of it and you have no license to use it — including for signage, wraps,
+            apparel, print, or online.
           </p>
           <p>
             <strong>What we keep</strong> (§7 of the Terms): our Next.js component library, code frameworks, AI
@@ -707,6 +765,10 @@ export default function BrandBuildTerms() {
             <strong>Fonts specifically:</strong> some typefaces are licensed per-user and cannot be transferred. Where
             your brand uses one, we will tell you what license you need to buy and what it costs. Where possible we use
             open-license typefaces so this doesn&rsquo;t come up.
+          </p>
+          <p>
+            <strong>Your domain</strong> is yours from the day it is registered, regardless of project status or payment
+            status. It is never held as leverage.
           </p>
 
           <h2 id="A.8" style={h2Style}>A.8 Limited slots and pricing</h2>
@@ -727,23 +789,21 @@ export default function BrandBuildTerms() {
           </p>
 
           <h2 id="A.10" style={h2Style}>A.10 Your responsibilities on this project</h2>
-          <p>
-            Provide your service list, service area, license number, and business details.
-            <br />
-            Provide a vehicle template from your wrap installer if you want the wrap design.
-            <br />
-            Provide photos of your trucks, crew, and completed work if you want them used.
-            <br />
-            Own your domain, or authorize us to purchase it on your behalf at cost.
-            <br />
-            Respond to approval requests within three (3) business days.
-            <br />
-            Confirm that any existing brand element you ask us to build on is yours to use.
-          </p>
+          <ul style={{ margin: "0 0 16px", paddingLeft: 22 }}>
+            <li>Provide your service list, service area, license number, and business details.</li>
+            <li>Provide a vehicle template from your wrap installer if you want the wrap design.</li>
+            <li>Provide photos of your trucks, crew, and completed work if you want them used.</li>
+            <li>
+              Own your domain, or authorize us to register one on your behalf in your name. We cover up to $30 for the
+              first year; premium or resale names are quoted before purchase.
+            </li>
+            <li>Respond to approval requests within three (3) business days.</li>
+            <li>Confirm that any existing brand element you ask us to build on is yours to use.</li>
+          </ul>
 
           <hr style={{ ...hrStyle, margin: "40px 0 24px" }} />
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
-            Schedule A — Version 1.0 — Effective August 17, 2026
+            Schedule A — Version 1.1 — Effective August 18, 2026
           </p>
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 32px" }}>
             Terms of Service — Version 1.0 — Effective August 17, 2026
