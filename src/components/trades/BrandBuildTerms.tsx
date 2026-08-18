@@ -95,11 +95,34 @@ export default function BrandBuildTerms() {
       </header>
 
       <div
+        style={{
+          maxWidth: 1200,
+          margin: "0 auto",
+          padding: "28px 32px 0",
+        }}
+      >
+        <a
+          href="/trades"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            font: "600 15px var(--font-inter), sans-serif",
+            color: "#8000ff",
+            textDecoration: "none",
+          }}
+        >
+          <span aria-hidden style={{ fontSize: 18, lineHeight: 1 }}>←</span>
+          Back to Website &amp; Branding Bundle
+        </a>
+      </div>
+
+      <div
         className="bbterms-grid"
         style={{
           maxWidth: 1200,
           margin: "0 auto",
-          padding: "56px 32px 96px",
+          padding: "24px 32px 96px",
           display: "grid",
           gridTemplateColumns: isMobile ? "1fr" : "240px 1fr",
           gap: 64,
