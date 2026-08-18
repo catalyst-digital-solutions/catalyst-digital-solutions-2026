@@ -65,7 +65,7 @@ export default function BrandBuildTerms() {
         .bbterms a:hover { color: #5600ab; text-decoration: underline; }
         .bbterms { scroll-behavior: smooth; }
         @media print {
-          .bbterms header, .bbterms nav[aria-label="Table of contents"] { display: none !important; }
+          .bbterms header, .bbterms nav[aria-label="Table of contents"], .bbterms .bbterms-back { display: none !important; }
           .bbterms .bbterms-grid { display: block !important; }
           .bbterms article { max-width: 100% !important; }
         }
@@ -103,6 +103,7 @@ export default function BrandBuildTerms() {
       >
         <a
           href="/trades"
+          className="bbterms-back"
           style={{
             display: "inline-flex",
             alignItems: "center",
