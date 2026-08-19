@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import TradesOfferLanding from "@/components/trades/TradesOfferLanding";
 
 export const metadata: Metadata = {
-  title: "The $4,000 Brand — Catalyst Digital Solutions",
+  title: "The $500 Brand Starter — Catalyst Digital Solutions",
   description:
-    "Complete brand + website package for HVAC, refrigeration, and plumbing owners. First 5 companies $4,000. Book a 20-minute call.",
+    "See your plumbing company's new logo, business cards, and a working website preview for $500. Keep the logo either way. Bakersfield, CA.",
   robots: { index: false, follow: false },
   icons: {
     icon: [{ url: "/assets/trades/j-shield-emblem_circle-favicon.png", type: "image/png", sizes: "64x64" }],
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Be the one they call first.",
-    description: "Complete brand + website for HVAC, refrigeration & plumbing — $4,000 for the first 5.",
+    description: "$500 to see your new logo, cards, and a working preview of your website. Keep the logo either way.",
     url: "https://getbranded.catalyst-digital-solutions.com",
     images: [
       {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Be the one they call first.",
-    description: "Complete brand + website for HVAC, refrigeration & plumbing — $4,000 for the first 5.",
+    description: "$500 to see your new logo, cards, and a working preview of your website. Keep the logo either way.",
     images: ["/assets/trades/super-j-opengraph-image.png"],
   },
 };

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties, type MouseEvent, type PointerEvent, type ReactNode } from "react";
 import {
+  AUDIENCE_LINE,
   CAL_URL,
   EMAIL,
   getSlotState,
@@ -13,7 +14,7 @@ import {
   SUPER_J_URL,
 } from "@/config/slots";
 import { decorateUrlWithUtms } from "@/components/AnalyticsProvider";
-import { getOfferCheckout, type OfferCheckout } from "@/config/payment-links";
+import { BRAND_STARTER_LINK, getOfferCheckout } from "@/config/payment-links";
 
 const ASSET = "/assets/trades";
 
@@ -70,59 +71,9 @@ const FAQS: { q: string; a: ReactNode }[] = [
       </div>
     ),
   },
-
   {
     q: "What happens after I pay?",
-    a: (
-      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-        <div
-          style={{
-            fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
-            fontSize: 12,
-            letterSpacing: 2,
-            textTransform: "uppercase",
-            color: "#00d4ff",
-          }}
-        >
-          30 Days
-        </div>
-        <div>
-          <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: 2, color: "#7f8896" }}>
-            01
-          </div>
-          <div style={{ fontWeight: 700, color: "#fafafa", marginTop: 4 }}>
-            We talk <span style={{ color: "#7f8896", fontWeight: 500 }}>(20 minutes)</span>
-          </div>
-          <p style={{ margin: "6px 0 0" }}>
-            Tell us what you do, who you serve, and what you want to look like. That&apos;s the only long conversation
-            you&apos;ll have with us.
-          </p>
-        </div>
-        <div>
-          <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: 2, color: "#7f8896" }}>
-            02
-          </div>
-          <div style={{ fontWeight: 700, color: "#fafafa", marginTop: 4 }}>
-            We build <span style={{ color: "#7f8896", fontWeight: 500 }}>(Days 1–21)</span>
-          </div>
-          <p style={{ margin: "6px 0 0" }}>
-            You see the brand first and approve it. Then the site gets built around it. Two check-ins. Ten minutes each.
-          </p>
-        </div>
-        <div>
-          <div style={{ fontFamily: "var(--font-mono), monospace", fontSize: 12, letterSpacing: 2, color: "#7f8896" }}>
-            03
-          </div>
-          <div style={{ fontWeight: 700, color: "#fafafa", marginTop: 4 }}>
-            You launch <span style={{ color: "#7f8896", fontWeight: 500 }}>(Day 30)</span>
-          </div>
-          <p style={{ margin: "6px 0 0" }}>
-            Site goes live. Every file lands in your inbox — logos, vectors, wrap design, embroidery- and
-            print-compatible graphics — ready to hand to any wrap shop, embroiderer, or printer you choose.
-          </p>
-        </div>
-      </div>
-    ),
+    a: "You'll get a short form asking for your logo (if you have one), a photo of your shop, a photo of a truck, your services, and the towns you cover. Then you'll book a time to sit down with me. Within 7 business days you'll see your logo, your cards, your mockups, and a live preview of your website — and we go through it together.",
   },
   {
     q: "Who actually does the work?",
@@ -138,15 +89,27 @@ const FAQS: { q: string; a: ReactNode }[] = [
   },
   {
     q: "What if I don't like it?",
-    a: "You start with five brand directions. You pick one, and we build the logo and wordmark from it — the color scheme, typography, and everything else grows out of that. Nothing moves forward until you're happy with how it looks.",
+    a: "Then we're done, and there's no hard feelings. You keep the logo files and the business card design — they're yours, you paid for them. The website preview comes down. You're out $500 and you own a professional logo, which is less than most shops charge for a logo alone.",
   },
   {
     q: "Is the website really custom?",
     a: "Built in Next.js and React from scratch — not WordPress, not Wix, not a template with your logo dropped in. There's a reason the biggest brands on the web use Next.js and React — Nike, Netflix, and Uber all run on it. It's fast, secure, and built to grow. Your site runs on the same technology, sized for your company.",
   },
   {
-    q: "What does the AI chatbot actually do?",
-    a: "It's trained on your company info. Your services, service area, and pricing. A customer at 11pm asks 'do you work on walk-in coolers in Riverside?' and it answers correctly and conversationally, then books the lead.",
+    q: "What exactly does the AI chat assistant do?",
+    a: "It's the chat window on your website. A customer types a question — do you do water heaters, do you come out to Oildale, how much for a drain — and it answers using your services and your service area. It can also take a booking request and send it straight to you. It does not answer your phone. An AI that picks up your actual phone calls is a separate service in our monthly programs.",
+  },
+  {
+    q: "Is the $500 a deposit?",
+    a: "No. It's a purchase. You're buying your logo package and a preview. If you go forward with the full build, the $500 comes off the top — the total is still $4,000, not $4,500. If you don't go forward, you keep what you bought.",
+  },
+  {
+    q: "Do we have to meet in person?",
+    a: "If you're in or around Bakersfield, I'd rather come to you — it's easier to look at this stuff on a real screen together. If you're further out, we'll do a video call and I'll share my screen. Either way you're looking at your own brand, not a slideshow.",
+  },
+  {
+    q: "How fast is this?",
+    a: "Preview in 7 business days from your start date. Full brand and 10-page website, about 30 days from the day we kick off.",
   },
   {
     q: "Is the counter on this page real?",
@@ -162,18 +125,60 @@ const BRAND_ITEMS = [
   "Logo, lockups, color palette, typography",
   "Optional custom mascot / character",
   "Embroidery + print-ready files, yours to keep",
+  "Business card design, up to 5 people",
 ];
 
 const ASSET_ITEMS = [
-  "Vehicle wrap design file",
+  "Vehicle wrap design file, print-ready for your wrap shop",
   "Social avatars & headers, every platform",
   "Google Business Profile imagery",
+  "Storefront signage design",
 ];
 
 const SITE_ITEMS = [
-  "10-page custom Next.js site (not a template)",
+  "10-page custom site, built for you — not a template",
   "On-page SEO built in",
-  "AI chatbot trained on your services",
+  "Website chat assistant — answers customer questions and takes booking requests on your site, 24/7",
+];
+
+const CHATBOT_NOTE =
+  "This is the chat assistant on your website — the little chat window a customer types into. It is not a phone answering service. An AI that answers your actual phone is part of our monthly marketing programs and is not included here.";
+
+const STARTER_ITEMS: { title: string; body: ReactNode }[] = [
+  {
+    title: "Your logo, done properly",
+    body: (
+      <>
+        primary, stacked, horizontal, reversed, and one-color versions. Adobe Illustrator files.{" "}
+        <strong style={{ color: "#fafafa" }}>Yours to keep, forever.</strong>
+      </>
+    ),
+  },
+  {
+    title: "Your business card design",
+    body: "up to 5 people on your crew.",
+  },
+  {
+    title: "Your colors and fonts",
+    body: "locked in and documented.",
+  },
+  {
+    title: "Mockups so you can see it for real",
+    body: (
+      <>
+        your van, your shirts, your hats, your social media pages, and your storefront sign.{" "}
+        <em>Send me a photo of your shop and I&apos;ll put your new sign on it.</em>
+      </>
+    ),
+  },
+  {
+    title: "Optional mascot concept",
+    body: "if you want a character, you'll see one.",
+  },
+  {
+    title: "A live preview of your website homepage.",
+    body: "Real. Working. On the internet. With your name on it.",
+  },
 ];
 
 const VALUE_ROWS = [
@@ -528,34 +533,18 @@ const secondaryCta: CSSProperties = {
   textDecoration: "none",
 };
 
-function PayButtons({
-  checkout,
-  showFull = false,
+function BrandStarterCta({
   compact = false,
+  label,
 }: {
-  checkout: OfferCheckout | null;
-  showFull?: boolean;
   compact?: boolean;
+  label?: string;
 }) {
-  if (!checkout) return null;
   const pad = compact ? { fontSize: 14, padding: "12px 18px" } : {};
   return (
-    <>
-      <a
-        href={checkout.depositUrl}
-        style={{ ...primaryCta, ...pad }}
-      >
-        {compact ? `Pay ${checkout.depositAmount} deposit` : `Pay ${checkout.depositAmount} deposit →`}
-      </a>
-      {showFull && (
-        <a
-          href={checkout.fullUrl}
-          style={{ ...secondaryCta, ...pad }}
-        >
-          Pay {checkout.fullAmount} in full
-        </a>
-      )}
-    </>
+    <a href={BRAND_STARTER_LINK} style={{ ...primaryCta, ...pad }}>
+      {label ?? (compact ? "Start My Brand — $500" : "Start My Brand — $500 →")}
+    </a>
   );
 }
 
@@ -634,19 +623,19 @@ export default function TradesOfferLanding() {
         </a>
         <div className="trades-header-actions" style={{ display: "flex", alignItems: "center", gap: 18 }}>
           <a
+            className="trades-header-phone"
             href={`tel:${PHONE_TEL}`}
-            style={{ color: "#c8c8c8", fontSize: 15, fontWeight: 600, textDecoration: "none" }}
+            style={{ color: "#c8c8c8", fontSize: 15, fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}
           >
             <span style={{ color: "#7f8896", fontWeight: 500 }}>Call or text</span> {PHONE_DISPLAY}
           </a>
           <div className="trades-header-cta" style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <PayButtons checkout={checkout} compact />
             <a
               href={CAL_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                ...secondaryCta,
+                ...primaryCta,
                 fontSize: 15,
                 padding: "12px 22px",
               }}
@@ -682,7 +671,7 @@ export default function TradesOfferLanding() {
               color: "#00d4ff",
             }}
           >
-            For HVAC, Refrigeration &amp; Plumbing Owners
+            {AUDIENCE_LINE}
           </div>
           <h1
             style={{
@@ -707,16 +696,34 @@ export default function TradesOfferLanding() {
               margin: 0,
             }}
           >
-            Your biggest competitor didn&apos;t get sharp vans and a slick website by luck — they paid an agency a
-            fortune.{" "}
-            <span style={gText}>We&apos;ll build you the same thing for $4,000.</span>
+            Your biggest competitor didn&apos;t get sharp vans and a slick website by luck. They paid an agency a
+            fortune. We&apos;ll build you the same thing for a fraction of what they paid.
           </p>
+          <div
+            style={{
+              border: "1px solid rgba(181,107,255,.45)",
+              background: "rgba(128,0,255,.08)",
+              borderRadius: 12,
+              padding: "16px 20px",
+              fontSize: "clamp(18px,1.6vw,22px)",
+              lineHeight: 1.45,
+              color: "#fafafa",
+              maxWidth: 560,
+            }}
+          >
+            <strong>$500 to see your company&apos;s new look</strong> — logo, business card design, and a working
+            preview of your website. <strong>Keep the logo and card design either way.</strong>
+          </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, alignItems: "center" }}>
-            <PayButtons checkout={checkout} />
+            {checkout ? <BrandStarterCta /> : null}
             <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={secondaryCta}>
               Book a 20-Minute Call →
             </a>
-            <a href="#the-package" onClick={scrollToPackage} style={secondaryCta}>
+            <a
+              href="#the-package"
+              onClick={scrollToPackage}
+              style={{ color: "#c8c8c8", fontSize: 16, fontWeight: 600, textDecoration: "underline", textUnderlineOffset: 4 }}
+            >
               See the Whole Package
             </a>
           </div>
@@ -746,11 +753,9 @@ export default function TradesOfferLanding() {
             </span>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 24px", color: "#7f8896", fontSize: 14 }}>
-            <span>◷ 30 days to launch</span>
-            <span>
-              ◈ {checkout ? `${checkout.depositAmount} down, ${checkout.remaining} at handoff` : "Paid in two halves"}
-            </span>
-            <span>◆ You own everything</span>
+            <span>◷ Your preview is live in 7 business days</span>
+            <span>◈ Logo files are yours to keep</span>
+            <span>◆ Only 5 builds at a time</span>
           </div>
         </div>
         <div className="trades-hero-visual">
@@ -816,19 +821,36 @@ export default function TradesOfferLanding() {
             textTransform: "uppercase",
           }}
         >
-          When a customer spends 10 seconds comparing you and a competitor…
+          Three quotes. One phone. Ten seconds.
         </h2>
         <p
           style={{
             maxWidth: 820,
-            fontSize: "clamp(22px,2.4vw,34px)",
+            fontSize: "clamp(20px,2.2vw,26px)",
             fontWeight: 600,
-            lineHeight: 1.35,
+            lineHeight: 1.4,
             color: "#fafafa",
             margin: 0,
           }}
         >
-          Let&apos;s make you the <span style={gText}>obvious choice</span>.
+          A homeowner with water coming through the ceiling doesn&apos;t call the cheapest name on the list. He calls
+          the one that looks like a real company.
+        </p>
+        <p
+          style={{
+            maxWidth: 720,
+            fontSize: "clamp(22px,2.4vw,34px)",
+            fontWeight: 700,
+            lineHeight: 1.3,
+            color: "#fafafa",
+            margin: 0,
+          }}
+        >
+          Right now — is that you?
+        </p>
+        <p style={{ maxWidth: 640, fontSize: 16, lineHeight: 1.6, color: "#7f8896", margin: 0 }}>
+          Same license. Same trucks. Same work. The one that <em>looks</em> bigger gets the call, and gets to charge
+          more for it.
         </p>
       </section>
 
@@ -875,6 +897,10 @@ export default function TradesOfferLanding() {
             Recently, a partner needed a brand that looked like an established name, not the new guy. So we built the
             Super J brand. Character, logo, colors, trucks, shirts, socials, and a website with an AI assistant that
             answers questions at 2am. Everything below came in one package. Yours will look all your own.
+          </p>
+          <p style={{ fontSize: 14, lineHeight: 1.55, color: "#7f8896", margin: 0 }}>
+            Super J is a refrigeration company. Yours will be built for plumbing — your services, your colors, your
+            name. Nothing here gets reused.
           </p>
           <div style={{ color: "#7f8896", fontSize: 14 }}>
             A full concept built for one of our partners. Every asset below is real, finished work.
@@ -1058,9 +1084,9 @@ export default function TradesOfferLanding() {
             And the website.
           </h3>
           <p style={{ fontSize: 17, lineHeight: 1.6, color: "#c8c8c8", margin: 0, maxWidth: 720 }}>
-            Loads fast. Optimized for mobile / tablet / laptop / desktop. Built to get found on Google and AI answers.
-            And an AI assistant trained on your own services that answers customers while you&apos;re on a roof or under
-            a sink.
+            Loads fast. Looks right on a phone, a tablet, or a laptop. Built to get found on Google and in AI answers.
+            And a chat assistant on the site that answers customer questions and takes booking requests while you&apos;re
+            under a sink at 9pm.
           </p>
           <p style={{ fontSize: 14, lineHeight: 1.55, color: "#7f8896", margin: 0, maxWidth: 720 }}>
             This Super J site is a demo version. The client&apos;s site is still in active development — you&apos;re
@@ -1092,6 +1118,122 @@ export default function TradesOfferLanding() {
               Live site — launching this week
             </span>
           )}
+        </div>
+      </section>
+
+      {/* SECTION — WHAT $500 GETS YOU */}
+      <section
+        data-screen-label="What $500 Gets You"
+        style={{
+          maxWidth: 1360,
+          margin: "0 auto",
+          padding: "clamp(56px,7vw,100px) clamp(20px,5vw,64px)",
+          display: "flex",
+          flexDirection: "column",
+          gap: 34,
+          borderTop: "1px solid rgba(255,255,255,.07)",
+        }}
+      >
+        <div
+          className="trades-starter-grid"
+          style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: "clamp(28px,4vw,64px)", alignItems: "start" }}
+        >
+          <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
+            <div
+              style={{
+                fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+                fontSize: 13,
+                letterSpacing: 3,
+                textTransform: "uppercase",
+                color: "#00d4ff",
+              }}
+            >
+              Start Here
+            </div>
+            <h2
+              style={{
+                fontFamily: "var(--font-display), 'Bebas Neue', sans-serif",
+                fontWeight: 400,
+                fontSize: "clamp(42px,5.4vw,86px)",
+                lineHeight: 0.9,
+                letterSpacing: 1,
+                color: "#fafafa",
+                margin: 0,
+                textTransform: "uppercase",
+              }}
+            >
+              $500. Seven days. Your company, done right.
+            </h2>
+            <p style={{ fontSize: 18, lineHeight: 1.65, color: "#c8c8c8", margin: 0 }}>
+              You don&apos;t have to imagine it. In seven business days you&apos;ll be looking at your own logo, your own
+              business cards, your own van, your own sign, and a real website with your name on it — live on the
+              internet. Then you decide.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              {STARTER_ITEMS.map((item) => (
+                <div key={item.title} style={{ display: "flex", gap: 10, fontSize: 16, lineHeight: 1.55, color: "#c8c8c8" }}>
+                  <span style={{ color: "#8000ff", fontWeight: 700, flexShrink: 0 }}>✓</span>
+                  <span>
+                    <strong style={{ color: "#fafafa" }}>{item.title}</strong>
+                    {item.title.endsWith(".") ? " " : " — "}
+                    {item.body}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div
+              style={{
+                border: "1px solid rgba(181,107,255,.55)",
+                background: "rgba(128,0,255,.1)",
+                boxShadow: "0 0 40px rgba(128,0,255,.14)",
+                borderRadius: 16,
+                padding: 24,
+                display: "flex",
+                flexDirection: "column",
+                gap: 10,
+              }}
+            >
+              <div style={{ fontWeight: 700, fontSize: 20, color: "#fafafa", lineHeight: 1.35 }}>
+                Walk away and you still keep the logo.
+              </div>
+              <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "#c8c8c8" }}>
+                If you decide not to go forward, that&apos;s fine — no pressure, no hard feelings. The logo files and
+                business card design are yours. The website preview comes down.
+              </p>
+            </div>
+            <p style={{ fontSize: 16, lineHeight: 1.6, color: "#c8c8c8", margin: 0 }}>
+              Your preview goes live <strong style={{ color: "#fafafa" }}>within 7 business days</strong> of your start
+              date.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
+              {checkout ? <BrandStarterCta /> : null}
+              <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={secondaryCta}>
+                Questions first? Book a 20-Minute Call →
+              </a>
+            </div>
+            <p style={{ fontSize: 14, lineHeight: 1.55, color: "#7f8896", margin: 0 }}>
+              No card is saved. Nothing bills automatically. The $500 is credited in full toward your build if you go
+              forward.
+            </p>
+          </div>
+          <div>
+            <div
+              style={{
+                border: "1px solid rgba(255,255,255,.14)",
+                background: "#fdfdfd",
+                borderRadius: 10,
+                padding: 12,
+              }}
+            >
+              <Image
+                src={`${ASSET}/super-j-flatlay-v2.jpg`}
+                alt="Super J brand flatlay — logo, cards, apparel, and assets laid out together"
+                width={1600}
+                height={1200}
+                style={{ display: "block", width: "100%", height: "auto", borderRadius: 4 }}
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1232,7 +1374,7 @@ export default function TradesOfferLanding() {
               color: "#00d4ff",
             }}
           >
-            The Package
+            The Full Build
           </div>
           <h2
             style={{
@@ -1251,8 +1393,8 @@ export default function TradesOfferLanding() {
             <span style={gText}>Your price: $4,000.</span>
           </h2>
           <p style={{ fontSize: 18, lineHeight: 1.65, color: "#c8c8c8", margin: 0, maxWidth: 720 }}>
-            A full brand identity, logo, social assets, vehicle wrap file, and a custom 10-page website with an AI
-            chatbot that answers customers at 2am. Bundled into one flat price.
+            Six months from now, a homeowner Googles a plumber in your town, and you&apos;re the one who looks like the
+            established company. That&apos;s what this buys.
           </p>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 18, maxWidth: 920, width: "100%" }}>
@@ -1397,7 +1539,7 @@ export default function TradesOfferLanding() {
           {[
             { title: "Your Brand", items: BRAND_ITEMS },
             { title: "Your Assets", items: ASSET_ITEMS },
-            { title: "Your Website", items: SITE_ITEMS },
+            { title: "Your Website", items: SITE_ITEMS, note: CHATBOT_NOTE },
           ].map((col) => (
             <div key={col.title} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               <div
@@ -1419,6 +1561,9 @@ export default function TradesOfferLanding() {
                   <span>{it}</span>
                 </div>
               ))}
+              {"note" in col && col.note ? (
+                <p style={{ margin: "4px 0 0", fontSize: 13, lineHeight: 1.55, color: "#7f8896" }}>{col.note}</p>
+              ) : null}
             </div>
           ))}
         </div>
@@ -1462,9 +1607,17 @@ export default function TradesOfferLanding() {
             {slots.priceShown}
           </div>
           <div style={{ fontSize: 15, lineHeight: 1.6, color: "#c8c8c8", maxWidth: 480 }}>
-            {checkout
-              ? `${checkout.depositAmount} down · ${checkout.remaining} at handoff · You own everything on final payment`
-              : "You own everything on final payment"}
+            {checkout ? (
+              <>
+                <strong style={{ color: "#fafafa" }}>$500 to start → $3,500 to finish.</strong>
+                <br />
+                We&apos;ll go over how you&apos;d like to handle the $3,500 when we meet.
+                <br />
+                You own everything on final payment.
+              </>
+            ) : (
+              "You own everything on final payment"
+            )}
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "center" }}>
             <SlotDots dots={slots.dots} size={15} />
@@ -1498,12 +1651,12 @@ export default function TradesOfferLanding() {
               After launch: $149/mo
             </div>
             <div style={{ fontSize: 15, lineHeight: 1.6, color: "#c8c8c8", maxWidth: 520 }}>
-              Covers hosting, security, backups, updates, and what the AI assistant costs to run. Starts the day the
-              site goes live.
+              Keeps your site online, secure, backed up, and updated — and keeps the chat assistant running and
+              answering. Starts the day your site goes live. Cancel anytime.
             </div>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center" }}>
-            <PayButtons checkout={checkout} showFull />
+            {checkout ? <BrandStarterCta /> : null}
             <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...secondaryCta, padding: "16px 26px" }}>
               Book a 20-Minute Call →
             </a>
@@ -1542,8 +1695,12 @@ export default function TradesOfferLanding() {
             textTransform: "uppercase",
           }}
         >
-          Only 5 available at this price.
+          Only 5 at this price.
         </h2>
+        <p style={{ maxWidth: 640, margin: "0 auto", fontSize: 18, lineHeight: 1.6, color: "#c8c8c8" }}>
+          I do this work myself. I can carry five brand builds at a time and still do them right, so that&apos;s the
+          number.
+        </p>
         <div className="trades-ladder-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18, textAlign: "left" }}>
           <div
             style={{
@@ -1628,10 +1785,13 @@ export default function TradesOfferLanding() {
           </div>
         </div>
         <p style={{ maxWidth: 560, margin: "0 auto", fontSize: 17, lineHeight: 1.6, color: "#c8c8c8" }}>
+          Ten builds total in this run. The $500 start is the same either way.
+        </p>
+        <p style={{ maxWidth: 560, margin: "0 auto", fontSize: 17, lineHeight: 1.6, color: "#c8c8c8" }}>
           Only 10 packages available in this promotion. After it ends, it is unlikely to return.
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center" }}>
-          <PayButtons checkout={checkout} showFull />
+          {checkout ? <BrandStarterCta /> : null}
           <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={{ ...secondaryCta, padding: "15px 26px" }}>
             Book a 20-Minute Call →
           </a>
@@ -1694,7 +1854,7 @@ export default function TradesOfferLanding() {
           </span>
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center" }}>
-          <PayButtons checkout={checkout} showFull />
+          {checkout ? <BrandStarterCta /> : null}
           <a href={CAL_URL} target="_blank" rel="noopener noreferrer" style={secondaryCta}>
             Book a 20-Minute Call →
           </a>
@@ -1822,7 +1982,7 @@ export default function TradesOfferLanding() {
 
       {/* Sticky mobile CTA — PRD § sticky bar */}
       {stickyVisible && (
-        <div className="trades-sticky-cta" role="region" aria-label="Pay or book a call">
+        <div className="trades-sticky-cta" role="region" aria-label="Start your brand or book a call">
           <span
             style={{
               fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
@@ -1835,7 +1995,7 @@ export default function TradesOfferLanding() {
           >
             {microCounter}
           </span>
-          <PayButtons checkout={checkout} compact />
+          {checkout ? <BrandStarterCta compact /> : null}
           <a
             href={CAL_URL}
             target="_blank"

@@ -1,10 +1,22 @@
 /**
- * Single source of truth for the /trades offer slot counter.
- * Edit SLOTS_SOLD only — every price, counter, and urgency line derives from it.
+ * Single source of truth for the /trades (getbranded) offer.
+ *
+ * Scarcity: edit SLOTS_REMAINING only (0–5 at the current price).
+ * When the first five at $4,000 sell out, set AT_STANDARD_PRICE = true
+ * and reset SLOTS_REMAINING to 5 for the $6,000 rung.
  */
-export const SLOTS_SOLD = 0; // 0–10 total packages sold across both rungs
+export const SLOTS_REMAINING = 5; // 0–5 at the current price — one-line scarcity edit
+export const AT_STANDARD_PRICE = false; // false = $4,000 first 5; true = $6,000 next 5
 export const RUNG_1_TOTAL = 5; // $4,000
 export const RUNG_2_TOTAL = 5; // $6,000
+
+/** Derived: total packages sold across both rungs (0–10). */
+export const SLOTS_SOLD = AT_STANDARD_PRICE
+  ? RUNG_1_TOTAL + (RUNG_2_TOTAL - Math.max(0, Math.min(RUNG_2_TOTAL, SLOTS_REMAINING)))
+  : RUNG_1_TOTAL - Math.max(0, Math.min(RUNG_1_TOTAL, SLOTS_REMAINING));
+
+/** Swappable audience eyebrow. Widen to "For Plumbing & HVAC Owners" here only. */
+export const AUDIENCE_LINE = "For Plumbing Company Owners";
 
 /** Set true when https://superjrefrigeration.com is publicly live. */
 export const SUPER_J_IS_LIVE = true;
@@ -33,11 +45,14 @@ export type SlotState = {
   dots: { available: boolean }[];
 };
 
-export function getSlotState(soldInput = SLOTS_SOLD): SlotState {
-  const sold = Math.max(0, Math.min(10, soldInput));
-  const rung2 = sold >= 5;
-  const booked = sold >= 10;
-  const remaining = booked ? 0 : rung2 ? 10 - sold : 5 - sold;
+export function getSlotState(
+  remainingInput = SLOTS_REMAINING,
+  atStandard = AT_STANDARD_PRICE,
+): SlotState {
+  const remaining = Math.max(0, Math.min(5, remainingInput));
+  const rung2 = atStandard;
+  const booked = remaining === 0;
+  const sold = rung2 ? 5 + (5 - remaining) : 5 - remaining;
   const priceNumber = booked ? "" : rung2 ? "$6,000" : "$4,000";
   const priceShown = booked ? "—" : priceNumber;
   const counterText = booked ? "Booked out" : `${remaining} of 5 available`;

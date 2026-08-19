@@ -1076,11 +1076,15 @@ details summary { list-style: none; }
   .trades-header-cta {
     display: none !important;
   }
+  .trades-header-phone {
+    font-size: 14px !important;
+  }
   .trades-hero {
     grid-template-columns: 1fr !important;
   }
   .trades-ladder-grid,
   .trades-package-grid,
+  .trades-starter-grid,
   .trades-why-grid,
   .trades-pay-grid,
   .trades-faq-grid {
@@ -1122,6 +1126,7 @@ details summary { list-style: none; }
     grid-template-columns: 1fr !important;
   }
   .trades-package-grid,
+  .trades-starter-grid,
   .trades-why-grid {
     grid-template-columns: 1fr !important;
   }

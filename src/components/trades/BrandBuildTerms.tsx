@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * Terms of Service v1.0 + Schedule A v1.1 (Brand Build Program).
+ * Terms of Service v1.0 + Schedule A v1.1 (Brand Build) + Schedule B v1.0 (Brand Starter).
  * Ported from branding-and-website-landing-page/Terms & Conditions Page/Terms of Service.dc.html
  * Legal copy — do not edit wording without Mario's approval.
  */
@@ -209,6 +209,16 @@ export default function BrandBuildTerms() {
               <li><a href="#A.8">A.8 Limited slots and pricing</a></li>
               <li><a href="#A.9">A.9 Uniqueness</a></li>
               <li><a href="#A.10">A.10 Your responsibilities</a></li>
+            </ol>
+            <p style={{ ...tocLabelStyle, margin: "16px 0 6px" }}>Schedule B</p>
+            <ol style={{ ...tocListStyle, margin: 0 }}>
+              <li><a href="#B.1">B.1 What this purchase is</a></li>
+              <li><a href="#B.2">B.2 What is delivered</a></li>
+              <li><a href="#B.3">B.3 What you own</a></li>
+              <li><a href="#B.4">B.4 Credit toward the full build</a></li>
+              <li><a href="#B.5">B.5 Timeline</a></li>
+              <li><a href="#B.6">B.6 Chat assistant vs. phone AI</a></li>
+              <li><a href="#B.7">B.7 Care Plan</a></li>
             </ol>
           </details>
         </nav>
@@ -826,6 +836,109 @@ export default function BrandBuildTerms() {
           </ul>
 
           <hr style={{ ...hrStyle, margin: "40px 0 24px" }} />
+          <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
+            Schedule A — Version 1.1 — Effective August 18, 2026
+          </p>
+
+          <div
+            style={{
+              margin: "56px -4px 0",
+              padding: "28px 32px",
+              background: "rgba(128,0,255,.06)",
+              borderTop: "2px solid #8000ff",
+              borderRadius: "4px 4px 0 0",
+            }}
+          >
+            <p
+              style={{
+                font: "600 12px var(--font-inter), sans-serif",
+                color: "#8000ff",
+                letterSpacing: "1.5px",
+                textTransform: "uppercase",
+                margin: "0 0 10px",
+              }}
+            >
+              Schedule B
+            </p>
+            <h1 style={{ font: "700 28px/1.3 var(--font-inter), sans-serif", color: "#1a1a1a", margin: "0 0 8px" }}>
+              Brand Starter
+            </h1>
+            <p style={{ fontSize: 14, color: "#6b6b6b", margin: 0 }}>
+              Version 1.0 &nbsp;&middot;&nbsp; Effective date: August 19, 2026
+            </p>
+          </div>
+
+          <p style={{ margin: "28px 0 24px" }}>
+            This Schedule applies if you purchased the Brand Starter (logo package plus a temporary website preview).
+            It is incorporated into and forms part of the Terms of Service above. Where this Schedule and the Terms
+            differ, this Schedule controls for Brand Starter purchases. If you later purchase the full Brand Build,
+            Schedule A also applies to that purchase.
+          </p>
+
+          <h2 id="B.1" style={h2Style}>B.1 What this purchase is</h2>
+          <p>
+            The $500 Brand Starter is a <strong>purchase of a completed deliverable set</strong>, not a refundable
+            deposit. You are buying the work listed in §B.2. Completing checkout does not enroll you in a monthly
+            service, does not save your card, and does not authorize any future charge.
+          </p>
+
+          <h2 id="B.2" style={h2Style}>B.2 What is delivered</h2>
+          <p>We deliver:</p>
+          <ul style={{ margin: "0 0 16px", paddingLeft: 22 }}>
+            <li>
+              A logo package: primary, stacked, horizontal, reversed, and one-color versions, in Adobe Illustrator
+              (.ai), SVG, and PNG.
+            </li>
+            <li>A business card design for up to five people on your crew.</li>
+            <li>Brand mockups (van, apparel, social, storefront) for viewing.</li>
+            <li>A temporary hosted website preview of your homepage, live on the internet with your name on it.</li>
+          </ul>
+          <p>
+            Preview hosting is temporary. If you do not proceed with the full Brand Build, we remove the preview. Mockups
+            are for viewing; they are not print-ready production files unless we later include them in a Brand Build
+            handoff.
+          </p>
+
+          <h2 id="B.3" style={h2Style}>B.3 What you own</h2>
+          <p>
+            On payment of the $500, you own the logo files and the business card design. If you decide not to go
+            forward, you keep those files. The website preview comes down. Mockups remain viewing-only.
+          </p>
+
+          <h2 id="B.4" style={h2Style}>B.4 Credit toward the full build</h2>
+          <p>
+            If you go forward with the complete Brand + Website Build, the $500 is credited in full against the package
+            total stated at the time of your Brand Starter purchase ($4,000 for the first five companies, $6,000
+            thereafter). You do not pay $4,500 or $6,500. The remaining balance is due as agreed before we publish the
+            site and release remaining source files.
+          </p>
+
+          <h2 id="B.5" style={h2Style}>B.5 Timeline</h2>
+          <p>
+            We target delivery of the Brand Starter within <strong>seven (7) business days</strong> from the date we
+            receive a completed intake form (including the information we need to build). Delays in sending photos,
+            services, or service area extend the target by at least the length of the delay.
+          </p>
+
+          <h2 id="B.6" style={h2Style}>B.6 Chat assistant vs. phone AI</h2>
+          <p>
+            The website included in a later Brand Build has a <strong>chat assistant on the website</strong> — the chat
+            window a visitor types into. It is not a phone answering service. An AI that answers your actual phone is
+            part of our separate monthly marketing programs and is not included in the Brand Starter or the Brand Build
+            package.
+          </p>
+
+          <h2 id="B.7" style={h2Style}>B.7 Care Plan</h2>
+          <p>
+            The $149/month Care Plan begins at full site launch, is a separate purchase, and is cancelable at any time.
+            It is not part of the $500 Brand Starter. We do not enroll you automatically and we do not save your card
+            at Brand Starter checkout. See Schedule A §A.6 if you later purchase the full build.
+          </p>
+
+          <hr style={{ ...hrStyle, margin: "40px 0 24px" }} />
+          <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
+            Schedule B — Version 1.0 — Effective August 19, 2026
+          </p>
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
             Schedule A — Version 1.1 — Effective August 18, 2026
           </p>

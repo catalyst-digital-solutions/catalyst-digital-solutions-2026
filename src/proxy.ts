@@ -8,8 +8,8 @@ const GETBRANDED_HOSTS = new Set([
 
 /**
  * getbranded.* serves the /trades offer at the root.
- * /terms serves ToS v1.0 + Schedule A (Stripe checkout consent links here).
- * /privacy redirects to the main site. Other paths rewrite to the offer.
+ * /terms serves ToS + Schedule A + Schedule B (Stripe checkout consent links here).
+ * /start is the post-$500 intake. /privacy redirects to the main site.
  */
 export function proxy(request: NextRequest) {
   const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
@@ -45,6 +45,13 @@ export function proxy(request: NextRequest) {
   if (pathname === "/thank-you") {
     const url = request.nextUrl.clone();
     url.pathname = "/trades/thank-you";
+    return NextResponse.rewrite(url);
+  }
+
+  // Brand Starter intake after $500 checkout
+  if (pathname === "/start") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/trades/start";
     return NextResponse.rewrite(url);
   }
 
