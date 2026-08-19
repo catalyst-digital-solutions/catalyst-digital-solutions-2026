@@ -61,11 +61,11 @@ const FAQS: { q: string; a: ReactNode }[] = [
           <div style={{ fontWeight: 700, color: "#fafafa", marginTop: 4 }}>We want the work in our portfolio.</div>
           <p style={{ margin: "6px 0 0" }}>
             We&apos;re new to the trades. Ten great brands out there doing well is worth more to us than the extra money.
-            That&apos;s why there&apos;s a limit, and that&apos;s why the first five are cheaper.
+            That&apos;s why there&apos;s a limit, and that&apos;s why Early Bird is cheaper.
           </p>
         </div>
         <p style={{ margin: 0 }}>
-          After the first five, it&apos;s $6,000. That&apos;s not a sales trick. We just can&apos;t do this many at this
+          After Early Bird, it&apos;s $6,000. That&apos;s not a sales trick. We just can&apos;t do this many at this
           price twice.
         </p>
       </div>
@@ -73,7 +73,7 @@ const FAQS: { q: string; a: ReactNode }[] = [
   },
   {
     q: "What happens after I pay?",
-    a: "You'll get a short form asking for your logo (if you have one), a photo of your shop, a photo of a truck, your services, and the towns you cover. Then you'll book a time to sit down with me. Within 7 business days you'll see your logo, your cards, your mockups, and a live preview of your website — and we go through it together.",
+    a: "You'll get a short form asking for your logo (if you have one), a photo of your shop, a photo of a truck, your services, and the towns you cover. Then you'll book a time to sit down with us. Within 7 business days you'll see your logo, your cards, your mockups, and a live preview of your website — and we go through it together.",
   },
   {
     q: "Who actually does the work?",
@@ -89,7 +89,7 @@ const FAQS: { q: string; a: ReactNode }[] = [
   },
   {
     q: "What if I don't like it?",
-    a: "Then we're done, and there's no hard feelings. You keep the logo files and the business card design — they're yours, you paid for them. The website preview comes down. You're out $500 and you own a professional logo, which is less than most shops charge for a logo alone.",
+    a: "Then we're done, and there's no hard feelings. You keep the logo files, the business card design, and all the mockup images — they're yours, you paid for them. The website preview stays up for 14 days and then comes down. You're out $500 and you own a professional logo, which is less than most shops charge for a logo alone.",
   },
   {
     q: "Is the website really custom?",
@@ -101,11 +101,11 @@ const FAQS: { q: string; a: ReactNode }[] = [
   },
   {
     q: "Is the $500 a deposit?",
-    a: "No. It's a purchase. You're buying your logo package and a preview. If you go forward with the full build, the $500 comes off the top — the total is still $4,000, not $4,500. If you don't go forward, you keep what you bought.",
+    a: "No. It's a purchase. You're buying your logo package and a preview. If you go forward with the full build, the $500 comes off the top — the Early Bird total is still $4,000, not $4,500. If you don't go forward, you keep what you bought.",
   },
   {
     q: "Do we have to meet in person?",
-    a: "If you're in or around Bakersfield, I'd rather come to you — it's easier to look at this stuff on a real screen together. If you're further out, we'll do a video call and I'll share my screen. Either way you're looking at your own brand, not a slideshow.",
+    a: "If you're in or around Bakersfield, we'd rather come to you — it's easier to look at this stuff on a real screen together. If you're further out, we'll do a video call and share our screen. Either way you're looking at your own brand, not a slideshow.",
   },
   {
     q: "How fast is this?",
@@ -156,7 +156,7 @@ const STARTER_ITEMS: { title: string; body: ReactNode }[] = [
   },
   {
     title: "Your business card design",
-    body: "up to 5 people on your crew.",
+    body: "print-ready PDF, up to 5 people on your crew.",
   },
   {
     title: "Your colors and fonts",
@@ -167,7 +167,7 @@ const STARTER_ITEMS: { title: string; body: ReactNode }[] = [
     body: (
       <>
         your van, your shirts, your hats, your social media pages, and your storefront sign.{" "}
-        <em>Send me a photo of your shop and I&apos;ll put your new sign on it.</em>
+        <em>Send us a photo of your shop and we&apos;ll put your new sign on it.</em>
       </>
     ),
   },
@@ -821,36 +821,19 @@ export default function TradesOfferLanding() {
             textTransform: "uppercase",
           }}
         >
-          Three quotes. One phone. Ten seconds.
+          When a customer spends 10 seconds comparing you and a competitor…
         </h2>
         <p
           style={{
             maxWidth: 820,
-            fontSize: "clamp(20px,2.2vw,26px)",
-            fontWeight: 600,
-            lineHeight: 1.4,
-            color: "#fafafa",
-            margin: 0,
-          }}
-        >
-          A homeowner with water coming through the ceiling doesn&apos;t call the cheapest name on the list. He calls
-          the one that looks like a real company.
-        </p>
-        <p
-          style={{
-            maxWidth: 720,
             fontSize: "clamp(22px,2.4vw,34px)",
-            fontWeight: 700,
-            lineHeight: 1.3,
+            fontWeight: 600,
+            lineHeight: 1.35,
             color: "#fafafa",
             margin: 0,
           }}
         >
-          Right now — is that you?
-        </p>
-        <p style={{ maxWidth: 640, fontSize: 16, lineHeight: 1.6, color: "#7f8896", margin: 0 }}>
-          Same license. Same trucks. Same work. The one that <em>looks</em> bigger gets the call, and gets to charge
-          more for it.
+          <span style={gText}>Do you look like the obvious choice?</span>
         </p>
       </section>
 
@@ -1194,16 +1177,19 @@ export default function TradesOfferLanding() {
               }}
             >
               <div style={{ fontWeight: 700, fontSize: 20, color: "#fafafa", lineHeight: 1.35 }}>
-                Walk away and you still keep the logo.
+                If you don&apos;t want to continue…
               </div>
               <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "#c8c8c8" }}>
-                If you decide not to go forward, that&apos;s fine — no pressure, no hard feelings. The logo files and
-                business card design are yours. The website preview comes down.
+                …that&apos;s totally fine. No pressure, no hard feelings. The logo files, the business card design, and
+                all the mockup images are yours to keep. The website preview comes down.
               </p>
             </div>
             <p style={{ fontSize: 16, lineHeight: 1.6, color: "#c8c8c8", margin: 0 }}>
               Your preview goes live <strong style={{ color: "#fafafa" }}>within 7 business days</strong> of your start
               date.
+            </p>
+            <p style={{ fontSize: 16, lineHeight: 1.6, color: "#c8c8c8", margin: 0 }}>
+              Your preview stays up for 14 days after delivery — and your price is locked for those 14 days too.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
               {checkout ? <BrandStarterCta /> : null}
@@ -1220,19 +1206,30 @@ export default function TradesOfferLanding() {
             <div
               style={{
                 border: "1px solid rgba(255,255,255,.14)",
-                background: "#fdfdfd",
                 borderRadius: 10,
-                padding: 12,
+                overflow: "hidden",
+                background: "#1a1a1a",
               }}
             >
               <Image
-                src={`${ASSET}/super-j-flatlay-v2.jpg`}
-                alt="Super J brand flatlay — logo, cards, apparel, and assets laid out together"
-                width={1600}
-                height={1200}
-                style={{ display: "block", width: "100%", height: "auto", borderRadius: 4 }}
+                src={`${ASSET}/brand-starter-keep-preview.png`}
+                alt="What $500 includes: a live website preview on a laptop, a stack of business cards, and the logo on a white square"
+                width={1024}
+                height={768}
+                style={{ display: "block", width: "100%", height: "auto" }}
               />
             </div>
+            <p
+              style={{
+                margin: "14px 0 0",
+                fontSize: 14,
+                lineHeight: 1.55,
+                color: "#7f8896",
+              }}
+            >
+              For $500 you keep the logo and the business card design — forever. The website on the laptop is a live
+              preview. It comes down if you don&apos;t continue.
+            </p>
           </div>
         </div>
       </section>
@@ -1390,7 +1387,9 @@ export default function TradesOfferLanding() {
           >
             $29K – $76K of work.
             <br />
-            <span style={gText}>Your price: $4,000.</span>
+            <span style={gText}>
+              {slots.rung2 ? "Your price: $6,000." : "Early Bird price: $4,000."}
+            </span>
           </h2>
           <p style={{ fontSize: 18, lineHeight: 1.65, color: "#c8c8c8", margin: 0, maxWidth: 720 }}>
             Six months from now, a homeowner Googles a plumber in your town, and you&apos;re the one who looks like the
@@ -1486,7 +1485,8 @@ export default function TradesOfferLanding() {
                         letterSpacing: 1,
                       }}
                     >
-                      YOUR PRICE: <span style={{ color: "#b56bff" }}>$4,000</span>
+                      {slots.rung2 ? "YOUR PRICE:" : "EARLY BIRD:"}{" "}
+                      <span style={{ color: "#b56bff" }}>{slots.rung2 ? "$6,000" : "$4,000"}</span>
                     </span>
                   </div>
                 </div>
@@ -1594,7 +1594,7 @@ export default function TradesOfferLanding() {
               color: "#00d4ff",
             }}
           >
-            Complete Brand + Website Package
+            {slots.rung2 ? "Complete Brand + Website Package" : "Early Bird"}
           </div>
           <div
             style={{
@@ -1606,6 +1606,20 @@ export default function TradesOfferLanding() {
           >
             {slots.priceShown}
           </div>
+          {!slots.rung2 && !slots.booked ? (
+            <div
+              style={{
+                fontFamily: "var(--font-mono), 'JetBrains Mono', monospace",
+                fontSize: 13,
+                letterSpacing: 2,
+                textTransform: "uppercase",
+                color: "#c8c8c8",
+                marginTop: -4,
+              }}
+            >
+              Complete brand + website
+            </div>
+          ) : null}
           <div style={{ fontSize: 15, lineHeight: 1.6, color: "#c8c8c8", maxWidth: 480 }}>
             {checkout ? (
               <>
@@ -1697,10 +1711,6 @@ export default function TradesOfferLanding() {
         >
           Only 5 at this price.
         </h2>
-        <p style={{ maxWidth: 640, margin: "0 auto", fontSize: 18, lineHeight: 1.6, color: "#c8c8c8" }}>
-          I do this work myself. I can carry five brand builds at a time and still do them right, so that&apos;s the
-          number.
-        </p>
         <div className="trades-ladder-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18, textAlign: "left" }}>
           <div
             style={{
@@ -1723,7 +1733,7 @@ export default function TradesOfferLanding() {
                 color: "#00d4ff",
               }}
             >
-              First 5 Companies
+              Early Bird
             </div>
             <div
               style={{

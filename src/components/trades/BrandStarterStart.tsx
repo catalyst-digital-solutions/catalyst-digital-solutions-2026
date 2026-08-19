@@ -44,14 +44,14 @@ export default function BrandStarterStart({ prefill }: { prefill: CheckoutPrefil
       const json = (await res.json()) as { ok?: boolean; error?: string };
       if (!res.ok || !json.ok) {
         setStatus("error");
-        setError(json.error || "Something went wrong. Call or text me and we'll do this together.");
+        setError(json.error || "Something went wrong. Call or text us and we'll do this together.");
         return;
       }
       setStatus("sent");
       document.getElementById("book")?.scrollIntoView({ behavior: "smooth", block: "start" });
     } catch {
       setStatus("error");
-      setError("Something went wrong. Call or text me and we'll do this together.");
+      setError("Something went wrong. Call or text us and we'll do this together.");
     }
   }
 
@@ -106,7 +106,7 @@ export default function BrandStarterStart({ prefill }: { prefill: CheckoutPrefil
           You&rsquo;re in. Let&rsquo;s build your brand.
         </h1>
         <p style={{ fontSize: 17, lineHeight: 1.7, color: "#2b2b2b", margin: "0 0 40px" }}>
-          Two quick things and I&rsquo;ll get started today.
+          Two quick things and we&rsquo;ll get started today.
         </p>
 
         <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: 18 }}>
@@ -167,7 +167,7 @@ export default function BrandStarterStart({ prefill }: { prefill: CheckoutPrefil
             <label htmlFor="shop" style={label}>
               A photo of your shop or storefront
             </label>
-            <p style={hint}>Optional — if you send one, I&rsquo;ll put your new sign on it.</p>
+            <p style={hint}>Optional — if you send one, we&rsquo;ll put your new sign on it.</p>
             <input id="shop" name="shop" type="file" accept="image/*" style={{ fontSize: 16 }} />
           </div>
           <div>
@@ -247,7 +247,7 @@ export default function BrandStarterStart({ prefill }: { prefill: CheckoutPrefil
         </div>
 
         <p style={{ marginTop: 32, fontSize: 16, color: "#4a4a4a" }}>
-          Rather just talk? Call or text me at{" "}
+          Rather just talk? Call or text us at{" "}
           <a href={`tel:${PHONE_TEL}`} style={{ color: "#8000ff", fontWeight: 600, textDecoration: "none" }}>
             {PHONE_DISPLAY}
           </a>

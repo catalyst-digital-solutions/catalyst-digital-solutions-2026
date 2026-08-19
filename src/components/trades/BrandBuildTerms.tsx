@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * Terms of Service v1.0 + Schedule A v1.1 (Brand Build) + Schedule B v1.0 (Brand Starter).
+ * Terms of Service v1.0 + Schedule A v1.2 (Brand Build) + Schedule B v1.1 (Brand Starter).
  * Ported from branding-and-website-landing-page/Terms & Conditions Page/Terms of Service.dc.html
  * Legal copy — do not edit wording without Mario's approval.
  */
@@ -215,6 +215,9 @@ export default function BrandBuildTerms() {
               <li><a href="#B.1">B.1 What this purchase is</a></li>
               <li><a href="#B.2">B.2 What is delivered</a></li>
               <li><a href="#B.3">B.3 What you own</a></li>
+              <li><a href="#B.3a">B.3a Refunds</a></li>
+              <li><a href="#B.3b">B.3b Revisions</a></li>
+              <li><a href="#B.3c">B.3c Preview hosting period</a></li>
               <li><a href="#B.4">B.4 Credit toward the full build</a></li>
               <li><a href="#B.5">B.5 Timeline</a></li>
               <li><a href="#B.6">B.6 Chat assistant vs. phone AI</a></li>
@@ -589,7 +592,7 @@ export default function BrandBuildTerms() {
               Brand Build Program
             </h1>
             <p style={{ fontSize: 14, color: "#6b6b6b", margin: 0 }}>
-              Version 1.1 &nbsp;&middot;&nbsp; Effective date: August 18, 2026
+              Version 1.2 &nbsp;&middot;&nbsp; Effective date: August 19, 2026
             </p>
           </div>
 
@@ -691,8 +694,9 @@ export default function BrandBuildTerms() {
 
           <h2 id="A.4" style={h2Style}>A.4 Payment</h2>
           <p>
-            The package price is stated at checkout. Payment is 50% deposit to reserve your slot and begin, and 50%
-            balance when your website is complete and ready to publish.
+            The package price is stated at checkout or in your Statement of Work. Payment terms are set out in your
+            Statement of Work. Where you began with a Brand Starter, the $500 is credited under Schedule B §B.4 and the
+            remaining balance is due as set out in your Statement of Work.
           </p>
           <p>
             We will not publish your site or release source files until the balance clears. Ownership transfers on
@@ -837,7 +841,7 @@ export default function BrandBuildTerms() {
 
           <hr style={{ ...hrStyle, margin: "40px 0 24px" }} />
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
-            Schedule A — Version 1.1 — Effective August 18, 2026
+            Schedule A — Version 1.2 — Effective August 19, 2026
           </p>
 
           <div
@@ -864,7 +868,7 @@ export default function BrandBuildTerms() {
               Brand Starter
             </h1>
             <p style={{ fontSize: 14, color: "#6b6b6b", margin: 0 }}>
-              Version 1.0 &nbsp;&middot;&nbsp; Effective date: August 19, 2026
+              Version 1.1 &nbsp;&middot;&nbsp; Effective date: August 19, 2026
             </p>
           </div>
 
@@ -890,34 +894,61 @@ export default function BrandBuildTerms() {
               (.ai), SVG, and PNG.
             </li>
             <li>A business card design for up to five people on your crew.</li>
-            <li>Brand mockups (van, apparel, social, storefront) for viewing.</li>
+            <li>Brand mockups (van, apparel, social, storefront), delivered as images.</li>
             <li>A temporary hosted website preview of your homepage, live on the internet with your name on it.</li>
           </ul>
           <p>
-            Preview hosting is temporary. If you do not proceed with the full Brand Build, we remove the preview. Mockups
-            are for viewing; they are not print-ready production files unless we later include them in a Brand Build
-            handoff.
+            Mockup images are presentation renders. They are not print-ready production files. Print-ready vehicle wrap
+            files and embroidery-ready files are part of the full Brand Build.
           </p>
 
           <h2 id="B.3" style={h2Style}>B.3 What you own</h2>
           <p>
-            On payment of the $500, you own the logo files and the business card design. If you decide not to go
-            forward, you keep those files. The website preview comes down. Mockups remain viewing-only.
+            On payment of the $500, you own the logo files, the business card design, and the mockup images. If you
+            decide not to go forward with the full Brand Build, you keep all of them. The business card design is
+            delivered as a print-ready PDF with bleed and crop marks. The website preview comes down at the end of the
+            period described in §B.3c.
+          </p>
+
+          <h2 id="B.3a" style={h2Style}>B.3a Refunds</h2>
+          <p>
+            The Brand Starter is a purchase of completed digital deliverables, not a deposit. It is non-refundable once
+            we begin design work, which we do promptly after receiving your completed intake form. If you cancel before
+            we begin design work, we refund the $500 in full. Once the logo package has been delivered, the purchase is
+            complete and is not refundable, including on the basis of subjective preference. This section controls over
+            §9 of the Terms for Brand Starter purchases.
+          </p>
+
+          <h2 id="B.3b" style={h2Style}>B.3b Revisions</h2>
+          <p>
+            We present two or three logo directions. You select one. Two (2) rounds of refinement on the selected
+            direction are included. Additional rounds, or a request to start over on a new direction after you have
+            selected one, are quoted separately before we do them. Directions you did not select remain ours under §7 of
+            the Terms.
+          </p>
+
+          <h2 id="B.3c" style={h2Style}>B.3c Preview hosting period</h2>
+          <p>
+            Your website preview stays live for fourteen (14) calendar days from the date we deliver your Brand Starter.
+            If you have not purchased the full Brand Build by then, we take it down. We can put it back up if you
+            purchase later, subject to availability.
           </p>
 
           <h2 id="B.4" style={h2Style}>B.4 Credit toward the full build</h2>
           <p>
-            If you go forward with the complete Brand + Website Build, the $500 is credited in full against the package
-            total stated at the time of your Brand Starter purchase ($4,000 for the first five companies, $6,000
-            thereafter). You do not pay $4,500 or $6,500. The remaining balance is due as agreed before we publish the
-            site and release remaining source files.
+            If you purchase the complete Brand + Website Build within fourteen (14) calendar days of the date we deliver
+            your Brand Starter, the $500 is credited in full against the package price in effect on the date of your
+            Brand Starter purchase, and that price is held for you during those fourteen days. You do not pay $4,500 or
+            $6,500. After fourteen days, the credit expires and current pricing applies. We may extend this period at
+            our discretion.
           </p>
+          <p>Your delivery date is stated in the email that delivers your Brand Starter.</p>
 
           <h2 id="B.5" style={h2Style}>B.5 Timeline</h2>
           <p>
-            We target delivery of the Brand Starter within <strong>seven (7) business days</strong> from the date we
-            receive a completed intake form (including the information we need to build). Delays in sending photos,
-            services, or service area extend the target by at least the length of the delay.
+            We target delivery of the Brand Starter within <strong>seven (7) business days</strong> from the later of
+            (a) the date your payment clears, or (b) the date we receive your completed intake form. Delays in sending
+            photos, services, or service area extend the target by at least the length of the delay.
           </p>
 
           <h2 id="B.6" style={h2Style}>B.6 Chat assistant vs. phone AI</h2>
@@ -937,10 +968,10 @@ export default function BrandBuildTerms() {
 
           <hr style={{ ...hrStyle, margin: "40px 0 24px" }} />
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
-            Schedule B — Version 1.0 — Effective August 19, 2026
+            Schedule B — Version 1.1 — Effective August 19, 2026
           </p>
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
-            Schedule A — Version 1.1 — Effective August 18, 2026
+            Schedule A — Version 1.2 — Effective August 19, 2026
           </p>
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 32px" }}>
             Terms of Service — Version 1.0 — Effective August 17, 2026

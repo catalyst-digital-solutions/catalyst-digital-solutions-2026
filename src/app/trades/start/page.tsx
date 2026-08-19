@@ -4,7 +4,7 @@ import { getCheckoutPrefill } from "@/lib/stripe-checkout-prefill";
 
 export const metadata: Metadata = {
   title: "You're in — let's build your brand",
-  description: "Two quick things and I'll get started today.",
+  description: "Two quick things and we'll get started today.",
   robots: { index: false, follow: false },
   icons: {
     icon: [

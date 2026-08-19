@@ -59,14 +59,14 @@ export function getSlotState(
 
   let urgencyLine: string | null = null;
   if (booked) urgencyLine = "Next openings TBD — book a call to get on the list.";
-  else if (remaining === 1) urgencyLine = `Last one at ${priceNumber}.`;
-  else if (remaining <= 3) urgencyLine = `Only ${remaining} left at ${priceNumber}.`;
+  else if (remaining === 1) urgencyLine = rung2 ? `Last one at ${priceNumber}.` : "Last Early Bird slot.";
+  else if (remaining <= 3) urgencyLine = rung2 ? `Only ${remaining} left at ${priceNumber}.` : `Only ${remaining} left at Early Bird.`;
 
   const nextRungLine = booked
     ? "All ten slots are taken."
     : rung2
-      ? "The first 5 at $4,000 are gone."
-      : "After these 5, the price is $6,000.";
+      ? "Early Bird is gone. This is the $6,000 price."
+      : "After Early Bird, the price is $6,000.";
 
   const dots = Array.from({ length: 5 }, (_, i) => ({ available: i < remaining }));
 
