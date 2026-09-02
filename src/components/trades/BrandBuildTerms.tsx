@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * Terms of Service v1.0 + Schedule A v1.4 (Brand Build) + Schedule B v1.3 (Brand Starter).
+ * Terms of Service v1.0 + Schedule A v1.5 (Brand Build) + Schedule B v1.4 (Brand Starter).
  * Ported from branding-and-website-landing-page/Terms & Conditions Page/Terms of Service.dc.html
  * Legal copy — do not edit wording without Mario's approval.
  */
@@ -216,10 +216,10 @@ export default function BrandBuildTerms() {
               <li><a href="#B.2">B.2 What is delivered</a></li>
               <li><a href="#B.3">B.3 What you own</a></li>
               <li><a href="#B.3a">B.3a Refunds</a></li>
-              <li><a href="#B.3b">B.3b Revisions</a></li>
+              <li><a href="#B.3b">B.3b Direction selection and revisions</a></li>
               <li><a href="#B.3c">B.3c Preview hosting period</a></li>
               <li><a href="#B.4">B.4 Credit toward the full build</a></li>
-              <li><a href="#B.5">B.5 Timeline</a></li>
+              <li><a href="#B.5">B.5 Timeline and delivery promise</a></li>
               <li><a href="#B.6">B.6 Chat assistant vs. phone AI</a></li>
               <li><a href="#B.7">B.7 Care Plan</a></li>
             </ol>
@@ -592,7 +592,7 @@ export default function BrandBuildTerms() {
               Brand Build Program
             </h1>
             <p style={{ fontSize: 14, color: "#6b6b6b", margin: 0 }}>
-              Version 1.4 &nbsp;&middot;&nbsp; Effective date: September 2, 2026
+              Version 1.5 &nbsp;&middot;&nbsp; Effective date: September 2, 2026
             </p>
           </div>
 
@@ -621,7 +621,8 @@ export default function BrandBuildTerms() {
           <p><strong>Website</strong></p>
           <p>
             A custom <strong>ten-page</strong> website built in Next.js and React; contact and service-request forms;
-            on-page search optimization; an AI assistant trained on the business information you provide;
+            on-page search optimization; an AI assistant trained on the business information you provide and powered
+            by an OpenAI model unless otherwise disclosed under §A.6;
             mobile-responsive across phones, tablets, and desktops.
           </p>
           <p><strong>Getting you online</strong></p>
@@ -642,7 +643,12 @@ export default function BrandBuildTerms() {
             beyond the pages in scope; a blog, blog posts, or ongoing article writing; paid advertising and ad spend;
             ongoing search optimization; and social media management.
           </p>
-          <p>These are available separately and quoted before we start.</p>
+          <p>
+            These are available separately and quoted before we start. Catalyst offers ongoing SEO, paid advertising
+            management, content, social media, reputation management, automation, and other growth services under a
+            separate written scope or purchase. None is included automatically, and none is a condition of owning,
+            self-hosting, or using the completed Brand Build deliverables.
+          </p>
           <p>
             Domain registration and hosting past the first thirty (30) days are not part of the build price. We offer
             both — here&rsquo;s how they work.
@@ -718,12 +724,14 @@ export default function BrandBuildTerms() {
             We target thirty (30) calendar days to launch, counted from the date your Statement of Work is signed and your first build payment clears. The Brand Starter period is separate and does not start this clock.
           </p>
           <p>
-            1. Kickoff call — about twenty minutes. We learn your services, your service area, and how you want to be
-            seen.
+            1. Kickoff and intake confirmation — we confirm your services, service area, desired brand impression,
+            preferences, and required materials.
             <br />
-            2. Brand directions — we present multiple directions. You pick one.
+            2. Brand direction — the direction approved during your Brand Starter carries forward. If a direction has
+            not yet been approved, the selection process in Schedule B §B.3b applies.
             <br />
-            3. Brand refinement — up to two (2) rounds of revisions on the direction you selected.
+            3. Brand refinement — we finish the approved direction. Continuing to the Brand Build does not restart the
+            included Brand Starter direction or refinement counts unless your Statement of Work says otherwise.
             <br />
             4. Website build — we build the site around the approved brand.
             <br />
@@ -778,6 +786,20 @@ export default function BrandBuildTerms() {
             We will notify you by email when you reach 80% of your included replies, and you can request your usage
             figures at any time. Automated traffic, scraping, and abusive requests are filtered and are not billed to
             your account. We may block sources that abuse the assistant.
+          </p>
+          <p>
+            <strong>AI provider and model.</strong> Unless we state otherwise in writing, the assistant is powered by an
+            OpenAI model through an application programming interface or gateway. Catalyst selects and may change the
+            specific OpenAI model used to balance answer quality, reliability, availability, and operating cost. A
+            change from one OpenAI model to another does not require advance notice.
+          </p>
+          <p>
+            We will give you at least sixty (60) days&rsquo; written notice before moving the assistant to a different
+            model provider or increasing the Care Plan base price or per-block usage price. You may cancel before the
+            change takes effect. We may change providers sooner when reasonably necessary to prevent or end an outage,
+            address a security or legal issue, or respond to a provider or model discontinuation. If that happens, we
+            will notify you promptly. A price increase will not take effect without the full sixty-day notice and will
+            never apply retroactively.
           </p>
           <p>
             <strong>If you don&rsquo;t enroll</strong>, your files are yours and we will hand them over with reasonable
@@ -853,7 +875,7 @@ export default function BrandBuildTerms() {
 
           <hr style={{ ...hrStyle, margin: "40px 0 24px" }} />
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
-            Schedule A — Version 1.4 — Effective September 2, 2026
+            Schedule A — Version 1.5 — Effective September 2, 2026
           </p>
 
           <div
@@ -880,7 +902,7 @@ export default function BrandBuildTerms() {
               Brand Starter
             </h1>
             <p style={{ fontSize: 14, color: "#6b6b6b", margin: 0 }}>
-              Version 1.3 &nbsp;&middot;&nbsp; Effective date: September 2, 2026
+              Version 1.4 &nbsp;&middot;&nbsp; Effective date: September 2, 2026
             </p>
           </div>
 
@@ -901,8 +923,12 @@ export default function BrandBuildTerms() {
           <p>We deliver:</p>
           <ul style={{ margin: "0 0 16px", paddingLeft: 22 }}>
             <li>
-              A logo package: primary, stacked, horizontal, reversed, and one-color versions, in Adobe Illustrator
-              (.ai), SVG, and PNG.
+              A presentation of five (5) distinct initial brand directions based on your completed intake. Each is a
+              preliminary concept for review, not a fully produced brand package.
+            </li>
+            <li>
+              A completed logo package based on the direction you select: primary, stacked, horizontal, reversed, and
+              one-color versions, in Adobe Illustrator (.ai), SVG, and PNG.
             </li>
             <li>A business card design for up to five people on your crew.</li>
             <li>Brand mockups (van, apparel, social, storefront), delivered as images.</li>
@@ -917,28 +943,51 @@ export default function BrandBuildTerms() {
 
           <h2 id="B.3" style={h2Style}>B.3 What you own</h2>
           <p>
-            On payment of the $500, you own the logo files, the business card design, the mockup images, your color palette and typography specifications, and the mascot direction you selected, if any. If you
+            When we deliver the completed Brand Starter and your $500 payment has cleared, you own the finished logo
+            files for the direction you selected, the business card design, the mockup images, your color palette and
+            typography specifications, and the finished mascot or character selected for your brand, if any. If you
             decide not to go forward with the full Brand Build, you keep all of them. The business card design is
-            delivered as a print-ready PDF with bleed and crop marks. The 14-day homepage preview comes down at the end of the
-            period described in §B.3c.
+            delivered as a print-ready PDF with bleed and crop marks. Preliminary directions and all unselected initial
+            or replacement directions remain ours and are not licensed for use. The 14-day homepage preview comes down
+            at the end of the period described in §B.3c.
           </p>
 
           <h2 id="B.3a" style={h2Style}>B.3a Refunds</h2>
           <p>
-            The Brand Starter is a one-time, non-refundable purchase of completed digital deliverables. It is not a
-            reservation fee and it is not held against future work as a refundable balance. By purchasing, you
+            Except for the delivery promise and Catalyst-cancellation exceptions stated below, the Brand Starter is a
+            one-time, non-refundable purchase of completed digital deliverables. It is not a reservation fee and it is
+            not held against future work as a refundable balance. By purchasing, you
             acknowledge that we reserve production capacity and begin project setup and design work immediately. The
             purchase is not refundable if you cancel or decide not to continue, including on the basis of subjective
-            preference. If we cancel or cannot deliver the Brand Starter, we refund the $500 in full. This section
-            controls over §9 of the Terms for Brand Starter purchases.
+            preference after we meet the delivery promises in §B.5. If we cancel, cannot deliver the Brand Starter, or
+            miss an applicable delivery target for reasons within our reasonable control and you cancel in writing
+            before the late item is delivered, we refund the $500 in full. On a refund, you receive no license or
+            ownership in any preliminary direction, preview, or draft and must stop using and delete any copies you
+            received. We do not release final editable or production-ready source files before completed delivery. This
+            section controls over §9 of the Terms for Brand Starter purchases.
           </p>
 
-          <h2 id="B.3b" style={h2Style}>B.3b Revisions</h2>
+          <h2 id="B.3b" style={h2Style}>B.3b Direction selection and revisions</h2>
           <p>
-            We present two or three logo directions. You select one. Two (2) rounds of refinement on the selected
-            direction are included. Additional rounds, or a request to start over on a new direction after you have
-            selected one, are quoted separately before we do them. Directions you did not select remain ours under §7 of
-            the Terms.
+            Your completed intake is the creative brief. It must identify your correct business name, services,
+            audience, desired impression, preferences, dislikes, and any existing elements we must keep or avoid. We
+            use that information to create five (5) distinct initial brand directions. A direction may show an initial
+            logo or wordmark approach, color palette, typography, and supporting visual style. The five directions are
+            concept choices, not five completed logo systems or five website designs.
+          </p>
+          <p>
+            You select one direction. Two (2) refinement rounds on that selected direction are included. A refinement
+            round means one consolidated written list of related changes to the selected direction. It does not include
+            a new company name, a new creative brief, or development of a different direction.
+          </p>
+          <p>
+            If none of the five initial directions fits, one (1) guided direction reset is included. After a feedback
+            call or one consolidated written response explaining what missed the mark, we provide up to three (3)
+            replacement directions. You then select one direction for the two included refinement rounds. Additional
+            directions, resets, or refinement rounds require a written change order stating the added price and timing
+            before we begin that extra work. If Catalyst voluntarily shows additional concepts without a change order,
+            that courtesy does not expand the included scope for later work. All unselected directions remain ours
+            under §7 of the Terms and may not be used, copied, or given to another designer for development.
           </p>
 
           <h2 id="B.3c" style={h2Style}>B.3c Preview hosting period</h2>
@@ -965,11 +1014,28 @@ export default function BrandBuildTerms() {
           </p>
           <p>Your delivery date is stated in the email that delivers your Brand Starter.</p>
 
-          <h2 id="B.5" style={h2Style}>B.5 Timeline</h2>
+          <h2 id="B.5" style={h2Style}>B.5 Timeline and delivery promise</h2>
           <p>
-            We target delivery of the Brand Starter within <strong>seven (7) business days</strong> from the later of
-            (a) the date your payment clears, or (b) the date we receive your completed intake form. Delays in sending
-            photos, services, or service area extend the target by at least the length of the delay.
+            We target presentation of your five (5) initial brand directions within <strong>seven (7) business
+            days</strong> from the later of (a) the date your payment clears, or (b) the date we receive your completed
+            intake form and all information we identify as required to begin. If you use the guided direction reset in
+            §B.3b, we target the replacement directions within five (5) business days after we receive your consolidated
+            reset feedback.
+          </p>
+          <p>
+            After you select a direction, we target delivery of the completed Brand Starter deliverables and working
+            homepage preview within <strong>seven (7) additional business days</strong> from the later of (a) your
+            written selection, or (b) our receipt of any information or materials required to build that direction.
+            Time needed for your requested refinement rounds is added to that target and confirmed to you in writing.
+            Your 14-day preview and $500-credit period begin when we deliver the completed Brand Starter, not when we
+            first present the directions.
+          </p>
+          <p>
+            Delays caused by incomplete or inaccurate intake information, client-requested changes, late feedback or
+            approvals, missing materials, third-party outages, or events outside our reasonable control extend the
+            applicable target by at least the length of the delay. If we miss either applicable seven-business-day
+            target for reasons within our reasonable control, you may cancel by written notice received before we
+            deliver the late item and receive a full refund under §B.3a.
           </p>
 
           <h2 id="B.6" style={h2Style}>B.6 Chat assistant vs. phone AI</h2>
@@ -977,7 +1043,8 @@ export default function BrandBuildTerms() {
             The website included in a later Brand Build has a <strong>chat assistant on the website</strong> — the chat
             window a visitor types into. It is not a phone answering service. An AI that answers your actual phone is
             part of our separate monthly marketing programs and is not included in the Brand Starter or the Brand Build
-            package.
+            package. The website chat assistant is powered by an OpenAI model unless otherwise disclosed under Schedule
+            A §A.6.
           </p>
 
           <h2 id="B.7" style={h2Style}>B.7 Care Plan</h2>
@@ -990,10 +1057,10 @@ export default function BrandBuildTerms() {
 
           <hr style={{ ...hrStyle, margin: "40px 0 24px" }} />
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
-            Schedule B — Version 1.3 — Effective September 2, 2026
+            Schedule B — Version 1.4 — Effective September 2, 2026
           </p>
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
-            Schedule A — Version 1.4 — Effective September 2, 2026
+            Schedule A — Version 1.5 — Effective September 2, 2026
           </p>
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 32px" }}>
             Terms of Service — Version 1.0 — Effective August 17, 2026
