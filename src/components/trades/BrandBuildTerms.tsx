@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * Terms of Service v1.0 + Schedule A v1.2 (Brand Build) + Schedule B v1.1 (Brand Starter).
+ * Terms of Service v1.0 + Schedule A v1.4 (Brand Build) + Schedule B v1.3 (Brand Starter).
  * Ported from branding-and-website-landing-page/Terms & Conditions Page/Terms of Service.dc.html
  * Legal copy — do not edit wording without Mario's approval.
  */
@@ -411,9 +411,9 @@ export default function BrandBuildTerms() {
 
           <h2 id="9" style={h2Style}>9. Refunds and cancellation</h2>
           <p>
-            <strong>One-time projects.</strong> Deposits secure your production slot and are non-refundable once
+            <strong>One-time projects.</strong> Payments that reserve your production slot are non-refundable once
             production begins, because your slot is committed and work has started. If you cancel before production
-            begins, we will refund your deposit less any work already performed and any third-party costs already
+            begins, we will refund amounts paid less any work already performed and any third-party costs already
             incurred on your behalf. If we cancel or cannot deliver, you receive a full refund of amounts paid for
             undelivered work.
           </p>
@@ -592,7 +592,7 @@ export default function BrandBuildTerms() {
               Brand Build Program
             </h1>
             <p style={{ fontSize: 14, color: "#6b6b6b", margin: 0 }}>
-              Version 1.2 &nbsp;&middot;&nbsp; Effective date: August 19, 2026
+              Version 1.4 &nbsp;&middot;&nbsp; Effective date: September 2, 2026
             </p>
           </div>
 
@@ -613,8 +613,10 @@ export default function BrandBuildTerms() {
           <p><strong>Applied assets</strong></p>
           <p>
             Vehicle wrap design for <strong>one</strong> vehicle type, using <strong>one</strong> template that you
-            supply; social profile avatars sized for major platforms; social header images; a Google Business Profile
-            image set; an Open Graph link-preview image.
+            supply; one storefront signage design with production-ready vector artwork; production-ready logo and
+            wordmark files for uniforms and crew apparel; one business-card design, populated with the names and contact
+            information you provide for up to five (5) people; social profile avatars sized for major platforms; social
+            header images; a Google Business Profile image set; an Open Graph link-preview image.
           </p>
           <p><strong>Website</strong></p>
           <p>
@@ -679,12 +681,12 @@ export default function BrandBuildTerms() {
 
           <h2 id="A.3" style={h2Style}>A.3 Statement of Work required before production</h2>
           <p>
-            Your deposit reserves your production slot. Before we begin production, we will send you a Statement of Work
+            Your Brand Starter purchase reserves your production slot. Before we begin production, we will send you a Statement of Work
             setting out your specific scope, price, payment dates, page list, and delivery target.
           </p>
           <p>
             Production does not begin, and no final invoice will issue, until you sign it. If you decide not to sign,
-            tell us and we will refund your deposit in full under §9 of the Terms, less any third-party costs already
+            tell us and the refund terms in Schedule B §B.3a apply to your Brand Starter, and any additional amount you have paid toward the build will be refunded in full less any third-party costs already
             incurred.
           </p>
           <p>
@@ -694,19 +696,26 @@ export default function BrandBuildTerms() {
 
           <h2 id="A.4" style={h2Style}>A.4 Payment</h2>
           <p>
-            The package price is stated at checkout or in your Statement of Work. Payment terms are set out in your
-            Statement of Work. Where you began with a Brand Starter, the $500 is credited under Schedule B §B.4 and the
-            remaining balance is due as set out in your Statement of Work.
+            The package price is stated at checkout or in your Statement of Work. During the fourteen-day offer period
+            described in Schedule B §B.4, the complete Brand Build price is $4,000: the $500 Brand Starter payment is
+            credited in full, leaving a $3,500 balance. Payment dates or any agreed payment arrangement for that balance
+            are set out in your Statement of Work.
           </p>
           <p>
-            We will not publish your site or release source files until the balance clears. Ownership transfers on
-            payment in full — see §A.7.
+            Choosing to continue does not authorize an automatic $3,500 charge. You must sign the Statement of Work and
+            separately authorize each additional payment. If you do not continue, no additional balance is due and the
+            Brand Starter terms in Schedule B continue to apply.
+          </p>
+          <p>
+            When you continue, your homepage preview becomes part of the complete Brand Build deliverables. We will not
+            publish the completed site or release the Brand Build source files until the full $4,000 has cleared.
+            Ownership of the complete Brand Build deliverables, including the website, transfers on payment in full —
+            see §A.7.
           </p>
 
           <h2 id="A.5" style={h2Style}>A.5 Timeline and process</h2>
           <p>
-            We target thirty (30) calendar days from the date your deposit clears and your Statement of Work is signed,
-            to launch.
+            We target thirty (30) calendar days to launch, counted from the date your Statement of Work is signed and your first build payment clears. The Brand Starter period is separate and does not start this clock.
           </p>
           <p>
             1. Kickoff call — about twenty minutes. We learn your services, your service area, and how you want to be
@@ -729,21 +738,23 @@ export default function BrandBuildTerms() {
           <p>
             <strong>Project pause.</strong> If we do not hear from you for thirty (30) consecutive days after requesting
             information or approval, we may pause your project and reassign your production slot. Restarting a paused
-            project is subject to our then-current availability and may carry a restart fee. Deposits on paused projects
+            project is subject to our then-current availability and may carry a restart fee. Payments on paused projects
             are not refunded.
           </p>
 
           <h2 id="A.6" style={h2Style}>A.6 Care Plan</h2>
           <p>
-            After your site launches, hosting, your security certificate, security updates, backups, uptime monitoring,
-            yearly renewal of any domain we registered for you, and the operating costs of your AI assistant are covered
-            by our Care Plan at $149 per month, billed in advance.
+            The Brand Build price includes the first thirty (30) days of hosting and AI-assistant operation after your
+            site launches. Beginning on day thirty-one (31), hosting, your security certificate, security updates,
+            backups, uptime monitoring, yearly renewal of any domain we registered for you, and the operating costs of
+            your AI assistant can continue under our Care Plan at $149 per month, billed in advance.
           </p>
           <p>
             This is a separate purchase, and it is optional. We do not save your card at your build checkout and we do
             not enroll you automatically. Near the end of your build we will send you a separate checkout that shows the
             monthly amount, the date of the first charge, what&rsquo;s included, and how to cancel, before you enter any
-            payment information. You choose whether to enroll.
+            payment information. You choose whether to enroll, and the first Care Plan charge will not occur before day
+            thirty-one (31) after launch.
           </p>
           <p>
             <strong>Payment authorization.</strong> When you enroll, you provide a credit or debit card or a bank
@@ -782,8 +793,9 @@ export default function BrandBuildTerms() {
           <p>
             On payment in full, we assign to you all rights in: your logo files and all lockup variations, your color
             palette and typography specifications, your custom character or mascot illustration, your brand guidelines
-            sheet, your vehicle wrap design, your social and profile assets, and the design and page code of your
-            website.
+            sheet, your vehicle wrap design, your storefront signage design, your uniform logo and wordmark files, your
+            business-card design and versions prepared for up to five people, your social and profile assets, and the
+            design and page code of your website.
           </p>
           <p>
             Before payment in full, we own all of it and you have no license to use it — including for signage, wraps,
@@ -841,7 +853,7 @@ export default function BrandBuildTerms() {
 
           <hr style={{ ...hrStyle, margin: "40px 0 24px" }} />
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
-            Schedule A — Version 1.2 — Effective August 19, 2026
+            Schedule A — Version 1.4 — Effective September 2, 2026
           </p>
 
           <div
@@ -868,12 +880,12 @@ export default function BrandBuildTerms() {
               Brand Starter
             </h1>
             <p style={{ fontSize: 14, color: "#6b6b6b", margin: 0 }}>
-              Version 1.1 &nbsp;&middot;&nbsp; Effective date: August 19, 2026
+              Version 1.3 &nbsp;&middot;&nbsp; Effective date: September 2, 2026
             </p>
           </div>
 
           <p style={{ margin: "28px 0 24px" }}>
-            This Schedule applies if you purchased the Brand Starter (logo package plus a temporary website preview).
+            This Schedule applies if you purchased the Brand Starter (logo package plus a live 14-day preview of your homepage).
             It is incorporated into and forms part of the Terms of Service above. Where this Schedule and the Terms
             differ, this Schedule controls for Brand Starter purchases. If you later purchase the full Brand Build,
             Schedule A also applies to that purchase.
@@ -881,8 +893,7 @@ export default function BrandBuildTerms() {
 
           <h2 id="B.1" style={h2Style}>B.1 What this purchase is</h2>
           <p>
-            The $500 Brand Starter is a <strong>purchase of a completed deliverable set</strong>, not a refundable
-            deposit. You are buying the work listed in §B.2. Completing checkout does not enroll you in a monthly
+            The $500 Brand Starter is a <strong>purchase of a completed deliverable set</strong>. It is not a reservation fee and it is not held against future work as a refundable balance. You are buying the work listed in §B.2. Completing checkout does not enroll you in a monthly
             service, does not save your card, and does not authorize any future charge.
           </p>
 
@@ -895,7 +906,9 @@ export default function BrandBuildTerms() {
             </li>
             <li>A business card design for up to five people on your crew.</li>
             <li>Brand mockups (van, apparel, social, storefront), delivered as images.</li>
-            <li>A temporary hosted website preview of your homepage, live on the internet with your name on it.</li>
+            <li>Your color palette and typography specifications.</li>
+            <li>The mascot or character direction you select, if you choose one.</li>
+            <li>A live 14-day preview of your homepage, hosted by us, live on the internet with your name on it.</li>
           </ul>
           <p>
             Mockup images are presentation renders. They are not print-ready production files. Print-ready vehicle wrap
@@ -904,19 +917,20 @@ export default function BrandBuildTerms() {
 
           <h2 id="B.3" style={h2Style}>B.3 What you own</h2>
           <p>
-            On payment of the $500, you own the logo files, the business card design, and the mockup images. If you
+            On payment of the $500, you own the logo files, the business card design, the mockup images, your color palette and typography specifications, and the mascot direction you selected, if any. If you
             decide not to go forward with the full Brand Build, you keep all of them. The business card design is
-            delivered as a print-ready PDF with bleed and crop marks. The website preview comes down at the end of the
+            delivered as a print-ready PDF with bleed and crop marks. The 14-day homepage preview comes down at the end of the
             period described in §B.3c.
           </p>
 
           <h2 id="B.3a" style={h2Style}>B.3a Refunds</h2>
           <p>
-            The Brand Starter is a purchase of completed digital deliverables, not a deposit. It is non-refundable once
-            we begin design work, which we do promptly after receiving your completed intake form. If you cancel before
-            we begin design work, we refund the $500 in full. Once the logo package has been delivered, the purchase is
-            complete and is not refundable, including on the basis of subjective preference. This section controls over
-            §9 of the Terms for Brand Starter purchases.
+            The Brand Starter is a one-time, non-refundable purchase of completed digital deliverables. It is not a
+            reservation fee and it is not held against future work as a refundable balance. By purchasing, you
+            acknowledge that we reserve production capacity and begin project setup and design work immediately. The
+            purchase is not refundable if you cancel or decide not to continue, including on the basis of subjective
+            preference. If we cancel or cannot deliver the Brand Starter, we refund the $500 in full. This section
+            controls over §9 of the Terms for Brand Starter purchases.
           </p>
 
           <h2 id="B.3b" style={h2Style}>B.3b Revisions</h2>
@@ -929,7 +943,7 @@ export default function BrandBuildTerms() {
 
           <h2 id="B.3c" style={h2Style}>B.3c Preview hosting period</h2>
           <p>
-            Your website preview stays live for fourteen (14) calendar days from the date we deliver your Brand Starter.
+            Your live 14-day homepage preview stays live for fourteen (14) calendar days from the date we deliver your Brand Starter.
             If you have not purchased the full Brand Build by then, we take it down. We can put it back up if you
             purchase later, subject to availability.
           </p>
@@ -937,10 +951,17 @@ export default function BrandBuildTerms() {
           <h2 id="B.4" style={h2Style}>B.4 Credit toward the full build</h2>
           <p>
             If you purchase the complete Brand + Website Build within fourteen (14) calendar days of the date we deliver
-            your Brand Starter, the $500 is credited in full against the package price in effect on the date of your
-            Brand Starter purchase, and that price is held for you during those fourteen days. You do not pay $4,500 or
-            $6,500. After fourteen days, the credit expires and current pricing applies. We may extend this period at
-            our discretion.
+            your Brand Starter, the $500 is credited in full for fourteen (14) days against the package price in effect on the date of your
+            Brand Starter purchase, and that price is held for you during those fourteen days. For the current $4,000
+            offer, the $500 is part of that total and the remaining balance is $3,500. We do not charge that balance
+            automatically. To continue, you must sign a Statement of Work and separately authorize the additional
+            payment or payments described there. If you do not continue, no additional balance is due. After fourteen
+            days, the credit expires and current pricing applies. We may extend this period at our discretion.
+          </p>
+          <p>
+            If you continue during the fourteen-day period, the homepage preview becomes part of the complete Brand
+            Build deliverables. Ownership of the website transfers after the full Brand Build price has been paid in
+            full under Schedule A §§A.4 and A.7.
           </p>
           <p>Your delivery date is stated in the email that delivers your Brand Starter.</p>
 
@@ -961,17 +982,18 @@ export default function BrandBuildTerms() {
 
           <h2 id="B.7" style={h2Style}>B.7 Care Plan</h2>
           <p>
-            The $149/month Care Plan begins at full site launch, is a separate purchase, and is cancelable at any time.
-            It is not part of the $500 Brand Starter. We do not enroll you automatically and we do not save your card
-            at Brand Starter checkout. See Schedule A §A.6 if you later purchase the full build.
+            The complete Brand Build includes the first thirty (30) days of hosting and AI-assistant operation after full
+            site launch. The optional $149/month Care Plan can begin on day thirty-one (31), is a separate purchase, and
+            is cancelable at any time. It is not part of the $500 Brand Starter. We do not enroll you automatically and
+            we do not save your card at Brand Starter checkout. See Schedule A §A.6 if you later purchase the full build.
           </p>
 
           <hr style={{ ...hrStyle, margin: "40px 0 24px" }} />
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
-            Schedule B — Version 1.1 — Effective August 19, 2026
+            Schedule B — Version 1.3 — Effective September 2, 2026
           </p>
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
-            Schedule A — Version 1.2 — Effective August 19, 2026
+            Schedule A — Version 1.4 — Effective September 2, 2026
           </p>
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 32px" }}>
             Terms of Service — Version 1.0 — Effective August 17, 2026
