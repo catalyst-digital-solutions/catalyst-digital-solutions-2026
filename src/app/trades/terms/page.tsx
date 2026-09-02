@@ -4,7 +4,7 @@ import BrandBuildTerms from "@/components/trades/BrandBuildTerms";
 export const metadata: Metadata = {
   title: "Terms of Service — Catalyst Digital Solutions",
   description:
-    "Terms of Service v1.0, Schedule A v1.5 (Brand Build), and Schedule B v1.4 (Brand Starter) for Catalyst Digital Solutions, LLC.",
+    "Terms of Service v1.1, Schedule A v1.6 (Brand Build), and Schedule B v1.5 (Brand Starter) for Catalyst Digital Solutions, LLC.",
   robots: { index: false, follow: false },
   icons: {
     icon: [

@@ -73,38 +73,38 @@ export default function TradesThankYouPage() {
           You&rsquo;re in. Here&rsquo;s what happens next.
         </h1>
         <p style={{ fontSize: 17, lineHeight: 1.7, color: "#2b2b2b", margin: "0 0 40px" }}>
-          Your payment went through and a receipt is on its way to your email. No forms to fill
-          out right now — we take it from here.
+          Your $500 payment went through and a receipt is on its way to your email. Your selected direction is now in
+          production, and the seven-business-day delivery clock has started.
         </p>
 
         <ol style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 28 }}>
           <li style={{ display: "flex", gap: 16 }}>
             <span style={stepNumberStyle}>1</span>
             <div>
-              <p style={{ fontWeight: 600, margin: "4px 0 4px" }}>We reach out within one business day</p>
+              <p style={{ fontWeight: 600, margin: "4px 0 4px" }}>Production begins now</p>
               <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#4a4a4a" }}>
-                We&rsquo;ll call or text to schedule your kickoff call — about twenty minutes to learn
-                your services, your service area, and how you want to be seen.
+                We turn the direction you selected into your finished logo, wordmark, lockups, vector files, color
+                palette, typography system, and business-card files.
               </p>
             </div>
           </li>
           <li style={{ display: "flex", gap: 16 }}>
             <span style={stepNumberStyle}>2</span>
             <div>
-              <p style={{ fontWeight: 600, margin: "4px 0 4px" }}>You get your Statement of Work</p>
+              <p style={{ fontWeight: 600, margin: "4px 0 4px" }}>We build the mockups and homepage</p>
               <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#4a4a4a" }}>
-                Your scope, page list, and delivery target — in writing, before production begins.
-                Nothing starts until you&rsquo;ve signed it.
+                You&rsquo;ll receive front, side, and rear vehicle-wrap mockups; embroidered polo and ball-cap mockups;
+                three signage mockups; and a working homepage preview.
               </p>
             </div>
           </li>
           <li style={{ display: "flex", gap: 16 }}>
             <span style={stepNumberStyle}>3</span>
             <div>
-              <p style={{ fontWeight: 600, margin: "4px 0 4px" }}>We build</p>
+              <p style={{ fontWeight: 600, margin: "4px 0 4px" }}>You review and decide</p>
               <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#4a4a4a" }}>
-                You approve the brand first, then the site gets built around it. We target thirty
-                days from cleared deposit and signed Statement of Work to launch.
+                We deliver within seven business days. Your homepage preview then stays live for fourteen days. Continue
+                into the complete $4,000 build for the remaining $3,500, or stop with nothing more due.
               </p>
             </div>
           </li>
@@ -130,7 +130,7 @@ export default function TradesThankYouPage() {
         <p style={{ marginTop: 40, fontSize: 13.5, color: "#9a9a9a" }}>
           Your purchase is governed by our{" "}
           <a href="/trades/terms" style={{ color: "#8000ff", textDecoration: "none" }}>
-            Terms of Service and Schedule A — Brand Build Program
+            Terms of Service, Schedule A — Brand Build, and Schedule B — Brand Starter
           </a>
           .
         </p>

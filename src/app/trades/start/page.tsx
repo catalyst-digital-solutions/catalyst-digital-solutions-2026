@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import BrandStarterStart from "@/components/trades/BrandStarterStart";
-import { getCheckoutPrefill } from "@/lib/stripe-checkout-prefill";
 
 export const metadata: Metadata = {
-  title: "You're in — let's build your brand",
-  description: "Two quick things and we'll get started today.",
+  title: "See five brand directions — Catalyst Digital Solutions",
+  description: "Tell us about your company. See five brand directions before you pay.",
   robots: { index: false, follow: false },
   icons: {
     icon: [
@@ -23,6 +23,8 @@ export default async function BrandStarterStartPage({
   searchParams: Promise<{ session_id?: string }>;
 }) {
   const { session_id } = await searchParams;
-  const prefill = await getCheckoutPrefill(session_id);
-  return <BrandStarterStart prefill={prefill} />;
+  if (session_id) {
+    redirect(`/trades/thank-you?session_id=${encodeURIComponent(session_id)}`);
+  }
+  return <BrandStarterStart />;
 }

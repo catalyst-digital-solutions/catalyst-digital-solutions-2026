@@ -1,5 +1,5 @@
 /**
- * Brand Starter intake — POST /api/brand-starter (multipart)
+ * Get Branded direction intake — POST /api/brand-starter (multipart)
  *
  * Always emails Mario via Resend (same pattern as /api/contact).
  * If SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY are set, stores the row + files.
@@ -128,13 +128,20 @@ export async function POST(request: Request) {
   const city = str(form, "city");
   const towns = str(form, "towns");
   const services = str(form, "services");
+  const impression = str(form, "impression");
   const mascot = str(form, "mascot");
   const colors = str(form, "colors");
   const competitors = str(form, "competitors");
-  const sessionId = str(form, "sessionId");
+  const termsAccepted = str(form, "termsAccepted");
 
-  if (!name || !email || !company || !services) {
-    return Response.json({ ok: false, error: "Name, email, company, and services are required." }, { status: 422 });
+  if (!name || !email || !company || !services || !impression) {
+    return Response.json(
+      { ok: false, error: "Name, email, company, services, and desired impression are required." },
+      { status: 422 },
+    );
+  }
+  if (termsAccepted !== "yes") {
+    return Response.json({ ok: false, error: "Please accept the pre-purchase concept terms." }, { status: 422 });
   }
   const phone10 = digits10(phone);
   if (!phone10) {
@@ -163,7 +170,7 @@ export async function POST(request: Request) {
     mascot,
     colors,
     competitors,
-    session_id: sessionId,
+    session_id: "terms-v1.1-schedule-b-v1.5-prepurchase-accepted",
     submitted_at: new Date().toISOString(),
   };
 
@@ -179,7 +186,7 @@ export async function POST(request: Request) {
   ].join("\n");
 
   const text = [
-    "New Brand Starter intake",
+    "New Get Branded direction intake",
     `Company: ${company}`,
     `Name: ${name}`,
     `Phone: ${phone}`,
@@ -187,19 +194,20 @@ export async function POST(request: Request) {
     `City: ${city}`,
     `Towns: ${towns}`,
     `Services: ${services}`,
+    `Desired impression: ${impression}`,
     `Mascot: ${mascot}`,
     `Colors: ${colors}`,
     `Competitors: ${competitors}`,
-    `Stripe session: ${sessionId}`,
+    "Pre-purchase concept terms: accepted",
     fileNote,
   ].join("\n");
 
   const html =
-    `<h2 style="font-family:sans-serif">Brand Starter intake — ${esc(company)}</h2>` +
+    `<h2 style="font-family:sans-serif">Get Branded direction intake — ${esc(company)}</h2>` +
     `<pre style="font-family:sans-serif;white-space:pre-wrap">${esc(text)}</pre>`;
 
   try {
-    const via = await sendEmail(`Brand Starter intake — ${company} (${name})`, text, html, email);
+    const via = await sendEmail(`Get Branded directions — ${company} (${name})`, text, html, email);
     let stored = false;
     try {
       const result = await storeSupabase(row, files);
@@ -207,7 +215,7 @@ export async function POST(request: Request) {
     } catch (err) {
       console.error("[brand-starter] supabase failed:", err);
     }
-    const sms = await sendSms(`Brand Starter in: ${company} / ${name} / ${phone}. Book the reveal.`);
+    const sms = await sendSms(`Get Branded intake: ${company} / ${name} / ${phone}. Five directions due in 2 business days.`);
     return Response.json({ ok: true, via, stored, sms });
   } catch (err) {
     console.error("[brand-starter] delivery failed:", err);
