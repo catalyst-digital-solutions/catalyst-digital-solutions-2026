@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * Terms of Service v1.1 + Schedule A v1.6 (Brand Build) + Schedule B v1.5 (Brand Starter).
+ * Terms of Service v1.2 + Schedule A v1.7 (Brand Build) + Schedule B v1.6 (Brand Starter).
  * Ported from branding-and-website-landing-page/Terms & Conditions Page/Terms of Service.dc.html
  * Legal copy — do not edit wording without Mario's approval.
  */
@@ -213,7 +213,7 @@ export default function BrandBuildTerms() {
             </ol>
             <p style={{ ...tocLabelStyle, margin: "16px 0 6px" }}>Schedule B</p>
             <ol style={{ ...tocListStyle, margin: 0 }}>
-              <li><a href="#B.0">B.0 Five pre-purchase directions</a></li>
+              <li><a href="#B.0">B.0 Payment and intake</a></li>
               <li><a href="#B.1">B.1 What this purchase is</a></li>
               <li><a href="#B.2">B.2 What is delivered</a></li>
               <li><a href="#B.3">B.3 What you own</a></li>
@@ -233,18 +233,17 @@ export default function BrandBuildTerms() {
             Terms of Service
           </h1>
           <p style={{ fontSize: 14, color: "#6b6b6b", margin: "0 0 32px" }}>
-            Version 1.1 &nbsp;&middot;&nbsp; Effective date: September 2, 2026 &nbsp;&middot;&nbsp; Last updated: September 2, 2026
+            Version 1.2 &nbsp;&middot;&nbsp; Effective date: September 3, 2026 &nbsp;&middot;&nbsp; Last updated: September 3, 2026
           </p>
 
           <p>
             These Terms of Service (the &ldquo;Terms&rdquo;) govern your purchase of services from{" "}
-            <strong>Catalyst Digital Solutions, LLC</strong> (&ldquo;Catalyst,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
+            <strong>Catalyst Digital Solutions, LLC</strong>{" "}(&ldquo;Catalyst,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
             &ldquo;our&rdquo;), a California limited liability company located at 4012 Foxwood St, Bakersfield, CA 93306.
           </p>
           <p>
-            By submitting a Get Branded intake with the terms checkbox selected, completing a purchase, signing a
-            Statement of Work, or accepting these Terms at checkout, you (&ldquo;Client,&rdquo; &ldquo;you,&rdquo; or
-            &ldquo;your&rdquo;) agree to be bound by them.
+            By completing a purchase, signing a Statement of Work, or affirmatively accepting these Terms at checkout,
+            you (&ldquo;Client,&rdquo; &ldquo;you,&rdquo; or &ldquo;your&rdquo;) agree to be bound by them.
           </p>
           <p>
             These Terms are written for business customers. If you are purchasing on behalf of a company, you represent
@@ -255,9 +254,9 @@ export default function BrandBuildTerms() {
 
           <h2 id="1" style={h2Style}>1. How this agreement is put together</h2>
           <p>Your agreement with us is made up of the following documents:</p>
-          <p><strong>These Terms</strong> — the baseline rules that apply to every purchase.</p>
+          <p><strong>These Terms</strong>{" "}— the baseline rules that apply to every purchase.</p>
           <p>
-            <strong>The applicable Schedule</strong> — offer-specific terms for the particular program or package you
+            <strong>The applicable Schedule</strong>{" "}— offer-specific terms for the particular program or package you
             bought. Schedules appear at the bottom of this page. The Schedule that applies to you is the one named on
             your checkout page, invoice, or Statement of Work.
           </p>
@@ -265,7 +264,7 @@ export default function BrandBuildTerms() {
             <strong>Your Statement of Work, proposal, or order form</strong>, if we signed one — the specific scope,
             price, and dates for your project.
           </p>
-          <p><strong>Any signed change order</strong> that modifies the above.</p>
+          <p><strong>Any signed change order</strong>{" "}that modifies the above.</p>
           <p>
             Each Schedule on this page is incorporated into these Terms by reference and forms part of your agreement
             when it applies to your purchase.
@@ -273,10 +272,9 @@ export default function BrandBuildTerms() {
 
           <h2 id="2" style={h2Style}>2. Versions</h2>
           <p>
-            We may update these Terms. <strong>Changes apply only to intake submissions or purchases made after the
-            updated version is posted.</strong> For pre-purchase directions, the version in effect when you submitted the
-            intake applies. For paid work, the version in effect on the date you paid or signed governs your project for
-            its duration. Each version carries a version number and effective date at the top of this page.
+            We may update these Terms. <strong>Changes apply only to purchases or agreements made after the updated
+            version is posted.</strong>{" "}The version in effect on the date you paid or signed governs your project for its
+            duration. Each version carries a version number and effective date at the top of this page.
           </p>
           <p>
             Material changes to an active project — scope, price, payment schedule, intellectual property, or recurring
@@ -309,18 +307,18 @@ export default function BrandBuildTerms() {
             or grant a final website license until we have received payment in full.</strong>
           </p>
           <p>
-            <strong>Bank transfers (ACH).</strong> If you pay by bank transfer, the payment is not final when it appears
+            <strong>Bank transfers (ACH).</strong>{" "}If you pay by bank transfer, the payment is not final when it appears
             as submitted. Bank transfers can be returned for several business days afterward. We do not begin production
             work on a bank transfer until the funds have cleared. Card payments clear immediately and we can begin right
             away.
           </p>
           <p>
-            <strong>Late payment.</strong> Invoices are due on receipt unless stated otherwise. If an invoice goes more
+            <strong>Late payment.</strong>{" "}Invoices are due on receipt unless stated otherwise. If an invoice goes more
             than fifteen (15) days past due, we may pause all work on your account until it is paid. Work resumes when
             payment clears, and your timeline extends accordingly.
           </p>
           <p>
-            <strong>Chargebacks.</strong> If you dispute a charge for work already delivered or in progress, we may
+            <strong>Chargebacks.</strong>{" "}If you dispute a charge for work already delivered or in progress, we may
             suspend all services and withhold delivery of files pending resolution. Please contact us first — we would
             rather solve the problem than fight about it.
           </p>
@@ -338,7 +336,7 @@ export default function BrandBuildTerms() {
             the cancellation method are all disclosed before you enter payment information.
           </p>
           <p>
-            <strong>Cancelling a monthly service.</strong> You may cancel any monthly service at any time by emailing
+            <strong>Cancelling a monthly service.</strong>{" "}You may cancel any monthly service at any time by emailing
             info@catalyst-digital-solutions.com or calling or texting (661) 888-4837. We will confirm your cancellation
             in writing and stop future charges. We do not require a phone call, a meeting, or a retention conversation
             to cancel. Cancellation stops future billing; it does not refund the current month, and it does not entitle
@@ -372,42 +370,42 @@ export default function BrandBuildTerms() {
           <h2 id="7" style={h2Style}>7. Intellectual property</h2>
           <p>Ownership is split into four buckets. This matters, so read it.</p>
           <p>
-            <strong>Your materials.</strong> Anything you gave us — your existing logo, photos, copy, customer lists,
+            <strong>Your materials.</strong>{" "}Anything you gave us — your existing logo, photos, copy, customer lists,
             business information — remains yours. We use it only to perform the services.
           </p>
           <p>
-            <strong>Project deliverables.</strong> For project-based work, the specific brand and production assets
+            <strong>Project deliverables.</strong>{" "}For project-based work, the specific brand and production assets
             identified as transferable in the applicable Schedule or Statement of Work are assigned to you{" "}
-            <strong>upon our receipt of payment in full for that project.</strong> Until then, we retain all rights, and
+            <strong>upon our receipt of payment in full for that project.</strong>{" "}Until then, we retain all rights, and
             you have no license to use, publish, modify, or register those deliverables.
           </p>
           <p>
-            <strong>Website.</strong> Website design and page code are not assigned as owned deliverables unless a signed
+            <strong>Website.</strong>{" "}Website design and page code are not assigned as owned deliverables unless a signed
             Statement of Work expressly says otherwise. After the applicable project price is paid in full, you receive
             a perpetual, non-exclusive license to operate, display, and modify the delivered website for your own
             business. That license does not include our underlying frameworks, reusable components, methods, AI prompts,
             or third-party materials.
           </p>
           <p>
-            <strong>Our materials.</strong> Our methods, templates, code frameworks, component libraries, AI prompts and
+            <strong>Our materials.</strong>{" "}Our methods, templates, code frameworks, component libraries, AI prompts and
             configurations, automation blueprints, know-how, internal tooling, and anything we developed before or
             independently of your project remain ours. Your deliverables may include or be built on these. Where they
             are, you receive a perpetual, non-exclusive license to use them <strong>as part of your delivered
-            deliverables</strong> — you do not acquire the underlying materials themselves and may not resell,
+            deliverables</strong>{" "}— you do not acquire the underlying materials themselves and may not resell,
             redistribute, or license them separately.
           </p>
           <p>
-            <strong>Third-party materials.</strong> Stock images, fonts, plugins, hosting, AI models, and
+            <strong>Third-party materials.</strong>{" "}Stock images, fonts, plugins, hosting, AI models, and
             software-as-a-service accounts are governed by their own licenses. Some are not transferable. We will tell
             you what falls into this category and what it requires you to maintain. We do not warrant that third-party
             licenses can be assigned to you.
           </p>
           <p>
-            <strong>Drafts and unused concepts.</strong> Concepts you did not select, and drafts from any project not
+            <strong>Drafts and unused concepts.</strong>{" "}Concepts you did not select, and drafts from any project not
             paid in full, remain ours. You receive no license to use them.
           </p>
           <p>
-            <strong>Our portfolio.</strong> We may display work we produced for you in our portfolio, case studies,
+            <strong>Our portfolio.</strong>{" "}We may display work we produced for you in our portfolio, case studies,
             social media, and marketing materials, and identify you as a client. If you would rather we didn&rsquo;t,
             tell us in writing and we will honor that.
           </p>
@@ -425,7 +423,7 @@ export default function BrandBuildTerms() {
 
           <h2 id="9" style={h2Style}>9. Refunds and cancellation</h2>
           <p>
-            <strong>One-time projects.</strong> Payments that reserve your production slot are non-refundable once
+            <strong>One-time projects.</strong>{" "}Payments that reserve your production slot are non-refundable once
             production begins, because your slot is committed and work has started. If you cancel before production
             begins, we will refund amounts paid less any work already performed and any third-party costs already
             incurred on your behalf. If we cancel or cannot deliver, you receive a full refund of amounts paid for
@@ -433,11 +431,11 @@ export default function BrandBuildTerms() {
           </p>
           <p>Refund terms specific to a program are set out in its Schedule and control over this section where they differ.</p>
           <p>
-            <strong>Monthly services.</strong> Monthly fees pay for that month&rsquo;s work. They are not refundable
+            <strong>Monthly services.</strong>{" "}Monthly fees pay for that month&rsquo;s work. They are not refundable
             after the month begins. Cancel any time under §5 and you will not be billed again.
           </p>
           <p>
-            <strong>What is never refundable:</strong> work already delivered, files already transferred, third-party
+            <strong>What is never refundable:</strong>{" "}work already delivered, files already transferred, third-party
             costs already paid on your behalf, and time already spent on a project you abandoned.
           </p>
 
@@ -471,7 +469,7 @@ export default function BrandBuildTerms() {
             goodwill, or loss of data, even if we were told those damages were possible.
           </p>
           <p>
-            <strong>Our total liability</strong> for any and all claims arising out of or relating to your purchase is
+            <strong>Our total liability</strong>{" "}for any and all claims arising out of or relating to your purchase is
             limited to <strong>the amount you actually paid us for the specific project or, for monthly services, the
             fees you paid us in the six (6) months before the claim arose.</strong>
           </p>
@@ -540,26 +538,26 @@ export default function BrandBuildTerms() {
 
           <h2 id="17" style={h2Style}>17. Everything else</h2>
           <p>
-            <strong>Independent contractor.</strong> We are an independent contractor, not your employee, partner,
+            <strong>Independent contractor.</strong>{" "}We are an independent contractor, not your employee, partner,
             agent, or joint venturer.
           </p>
           <p>
-            <strong>Assignment.</strong> Neither of us may assign this agreement without the other&rsquo;s written
+            <strong>Assignment.</strong>{" "}Neither of us may assign this agreement without the other&rsquo;s written
             consent, except in connection with a sale of substantially all of our business.
           </p>
           <p>
-            <strong>Notices.</strong> Written notice to us goes to info@catalyst-digital-solutions.com. Notice to you
+            <strong>Notices.</strong>{" "}Written notice to us goes to info@catalyst-digital-solutions.com. Notice to you
             goes to the email address on your account.
           </p>
           <p>
-            <strong>Severability.</strong> If any part of these Terms is found unenforceable, the rest stays in effect.
+            <strong>Severability.</strong>{" "}If any part of these Terms is found unenforceable, the rest stays in effect.
           </p>
           <p>
-            <strong>No waiver.</strong> If we don&rsquo;t enforce a provision right away, that doesn&rsquo;t mean
+            <strong>No waiver.</strong>{" "}If we don&rsquo;t enforce a provision right away, that doesn&rsquo;t mean
             we&rsquo;ve given it up.
           </p>
           <p>
-            <strong>Entire agreement.</strong> These Terms, the applicable Schedule, and any signed Statement of Work or
+            <strong>Entire agreement.</strong>{" "}These Terms, the applicable Schedule, and any signed Statement of Work or
             change order are the entire agreement between us. They replace any prior discussions, emails, proposals, or
             marketing materials.
           </p>
@@ -580,7 +578,7 @@ export default function BrandBuildTerms() {
           </div>
 
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "32px 0 0" }}>
-            Terms of Service — Version 1.1 — Effective September 2, 2026
+            Terms of Service — Version 1.2 — Effective September 3, 2026
           </p>
 
           <div
@@ -607,7 +605,7 @@ export default function BrandBuildTerms() {
               Brand Build Program
             </h1>
             <p style={{ fontSize: 14, color: "#6b6b6b", margin: 0 }}>
-              Version 1.6 &nbsp;&middot;&nbsp; Effective date: September 2, 2026
+              Version 1.7 &nbsp;&middot;&nbsp; Effective date: September 3, 2026
             </p>
           </div>
 
@@ -627,7 +625,7 @@ export default function BrandBuildTerms() {
           </p>
           <p><strong>Applied assets</strong></p>
           <p>
-            Vehicle wrap design for <strong>one</strong> vehicle type, using <strong>one</strong> template that you
+            Vehicle wrap design for <strong>one</strong>{" "}vehicle type, using <strong>one</strong>{" "}template that you
             supply; one storefront signage design with production-ready vector artwork; production-ready logo and
             wordmark files for uniforms and crew apparel; one business-card design, populated with the names and contact
             information you provide for up to five (5) people; social profile avatars sized for major platforms; social
@@ -635,7 +633,7 @@ export default function BrandBuildTerms() {
           </p>
           <p><strong>Website</strong></p>
           <p>
-            A custom <strong>ten-page</strong> website built in Next.js and React; contact and service-request forms;
+            A custom <strong>ten-page</strong>{" "}website built in Next.js and React; contact and service-request forms;
             on-page search optimization; an AI assistant trained on the business information you provide and powered
             by an OpenAI model unless otherwise disclosed under §A.6;
             mobile-responsive across phones, tablets, and desktops.
@@ -647,7 +645,7 @@ export default function BrandBuildTerms() {
             §A.2). Hosting for the first thirty (30) days after launch is included so you can go live.
           </p>
           <p>
-            <strong>File formats.</strong> You receive editable vector source files (.ai or .svg), print-ready .pdf,
+            <strong>File formats.</strong>{" "}You receive editable vector source files (.ai or .svg), print-ready .pdf,
             transparent .png at multiple sizes, and embroidery-ready formats.
           </p>
 
@@ -674,7 +672,7 @@ export default function BrandBuildTerms() {
           <p>
             If you don&rsquo;t have one — or you&rsquo;d rather we handle it — we&rsquo;ll get one for you. We search
             for available names, recommend options, and register the one you approve.{" "}
-            <strong>The domain is registered in your name. You are the legal owner from day one.</strong> We&rsquo;re
+            <strong>The domain is registered in your name. You are the legal owner from day one.</strong>{" "}We&rsquo;re
             listed only as the technical contact so we can manage the settings and keep your site running.
           </p>
           <p>
@@ -719,10 +717,11 @@ export default function BrandBuildTerms() {
 
           <h2 id="A.4" style={h2Style}>A.4 Payment</h2>
           <p>
-            The package price is stated at checkout or in your Statement of Work. During the fourteen-day offer period
-            described in Schedule B §B.4, the complete Brand Build price is $4,000: the $500 Brand Starter payment is
-            credited in full, leaving a $3,500 balance. Payment dates or any agreed payment arrangement for that balance
-            are set out in your Statement of Work.
+            The package price is stated at checkout or in your Statement of Work. For a client who secures one of the
+            five introductory-price packages described in §A.8, the complete Brand Build price is $4,000 during the
+            fourteen-day offer period described in Schedule B §B.4: the $500 Brand Starter payment is credited in full,
+            leaving a $3,500 balance. Payment dates or any agreed payment arrangement for that balance are set out in
+            your Statement of Work.
           </p>
           <p>
             Choosing to continue does not authorize an automatic $3,500 charge. You must sign the Statement of Work and
@@ -761,7 +760,14 @@ export default function BrandBuildTerms() {
             longer, the timeline extends by at least the length of the delay and we will tell you when that happens.
           </p>
           <p>
-            <strong>Project pause.</strong> If we do not hear from you for thirty (30) consecutive days after requesting
+            Creative and development work is collaborative and does not always happen in a perfectly linear order. We
+            may overlap or reorder internal tasks, request a call or video meeting, or recommend additional pages or
+            assets when doing so would better serve the project. Reordering work does not reduce the promised scope.
+            Anything beyond the ten included website pages or other listed deliverables requires a written change order
+            stating the added price and timing before we begin that extra work.
+          </p>
+          <p>
+            <strong>Project pause.</strong>{" "}If we do not hear from you for thirty (30) consecutive days after requesting
             information or approval, we may pause your project and reassign your production slot. Restarting a paused
             project is subject to our then-current availability and may carry a restart fee. Payments on paused projects
             are not refunded.
@@ -782,7 +788,7 @@ export default function BrandBuildTerms() {
             thirty-one (31) after launch.
           </p>
           <p>
-            <strong>Payment authorization.</strong> When you enroll, you provide a credit or debit card or a bank
+            <strong>Payment authorization.</strong>{" "}When you enroll, you provide a credit or debit card or a bank
             account, and you authorize us to charge it on the same day each month for that month&rsquo;s Care Plan and
             for any usage charges incurred during the prior month. Invoices are emailed at least three (3) days before
             the charge date. Automatic payment is a condition of the Care Plan. You are responsible for keeping a valid
@@ -790,7 +796,7 @@ export default function BrandBuildTerms() {
             payment is not received within ten (10) days of the due date, we may suspend the service under §A.2.
           </p>
           <p>
-            <strong>AI assistant usage.</strong> Your Care Plan includes 2,000 AI assistant replies per month. A reply
+            <strong>AI assistant usage.</strong>{" "}Your Care Plan includes 2,000 AI assistant replies per month. A reply
             is one answer the assistant sends to a visitor.
           </p>
           <p>
@@ -805,7 +811,7 @@ export default function BrandBuildTerms() {
             your account. We may block sources that abuse the assistant.
           </p>
           <p>
-            <strong>AI provider and model.</strong> Unless we state otherwise in writing, the assistant is powered by an
+            <strong>AI provider and model.</strong>{" "}Unless we state otherwise in writing, the assistant is powered by an
             OpenAI model through an application programming interface or gateway. Catalyst selects and may change the
             specific OpenAI model used to balance answer quality, reliability, availability, and operating cost. A
             change from one OpenAI model to another does not require advance notice.
@@ -826,7 +832,7 @@ export default function BrandBuildTerms() {
             without one it will not run.
           </p>
           <p>
-            <strong>Cancelling.</strong> Cancel any time by email or text under §5 of the Terms.
+            <strong>Cancelling.</strong>{" "}Cancel any time by email or text under §5 of the Terms.
           </p>
 
           <h2 id="A.7" style={h2Style}>A.7 Brand ownership and website license</h2>
@@ -841,36 +847,44 @@ export default function BrandBuildTerms() {
             apparel, print, or online.
           </p>
           <p>
-            <strong>Your website license.</strong> After payment in full, you receive a perpetual, non-exclusive license
+            <strong>Your website license.</strong>{" "}After payment in full, you receive a perpetual, non-exclusive license
             to operate, display, and modify the delivered website for your own business. The website design and page code
             are not assigned as owned deliverables. You may move the delivered site to another host, subject to any
             third-party license restrictions and the technical requirements of that host.
           </p>
           <p>
-            <strong>What we keep</strong> (§7 of the Terms): our Next.js component library, code frameworks, reusable
+            <strong>What we keep</strong>{" "}(§7 of the Terms): our Next.js component library, code frameworks, reusable
             components, AI assistant configuration and prompt architecture, design system methodology, and internal
             tooling. Your website is built on these, and the website license lets you use them only as part of your
             delivered site. You do not acquire the underlying frameworks and may not resell or redistribute them.
           </p>
           <p>
-            <strong>Third-party items</strong> — fonts, stock assets, plugins, AI model access, hosting — are governed
+            <strong>Third-party items</strong>{" "}— fonts, stock assets, plugins, AI model access, hosting — are governed
             by their own licenses and may require you to maintain your own account. We will identify these at handoff.
           </p>
           <p>
-            <strong>Fonts specifically:</strong> some typefaces are licensed per-user and cannot be transferred. Where
+            <strong>Fonts specifically:</strong>{" "}some typefaces are licensed per-user and cannot be transferred. Where
             your brand uses one, we will tell you what license you need to buy and what it costs. Where possible we use
             open-license typefaces so this doesn&rsquo;t come up.
           </p>
           <p>
-            <strong>Your domain</strong> is yours from the day it is registered, regardless of project status or payment
+            <strong>Your domain</strong>{" "}is yours from the day it is registered, regardless of project status or payment
             status. It is never held as leverage.
           </p>
 
           <h2 id="A.8" style={h2Style}>A.8 Limited slots and pricing</h2>
           <p>
-            We build these one at a time. When we say a limited number of slots are available at a given price, that is
-            a real production constraint, and the price genuinely increases once those slots are sold. Your price is the
-            price stated on your checkout page at the time you paid, and it does not change afterward.
+            Only five (5) complete Brand Build packages are available at the introductory $4,000 price. A qualifying
+            $500 Brand Starter purchase made while that price is shown at checkout reserves one of those five prices for
+            the fourteen-day period described in Schedule B §B.4. After the fifth qualifying introductory package has
+            been reserved or sold, the complete Brand Build price increases to $6,000 for later purchasers.
+          </p>
+          <p>
+            If a client does not continue within the fourteen-day period, Catalyst may return that unused introductory
+            slot to availability. We offer limited introductory pricing so we can document a small number of completed
+            transformations and request honest client feedback. It is not an ongoing price or a promise that the same
+            scope will remain available at $4,000. Your controlling price is the price stated at checkout and held under
+            Schedule B §B.4; it does not change during that stated hold period.
           </p>
 
           <h2 id="A.9" style={h2Style}>A.9 Uniqueness</h2>
@@ -898,7 +912,7 @@ export default function BrandBuildTerms() {
 
           <hr style={{ ...hrStyle, margin: "40px 0 24px" }} />
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
-            Schedule A — Version 1.6 — Effective September 2, 2026
+            Schedule A — Version 1.7 — Effective September 3, 2026
           </p>
 
           <div
@@ -925,44 +939,43 @@ export default function BrandBuildTerms() {
               Brand Starter
             </h1>
             <p style={{ fontSize: 14, color: "#6b6b6b", margin: 0 }}>
-              Version 1.5 &nbsp;&middot;&nbsp; Effective date: September 2, 2026
+              Version 1.6 &nbsp;&middot;&nbsp; Effective date: September 3, 2026
             </p>
           </div>
 
           <p style={{ margin: "28px 0 24px" }}>
-            Sections B.0 and B.3b apply when you submit the Get Branded intake and ask us to prepare the five initial
-            directions. The remaining sections apply if you select a direction and purchase the Brand Starter. This
-            Schedule is incorporated into and forms part of the Terms of Service above. Where this Schedule and the
-            Terms differ, this Schedule controls. If you later purchase the full Brand Build, Schedule A also applies.
+            This Schedule applies when you purchase the $500 Brand Starter. It is incorporated into and forms part of
+            the Terms of Service above. Where this Schedule and the Terms differ, this Schedule controls. If you later
+            purchase the full Brand Build, Schedule A also applies.
           </p>
 
-          <h2 id="B.0" style={h2Style}>B.0 Five pre-purchase brand directions</h2>
+          <h2 id="B.0" style={h2Style}>B.0 Payment and intake</h2>
           <p>
-            After we receive a complete intake, we prepare five (5) different visual directions for your company at no
-            charge. Each direction is represented by a company logo concept, a wordmark showing the proposed font
-            choice, and a color scheme. We will deliver them within two (2) business days. For this offer, business days
-            are Monday through Saturday; Sundays do not count.
+            You pay $500 before we begin the Brand Starter. After payment, we send the onboarding and intake form to the
+            email address used at checkout promptly, normally within minutes. Automated-email or third-party delivery
+            delays do not by themselves breach this Schedule if we provide access promptly after you notify us.
           </p>
           <p>
-            These directions are AI-assisted raster presentation images, currently created with ChatGPT Images 2.0 plus
-            human art direction. They are not finished logos, editable artwork, vector files, or five completed brand
-            packages. The specific AI tool or model may change. The purpose of the boards is to let you choose a visual
-            direction before you pay for production work.
+            The intake is both a creative brief and a company-information questionnaire. It may request your business
+            name, current brand, services, service areas, customers, differentiators, pricing or service packages, team
+            members and roles, website page needs, implementation plans and budgets, desired impression, colors,
+            typography, mascot preferences, examples, dislikes, and any elements we must keep or avoid. You are
+            responsible for providing complete and accurate answers and for having the right to use any examples or
+            materials you submit.
           </p>
           <p>
-            No ownership or license transfers in any initial, replacement, or unselected direction. You may review and
-            share the boards internally only to make your selection. You may not use them as your logo or brand, publish
-            them as final artwork, register them, or give them to another designer for development. Selecting a direction
-            does not require payment. Production begins only if you then choose to purchase the Brand Starter.
+            We recommend completing the intake immediately. If we have not received it within two (2) business days, we
+            may contact you to help move the project forward. No direction-delivery deadline begins until we receive a
+            complete intake. For this offer, business days are Monday through Saturday; Sundays do not count.
           </p>
 
           <h2 id="B.1" style={h2Style}>B.1 What this purchase is</h2>
           <p>
-            After you select one direction in writing, you may purchase the $500 Brand Starter. The Brand Starter is a
-            <strong> purchase of the completed production work listed in §B.2</strong>. It is not a reservation fee and
-            it is not held as a refundable balance. The $500 is credited toward the complete Brand Build only as stated
-            in §B.4. Completing checkout does not enroll you in a monthly service, save your card, or authorize any
-            future charge.
+            The $500 Brand Starter is a <strong>purchase of the onboarding, creative direction process, and completed
+            production work listed in §B.2</strong>. It is not a reservation fee and it is not held as a refundable
+            balance. We reserve production capacity and begin onboarding and creative work promptly after payment. The
+            $500 is credited toward the complete Brand Build only as stated in §B.4. Completing checkout does not enroll
+            you in a monthly service, save your card, or authorize any future charge.
           </p>
 
           <h2 id="B.2" style={h2Style}>B.2 What is delivered</h2>
@@ -1018,58 +1031,76 @@ export default function BrandBuildTerms() {
           <h2 id="B.3a" style={h2Style}>B.3a Refunds</h2>
           <p>
             Except for the delivery promise and Catalyst-cancellation exceptions stated below, the Brand Starter is a
-            one-time, non-refundable purchase of completed digital deliverables. By purchasing after selecting a
-            direction, you acknowledge that we reserve production capacity and begin final design, vector production,
-            mockup production, and homepage work immediately. The purchase is not refundable if you cancel or decide not
-            to continue, including on the basis of subjective preference after we meet the delivery promise in §B.5.
-            If we cancel, cannot deliver the Brand Starter, or miss the seven-business-day paid-production deadline for
+            one-time, non-refundable purchase. By purchasing, you acknowledge that we reserve production capacity and
+            begin onboarding and creative work promptly. The purchase is not refundable if you cancel, do not complete
+            the intake, reject the direction options, change your mind, delay the project, or decide not to continue,
+            including on the basis of subjective preference after we meet the delivery promise in §B.5.
+          </p>
+          <p>
+            If we cancel, cannot deliver the Brand Starter, or miss the seven-business-day production deadline for
             reasons within our reasonable control and you cancel in writing before the late work is delivered, we refund
             the $500 in full. On a refund, you receive no license or ownership in any direction, preview, draft, or
             unfinished work and must stop using and delete any copies you received. We do not release final editable or
-            production-ready source files before completed delivery. This section controls over §9 of the Terms for Brand
-            Starter purchases.
+            production-ready source files before completed delivery. This section controls over §9 of the Terms for
+            Brand Starter purchases.
           </p>
 
           <h2 id="B.3b" style={h2Style}>B.3b Direction selection and revisions</h2>
           <p>
-            Your completed intake is the creative brief. It must identify your correct business name, services,
-            audience, desired impression, preferences, dislikes, and any existing elements we must keep or avoid. We use
-            that information to create the five (5) pre-purchase directions described in §B.0. The five directions are
-            raster concept choices, not five completed logo systems, vector files, or website designs.
+            We use your completed intake to create five (5) guided visual directions. Each direction is represented by a
+            company logo concept, a wordmark showing the proposed font choice, a color scheme, and a mascot approach if
+            your intake requests one. The directions are AI-assisted raster presentation images, currently created with
+            ChatGPT Images 2.0 plus human art direction. The specific AI tool or model may change. They are concept
+            choices, not five completed logo systems, editable artwork, vector files, or website designs.
           </p>
           <p>
-            You select one direction in writing before purchasing the Brand Starter. After your $500 payment clears, two
-            (2) refinement rounds on that selected direction are included. A refinement round means one consolidated
-            written list of related changes to the selected direction. It does not include a new company name, a new
-            creative brief, or development of a different direction.
+            We ask you to select one direction in writing within one (1) business day after delivery. If we have not
+            heard from you by then, we may call or otherwise contact you. No seven-business-day production deadline
+            begins until you approve a direction in writing.
           </p>
           <p>
             If none of the five initial directions fits, one (1) guided direction reset is included. After a feedback
-            call or one consolidated written response explaining what missed the mark, we provide up to three (3)
-            replacement directions within two (2) business days. You then select one direction before purchasing the
-            Brand Starter. Additional pre-purchase directions or resets are at our discretion. After payment, additional
-            exploration or refinement rounds require a written change order stating the added price and timing before we
-            begin that extra work. If Catalyst voluntarily shows additional concepts without a change order, that courtesy
-            does not expand the included scope for later work. All unselected directions remain ours under §7 of the Terms
-            and may not be used, copied, or given to another designer for development.
+            video meeting, call, or consolidated written response explaining what missed the mark and showing useful
+            examples, we provide five (5) replacement directions within two (2) business days. You then select one in
+            writing. Additional directions or resets require a written change order stating the added price and timing,
+            unless Catalyst chooses to provide them as a courtesy.
+          </p>
+          <p>
+            After we deliver the completed Brand Starter, one (1) revision round is included. A revision round means one
+            consolidated written list of related changes that remain consistent with the approved direction. It does not
+            include a new company name, a materially changed creative brief, development of a different direction, or
+            added deliverables. We may take up to three (3) business days to complete and re-deliver the included
+            revisions, depending on their scope. Additional exploration or revision rounds require a written change
+            order stating the added price and timing before we begin.
+          </p>
+          <p>
+            No ownership or license transfers in any initial, replacement, preliminary, or unselected direction. You may
+            review and share the boards internally only to make your selection. You may not use them as your logo or
+            brand, publish them as final artwork, register them, or give them to another designer for development. If
+            Catalyst voluntarily shows additional concepts or files without a change order, that courtesy does not
+            expand the included scope or create an obligation to provide similar extras later.
           </p>
 
           <h2 id="B.3c" style={h2Style}>B.3c Preview hosting period</h2>
           <p>
             The homepage is a temporary working preview, not an owned Brand Starter file. It stays live for fourteen
-            (14) calendar days from the date we deliver your Brand Starter. If you have not purchased the full Brand
-            Build by then, we take it down. We can put it back up if you purchase later, subject to availability.
+            (14) calendar days from the date we first deliver your Brand Starter. If you submit the included consolidated
+            revision request during that period, the fourteen-day clock pauses when we receive the request and resumes
+            with the unused days when we re-deliver the revised work. If you have not purchased the full Brand Build by
+            the end of that period, we take the preview down. We can put it back up if you purchase later, subject to
+            availability.
           </p>
 
           <h2 id="B.4" style={h2Style}>B.4 Credit toward the full build</h2>
           <p>
             If you purchase the complete Brand + Website Build within fourteen (14) calendar days of the date we deliver
-            your Brand Starter, the $500 is credited in full for fourteen (14) days against the package price in effect on the date of your
-            Brand Starter purchase, and that price is held for you during those fourteen days. For the current $4,000
-            offer, the $500 is part of that total and the remaining balance is $3,500. We do not charge that balance
-            automatically. To continue, you must sign a Statement of Work and separately authorize the additional
-            payment or payments described there. If you do not continue, no additional balance is due. After fourteen
-            days, the credit expires and current pricing applies. We may extend this period at our discretion.
+            your Brand Starter, subject to the revision pause in §B.3c, the $500 is credited in full against the package
+            price shown at your Brand Starter checkout, and that price is held for you during the fourteen-day period.
+            If your checkout reserved one of the five introductory packages under Schedule A §A.8, the $500 is part of
+            the $4,000 total and the remaining balance is $3,500. We do not charge that balance automatically. To
+            continue, you must sign a Statement of Work and separately authorize the additional payment or payments
+            described there. If you do not continue, no additional balance is due. After the fourteen-day period, the
+            credit and price hold expire and current pricing applies. We may extend this period at our discretion.
           </p>
           <p>
             If you continue during the fourteen-day period, the homepage preview becomes part of the complete Brand
@@ -1080,29 +1111,31 @@ export default function BrandBuildTerms() {
 
           <h2 id="B.5" style={h2Style}>B.5 Timeline and delivery promise</h2>
           <p>
-            We will present the five (5) initial raster brand directions within <strong>two (2) business
-            days</strong> after we receive a completed intake form. No payment is required for this step. If you use the
-            guided direction reset in §B.3b, we will present the replacement directions within two (2) business days after we
-            receive your consolidated reset feedback.
+            After your $500 payment clears, we send the intake as described in §B.0. We will present the five (5) initial
+            raster brand directions within <strong>two (2) business days</strong>{" "}after we receive a completed intake
+            form. If you use the guided direction reset in §B.3b, we will present the five replacement directions within
+            two (2) business days after the required feedback meeting or our receipt of your complete reset feedback.
           </p>
           <p>
-            You select a direction before paying. The paid-production clock starts when your $500 payment clears. We
-            will deliver the completed Brand Starter items listed in §B.2, including the working homepage preview,
-            within <strong>seven (7) business days</strong> after that payment clears. Your 14-day preview and $500-credit
-            period begin when we deliver the completed Brand Starter, not when we first present the directions.
+            The production clock starts when you approve one direction in writing. We will deliver the completed Brand
+            Starter items listed in §B.2, including the working homepage preview, within <strong>seven (7) business
+            days</strong>{" "}after that written approval. The included revision round and its timing are described in
+            §B.3b. Your fourteen-day preview and price-hold period begin when we first deliver the completed Brand
+            Starter and pause only as stated in §B.3c; they do not begin when we first present the directions.
           </p>
           <p>
             If you do not provide usable vehicle or signage reference images, we use the substitute-image process in
-            §B.2; that alone does not delay the seven-business-day deadline. Client-requested changes, refinement rounds,
-            late feedback or approvals, a change to the selected direction, third-party outages, or events outside our
-            reasonable control extend the applicable deadline by at least the length of the delay. If we miss the
+            §B.2; that alone does not delay the seven-business-day deadline. Client-requested changes, incomplete intake
+            answers, late feedback or approvals, a changed creative brief or selected direction, added scope, missed
+            meetings, third-party outages, or events outside our reasonable control extend the applicable deadline by at
+            least the length of the delay. If we miss the
             seven-business-day paid-production deadline for reasons within our reasonable control, you may cancel by
             written notice received before we deliver the late work and receive a full refund under §B.3a.
           </p>
 
           <h2 id="B.6" style={h2Style}>B.6 Chat assistant vs. phone AI</h2>
           <p>
-            The website included in a later Brand Build has a <strong>chat assistant on the website</strong> — the chat
+            The website included in a later Brand Build has a <strong>chat assistant on the website</strong>{" "}— the chat
             window a visitor types into. It is not a phone answering service. An AI that answers your actual phone is
             part of our separate monthly marketing programs and is not included in the Brand Starter or the Brand Build
             package. The website chat assistant is powered by an OpenAI model unless otherwise disclosed under Schedule
@@ -1119,13 +1152,13 @@ export default function BrandBuildTerms() {
 
           <hr style={{ ...hrStyle, margin: "40px 0 24px" }} />
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
-            Schedule B — Version 1.5 — Effective September 2, 2026
+            Schedule B — Version 1.6 — Effective September 3, 2026
           </p>
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 4px" }}>
-            Schedule A — Version 1.6 — Effective September 2, 2026
+            Schedule A — Version 1.7 — Effective September 3, 2026
           </p>
           <p style={{ fontSize: 13, color: "#9a9a9a", margin: "0 0 32px" }}>
-            Terms of Service — Version 1.1 — Effective September 2, 2026
+            Terms of Service — Version 1.2 — Effective September 3, 2026
           </p>
         </article>
       </div>
