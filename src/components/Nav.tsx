@@ -44,6 +44,8 @@ export default function Nav() {
   }, []);
 
   useEffect(() => {
+    // Closing the responsive menu on navigation intentionally synchronizes local UI state.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMobileOpen(false);
   }, [pathname]);
 
@@ -108,7 +110,7 @@ export default function Nav() {
         }}
       >
         <Link
-          href="/trades"
+          href="https://getbranded.catalyst-digital-solutions.com/"
           style={{
             fontFamily: "var(--font-inter), Inter, sans-serif",
             fontSize: 13.5,
@@ -277,7 +279,7 @@ export default function Nav() {
           }}
         >
           <Link
-            href="/trades"
+            href="https://getbranded.catalyst-digital-solutions.com/"
             style={{
               alignSelf: "flex-start",
               fontFamily: "var(--font-inter), Inter, sans-serif",

@@ -12,6 +12,14 @@ const gText = {
   color: "transparent",
 } as const;
 
+const headlineGradientText = {
+  ...gText,
+  paddingRight: "0.04em",
+  marginRight: "-0.04em",
+  WebkitBoxDecorationBreak: "clone",
+  boxDecorationBreak: "clone",
+} as const;
+
 const PROSPECT_ITEMS = [
   { text: "A website that earns their trust in a few seconds", Icon: Globe },
   { text: "Branding that looks established and serious", Icon: Award },
@@ -174,7 +182,7 @@ export default function HomeV4() {
   <div style={{maxWidth:'1180px',margin:'0 auto'}}>
     <div style={{textAlign:'center',maxWidth:'760px',margin:'0 auto'}}>
       <div style={{fontFamily:'\'JetBrains Mono\',monospace',fontSize:'13px',fontWeight:'500',letterSpacing:'3px',textTransform:'uppercase',color:'#00d4ff',marginBottom:'16px'}}>Before they ever call</div>
-      <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'clamp(42px,5vw,82px)',lineHeight:'.9',letterSpacing:'1px',color:'#fafafa',margin:'0',textWrap:'balance'}}>When they <span style={gText}>look you up</span>, do you <span style={gText}>look the part?</span></h2>
+      <h2 style={{fontFamily:'\'Bebas Neue\',sans-serif',fontWeight:'400',textTransform:'uppercase',fontSize:'clamp(42px,5vw,82px)',lineHeight:'.9',letterSpacing:'1px',color:'#fafafa',margin:'0',textWrap:'balance'}}>When they <span style={headlineGradientText}>look you up</span>, do you <span style={headlineGradientText}>look the part?</span></h2>
       <p style={{fontSize:'clamp(17px,1.3vw,20px)',fontWeight:'600',color:'#fafafa',lineHeight:'1.5',margin:'22px 0 0',textWrap:'pretty'}}>Before anyone hires you, they Google you. What they find decides whether they call you...or a competitor.</p>
       <p style={{fontSize:'clamp(15.5px,1.1vw,17px)',color:'#c8c8c8',lineHeight:'1.7',margin:'16px 0 0',textWrap:'pretty'}}>Your work might be the best in town, but a dead website and one old Google review will keep prospects from ever finding that out. If you look small online, you lose jobs you never even knew about.</p>
     </div>
