@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 import path from "path";
 
+const familyLawZoneOrigin = (
+  process.env.FAMILY_LAW_ZONE_ORIGIN
+  ?? "https://ai-answer-optimization-campaign-bas.vercel.app"
+).replace(/\/$/, "");
+
 const nextConfig: NextConfig = {
   reactCompiler: true,
   turbopack: {
@@ -13,6 +18,19 @@ const nextConfig: NextConfig = {
         source: "/privacy-policy",
         destination: "/privacy",
         permanent: true,
+      },
+    ];
+  },
+  // Keep the campaign independently deployable while serving it from the CDS domain.
+  async rewrites() {
+    return [
+      {
+        source: "/family-law",
+        destination: `${familyLawZoneOrigin}/family-law`,
+      },
+      {
+        source: "/family-law/:path+",
+        destination: `${familyLawZoneOrigin}/family-law/:path+`,
       },
     ];
   },
