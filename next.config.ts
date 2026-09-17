@@ -24,6 +24,11 @@ const nextConfig: NextConfig = {
   // Keep the campaign independently deployable while serving it from the CDS domain.
   async rewrites() {
     return [
+      // Vercel Analytics assigns the child project a stable observability base path.
+      {
+        source: "/cd4ba7a87a57f6ab/:path+",
+        destination: `${familyLawZoneOrigin}/cd4ba7a87a57f6ab/:path+`,
+      },
       {
         source: "/family-law",
         destination: `${familyLawZoneOrigin}/family-law`,
