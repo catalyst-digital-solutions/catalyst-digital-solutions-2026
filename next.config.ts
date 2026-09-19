@@ -11,9 +11,14 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
-  // Twilio/TCR often expect /privacy-policy; canonical page is /privacy.
+  // Keep campaign and policy aliases on their canonical destinations.
   async redirects() {
     return [
+      {
+        source: "/family-law",
+        destination: "https://familylaw.catalyst-digital-solutions.com",
+        permanent: true,
+      },
       {
         source: "/privacy-policy",
         destination: "/privacy",
@@ -21,17 +26,13 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  // Keep the campaign independently deployable while serving it from the CDS domain.
+  // Preserve child-zone analytics and legacy deep links served through the parent domain.
   async rewrites() {
     return [
       // Vercel Analytics assigns the child project a stable observability base path.
       {
         source: "/cd4ba7a87a57f6ab/:path+",
         destination: `${familyLawZoneOrigin}/cd4ba7a87a57f6ab/:path+`,
-      },
-      {
-        source: "/family-law",
-        destination: `${familyLawZoneOrigin}/family-law`,
       },
       {
         source: "/family-law/:path+",
