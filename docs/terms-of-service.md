@@ -1,7 +1,7 @@
 # Terms of Service
 
 **Effective date:** July 17, 2026
-**Last updated:** July 25, 2026
+**Last updated:** September 23, 2026
 
 These Terms of Service ("Terms") govern your use of the website at catalyst-digital-solutions.com (the "Site"), operated by Catalyst Digital Solutions LLC ("Catalyst," "we," "us," or "our").
 
@@ -18,15 +18,15 @@ mario@catalyst-digital-solutions.com
 
 ## 2. What this Site is
 
-The Site is informational. It describes our services, shows examples of our work, and lets you contact us or book a call. **Nothing on this Site is an offer, a contract, or a guarantee.**
+The Site is informational. It describes our services, shows examples of our work, and lets you contact us or book a call. **Except where Catalyst expressly presents a specific paid offer governed by separate program terms or an electronically accepted service agreement, the Site is informational and does not by itself create a client engagement or guarantee.**
 
-## 3. Client engagements are governed by a separate agreement
+## 3. Client engagements are governed by the applicable agreement
 
-If you become a Catalyst client, the work we do for you is governed by a **separate written agreement** between us — a proposal, statement of work, or service agreement. That agreement controls the scope, price, term, deliverables, and obligations of the engagement.
+**If you become a Catalyst client, the work we do for you is governed by the agreement applicable to that engagement. That agreement may be a signed proposal, statement of work, service agreement, or specific program terms that you affirmatively accept through an electronic checkout.**
 
-**These Terms govern your use of this Site only.** Where these Terms and a signed client agreement conflict, the client agreement controls for that engagement.
+**These Terms govern your use of this Site only.** Where these Terms and the agreement applicable to an engagement conflict, the engagement-specific agreement controls for that engagement.
 
-Prices shown on the Site are indicative starting points and may change. A price becomes binding only when it appears in a signed agreement.
+Prices shown on the Site are indicative starting points and may change. **A price becomes binding when it appears in an applicable signed agreement or in a specific electronic checkout that expressly incorporates the governing program terms.**
 
 ## 4. Acceptable use
 

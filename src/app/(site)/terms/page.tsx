@@ -13,7 +13,7 @@ export default function Page() {
     <LegalPage
       title="Terms of Service"
       effectiveDate="July 17, 2026"
-      lastUpdated="July 25, 2026"
+      lastUpdated="September 23, 2026"
     >
       <p>
         These Terms of Service (&quot;Terms&quot;) govern your use of the website at
@@ -49,23 +49,33 @@ export default function Page() {
       <p>
         The Site is informational. It describes our services, shows examples of our work, and lets
         you contact us or book a call.{" "}
-        <strong>Nothing on this Site is an offer, a contract, or a guarantee.</strong>
+        <strong>
+          Except where Catalyst expressly presents a specific paid offer governed by separate
+          program terms or an electronically accepted service agreement, the Site is informational
+          and does not by itself create a client engagement or guarantee.
+        </strong>
       </p>
 
-      <h2>3. Client engagements are governed by a separate agreement</h2>
+      <h2>3. Client engagements are governed by the applicable agreement</h2>
       <p>
-        If you become a Catalyst client, the work we do for you is governed by a{" "}
-        <strong>separate written agreement</strong> between us — a proposal, statement of work, or
-        service agreement. That agreement controls the scope, price, term, deliverables, and
-        obligations of the engagement.
+        <strong>
+          If you become a Catalyst client, the work we do for you is governed by the agreement
+          applicable to that engagement. That agreement may be a signed proposal, statement of
+          work, service agreement, or specific program terms that you affirmatively accept through
+          an electronic checkout.
+        </strong>
       </p>
       <p>
-        <strong>These Terms govern your use of this Site only.</strong> Where these Terms and a
-        signed client agreement conflict, the client agreement controls for that engagement.
+        <strong>These Terms govern your use of this Site only.</strong> Where these Terms and the
+        agreement applicable to an engagement conflict, the engagement-specific agreement controls
+        for that engagement.
       </p>
       <p>
-        Prices shown on the Site are indicative starting points and may change. A price becomes
-        binding only when it appears in a signed agreement.
+        Prices shown on the Site are indicative starting points and may change.{" "}
+        <strong>
+          A price becomes binding when it appears in an applicable signed agreement or in a
+          specific electronic checkout that expressly incorporates the governing program terms.
+        </strong>
       </p>
 
       <h2>4. Acceptable use</h2>
