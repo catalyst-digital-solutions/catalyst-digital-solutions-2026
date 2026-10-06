@@ -48,7 +48,7 @@ function AtaraAgreementBody() {
           <li>Financing integration</li>
           <li>Real customer review integration</li>
           <li>Atara’s Second Opinion / Repair-First positioning</li>
-          <li>Rancho Cucamonga and Eastvale search positioning</li>
+          <li>Rancho Cucamonga search positioning plus one secondary expansion market selected with Atara based on research, opportunity, and operational fit</li>
           <li>
             Commercial HVAC foundation, including Commercial Preventive
             Maintenance
@@ -644,8 +644,6 @@ export const ataraAgreement: AgreementDefinition = {
   },
   checkoutEnvKey: "NEXT_PUBLIC_ATARA_CHECKOUT_URL",
   checkoutButtonLabel: "Return to Project Checkout",
-  acceptanceText:
-    "By checking the acceptance box associated with Catalyst’s private checkout page and submitting payment, the authorized representative confirms that they have read these terms, have authority to accept them on behalf of Atara Mechanical, Inc., and agree to be bound by them.",
   summary: {
     heading: "Project summary",
     rows: [

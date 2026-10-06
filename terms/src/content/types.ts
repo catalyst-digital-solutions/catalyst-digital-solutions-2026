@@ -23,7 +23,8 @@ export type AgreementDefinition = {
   };
   checkoutEnvKey: string;
   checkoutButtonLabel: string;
-  acceptanceText: string;
+  /** Optional highlighted acceptance copy. Omit to skip the extra panel. */
+  acceptanceText?: string;
   summary: {
     heading: string;
     rows: AgreementSummaryRow[];

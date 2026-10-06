@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AcceptancePanel from "@/components/AcceptancePanel";
+import CheckoutButton from "@/components/CheckoutButton";
 import PrintButton from "@/components/PrintButton";
 import ProjectSummary from "@/components/ProjectSummary";
 import SectionNav from "@/components/SectionNav";
@@ -46,11 +47,20 @@ export default function AgreementPage({ agreement }: AgreementPageProps) {
             rows={agreement.summary.rows}
           />
           <Body />
-          <AcceptancePanel
-            text={agreement.acceptanceText}
-            checkoutEnvKey={agreement.checkoutEnvKey}
-            checkoutButtonLabel={agreement.checkoutButtonLabel}
-          />
+          {agreement.acceptanceText ? (
+            <AcceptancePanel
+              text={agreement.acceptanceText}
+              checkoutEnvKey={agreement.checkoutEnvKey}
+              checkoutButtonLabel={agreement.checkoutButtonLabel}
+            />
+          ) : (
+            <div className="checkout-after-agreement">
+              <CheckoutButton
+                envKey={agreement.checkoutEnvKey}
+                label={agreement.checkoutButtonLabel}
+              />
+            </div>
+          )}
           <p className="updated updated-footer">
             Last updated: {agreement.lastUpdated}
           </p>
