@@ -1,3 +1,26 @@
+# STATUS — Atara client agreement (active)
+
+Living checklist. **CG updates the boxes** as work lands.
+
+## Branch
+`cursor/atara-terms-agreement-4abd` off `main` — **do not merge to `main` / prod without Mario OK**
+
+## Isolated terms app
+- [x] Separate Next.js app in `terms/` (not wired into the main site)
+- [x] `/atara` agreement page with reusable components + `terms/src/content/atara.tsx`
+- [x] noindex/nofollow metadata + `X-Robots-Tag` + robots.txt disallow all
+- [x] Typecheck / lint / production build for `terms/`
+- [x] Responsive + print artifacts
+- [x] Confirm main site still builds (same 24 routes; no `/atara` on the marketing site)
+- [x] PR open: https://github.com/catalyst-digital-solutions/catalyst-digital-solutions-2026/pull/2
+- [ ] Mario/coordinator: create Vercel project (Root Directory = `terms`) + attach `terms.catalyst-digital-solutions.com`
+- [ ] Mario: set `NEXT_PUBLIC_ATARA_CHECKOUT_URL` when the private checkout exists
+
+**Blockers:** checkout URL env unset until Mario provides it (button disables gracefully).
+**Last updated:** 2026-10-06 by CG — isolated terms app, not deployed.
+
+---
+
 # STATUS — getbranded Brand Starter v5 (active)
 
 Living checklist. **CG updates the boxes** as work lands.
