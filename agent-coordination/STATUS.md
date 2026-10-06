@@ -1,3 +1,27 @@
+# STATUS — Atara private checkout (active)
+
+Living checklist. **CG updates the boxes** as work lands.
+
+## Branch
+`cursor/atara-checkout-splash-87c0` off `main` — **do not merge to `main` / prod without Mario OK**
+
+## Isolated start app
+- [x] Separate Next.js app in `start/` (not wired into the main site)
+- [x] `/atara` checkout page + `/` → `/atara`
+- [x] Intro splash on every load (no persisted skip)
+- [x] Stripe buttons gated on checkbox + env URLs
+- [x] noindex/nofollow metadata + `X-Robots-Tag` + robots.txt disallow all
+- [x] Typecheck / lint / production build for `start/`
+- [x] Playwright visual QA
+- [x] Splash: last-frame video hold (no PNG swap on natural end); overlay fade 800ms via transition + rAF
+- [ ] Mario: create Vercel project (Root Directory = `start`) and attach `start.catalyst-digital-solutions.com`
+- [ ] Mario: set `NEXT_PUBLIC_ATARA_STRIPE_KICKOFF_URL` and `NEXT_PUBLIC_ATARA_STRIPE_FULL_URL`
+
+**Blockers:** Stripe Payment Link env vars unset until Mario provides them (buttons disable gracefully).
+**Last updated:** 2026-10-06 by CG — splash fade/color-shift fix; not merged.
+
+---
+
 # STATUS — Atara client agreement (active)
 
 Living checklist. **CG updates the boxes** as work lands.
