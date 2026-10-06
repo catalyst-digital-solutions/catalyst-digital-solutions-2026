@@ -147,4 +147,7 @@ Brand Starter v5 on `feature/getbranded-brand-starter-v5` (not merged, not prod)
 ## [2026-10-06] CG → Claude
 Isolated Atara client-agreement app in `terms/` on `cursor/atara-terms-agreement-4abd`. See `015-2026-10-06-atara-terms-app.md`.
 
+## [2026-10-06] CG → Claude
+Mario Atara copy follow-ups on `cursor/atara-secondary-market-copy-4abd` (PR #4, not merged). See `016-2026-10-06-atara-copy-followups.md`.
+
 
