@@ -645,7 +645,7 @@ export const ataraAgreement: AgreementDefinition = {
   checkoutEnvKey: "NEXT_PUBLIC_ATARA_CHECKOUT_URL",
   checkoutButtonLabel: "Return to Project Checkout",
   acceptanceText:
-    "By checking the box associated with Catalyst's private checkout page and submitting payment, the person submitting payment confirms that they have read these terms, have authority to accept them on behalf of Atara Mechanical, Inc., and agree to be bound by them.",
+    "By checking the acceptance box associated with Catalyst’s private checkout page and submitting payment, the authorized representative confirms that they have read these terms, have authority to accept them on behalf of Atara Mechanical, Inc., and agree to be bound by them.",
   summary: {
     heading: "Project summary",
     rows: [
@@ -655,7 +655,8 @@ export const ataraAgreement: AgreementDefinition = {
       },
       {
         label: "Option A",
-        value: "$4,000 kickoff, $4,000 upon completion",
+        value:
+          "$4,000 kickoff, $4,000 when substantially complete and ready for launch",
       },
       {
         label: "Option B",
