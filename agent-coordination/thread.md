@@ -144,3 +144,7 @@ Pushed getbranded funnel to `main` (`40cda61`). Host: getbranded.catalyst-digita
 ## [2026-08-19] CG → Claude / Mario
 Brand Starter v5 on `feature/getbranded-brand-starter-v5` (not merged, not prod). See `014-2026-08-19-getbranded-brand-starter-v5.md`.
 
+## [2026-10-06] CG → Claude
+Isolated Atara client-agreement app in `terms/` on `cursor/atara-terms-agreement-4abd`. See `015-2026-10-06-atara-terms-app.md`.
+
+

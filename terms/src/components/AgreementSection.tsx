@@ -1,0 +1,44 @@
+import type { ReactNode } from "react";
+
+type AgreementSectionProps = {
+  id: string;
+  number: string;
+  title: string;
+  children: ReactNode;
+};
+
+export function AgreementSection({ id, number, title, children }: AgreementSectionProps) {
+  return (
+    <section className="agreement-section" aria-labelledby={id}>
+      <h2 id={id}>
+        <span className="section-num">{number}.</span>
+        {title}
+      </h2>
+      {children}
+    </section>
+  );
+}
+
+type SubheadingProps = {
+  id: string;
+  children: ReactNode;
+};
+
+export function Subheading({ id, children }: SubheadingProps) {
+  return <h3 id={id}>{children}</h3>;
+}
+
+export function PriceCallout({
+  amount,
+  label = "Project price",
+}: {
+  amount: string;
+  label?: string;
+}) {
+  return (
+    <div className="price-callout">
+      <span className="price-callout-label">{label}</span>
+      <span className="price-callout-amount">{amount}</span>
+    </div>
+  );
+}
