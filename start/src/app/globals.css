@@ -116,7 +116,9 @@ a:hover {
 }
 
 html.splash-lock,
-html.splash-lock body {
+html.splash-lock body,
+html:has(.intro-splash),
+html:has(.intro-splash) body {
   overflow: hidden !important;
   height: 100%;
   overscroll-behavior: none;
@@ -244,6 +246,12 @@ html.splash-lock body {
 .intro-skip.is-visible {
   opacity: 1;
   pointer-events: auto;
+}
+
+.intro-splash:has(.intro-final.is-visible) .intro-skip,
+.intro-splash.is-fading .intro-skip {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .intro-skip:hover {

@@ -12,7 +12,7 @@ Living checklist. **CG updates the boxes** as work lands.
 - [x] Stripe buttons gated on checkbox + env URLs
 - [x] noindex/nofollow metadata + `X-Robots-Tag` + robots.txt disallow all
 - [x] Typecheck / lint / production build for `start/`
-- [ ] Playwright visual QA
+- [x] Playwright visual QA
 - [ ] Mario: create Vercel project (Root Directory = `start`) and attach `start.catalyst-digital-solutions.com`
 - [ ] Mario: set `NEXT_PUBLIC_ATARA_STRIPE_KICKOFF_URL` and `NEXT_PUBLIC_ATARA_STRIPE_FULL_URL`
 

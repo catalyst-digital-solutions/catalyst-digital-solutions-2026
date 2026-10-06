@@ -114,7 +114,6 @@ export default function IntroSplash({ children }: IntroSplashProps) {
 
     video.addEventListener("ended", onEnded);
     video.addEventListener("error", fail);
-    video.addEventListener("stalled", fail);
 
     try {
       video.pause();
@@ -123,26 +122,35 @@ export default function IntroSplash({ children }: IntroSplashProps) {
       // Some browsers throw if metadata is not ready yet.
     }
 
+    let playStarted = false;
     const tryPlay = () => {
-      if (settledRef.current) return;
+      if (settledRef.current || playStarted) return;
       try {
-        video.currentTime = 0;
+        if (video.currentTime > 0.05) video.currentTime = 0;
       } catch {
         // ignore
       }
       const playAttempt = video.play();
       if (playAttempt && typeof playAttempt.then === "function") {
-        playAttempt.catch(fail);
+        playAttempt
+          .then(() => {
+            playStarted = true;
+          })
+          .catch(fail);
       }
     };
 
     video.addEventListener("loadeddata", tryPlay);
     tryPlay();
 
+    later(() => {
+      if (settledRef.current) return;
+      if (!playStarted && video.currentTime < 0.2) fail();
+    }, 2500);
+
     return () => {
       video.removeEventListener("ended", onEnded);
       video.removeEventListener("error", fail);
-      video.removeEventListener("stalled", fail);
       video.removeEventListener("loadeddata", tryPlay);
       clearTimers();
     };

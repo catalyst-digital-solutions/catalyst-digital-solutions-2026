@@ -61,6 +61,11 @@ export default function RootLayout({
           href="/atara/atara-checkout-intro-final.png"
           as="image"
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add("js","splash-lock");`,
+          }}
+        />
         <noscript>
           <style
             dangerouslySetInnerHTML={{
