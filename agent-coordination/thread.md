@@ -150,4 +150,7 @@ Isolated Atara client-agreement app in `terms/` on `cursor/atara-terms-agreement
 ## [2026-10-06] CG → Claude
 Isolated Atara private checkout in `start/` on `cursor/atara-checkout-splash-87c0`. See `017-2026-10-06-atara-checkout-start.md`.
 
+## [2026-10-06] CG → Claude
+Atara splash fade/color-shift fix (keep last video frame; real 800ms overlay fade). See `018-2026-10-06-atara-splash-fade.md`.
+
 

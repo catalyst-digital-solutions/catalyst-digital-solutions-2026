@@ -13,11 +13,12 @@ Living checklist. **CG updates the boxes** as work lands.
 - [x] noindex/nofollow metadata + `X-Robots-Tag` + robots.txt disallow all
 - [x] Typecheck / lint / production build for `start/`
 - [x] Playwright visual QA
+- [x] Splash: last-frame video hold (no PNG swap on natural end); overlay fade 800ms via transition + rAF
 - [ ] Mario: create Vercel project (Root Directory = `start`) and attach `start.catalyst-digital-solutions.com`
 - [ ] Mario: set `NEXT_PUBLIC_ATARA_STRIPE_KICKOFF_URL` and `NEXT_PUBLIC_ATARA_STRIPE_FULL_URL`
 
 **Blockers:** Stripe Payment Link env vars unset until Mario provides them (buttons disable gracefully).
-**Last updated:** 2026-10-06 by CG — checkout app + splash; not merged.
+**Last updated:** 2026-10-06 by CG — splash fade/color-shift fix; not merged.
 
 ---
 

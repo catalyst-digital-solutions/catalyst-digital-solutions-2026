@@ -12,6 +12,7 @@ const HOLD_AFTER_SKIP_MS = 200;
 const HOLD_REDUCED_MS = 500;
 const HOLD_FALLBACK_MS = 500;
 const FADE_MS = 800;
+const FADE_FALLBACK_MS = 900;
 const MAX_MS = 7000;
 
 type IntroSplashProps = {
@@ -21,56 +22,85 @@ type IntroSplashProps = {
 export default function IntroSplash({ children }: IntroSplashProps) {
   const [active, setActive] = useState(true);
   const [fading, setFading] = useState(false);
-  const [showFinal, setShowFinal] = useState(false);
-  const [hideVideo, setHideVideo] = useState(false);
+  const [showPng, setShowPng] = useState(false);
+  const [holding, setHolding] = useState(false);
   const [showSkip, setShowSkip] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const overlayRef = useRef<HTMLDivElement | null>(null);
-  const settledRef = useRef(false);
+  const holdStartedRef = useRef(false);
+  const fadeStartedRef = useRef(false);
+  const finishedRef = useRef(false);
   const timersRef = useRef<number[]>([]);
+  const rafRef = useRef<number[]>([]);
 
   const clearTimers = useCallback(() => {
     for (const id of timersRef.current) window.clearTimeout(id);
     timersRef.current = [];
+    for (const id of rafRef.current) window.cancelAnimationFrame(id);
+    rafRef.current = [];
   }, []);
 
-  const later = useCallback(
-    (fn: () => void, ms: number) => {
-      const id = window.setTimeout(fn, ms);
-      timersRef.current.push(id);
-      return id;
-    },
-    [],
-  );
+  const later = useCallback((fn: () => void, ms: number) => {
+    const id = window.setTimeout(fn, ms);
+    timersRef.current.push(id);
+    return id;
+  }, []);
 
   const finish = useCallback(() => {
+    if (finishedRef.current) return;
+    finishedRef.current = true;
     document.documentElement.classList.remove("splash-lock");
     setActive(false);
     clearTimers();
   }, [clearTimers]);
 
-  const fadeOut = useCallback(() => {
-    if (settledRef.current) return;
-    settledRef.current = true;
+  const startFade = useCallback(() => {
+    if (fadeStartedRef.current) return;
+    fadeStartedRef.current = true;
     setShowSkip(false);
-    setFading(true);
-    later(finish, FADE_MS + 50);
+
+    const el = overlayRef.current;
+    if (!el) {
+      finish();
+      return;
+    }
+
+    el.classList.add("intro-controlled");
+    el.style.transition = `opacity ${FADE_MS}ms ease`;
+    el.style.opacity = "1";
+    void el.offsetWidth;
+
+    const frame1 = window.requestAnimationFrame(() => {
+      const frame2 = window.requestAnimationFrame(() => {
+        el.classList.add("is-fading");
+        el.style.opacity = "0";
+        setFading(true);
+        later(finish, FADE_FALLBACK_MS);
+      });
+      rafRef.current.push(frame2);
+    });
+    rafRef.current.push(frame1);
   }, [finish, later]);
 
-  const revealFinalThenFade = useCallback(
-    (holdMs: number) => {
-      if (settledRef.current) return;
-      setShowFinal(true);
-      setHideVideo(true);
+  const beginHoldThenFade = useCallback(
+    (holdMs: number, mode: "video" | "png") => {
+      if (holdStartedRef.current || fadeStartedRef.current) return;
+      holdStartedRef.current = true;
+      setHolding(true);
       setShowSkip(false);
-      later(fadeOut, holdMs);
+      if (mode === "png") setShowPng(true);
+
+      const video = videoRef.current;
+      if (video) {
+        video.pause();
+      }
+
+      later(startFade, holdMs);
     },
-    [fadeOut, later],
+    [later, startFade],
   );
 
   useEffect(() => {
-    overlayRef.current?.classList.add("intro-controlled");
-
     const reduce =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -79,37 +109,33 @@ export default function IntroSplash({ children }: IntroSplashProps) {
     finalImage.src = FINAL_SRC;
     void finalImage.decode?.().catch(() => undefined);
 
-    const skipTimer = later(() => {
-      if (!settledRef.current && !reduce) setShowSkip(true);
+    later(() => {
+      if (!holdStartedRef.current && !fadeStartedRef.current && !reduce) {
+        setShowSkip(true);
+      }
     }, SKIP_APPEAR_MS);
 
-    const maxTimer = later(() => {
-      if (!settledRef.current) revealFinalThenFade(HOLD_FALLBACK_MS);
+    later(() => {
+      if (!holdStartedRef.current) beginHoldThenFade(HOLD_FALLBACK_MS, "png");
     }, MAX_MS);
 
     if (reduce) {
-      later(() => revealFinalThenFade(HOLD_REDUCED_MS), 0);
-      return () => {
-        window.clearTimeout(skipTimer);
-        window.clearTimeout(maxTimer);
-        clearTimers();
-      };
+      later(() => beginHoldThenFade(HOLD_REDUCED_MS, "png"), 0);
+      return () => clearTimers();
     }
 
     const video = videoRef.current;
     if (!video) {
-      later(() => revealFinalThenFade(HOLD_FALLBACK_MS), 0);
-      return () => {
-        clearTimers();
-      };
+      later(() => beginHoldThenFade(HOLD_FALLBACK_MS, "png"), 0);
+      return () => clearTimers();
     }
 
     const fail = () => {
-      revealFinalThenFade(HOLD_FALLBACK_MS);
+      beginHoldThenFade(HOLD_FALLBACK_MS, "png");
     };
 
     const onEnded = () => {
-      revealFinalThenFade(HOLD_AFTER_END_MS);
+      beginHoldThenFade(HOLD_AFTER_END_MS, "video");
     };
 
     video.addEventListener("ended", onEnded);
@@ -124,7 +150,7 @@ export default function IntroSplash({ children }: IntroSplashProps) {
 
     let playStarted = false;
     const tryPlay = () => {
-      if (settledRef.current || playStarted) return;
+      if (holdStartedRef.current || fadeStartedRef.current || playStarted) return;
       try {
         if (video.currentTime > 0.05) video.currentTime = 0;
       } catch {
@@ -144,8 +170,7 @@ export default function IntroSplash({ children }: IntroSplashProps) {
     tryPlay();
 
     later(() => {
-      if (settledRef.current) return;
-      if (!playStarted && video.currentTime < 0.2) fail();
+      if (!holdStartedRef.current && !playStarted && video.currentTime < 0.2) fail();
     }, 2500);
 
     return () => {
@@ -154,11 +179,7 @@ export default function IntroSplash({ children }: IntroSplashProps) {
       video.removeEventListener("loadeddata", tryPlay);
       clearTimers();
     };
-  }, [clearTimers, later, revealFinalThenFade]);
-
-  const onSkip = () => {
-    revealFinalThenFade(HOLD_AFTER_SKIP_MS);
-  };
+  }, [beginHoldThenFade, clearTimers, later]);
 
   const overlayStyle: React.CSSProperties = {
     position: "fixed",
@@ -171,6 +192,8 @@ export default function IntroSplash({ children }: IntroSplashProps) {
     backgroundColor: "#102140",
     backgroundImage:
       "radial-gradient(ellipse 78% 52% at 50% 0%, #1e5178 0%, transparent 58%), radial-gradient(ellipse 70% 48% at 50% 100%, #1b4c73 0%, transparent 60%)",
+    opacity: fading ? 0 : 1,
+    transition: "opacity 800ms ease",
   };
 
   return (
@@ -178,16 +201,22 @@ export default function IntroSplash({ children }: IntroSplashProps) {
       {active ? (
         <div
           ref={overlayRef}
-          className={`intro-splash${fading ? " is-fading" : ""}`}
+          className={`intro-splash intro-controlled${fading ? " is-fading" : ""}${showPng ? " is-png" : ""}${holding ? " is-holding" : ""}`}
           style={overlayStyle}
           onTransitionEnd={(event) => {
-            if (event.target === event.currentTarget && fading) finish();
+            if (
+              event.target === event.currentTarget &&
+              event.propertyName === "opacity" &&
+              fadeStartedRef.current
+            ) {
+              finish();
+            }
           }}
         >
           <div className="intro-media" aria-hidden="true">
             <video
               ref={videoRef}
-              className={`intro-video${hideVideo ? " is-hidden" : ""}`}
+              className="intro-video"
               src={VIDEO_SRC}
               poster={POSTER_SRC}
               autoPlay
@@ -200,7 +229,7 @@ export default function IntroSplash({ children }: IntroSplashProps) {
               aria-hidden="true"
             />
             <img
-              className={`intro-final${showFinal ? " is-visible" : ""}`}
+              className={`intro-final${showPng ? " is-visible" : ""}`}
               src={FINAL_SRC}
               alt=""
               aria-hidden="true"
@@ -212,7 +241,7 @@ export default function IntroSplash({ children }: IntroSplashProps) {
             className={`intro-skip${showSkip ? " is-visible" : ""}`}
             aria-hidden={showSkip ? undefined : true}
             tabIndex={showSkip ? 0 : -1}
-            onClick={onSkip}
+            onClick={() => beginHoldThenFade(HOLD_AFTER_SKIP_MS, "png")}
           >
             Skip intro
           </button>

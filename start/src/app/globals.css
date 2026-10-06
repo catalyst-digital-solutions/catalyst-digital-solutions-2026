@@ -135,6 +135,8 @@ html:has(.intro-splash) body {
   justify-content: center;
   overflow: hidden;
   pointer-events: auto;
+  opacity: 1;
+  transition: opacity 800ms ease;
   background-color: #102140;
   background-image:
     radial-gradient(ellipse 78% 52% at 50% 0%, #1e5178 0%, transparent 58%),
@@ -143,23 +145,27 @@ html:has(.intro-splash) body {
 
 .intro-splash.is-fading {
   opacity: 0;
-  transition: opacity 800ms ease;
 }
 
 @keyframes introFallback {
   0%,
   87.5% {
-    opacity: 1;
+    visibility: visible;
   }
   100% {
-    opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
 }
 
-.intro-splash:not(.intro-controlled) {
-  animation: introFallback 8s ease forwards;
+.intro-splash:not(.intro-controlled):not(.is-fading) {
+  animation: introFallback 8s linear forwards;
+}
+
+html.js .intro-splash,
+.intro-splash.intro-controlled,
+.intro-splash.is-fading {
+  animation: none;
 }
 
 .intro-media {
@@ -194,6 +200,11 @@ html:has(.intro-splash) body {
   }
 }
 
+.intro-video,
+.intro-final {
+  transition: none !important;
+}
+
 .intro-final {
   opacity: 0;
   pointer-events: none;
@@ -203,22 +214,23 @@ html:has(.intro-splash) body {
   opacity: 1;
 }
 
-.intro-video.is-hidden {
+.intro-splash.is-png .intro-video {
   visibility: hidden;
   opacity: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .intro-splash,
+  .intro-splash.is-fading {
+    transition: opacity 800ms ease;
+  }
+
   .intro-video {
     display: none !important;
   }
 
   .intro-final {
     opacity: 1;
-  }
-
-  .intro-splash.is-fading {
-    transition: opacity 800ms ease;
   }
 }
 
@@ -248,10 +260,12 @@ html:has(.intro-splash) body {
   pointer-events: auto;
 }
 
-.intro-splash:has(.intro-final.is-visible) .intro-skip,
-.intro-splash.is-fading .intro-skip {
+.intro-splash.is-png .intro-skip,
+.intro-splash.is-fading .intro-skip,
+.intro-splash.is-holding .intro-skip {
   opacity: 0;
   pointer-events: none;
+  transition: none;
 }
 
 .intro-skip:hover {
