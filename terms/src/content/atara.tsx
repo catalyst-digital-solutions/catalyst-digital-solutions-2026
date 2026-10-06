@@ -610,17 +610,19 @@ function AtaraAgreementBody() {
           An authorized representative of Atara may accept this agreement
           electronically.
         </p>
-        <p>
-          By checking the acceptance box associated with Catalyst’s private
-          checkout page and submitting payment, the representative confirms that
-          they:
-        </p>
-        <p>
-          <strong>
-            have read these terms, have authority to accept them on behalf of
-            Atara Mechanical, Inc., and agree to be bound by them.
-          </strong>
-        </p>
+        <div className="section-keep">
+          <p>
+            By checking the acceptance box associated with Catalyst’s private
+            checkout page and submitting payment, the representative confirms
+            that they:
+          </p>
+          <p>
+            <strong>
+              have read these terms, have authority to accept them on behalf of
+              Atara Mechanical, Inc., and agree to be bound by them.
+            </strong>
+          </p>
+        </div>
       </AgreementSection>
     </>
   );

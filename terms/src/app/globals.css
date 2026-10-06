@@ -393,6 +393,10 @@ a:hover {
   color: var(--cds-heading);
 }
 
+.print-short {
+  display: none;
+}
+
 .btn-disabled {
   border: 1px solid var(--line);
   background: #f1eee9;
@@ -536,6 +540,21 @@ a:hover {
   }
 }
 
+@media (max-width: 520px) {
+  .print-full {
+    display: none;
+  }
+
+  .print-short {
+    display: inline;
+  }
+
+  .btn-ghost {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+}
+
 @media print {
   :root {
     --paper: #fff;
@@ -618,5 +637,19 @@ a:hover {
 
   .agreement-section {
     break-inside: auto;
+  }
+
+  .section-keep,
+  .agreement h3 + p,
+  .agreement h3 + ul,
+  .agreement h3 + ol {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  @page {
+    margin: 16mm;
   }
 }
