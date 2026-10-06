@@ -5,9 +5,22 @@ import { getAtaraStripeUrls } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
 
+const PAGE_TITLE =
+  "Private Project Checkout · Atara Mechanical × Catalyst Digital Solutions";
+const OG_DESCRIPTION =
+  "Choose how you’d like to begin the Atara Mechanical website build.";
+const OG_IMAGE_ALT =
+  "Atara Mechanical — Ready when you are. Private project checkout.";
+const OG_IMAGE = {
+  url: "/atara/atara-og-image.jpg",
+  width: 1200,
+  height: 630,
+  alt: OG_IMAGE_ALT,
+};
+
 export const metadata: Metadata = {
   title: {
-    absolute: "Private Project Checkout · Atara Mechanical × Catalyst Digital Solutions",
+    absolute: PAGE_TITLE,
   },
   description: "Private project checkout for Atara Mechanical.",
   alternates: {
@@ -22,6 +35,19 @@ export const metadata: Metadata = {
       follow: false,
       noimageindex: true,
     },
+  },
+  openGraph: {
+    title: PAGE_TITLE,
+    description: OG_DESCRIPTION,
+    type: "website",
+    url: "https://start.catalyst-digital-solutions.com/atara",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: OG_DESCRIPTION,
+    images: [OG_IMAGE],
   },
 };
 

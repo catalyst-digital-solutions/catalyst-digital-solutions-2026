@@ -34,9 +34,6 @@ export const metadata: Metadata = {
       noimageindex: true,
     },
   },
-  icons: {
-    icon: "/atara/atara-logo.webp",
-  },
 };
 
 export default function RootLayout({
