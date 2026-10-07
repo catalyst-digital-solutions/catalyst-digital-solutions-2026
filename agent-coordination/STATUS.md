@@ -3,7 +3,7 @@
 Living checklist. **CG updates the boxes** as work lands.
 
 ## Branch
-`cursor/atara-checkout-splash-87c0` off `main` — **do not merge to `main` / prod without Mario OK**
+`cursor/atara-kickoff-success-b4cb` off `main` — **do not merge to `main` / prod without Mario OK**
 
 ## Isolated start app
 - [x] Separate Next.js app in `start/` (not wired into the main site)
@@ -14,11 +14,18 @@ Living checklist. **CG updates the boxes** as work lands.
 - [x] Typecheck / lint / production build for `start/`
 - [x] Playwright visual QA
 - [x] Splash: last-frame video hold (no PNG swap on natural end); overlay fade 800ms via transition + rAF
+- [x] `/atara/success` — $4k kickoff thank-you (design port)
+- [x] `/atara/success/full` — $8k paid-in-full thank-you (design port)
+- [x] `/atara/success/processing` — waiting state (does not imply success)
 - [ ] Mario: create Vercel project (Root Directory = `start`) and attach `start.catalyst-digital-solutions.com`
 - [ ] Mario: set `NEXT_PUBLIC_ATARA_STRIPE_KICKOFF_URL` and `NEXT_PUBLIC_ATARA_STRIPE_FULL_URL`
+- [ ] Mario: set Stripe after-payment / webhook-driven redirects:
+  - Kickoff → `https://start.catalyst-digital-solutions.com/atara/success`
+  - Paid in full → `https://start.catalyst-digital-solutions.com/atara/success/full`
+  - Processing → `https://start.catalyst-digital-solutions.com/atara/success/processing`
 
 **Blockers:** Stripe Payment Link env vars unset until Mario provides them (buttons disable gracefully).
-**Last updated:** 2026-10-06 by CG — splash fade/color-shift fix; not merged.
+**Last updated:** 2026-10-07 by CG — kickoff + paid-in-full success pages; not merged.
 
 ---
 

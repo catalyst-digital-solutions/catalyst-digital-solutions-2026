@@ -14,6 +14,15 @@ npm run dev
 
 - `/` — redirects to `/atara`
 - `/atara` — Atara Mechanical private project checkout (intro splash on every load)
+- `/atara/success` — $4,000 kickoff payment thank-you
+- `/atara/success/full` — $8,000 paid-in-full thank-you
+- `/atara/success/processing` — payment still confirming (does not imply success)
+
+**Stripe after-payment / webhook-driven redirects (production):**
+
+1. Kickoff ($4,000): `https://start.catalyst-digital-solutions.com/atara/success`
+2. Paid in full ($8,000): `https://start.catalyst-digital-solutions.com/atara/success/full`
+3. Processing: `https://start.catalyst-digital-solutions.com/atara/success/processing`
 
 ```bash
 npm run typecheck
