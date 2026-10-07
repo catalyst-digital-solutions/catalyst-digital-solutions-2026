@@ -56,6 +56,67 @@ a:hover {
   }
 }
 
+html:has(.atara-success-page),
+html:has(.atara-success-page) body,
+html:has(.atara-processing-page),
+html:has(.atara-processing-page) body,
+html:has(.atara-incomplete-page),
+html:has(.atara-incomplete-page) body {
+  background: #f5f7f9;
+}
+
+@keyframes processingDot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.28;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+}
+
+.processing-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.processing-dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f5b27a;
+  animation: processingDot 1.2s ease-in-out infinite;
+}
+
+.processing-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.processing-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.processing-return:hover {
+  color: #f5f7f9;
+  background: #16324f;
+}
+
+.incomplete-retry:hover {
+  color: #0b1b2e;
+  background: #ff7d3d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .processing-dots span {
+    animation: none;
+    opacity: 0.85;
+  }
+}
+
 .pay-card {
   transition:
     transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),

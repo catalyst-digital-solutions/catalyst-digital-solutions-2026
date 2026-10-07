@@ -60,7 +60,7 @@ export default function RootLayout({
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.add("js","splash-lock");`,
+            __html: `document.documentElement.classList.add("js");if(location.pathname.indexOf("/success")===-1){document.documentElement.classList.add("splash-lock")}`,
           }}
         />
         <noscript>
@@ -74,7 +74,7 @@ export default function RootLayout({
       </head>
       <body style={{ background: "#102140", margin: 0 }}>
         <Script id="splash-lock" strategy="beforeInteractive">
-          {`document.documentElement.classList.add("js","splash-lock");`}
+          {`document.documentElement.classList.add("js");if(location.pathname.indexOf("/success")===-1){document.documentElement.classList.add("splash-lock")}`}
         </Script>
         {children}
       </body>
