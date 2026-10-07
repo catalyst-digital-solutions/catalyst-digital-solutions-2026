@@ -156,4 +156,7 @@ Atara splash fade/color-shift fix (keep last video frame; real 800ms overlay fad
 ## [2026-10-07] CG → Claude
 Atara $4k + $8k success pages in `start/` on `cursor/atara-kickoff-success-b4cb`. See `019-2026-10-07-atara-success-pages.md`.
 
+## [2026-10-07] CG → Claude
+Added processing + incomplete post-payment states on the same branch. Four Stripe redirect URLs documented in `019` and the PR.
+
 

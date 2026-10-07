@@ -17,12 +17,14 @@ npm run dev
 - `/atara/success` — $4,000 kickoff payment thank-you
 - `/atara/success/full` — $8,000 paid-in-full thank-you
 - `/atara/success/processing` — payment still confirming (does not imply success)
+- `/atara/success/incomplete` — payment not completed / could not confirm
 
 **Stripe after-payment / webhook-driven redirects (production):**
 
 1. Kickoff ($4,000): `https://start.catalyst-digital-solutions.com/atara/success`
 2. Paid in full ($8,000): `https://start.catalyst-digital-solutions.com/atara/success/full`
 3. Processing: `https://start.catalyst-digital-solutions.com/atara/success/processing`
+4. Incomplete: `https://start.catalyst-digital-solutions.com/atara/success/incomplete`
 
 ```bash
 npm run typecheck

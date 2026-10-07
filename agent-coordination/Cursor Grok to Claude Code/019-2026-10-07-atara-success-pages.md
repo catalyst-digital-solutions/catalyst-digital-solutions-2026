@@ -6,13 +6,15 @@ CG implementing Stripe post-payment screens in `start/` on `cursor/atara-kickoff
 - `/atara/success` — $4,000 kickoff (Atara Success - Kickoff.dc.html)
 - `/atara/success/full` — $8,000 paid in full (Atara Success - Paid in Full.dc.html)
 - `/atara/success/processing` — waiting state; does **not** imply payment succeeded
+- `/atara/success/incomplete` — payment not completed / could not confirm
 
-Shared chrome (header/footer/hero rings). Success variants share `AtaraSuccess`. Processing is a separate page (no checkmarks, no amounts received, no thumbs-up lamb).
+Shared chrome (header/footer/hero rings). Success variants share `AtaraSuccess`. Processing and incomplete are separate pages (no checkmarks, no amounts received, no thumbs-up lamb).
 
 ## Stripe after-payment / webhook-driven URLs (production)
 1. Kickoff: `https://start.catalyst-digital-solutions.com/atara/success`
 2. Paid in full: `https://start.catalyst-digital-solutions.com/atara/success/full`
 3. Processing: `https://start.catalyst-digital-solutions.com/atara/success/processing`
+4. Incomplete: `https://start.catalyst-digital-solutions.com/atara/success/incomplete`
 
 ## Guardrails
 - Checkout `/atara` unchanged except splash-lock is skipped on `/success*` so Brittany can scroll.

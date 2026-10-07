@@ -17,12 +17,14 @@ Living checklist. **CG updates the boxes** as work lands.
 - [x] `/atara/success` — $4k kickoff thank-you (design port)
 - [x] `/atara/success/full` — $8k paid-in-full thank-you (design port)
 - [x] `/atara/success/processing` — waiting state (does not imply success)
+- [x] `/atara/success/incomplete` — payment not completed / could not confirm
 - [ ] Mario: create Vercel project (Root Directory = `start`) and attach `start.catalyst-digital-solutions.com`
 - [ ] Mario: set `NEXT_PUBLIC_ATARA_STRIPE_KICKOFF_URL` and `NEXT_PUBLIC_ATARA_STRIPE_FULL_URL`
 - [ ] Mario: set Stripe after-payment / webhook-driven redirects:
   - Kickoff → `https://start.catalyst-digital-solutions.com/atara/success`
   - Paid in full → `https://start.catalyst-digital-solutions.com/atara/success/full`
   - Processing → `https://start.catalyst-digital-solutions.com/atara/success/processing`
+  - Incomplete → `https://start.catalyst-digital-solutions.com/atara/success/incomplete`
 
 **Blockers:** Stripe Payment Link env vars unset until Mario provides them (buttons disable gracefully).
 **Last updated:** 2026-10-07 by CG — kickoff + paid-in-full success pages; not merged.
