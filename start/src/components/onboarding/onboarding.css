@@ -1,0 +1,105 @@
+/*
+ * Onboarding styles. Tailwind v4 is imported only here (route-scoped), so the
+ * existing checkout/success pages keep their current CSS untouched.
+ */
+@import "tailwindcss" source("../../");
+
+@theme {
+  --breakpoint-nav: 860px;
+  --font-sans: var(--font-archivo), "Archivo", system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-navy: #0b1b2e;
+  --color-navy-deep: #0f2e57;
+  --color-blue: #1e6fe6;
+  --color-blue-link: #1558b8;
+  --color-cyan: #22c4e0;
+  --color-page: #f5f7f9;
+  --color-panel: #f5f8fb;
+  --color-panel-confirmed: #eaf3fa;
+  --color-panel-modified: #fff8f2;
+  --color-line: #dde3ea;
+  --color-line-input: #c5cfda;
+  --color-line-row: #e6ebf0;
+  --color-body: #2a2f36;
+  --color-secondary: #4a5563;
+  --color-caption: #6b7685;
+  --color-hover: #eef3f8;
+  --color-orange: #e8692a;
+}
+
+html:has(.cds-onboarding),
+html:has(.cds-onboarding) body {
+  background: #f5f7f9 !important;
+}
+
+.cds-onboarding {
+  -webkit-font-smoothing: antialiased;
+  /* The prototype uses the browser default, not preflight's 1.5. */
+  line-height: normal;
+}
+
+.cds-onboarding input,
+.cds-onboarding textarea,
+.cds-onboarding select,
+.cds-onboarding button {
+  font-family: inherit;
+}
+
+.cds-onboarding a {
+  color: #1558b8;
+}
+.cds-onboarding a:hover {
+  color: #1e6fe6;
+}
+
+/* Shared focus treatment (handoff tokens) */
+.onb-input {
+  border: 1px solid #c5cfda;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0b1b2e;
+  font-size: 16px;
+  outline: none;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.onb-input:focus {
+  border-color: #1e6fe6;
+  box-shadow: 0 0 0 3px rgba(30, 111, 230, 0.15);
+}
+.onb-input::placeholder {
+  color: #8a96a6;
+}
+
+.cds-onboarding button:focus-visible,
+.cds-onboarding a:focus-visible,
+.cds-onboarding label:focus-within:has(input[type="file"]) {
+  outline: 2px solid #1e6fe6;
+  outline-offset: 2px;
+}
+
+.onb-wide {
+  font-stretch: 108%;
+}
+
+@keyframes onbFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.onb-sheet {
+  animation: onbFade 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onb-sheet {
+    animation: none;
+  }
+}

@@ -24,6 +24,17 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        // Private onboarding: never cached, framed, or leaked via Referer.
+        source: "/:client/onboarding/:path*",
+        headers: [
+          { key: "Referrer-Policy", value: "no-referrer" },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Cache-Control", value: "private, no-store" },
+          { key: "Permissions-Policy", value: "microphone=(self), camera=(), geolocation=()" },
+        ],
+      },
     ];
   },
 };
