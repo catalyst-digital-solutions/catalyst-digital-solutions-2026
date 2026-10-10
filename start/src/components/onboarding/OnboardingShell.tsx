@@ -21,6 +21,8 @@ const DEBOUNCE_MS = 600;
 interface LocalCache {
   /** field answers not yet acknowledged by the server */
   pending: Record<string, FieldAnswer>;
+  /** resume position not yet acknowledged by the server */
+  pos?: { view: View; step: number; visited: Record<string, boolean>; ts: number };
   ts: number;
 }
 
@@ -71,6 +73,7 @@ export function OnboardingShell({
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const backoff = useRef(0);
   const dead = useRef(false); // expired/submitted: stop saving
+  const posTs = useRef(0);
   const cacheKey = `catalyst.onboarding.${slug}.${initial.instanceId}.v1`;
 
   const writeCache = useCallback(() => {
@@ -80,7 +83,8 @@ export function OnboardingShell({
       dirty.current.forEach((_, id) => {
         if (answersRef.current[id]) pending[id] = answersRef.current[id];
       });
-      if (Object.keys(pending).length) localStorage.setItem(cacheKey, JSON.stringify({ pending, ts: Date.now() } satisfies LocalCache));
+      const pos = posDirty.current ? { ...posRef.current, ts: posTs.current } : undefined;
+      if (Object.keys(pending).length || pos) localStorage.setItem(cacheKey, JSON.stringify({ pending, pos, ts: Date.now() } satisfies LocalCache));
       else localStorage.removeItem(cacheKey);
     } catch {
       /* storage full / disabled */
@@ -170,6 +174,20 @@ export function OnboardingShell({
     if (preview || initial.view === "submitted") return;
     try {
       const c = JSON.parse(localStorage.getItem(cacheKey) || "null") as LocalCache | null;
+      // A position change that may not have reached the server (e.g. exit + instant reload).
+      const pos = c?.pos;
+      if (pos && pos.ts > (initial.savedAt || 0) && (pos.view === "intro" || pos.view === "wizard" || pos.view === "review")) {
+        const step = Math.min(Math.max(Number(pos.step) || 0, 0), N - 1);
+        const visitedNext = { ...initial.visited, ...(pos.visited || {}) };
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setView(pos.view);
+        setStep(step);
+        setVisited(visitedNext);
+        posRef.current = { view: pos.view, step, visited: visitedNext };
+        posTs.current = pos.ts;
+        posDirty.current = true;
+        later(50);
+      }
       if (c && c.pending && typeof c.pending === "object") {
         const ids = Object.keys(c.pending).filter((id) => {
           const server = initial.answers[id];
@@ -177,7 +195,6 @@ export function OnboardingShell({
         });
         if (ids.length) {
           // Restoring from an external store (localStorage) after hydration.
-          // eslint-disable-next-line react-hooks/set-state-in-effect
           setAnswers((prev) => {
             const next = { ...prev };
             ids.forEach((id) => (next[id] = { ...c.pending[id], files: prev[id]?.files }));
@@ -185,7 +202,7 @@ export function OnboardingShell({
           });
           ids.forEach((id) => dirty.current.set(id, ++version.current));
           later(50);
-        } else localStorage.removeItem(cacheKey);
+        } else if (!posDirty.current) localStorage.removeItem(cacheKey);
       }
     } catch {
       /* ignore */
@@ -307,10 +324,12 @@ export function OnboardingShell({
       posRef.current = { view: nv, step: ns, visited: nextVisited };
       if (!preview) {
         posDirty.current = true;
+        posTs.current = nowMs();
+        writeCache();
         void flush();
       }
     },
-    [config.sections, flush, preview, step, view, visited],
+    [config.sections, flush, preview, step, view, visited, writeCache],
   );
 
   const stats = useMemo(() => config.sections.map((s) => sectionStats(s, answers, visited)), [config.sections, answers, visited]);
