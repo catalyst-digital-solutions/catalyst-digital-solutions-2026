@@ -128,6 +128,9 @@ export class LocalStore implements OnboardingStore {
       }
     });
   }
+  async listTokens(instanceId: string) {
+    return (await this.read()).tokens.filter((t) => t.instance_id === instanceId);
+  }
   async revokeTokens(instanceId: string) {
     await this.tx((db) => {
       db.tokens.filter((t) => t.instance_id === instanceId && !t.revoked_at).forEach((t) => (t.revoked_at = now()));

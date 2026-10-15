@@ -94,6 +94,7 @@ export interface OnboardingStore {
   getToken(id: string): Promise<TokenRow | null>;
   touchToken(id: string): Promise<void>;
   revokeTokens(instanceId: string): Promise<void>;
+  listTokens(instanceId: string): Promise<TokenRow[]>;
 
   getResponses(instanceId: string): Promise<FieldResponseRow[]>;
   upsertResponses(rows: FieldResponseRow[]): Promise<void>;
