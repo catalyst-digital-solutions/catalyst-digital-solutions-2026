@@ -150,7 +150,7 @@ export async function runNotifications(backend: Backend, opts: { dryRun?: boolea
       const base = { instanceId: inst.id, client: config.client.name, kind: c.kind, key: c.key, audience: c.audience };
       if (c.audience === "client") {
         const lp = localParts(nowD, policy.timezone);
-        if (lp.hour < policy.quietHours.start || lp.hour >= policy.quietHours.end) {
+        if (lp.hour < policy.sendWindow.start || lp.hour >= policy.sendWindow.end) {
           actions.push({ ...base, status: "deferred", reason: `quiet hours (${lp.hour}:00 ${policy.timezone})` });
           continue;
         }

@@ -13,8 +13,8 @@ export interface NotifyPolicy {
   internal: boolean;
   /** Client local time zone, used for quiet hours. */
   timezone: string;
-  /** Client emails only go out between these local hours [start, end). */
-  quietHours: { start: number; end: number };
+  /** Allowed send window for client emails, local hours [start, end); outside it they wait (quiet hours). */
+  sendWindow: { start: number; end: number };
   /** At most one client email per this many days; none after submit. */
   clientMinGapDays: number;
   internalRules: {
@@ -37,7 +37,7 @@ export const DEFAULT_NOTIFY_POLICY: NotifyPolicy = {
   clientEmails: false,
   internal: true,
   timezone: "America/Los_Angeles",
-  quietHours: { start: 8, end: 19 },
+  sendWindow: { start: 8, end: 19 },
   clientMinGapDays: 3,
   internalRules: { notOpenedHours: 48, stalledDays: 3, halfwayPct: 50, linkExpiringDays: 5, digest: { weekday: 1, hour: 8 } },
   clientRules: { notOpenedDays: 3, stalledDays: 4, lastMilePct: 90, lastMileDays: 2 },
