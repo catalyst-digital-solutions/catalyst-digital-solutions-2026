@@ -75,6 +75,9 @@ export class SupabaseStore implements OnboardingStore {
       "touchToken",
     );
   }
+  async listTokens(instanceId: string) {
+    return this.ok(await this.db.from("onboarding_access_tokens").select().eq("instance_id", instanceId), "listTokens") as TokenRow[];
+  }
   async revokeTokens(instanceId: string) {
     this.ok(
       await this.db

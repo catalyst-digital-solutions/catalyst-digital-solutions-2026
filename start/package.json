@@ -9,7 +9,8 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "onboarding": "tsx --conditions=react-server scripts/onboarding.ts",
-    "onboarding:migrate": "tsx scripts/onboarding-migrate.ts"
+    "onboarding:migrate": "tsx scripts/onboarding-migrate.ts",
+    "onboarding:preview": "tsx --conditions=react-server scripts/onboarding-notify-preview.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.3",

@@ -134,6 +134,8 @@ export interface OnboardingConfig {
   };
   defaultAccept: string;
   sections: SectionDef[];
+  /** Optional per-client override of the shared notification policy (./notifications.ts). */
+  notifications?: import("./notifications").NotifyPolicyOverride;
 }
 
 /** Config with Catalyst-only keys removed — safe to send to the browser. */

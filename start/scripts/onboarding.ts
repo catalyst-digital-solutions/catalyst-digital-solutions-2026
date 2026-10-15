@@ -7,6 +7,8 @@
  *   npm run onboarding -- export --instance <id> [--out file.json] [--url-seconds 3600]
  *   npm run onboarding -- complete --instance <id> [--send]
  *   npm run onboarding -- revoke --instance <id>
+ *   npm run onboarding -- notify --instance <id> [--client-emails on|off] [--internal on|off] [--tz America/Los_Angeles]
+ *   npm run onboarding -- notify-run [--dry]     (same as the hourly cron)
  *
  * Env: loads .env.local / .env if present. Uses Supabase when SUPABASE_URL +
  * SUPABASE_SERVICE_ROLE_KEY are set, otherwise the local dev store.
@@ -114,8 +116,26 @@ async function main() {
       console.log("revoked all links for " + inst.id);
       break;
     }
+    case "notify": {
+      const { inst, config } = await needInstance();
+      const { setInstanceOverride, policyFor } = await import("../src/lib/onboarding/server/notify-settings");
+      const patch: Record<string, unknown> = {};
+      const onoff = (k: string) => (str(k) === "on" ? true : str(k) === "off" ? false : undefined);
+      if (onoff("client-emails") !== undefined) patch.clientEmails = onoff("client-emails");
+      if (onoff("internal") !== undefined) patch.internal = onoff("internal");
+      if (str("tz")) patch.timezone = str("tz");
+      if (Object.keys(patch).length) await setInstanceOverride(backend, inst.id, patch);
+      const p = await policyFor(backend, config, inst);
+      console.log(JSON.stringify({ id: inst.id, clientEmails: p.clientEmails, internal: p.internal, timezone: p.timezone }, null, 2));
+      break;
+    }
+    case "notify-run": {
+      const { runNotifications } = await import("../src/lib/onboarding/server/notify");
+      console.log(JSON.stringify(await runNotifications(backend, { dryRun: args.dry === true }), null, 2));
+      break;
+    }
     default:
-      console.log("usage: npm run onboarding -- list|create|link|export|complete|revoke [--instance id] …");
+      console.log("usage: npm run onboarding -- list|create|link|export|complete|revoke|notify|notify-run [--instance id] …");
       process.exitCode = 1;
   }
 }

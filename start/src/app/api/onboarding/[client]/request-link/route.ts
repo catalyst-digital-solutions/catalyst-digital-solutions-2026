@@ -2,6 +2,7 @@ import { getOnboardingConfig } from "@/config/onboarding";
 import { hashIp, mintAccessLink } from "@/lib/onboarding/server/auth";
 import { getBackend } from "@/lib/onboarding/server/backend";
 import { sendOnboardingEmail } from "@/lib/onboarding/server/email";
+import { clientEmailsAllowed } from "@/lib/onboarding/server/notify-settings";
 import { handleError, json, readJson } from "@/lib/onboarding/server/http";
 import { clientIp, rateLimit } from "@/lib/onboarding/server/rate-limit";
 
@@ -35,7 +36,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ client:
     if (recent >= 3) return json(GENERIC);
     await backend.store.addEvent({ instance_id: instance.id, type: "access.link_requested", section_id: null, meta: { ip: hashIp(ip) } });
 
-    const clientEmailsOn = (process.env.ONBOARDING_CLIENT_EMAILS || "").toLowerCase() === "on";
+    const clientEmailsOn = await clientEmailsAllowed(backend, config, instance);
     let url: string | undefined;
     if (clientEmailsOn) {
       const link = await mintAccessLink(backend, instance);
