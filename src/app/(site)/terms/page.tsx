@@ -17,7 +17,7 @@ export default function Page() {
     >
       <p>
         These Terms of Service (&quot;Terms&quot;) govern your use of the website at
-        catalyst-digital-solutions.com (the &quot;Site&quot;), operated by Catalyst Digital
+        catalystdigitalsolutions.com (the &quot;Site&quot;), operated by Catalyst Digital
         Solutions LLC (&quot;Catalyst,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;).
       </p>
       <p>
@@ -40,8 +40,8 @@ export default function Page() {
         <br />
         (661) 888-4837
         <br />
-        <a href="mailto:mario@catalyst-digital-solutions.com">
-          mario@catalyst-digital-solutions.com
+        <a href="mailto:info@catalystdigitalsolutions.com">
+          info@catalystdigitalsolutions.com
         </a>
       </p>
 
@@ -262,8 +262,8 @@ export default function Page() {
         <br />
         4012 Foxwood St, Bakersfield, CA 93306
         <br />
-        <a href="mailto:mario@catalyst-digital-solutions.com">
-          mario@catalyst-digital-solutions.com
+        <a href="mailto:info@catalystdigitalsolutions.com">
+          info@catalystdigitalsolutions.com
         </a>
         <br />
         (661) 888-4837
