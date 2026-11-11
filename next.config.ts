@@ -12,8 +12,19 @@ const nextConfig: NextConfig = {
     root: path.resolve(__dirname),
   },
   // Keep campaign and policy aliases on their canonical destinations.
+  // permanent: true is a 308. Offer paths send old links home; the special is gone.
   async redirects() {
     return [
+      {
+        source: "/trades",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/trades/:path*",
+        destination: "/",
+        permanent: true,
+      },
       {
         source: "/family-law",
         destination: "https://familylaw.catalyst-digital-solutions.com",

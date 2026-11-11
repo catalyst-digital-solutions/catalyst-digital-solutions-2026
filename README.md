@@ -11,7 +11,7 @@ This is the **canonical, results-oriented** Catalyst Digital Solutions marketing
 - **Native scroll** — no scroll-hijacking library. Lenis was tried and removed (it caused wheel/trackpad lag); `LenisProvider` is now an intentional no-op passthrough kept only so the import doesn't need to be ripped out of `layout.tsx`
 - **CSS keyframe animations** — all defined in `globals.css`; GSAP + Framer Motion are installed for future use but not yet wired into any component
 - **Vercel** — deployment target
-- **Domain** — catalyst-digital-solutions.com
+- **Domain** — https://catalystdigitalsolutions.com
 
 ## Dev
 

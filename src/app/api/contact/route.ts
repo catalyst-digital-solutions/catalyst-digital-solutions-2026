@@ -6,7 +6,7 @@
  * in priority order — whichever is configured via env:
  *
  *   1. CONTACT_WEBHOOK_URL   → POSTs the JSON to a webhook (Zapier/Make/n8n),
- *                              which then emails hello@ (no DNS setup needed).
+ *                              which then emails the public inbox (no DNS setup needed).
  *   2. RESEND_API_KEY        → sends the email directly via Resend to
  *                              CONTACT_TO_EMAIL (needs a verified sending domain).
  *   3. (neither set)         → logs to the server console so the flow is
@@ -15,10 +15,13 @@
  * Add new forms by POSTing here with a different `formId`/`formName`.
  */
 
+import { FROM_EMAIL as DEFAULT_FROM_EMAIL, PUBLIC_EMAIL } from "@/config/site";
+
 export const dynamic = "force-dynamic"; // never cache; always run at request time
 
-const TO_EMAIL = process.env.CONTACT_TO_EMAIL || "hello@catalyst-digital-solutions.com";
-const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || "Catalyst Website <noreply@catalyst-digital-solutions.com>";
+// Vercel CONTACT_TO_EMAIL / CONTACT_FROM_EMAIL override these fallbacks.
+const TO_EMAIL = process.env.CONTACT_TO_EMAIL || PUBLIC_EMAIL;
+const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || DEFAULT_FROM_EMAIL;
 
 type Payload = Record<string, unknown> & {
   formId?: string;
