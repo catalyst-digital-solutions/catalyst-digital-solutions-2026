@@ -30,8 +30,8 @@ const confirmItems = [
 export const REMOVALS = [
   { what: "Summary note: To be confirmed before signing", from: "To be confirmed before signing\n\n" + confirmItems, to: "" },
   { what: "Section: Items for confirmation before signing", from: "## Items for confirmation before signing\n\n" + confirmItems + "\n", to: "" },
-  { what: "Title block status", from: "**VERSION 1.4 — NOVEMBER 13, 2026 — DRAFT**", to: "**VERSION 1.4 — NOVEMBER 13, 2026**" },
-  { what: "Title block status", from: "Schedules A–D. Not executed.**", to: "Schedules A–D.**" },
+  { what: "Title block status: version/date line", from: "**VERSION 1.4 — NOVEMBER 13, 2026 — DRAFT**", to: "**VERSION 1.4 — NOVEMBER 13, 2026**" },
+  { what: "Title block status: not-executed suffix", from: "Schedules A–D. Not executed.**", to: "Schedules A–D.**" },
   {
     what: "Closing line status",
     from: "Version 1.4 — November 13, 2026 · Draft for final business and legal approval before execution.",
