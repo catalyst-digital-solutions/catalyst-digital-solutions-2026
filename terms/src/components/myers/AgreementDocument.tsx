@@ -232,8 +232,12 @@ function PartiesSection({ section }: { section: MdSection }) {
 function PhaseSection({ section }: { section: MdSection }) {
   const blocks = section.blocks;
   const labels = ["Total Pages", "Investment", "Estimated Timeline"];
-  const ok = labels.every((label, k) => pText(blocks[k * 2]) === label);
+  const values = labels.map((_, k) => blocks[k * 2 + 1]);
+  const ok =
+    labels.every((label, k) => pText(blocks[k * 2]) === label) &&
+    values.every((b): b is Extract<MdBlock, { type: "p" }> => b?.type === "p");
   if (!ok) return <Blocks blocks={blocks} sectionId={section.id} />;
+  const valueBlocks = values as Extract<MdBlock, { type: "p" }>[];
   return (
     <>
       <dl className="md-stats">
@@ -241,7 +245,7 @@ function PhaseSection({ section }: { section: MdSection }) {
           <div className="md-stat" key={label}>
             <dt>{label}</dt>
             <dd>
-              <InlineLines lines={(blocks[k * 2 + 1] as Extract<MdBlock, { type: "p" }>).lines} />
+              <InlineLines lines={valueBlocks[k].lines} />
             </dd>
           </div>
         ))}
