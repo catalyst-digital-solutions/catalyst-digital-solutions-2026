@@ -14,6 +14,7 @@ npm run dev
 
 - `/` — minimal noindex landing (does not list clients)
 - `/atara` — Atara Mechanical Website Build & Managed Care Agreement
+- `/myers` — Myers Diesel Repair Website Development & Independent Services Agreement, **Version 1.4 (DRAFT)**. Canonical host: `https://terms.catalystdigitalsolutions.com/myers`
 
 ```bash
 npm run typecheck
@@ -59,3 +60,12 @@ git diff --quiet HEAD^ HEAD -- . ':!terms' ':!terms/**'
 ```
 
 Vercel skips the build when this command exits `0`. Only add this in the main project dashboard if you have confirmed it against existing deploy behavior. This repo does **not** add a root `vercel.json`, so current main-site deploys are unchanged.
+
+## Myers Diesel (`/myers`) — Version 1.4 draft
+
+- **Single source of truth:** `src/content/myers/agreement-v1.4.md` (verbatim v1.4 supplied by Mario, Nov 13, 2026). The page is rendered from it by `src/lib/agreementMarkdown.ts` + `src/components/myers/*`; no legal wording lives in components.
+- After replacing the markdown, run `node scripts/gen-myers-source.mjs` (writes `src/content/myers/source.generated.ts` with the source SHA-256), rebuild, then regenerate the PDF.
+- **PDF:** `public/myers/Myers-Diesel-Website-Agreement-v1.4-DRAFT.pdf` is printed with headless Chrome from the built `/myers` page (print CSS, Letter, footer with version + DRAFT). Regenerate it whenever the markdown or print CSS changes so the download always matches the page.
+- **Draft:** `myersAgreement.isDraft` stays `true` until Mario explicitly authorizes removal.
+- **Signing is disabled.** `myersAgreement.esign` is the integration point for an approved e-signature provider (Dropbox Sign or DocuSign recommended). No homemade signatures, checkboxes or payments count as execution.
+- **Kickoff checkout is disabled.** `myersAgreement.checkout.enabled = false` and `NEXT_PUBLIC_MYERS_CHECKOUT_URL` must stay unset until the agreement is executed and Mario approves live collection.
