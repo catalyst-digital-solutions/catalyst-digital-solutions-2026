@@ -14,7 +14,7 @@ npm run dev
 
 - `/` — minimal noindex landing (does not list clients)
 - `/atara` — Atara Mechanical Website Build & Managed Care Agreement
-- `/myers` — Myers Diesel Repair Website Development & Independent Services Agreement, **Version 1.4 (DRAFT)**. Canonical host: `https://terms.catalystdigitalsolutions.com/myers`
+- `/myers` — Myers Diesel Repair Website Development & Independent Services Agreement, **Version 1.4** (November 13, 2026), signature-ready. Canonical host: `https://terms.catalystdigitalsolutions.com/myers`
 
 ```bash
 npm run typecheck
@@ -61,11 +61,11 @@ git diff --quiet HEAD^ HEAD -- . ':!terms' ':!terms/**'
 
 Vercel skips the build when this command exits `0`. Only add this in the main project dashboard if you have confirmed it against existing deploy behavior. This repo does **not** add a root `vercel.json`, so current main-site deploys are unchanged.
 
-## Myers Diesel (`/myers`) — Version 1.4 draft
+## Myers Diesel (`/myers`) — Version 1.4 (signature-ready)
 
-- **Single source of truth:** `src/content/myers/agreement-v1.4.md` (verbatim v1.4 supplied by Mario, Nov 13, 2026). The page is rendered from it by `src/lib/agreementMarkdown.ts` + `src/components/myers/*`; no legal wording lives in components.
-- After replacing the markdown, run `node scripts/gen-myers-source.mjs` (writes `src/content/myers/source.generated.ts` with the source SHA-256), rebuild, then regenerate the PDF.
-- **PDF:** `public/myers/Myers-Diesel-Website-Agreement-v1.4-DRAFT.pdf` is printed with headless Chrome from the built `/myers` page (print CSS, Letter, footer with version + DRAFT). Regenerate it whenever the markdown or print CSS changes so the download always matches the page.
-- **Draft:** `myersAgreement.isDraft` stays `true` until Mario explicitly authorizes removal.
-- **Signing is disabled.** `myersAgreement.esign` is the integration point for an approved e-signature provider (Dropbox Sign or DocuSign recommended). No homemade signatures, checkboxes or payments count as execution.
-- **Kickoff checkout is disabled.** `myersAgreement.checkout.enabled = false` and `NEXT_PUBLIC_MYERS_CHECKOUT_URL` must stay unset until the agreement is executed and Mario approves live collection.
+- **Authoritative source (unchanged):** `src/content/myers/agreement-v1.4.md`, the verbatim v1.4 Mario supplied on Nov 13, 2026.
+- **Rendered copy:** `src/content/myers/agreement-v1.4-final.md` is built from the source by `scripts/make-myers-final.mjs`. It applies only the removals Mario authorized: the internal "To be confirmed before signing" note, the duplicate "Items for confirmation before signing" section, and the draft/not-executed status words in the title block and closing line. Each removal must match exactly once, or the script fails.
+- After replacing the source, run `node scripts/make-myers-final.mjs && node scripts/gen-myers-source.mjs`. This writes `source.generated.ts` with both SHA-256 values. Then rebuild and regenerate the PDF.
+- **PDF:** `public/myers/Myers-Diesel-Website-Agreement-v1.4.pdf` is printed with headless Chrome from the built `/myers` page. It uses the print CSS on Letter paper, with the footer "Version 1.4 · November 13, 2026 · Page X of Y". Regenerate it whenever the markdown or print CSS changes.
+- **Execution:** Mario uploads the PDF to Zoho Sign and places the fields there: both signatures and dates, plus the Schedule D choice, initials and date. The site has no signing integration.
+- **Kickoff checkout:** this is a separate one-time $8,500 Stripe link sent after signing. It is not shown on the page, and `NEXT_PUBLIC_MYERS_CHECKOUT_URL` stays unset.
