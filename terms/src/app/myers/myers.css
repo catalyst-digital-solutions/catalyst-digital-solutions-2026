@@ -45,8 +45,8 @@ html:has(.md-page) body {
   display: none;
 }
 
-/* ---------- Draft bar ---------- */
-.md-draftbar {
+/* ---------- Top bar ---------- */
+.md-topbar {
   position: sticky;
   top: 0;
   z-index: 40;
@@ -60,18 +60,7 @@ html:has(.md-page) body {
   font-size: 0.9rem;
 }
 
-.md-draft-tag {
-  flex: none;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: #ffd23f;
-  color: #0b1220;
-  font: 700 0.75rem/1.3 var(--font-mono);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.md-draftbar-text {
+.md-topbar-text {
   flex: 1;
   min-width: 0;
   font-family: var(--font-mono);
@@ -80,7 +69,7 @@ html:has(.md-page) body {
   text-transform: uppercase;
 }
 
-.md-draftbar-actions {
+.md-topbar-actions {
   display: flex;
   gap: 8px;
   flex: none;
@@ -104,24 +93,6 @@ html:has(.md-page) body {
 
 .md-btn-light:hover {
   background: var(--md-soft-2);
-}
-
-.md-btn-primary {
-  background: var(--md-blue);
-  color: #fff !important;
-}
-
-.md-btn-secondary {
-  border: 1.5px solid var(--md-blue);
-  color: var(--md-blue) !important;
-  background: #fff;
-}
-
-.md-btn-disabled {
-  border: 1px dashed #8b95a6;
-  background: #f4f5f7;
-  color: #4a5363;
-  cursor: not-allowed;
 }
 
 .md-page .btn-ghost {
@@ -369,22 +340,6 @@ html:has(.md-page) body {
   margin: 0;
 }
 
-.md-callout {
-  margin: 16px 0 0;
-  padding: 14px 18px;
-  border: 1px dashed var(--md-blue-2);
-  border-radius: 8px;
-  background: #fff;
-}
-
-.md-callout-title {
-  font: 700 12px/1.4 var(--font-mono);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--md-blue);
-  margin-bottom: 8px !important;
-}
-
 /* ---------- Tables ---------- */
 .md-table-wrap {
   margin: 8px 0 16px;
@@ -577,13 +532,6 @@ html:has(.md-page) body {
   border-top: 1px dashed var(--md-line);
 }
 
-.md-ui-note {
-  margin: 12px 0 0 !important;
-  font-size: 14px;
-  color: var(--md-muted);
-  font-style: italic;
-}
-
 /* ---------- Signatures ---------- */
 .md-sig-dba {
   color: var(--md-body);
@@ -608,6 +556,15 @@ html:has(.md-page) body {
 .md-sig-line {
   border-bottom: 1px solid var(--md-body);
   min-height: 34px;
+}
+
+/* Signature lines leave room for Zoho Sign fields placed over them. */
+.md-sig-blank .md-sig-line {
+  min-height: 56px;
+}
+
+.md-sig-blank + .md-sig-blank .md-sig-line {
+  min-height: 40px;
 }
 
 .md-end {
@@ -649,21 +606,6 @@ html:has(.md-page) body {
   letter-spacing: 1px;
   color: var(--md-ink);
   text-transform: uppercase;
-}
-
-.md-steps {
-  padding-left: 22px;
-  margin: 0 0 18px;
-}
-
-.md-steps li {
-  margin-bottom: 6px;
-}
-
-.md-exec-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
 }
 
 .md-pdf-note {
@@ -747,7 +689,7 @@ html:has(.md-page) body {
     padding: 4px 0;
   }
 
-  .md-draftbar-text {
+  .md-topbar-text {
     font-size: 0.68rem;
   }
 }
@@ -850,11 +792,10 @@ html:has(.md-page) body {
     background: #fff !important;
   }
 
-  .md-draftbar,
+  .md-topbar,
   .md-page .section-nav,
   .md-exec,
   .md-pdf-note,
-  .md-ui-note,
   .skip-link,
   .no-print {
     display: none !important;
@@ -862,21 +803,6 @@ html:has(.md-page) body {
 
   .print-only {
     display: block;
-  }
-
-  .md-watermark {
-    position: fixed;
-    top: 45%;
-    left: 0;
-    right: 0;
-    text-align: center;
-    transform: rotate(-28deg);
-    font-family: var(--font-display);
-    font-size: 160px;
-    letter-spacing: 12px;
-    color: rgba(12, 47, 158, 0.07);
-    z-index: 0;
-    pointer-events: none;
   }
 
   .md-shell {
@@ -937,20 +863,60 @@ html:has(.md-page) body {
 
   .md-inventory {
     columns: 2;
+    column-fill: auto;
   }
 
+  /* Inventory categories may continue across columns/pages (their headings
+     stay with their first items); the bordered bonus card stays whole. */
+  .md-inventory .md-category {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .md-inventory .md-category-bonus {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Schedules A and D start a fresh page; its election block and the signature
+     block are each kept whole, and headings stay with their content. */
   .md-section-schedule-a .md-h2,
-  .md-section-authorization-and-signatures .md-h2 {
+  .md-section-schedule-d .md-h2 {
     break-before: page;
+    page-break-before: always;
+  }
+
+  .md-election-choice,
+  .md-sigs,
+  .md-end {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .md-section-authorization-and-signatures {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .md-doc p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Orphan-heading guard: headings already avoid a break after them; a
+     lead-in paragraph also stays with the table or inventory it introduces,
+     so a heading + "The proposed schedule is:" never ends a page alone. */
+  .md-doc p + .md-table-wrap,
+  .md-doc .md-h3 + .md-table-wrap {
+    break-before: avoid;
+    page-break-before: avoid;
   }
 
   .md-party,
   .md-sig,
   .md-stats,
   .md-election-option,
-  .md-callout,
-  .md-table-wrap,
-  .md-category {
+  .md-table-wrap {
     break-inside: avoid;
     page-break-inside: avoid;
   }

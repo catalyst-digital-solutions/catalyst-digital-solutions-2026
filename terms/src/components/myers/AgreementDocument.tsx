@@ -165,23 +165,6 @@ function SummarySection({ section }: { section: MdSection }) {
       );
       continue;
     }
-    if (pText(block) === "To be confirmed before signing") {
-      const inner: MdBlock[] = [];
-      let j = i + 1;
-      while (j < blocks.length && (blocks[j].type === "p" || blocks[j].type === "ul")) {
-        inner.push(blocks[j]);
-        j++;
-        if (blocks[j - 1].type === "ul") break;
-      }
-      out.push(
-        <div className="md-callout" key={i} role="note">
-          <p className="md-callout-title">To be confirmed before signing</p>
-          <Blocks blocks={inner} sectionId={section.id} />
-        </div>,
-      );
-      i = j - 1;
-      continue;
-    }
     out.push(
       <GenericBlock key={i} block={block} sectionId={section.id} idx={i} tableCaption="Agreement summary by phase" />,
     );
@@ -285,39 +268,51 @@ function ScheduleASection({ section }: { section: MdSection }) {
 }
 
 function ScheduleDSection({ section }: { section: MdSection }) {
+  const blocks = section.blocks;
+  // Keep the election (choice heading, both options, default rule and the
+  // initials/date line) together as one unbreakable print block.
+  const choose = blocks.findIndex((b) => /^\*\*Choose one/.test(pText(b) ?? ""));
+  const initials = blocks.findIndex((b) => (pText(b) ?? "").startsWith("Hosting election confirmed"));
+  const render = (block: MdBlock, idx: number) => {
+    const text = pText(block) ?? "";
+    if (block.type === "p" && text.startsWith("☐")) {
+      return (
+        <div className="md-election-option" key={idx}>
+          <span className="md-box" aria-hidden="true">
+            ☐
+          </span>
+          <p>
+            <Inline text={text.replace(/^☐\s*/, "")} />
+          </p>
+        </div>
+      );
+    }
+    if (block.type === "p" && /— \$199 per month$/.test(text)) {
+      return (
+        <p className="md-price" key={idx}>
+          <Inline text={text} />
+        </p>
+      );
+    }
+    if (block.type === "p" && text.startsWith("Hosting election confirmed")) {
+      return (
+        <p className="md-initials" key={idx}>
+          <Inline text={text} />
+        </p>
+      );
+    }
+    return <GenericBlock key={idx} block={block} sectionId={section.id} idx={idx} />;
+  };
+  if (choose < 0 || initials < choose) {
+    return <div className="md-election">{blocks.map(render)}</div>;
+  }
   return (
     <div className="md-election">
-      {section.blocks.map((block, idx) => {
-        const text = pText(block) ?? "";
-        if (block.type === "p" && text.startsWith("☐")) {
-          return (
-            <div className="md-election-option" key={idx}>
-              <span className="md-box" aria-hidden="true">
-                ☐
-              </span>
-              <p>
-                <Inline text={text.replace(/^☐\s*/, "")} />
-              </p>
-            </div>
-          );
-        }
-        if (block.type === "p" && /— \$199 per month$/.test(text)) {
-          return (
-            <p className="md-price" key={idx}>
-              <Inline text={text} />
-            </p>
-          );
-        }
-        if (block.type === "p" && text.startsWith("Hosting election confirmed")) {
-          return (
-            <p className="md-initials" key={idx}>
-              <Inline text={text} />
-            </p>
-          );
-        }
-        return <GenericBlock key={idx} block={block} sectionId={section.id} idx={idx} />;
-      })}
-
+      <div className="md-election-intro">{blocks.slice(0, choose).map((b, k) => render(b, k))}</div>
+      <div className="md-election-choice">
+        {blocks.slice(choose, initials + 1).map((b, k) => render(b, choose + k))}
+      </div>
+      {blocks.slice(initials + 1).map((b, k) => render(b, initials + 1 + k))}
     </div>
   );
 }

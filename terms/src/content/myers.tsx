@@ -1,4 +1,8 @@
-import { MYERS_AGREEMENT_MARKDOWN, MYERS_AGREEMENT_SHA256 } from "@/content/myers/source.generated";
+import {
+  MYERS_AGREEMENT_MARKDOWN,
+  MYERS_AGREEMENT_SHA256,
+  MYERS_SOURCE_SHA256,
+} from "@/content/myers/source.generated";
 import { inlineText, parseBlocks, splitSections } from "@/lib/agreementMarkdown";
 import type { AgreementNavItem } from "@/content/types";
 
@@ -6,18 +10,18 @@ import type { AgreementNavItem } from "@/content/types";
  * Myers Diesel Repair — Website Development & Independent Services Agreement.
  *
  * The ONLY contractual source is src/content/myers/agreement-v1.4.md
- * (Version 1.4, supplied by Mario Garza on November 13, 2026). The page,
- * the downloadable PDF and the signature copy are all rendered from it.
- * Do not edit legal wording here; replace the markdown and re-run
- * `node scripts/gen-myers-source.mjs` instead.
+ * (Version 1.4, supplied by Mario Garza on November 13, 2026). It is kept
+ * unchanged. The page and the PDF render agreement-v1.4-final.md, which
+ * scripts/make-myers-final.mjs builds from the source with only the removals
+ * Mario authorized (internal confirmation notes and draft-status words).
+ * Do not edit legal wording here; replace the source markdown and re-run
+ * `node scripts/make-myers-final.mjs && node scripts/gen-myers-source.mjs`.
  */
 
 const sections = splitSections(parseBlocks(MYERS_AGREEMENT_MARKDOWN));
 
 const shortLabel = (title: string) =>
-  inlineText(title)
-    .replace(/^Schedule ([A-D]) — /, "Sched. $1 · ")
-    .replace(/^Items for confirmation before signing$/, "Confirmations before signing");
+  inlineText(title).replace(/^Schedule ([A-D]) — /, "Sched. $1 · ");
 
 export const myersAgreement = {
   slug: "myers",
@@ -26,39 +30,28 @@ export const myersAgreement = {
   versionDate: "November 13, 2026",
   title: "Website Development & Independent Services Agreement",
   clientName: "Myers Diesel Repair",
-  sourceSha256: MYERS_AGREEMENT_SHA256,
-  /** The document is a draft until Mario explicitly authorizes removal. */
-  isDraft: true,
+  sourceSha256: MYERS_SOURCE_SHA256,
+  renderedSha256: MYERS_AGREEMENT_SHA256,
   metadata: {
     title:
-      "Website Development & Independent Services Agreement — Version 1.4 (Draft) | Myers Diesel Repair",
+      "Website Development & Independent Services Agreement — Version 1.4 | Myers Diesel Repair",
     description:
-      "Draft Version 1.4 of the Website Development & Independent Services Agreement between Catalyst Digital Solutions, LLC and Myers Diesel Repair, Inc.",
+      "Version 1.4 (November 13, 2026) of the Website Development & Independent Services Agreement between Catalyst Digital Solutions, LLC and Myers Diesel Repair, Inc.",
     canonical: "https://terms.catalystdigitalsolutions.com/myers",
   },
   pdf: {
-    href: "/myers/Myers-Diesel-Website-Agreement-v1.4-DRAFT.pdf",
-    label: "Download PDF (Version 1.4 · Draft)",
+    href: "/myers/Myers-Diesel-Website-Agreement-v1.4.pdf",
+    label: "Download PDF (Version 1.4)",
   },
   /**
-   * E-SIGNATURE INTEGRATION POINT (disabled).
-   * Signing must happen in an approved electronic-signature provider
-   * (recommended: Dropbox Sign or DocuSign) using a template built from the
-   * v1.4 PDF with: Myers authorized signer (Kenneth Wayne Myers, President),
-   * Catalyst signer (Mario Garza), agreement version, signing dates, the
-   * required Schedule D ACCEPT/DECLINE election + initials, and the
-   * provider's completed-document/audit certificate retained by Catalyst.
-   * Set `url` to the provider's signing link only after Mario approves.
-   * Never implement a homemade signature, checkbox or payment as signature.
+   * Execution: Mario uploads the PDF to Zoho Sign manually and places the
+   * signature, date and Schedule D (choice, initials, date) fields there.
+   * No signing integration lives on this site.
    */
-  esign: {
-    enabled: false,
-    url: null as string | null,
-  },
+  executionNote: "This Agreement will be sent for electronic signature via Zoho Sign.",
   /**
-   * Phase 1 kickoff checkout ($8,500, one-time). Stays disabled until the
-   * agreement is fully executed AND Mario approves live collection. The env
-   * key below is intentionally unset; see stripe-kickoff spec.
+   * Phase 1 kickoff checkout ($8,500, one-time). Not rendered on the page;
+   * the link is sent separately after signing. The env key stays unset.
    */
   checkout: {
     enabled: false,
@@ -69,6 +62,6 @@ export const myersAgreement = {
     ...sections
       .filter((s) => s.title)
       .map<AgreementNavItem>((s) => ({ id: s.id, label: shortLabel(s.title!) })),
-    { id: "execution", label: "Signing & kickoff payment" },
+    { id: "execution", label: "Execution" },
   ],
 };
