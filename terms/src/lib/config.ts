@@ -1,5 +1,9 @@
 const CHECKOUT_URLS: Record<string, string | undefined> = {
   NEXT_PUBLIC_ATARA_CHECKOUT_URL: process.env.NEXT_PUBLIC_ATARA_CHECKOUT_URL,
+  // Myers Phase 1 kickoff ($8,500). Leave UNSET until the agreement is fully
+  // executed and Mario approves live collection; the page also gates it via
+  // myersAgreement.checkout.enabled = false.
+  NEXT_PUBLIC_MYERS_CHECKOUT_URL: process.env.NEXT_PUBLIC_MYERS_CHECKOUT_URL,
 };
 
 function isHttpUrl(value: string): boolean {

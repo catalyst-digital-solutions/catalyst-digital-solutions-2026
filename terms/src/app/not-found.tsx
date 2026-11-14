@@ -11,8 +11,8 @@ export default function NotFound() {
       <h1>Page not found</h1>
       <p>That agreement link is not available.</p>
       <p>
-        <a href="https://catalyst-digital-solutions.com">
-          Return to catalyst-digital-solutions.com
+        <a href="https://catalystdigitalsolutions.com">
+          Return to catalystdigitalsolutions.com
         </a>
       </p>
     </main>
