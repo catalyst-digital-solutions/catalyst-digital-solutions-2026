@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { ADDRESS_LINE, PUBLIC_EMAIL } from "@/config/site";
 
 const PAGES = [
   { label: "Home", href: "/" },
@@ -86,21 +87,21 @@ export default function Footer() {
               (661) 888-4837
             </a>
             <a
-              href="mailto:info@catalyst-digital-solutions.com"
+              href={`mailto:${PUBLIC_EMAIL}`}
               style={{ display: "inline-flex", alignItems: "center", gap: 10, color: "#c8c8c8", textDecoration: "none", width: "fit-content", wordBreak: "break-all" }}
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none" }} aria-hidden>
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="m22 7-10 6L2 7" />
               </svg>
-              info@catalyst-digital-solutions.com
+              {PUBLIC_EMAIL}
             </a>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, color: "#c8c8c8" }}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none" }} aria-hidden>
+            <div style={{ display: "inline-flex", alignItems: "flex-start", gap: 10, color: "#c8c8c8", lineHeight: 1.45 }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="2" style={{ flex: "none", marginTop: 2 }} aria-hidden>
                 <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 0 1 18 0z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
-              Bakersfield, CA 93306
+              {ADDRESS_LINE}
             </div>
           </div>
         </div>

@@ -17,7 +17,7 @@ export default function Page() {
     >
       <p>
         Catalyst Digital Solutions LLC (&quot;Catalyst,&quot; &quot;we,&quot; &quot;us,&quot; or
-        &quot;our&quot;) operates the website at catalyst-digital-solutions.com (the
+        &quot;our&quot;) operates the website at catalystdigitalsolutions.com (the
         &quot;Site&quot;). This policy explains what information we collect, why we collect it, and
         what we do with it.
       </p>
@@ -37,8 +37,8 @@ export default function Page() {
         <br />
         (661) 888-4837
         <br />
-        <a href="mailto:mario@catalyst-digital-solutions.com">
-          mario@catalyst-digital-solutions.com
+        <a href="mailto:info@catalystdigitalsolutions.com">
+          info@catalystdigitalsolutions.com
         </a>
       </p>
 
@@ -201,8 +201,8 @@ export default function Page() {
       </p>
       <p>
         To exercise any of these rights, contact us at{" "}
-        <a href="mailto:mario@catalyst-digital-solutions.com">
-          mario@catalyst-digital-solutions.com
+        <a href="mailto:info@catalystdigitalsolutions.com">
+          info@catalystdigitalsolutions.com
         </a>{" "}
         or (661) 888-4837. We may need to verify your identity before responding.
       </p>
@@ -231,8 +231,8 @@ export default function Page() {
         <br />
         4012 Foxwood St, Bakersfield, CA 93306
         <br />
-        <a href="mailto:mario@catalyst-digital-solutions.com">
-          mario@catalyst-digital-solutions.com
+        <a href="mailto:info@catalystdigitalsolutions.com">
+          info@catalystdigitalsolutions.com
         </a>
         <br />
         (661) 888-4837

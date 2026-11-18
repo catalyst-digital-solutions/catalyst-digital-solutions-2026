@@ -492,7 +492,7 @@ export default function MartinProposalPage() {
           <h2>What I need<br />from you</h2>
       
           <p className="lead">Standard onboarding. Most of it you can send in five minutes from your phone.</p>
-          <p style={{fontSize: '15.5px', color: 'var(--muted)'}}>And if you want to see the whole picture of what these programs do before you commit — every service, fully spelled out — it's all on <a href="https://catalyst-digital-solutions.com">catalyst-digital-solutions.com</a>. The end state I'm aiming at for you is simple: when a GC in your area needs an MEP prime, <strong style={{color: 'var(--heading)'}}>you are the only name that comes up, and the only one that looks like the obvious choice.</strong></p>
+          <p style={{fontSize: '15.5px', color: 'var(--muted)'}}>And if you want to see the whole picture of what these programs do before you commit — every service, fully spelled out — it's all on <a href="https://catalystdigitalsolutions.com">catalystdigitalsolutions.com</a>. The end state I'm aiming at for you is simple: when a GC in your area needs an MEP prime, <strong style={{color: 'var(--heading)'}}>you are the only name that comes up, and the only one that looks like the obvious choice.</strong></p>
       
           <div className="finding" style={{borderTop: '1px solid rgba(255,255,255,.06)'}}><div className="n">01</div><div>
             <h4>Legal entity name</h4>
@@ -532,12 +532,12 @@ export default function MartinProposalPage() {
           </div>
           <p style={{maxWidth: '56ch', color: 'var(--muted)', fontSize: '14px'}}>Card or bank transfer. Payment method stays on file and bills automatically each month. Six-month minimum, then month to month.</p>
       
-          <p style={{maxWidth: '56ch', color: 'var(--muted)', fontSize: '15.5px', marginTop: '24px'}}>If something in here doesn't fit, tell me which part and I'll adjust it. I'd rather build the right thing than the thing I wrote on a Friday. <a href="mailto:mario@catalyst-digital-solutions.com?subject=Martin%20Refrigeration%20MEP%20%E2%80%94%20question">Email me</a> or call (661) 888-4837.</p>
+          <p style={{maxWidth: '56ch', color: 'var(--muted)', fontSize: '15.5px', marginTop: '24px'}}>If something in here doesn't fit, tell me which part and I'll adjust it. I'd rather build the right thing than the thing I wrote on a Friday. <a href="mailto:info@catalystdigitalsolutions.com?subject=Martin%20Refrigeration%20MEP%20%E2%80%94%20question">Email me</a> or call (661) 888-4837.</p>
       
           <div className="sig">
             <b>Mario Garza &nbsp;·&nbsp; Catalyst Digital Solutions, LLC</b><br />
             4012 Foxwood St, Bakersfield, CA 93306 &nbsp;·&nbsp; (661) 888-4837<br />
-            Monday–Friday, 8:00 AM – 6:00 PM PT &nbsp;·&nbsp; catalyst-digital-solutions.com<br />
+            Monday–Friday, 8:00 AM – 6:00 PM PT &nbsp;·&nbsp; catalystdigitalsolutions.com<br />
             Prepared August 8, 2026 &nbsp;·&nbsp; Terms hold through August 14, 2026
           </div>
         </div>

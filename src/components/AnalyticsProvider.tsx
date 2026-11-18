@@ -9,12 +9,9 @@ import posthog from "posthog-js";
  * (Vercel env + local .env.local). Session replay, autocapture (CTA clicks),
  * and UTM attribution are handled by PostHog itself.
  *
- * Captures window.location (not the rewritten Next pathname) so the
- * getbranded subdomain is recorded as getbranded.catalyst-digital-solutions.com
- * rather than /trades on the apex.
- *
+ * Captures window.location so the recorded URL matches the browser.
  * Also persists first-touch UTM params in localStorage so outbound
- * Cal.com / Stripe links can be decorated with them.
+ * Cal.com links can be decorated with them.
  */
 
 const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
@@ -30,12 +27,6 @@ function capturePageview() {
     $current_url: href,
     $host: host,
   });
-  if (host.startsWith("getbranded.")) {
-    posthog.capture("getbranded_pageview", {
-      $current_url: href,
-      path: window.location.pathname,
-    });
-  }
 }
 
 export default function AnalyticsProvider() {

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Standard terms of service for Catalyst Digital Solutions monthly marketing programs.",
   alternates: {
-    canonical: "https://catalyst-digital-solutions.com/legal/service-agreement",
+    canonical: "https://catalystdigitalsolutions.com/legal/service-agreement",
   },
   robots: { index: true, follow: true },
 };
@@ -258,7 +258,7 @@ export default function ServiceAgreementPage() {
       
           <div className="note" style={{marginTop: '34px'}}>
             <span className="lbl">Questions before you subscribe</span>
-            <p>If any term here doesn't match what we discussed, don't sign around it — tell me and we'll correct the document. <a href="mailto:mario@catalyst-digital-solutions.com">mario@catalyst-digital-solutions.com</a> or (661) 888-4837.</p>
+            <p>If any term here doesn't match what we discussed, don't sign around it — tell me and we'll correct the document. <a href="mailto:info@catalystdigitalsolutions.com">info@catalystdigitalsolutions.com</a> or (661) 888-4837.</p>
           </div>
       
         </div>
@@ -268,9 +268,9 @@ export default function ServiceAgreementPage() {
         <div className="wrap">
           <b>Catalyst Digital Solutions, LLC</b><br />
           4012 Foxwood St, Bakersfield, CA 93306<br />
-          (661) 888-4837 &nbsp;·&nbsp; mario@catalyst-digital-solutions.com<br />
+          (661) 888-4837 &nbsp;·&nbsp; info@catalystdigitalsolutions.com<br />
           Monday–Friday, 8:00 AM – 6:00 PM PT<br />
-          <a href="https://catalyst-digital-solutions.com">catalyst-digital-solutions.com</a><br /><br />
+          <a href="https://catalystdigitalsolutions.com">catalystdigitalsolutions.com</a><br /><br />
           Client Service Agreement v1.0 &nbsp;·&nbsp; Effective August 8, 2026
         </div>
       </div>

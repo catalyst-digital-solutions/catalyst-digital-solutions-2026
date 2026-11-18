@@ -6,9 +6,10 @@ Guidance for agents working in this repository. **This file is current state onl
 
 **Catalyst Digital Solutions (CDS)** — the agency’s own marketing site for a construction-niche *revenue-growth* company (not a generic marketing agency). Owner: **Mario Garza**, Bakersfield CA.
 
-- **Production:** https://catalyst-digital-solutions.com (also `www` and `catalyst-digital.solutions`). Trades offer: https://getbranded.catalyst-digital-solutions.com (also `/trades` on the main domain).
+- **Production:** https://catalystdigitalsolutions.com (canonical). Former hosts `catalyst-digital-solutions.com`, `catalyst-digital.solutions`, and their `www` hosts 308 here at the Vercel domain layer.
 - **Vercel:** project `catalyst-digital-solutions-2026`, team `catalyst-digital-solutions-projects`
-- **Canonical email (sitewide):** `info@catalyst-digital-solutions.com`
+- **Canonical email (sitewide):** `info@catalystdigitalsolutions.com`
+- **Address:** 4012 Foxwood St, Bakersfield, CA 93306
 - **Phone (NAP / RingCentral):** `(661) 888-4837` — `tel:+16618884837` (do not reintroduce `(661) 535-9927`)
 - **Hours:** Monday–Friday, 8:00 AM – 6:00 PM PT (site + GBP)
 - **Booking:** Cal.com `https://cal.com/catalystdigitalsolutions/20min` (used heavily in CTAs)
@@ -136,20 +137,11 @@ Real delivery via `src/app/api/contact/route.ts` (Resend). Form: email, phone, c
 
 Under `catalyst-companies-and-domains/`, `construction1–5-catalyst-demos` are **separate demo contractor sites** (Apex, Holloway, Monolith, Voltaic, Meridian) linked from this site. **This repo is the main CDS site.**
 
-## Getbranded offer (`/trades`)
+## Branding/Website Special
 
-Standalone cold-outbound funnel for HVAC / refrigeration / plumbing brand+website package. **Not linked from main-site nav.**
+Removed from this site. `/trades` and `/trades/:path*` 308 to `/`. The getbranded host, if it still reaches this app, 308s to the canonical homepage (`/privacy` still goes to `/privacy`). The offer will relaunch later as its own ad landing page, not as a route here.
 
-- **URLs:** `https://catalyst-digital-solutions.com/trades` and **`https://getbranded.catalyst-digital-solutions.com`** (host rewrite via `src/proxy.ts` → `/trades`)
-- **DNS:** Namecheap CNAME `getbranded` → `cname.vercel-dns.com` (Vercel project already has the domain attached)
-- **Component:** `src/components/trades/TradesOfferLanding.tsx`
-- **Assets:** `public/assets/trades/` — Super J proof gallery (identity v2, socials, avatar guidelines v2, character 3-pose row, mark carousel, wrap, flatlay v2, OG). Mark carousel slides: `j-shield-emblem-social_*` + `j-shield-emblem-*-bg.webp`. Character poses: `mascot-thumbs-up.jpeg`, `mascot-arms-crossed.jpeg`, `super-j-pointing-pose.png`. Identity: `super-j-brand-identity-system-v2.jpg`. Avatars: `super-j-social-avatar-guidelines-v2.webp`. Flatlay: `super-j-flatlay-v2.jpg`. OG: `super-j-opengraph-image.png`. Favicon: `j-shield-emblem_circle-favicon.png` (wired in `src/app/trades/page.tsx` metadata). Source: Super J `public/brand/`.
-- **Slot counter:** edit `SLOTS_SOLD` only in `src/config/slots.ts` (0–10). Super J live link: `SUPER_J_IS_LIVE` + `SUPER_J_URL`
-- **Before next push — Mario:** add **first-come, first-served** language on the offer (intended, not shipped yet).
-- **Before committing timeline claims:** reconcile **“30 days to launch”** vs capacity of **~one package/week**. Those conflict if 10 people book in a burst — decide real queue math (e.g. 30 days from start of their slot, not calendar-from-payment for everyone) before leaning harder on either line.
-- **CTA:** Cal.com 20-min everywhere. Header/footer: logo → main site; Privacy/Terms absolute to main site; phone `(661) 888-4837`; email `hello@catalyst-digital.solutions` on this page
-- **DNS for getbranded:** subdomain is already attached in Vercel to this project, but Namecheap still has **no record** (`NXDOMAIN`). Add at Namecheap → Advanced DNS for `catalyst-digital-solutions.com`: **CNAME** host `getbranded` → `cname.vercel-dns.com` (or **A** `getbranded` → `76.76.21.21`). Do not change apex nameservers unless migrating the whole domain to Vercel DNS.
-- **Copy/layout notes (live):** Construction demos grid = **2 columns** tablet/desktop, **1 column** mobile (`trades-demo-grid`). Demo thumbs are 1600×1139 from Super J `public/construction-website-demos/` (`01-apex`…`05-meridian`); Image `sizes` must stay ~50vw (not 20vw) or Next serves soft/upscaled assets. Package section: ⊕ “Where did we get these numbers?” under the intro body expands the agency-ownership callout + value tally + typical/your price (trigger stays at the bottom of that block). Package purple card = full offer block from slots. Price ladder under that card. Demos above The Package. Gallery order: identity → socials → avatars → character poses → mark carousel → wrap → flatlay → OG. FAQ “What happens after I pay?” holds the 30-day steps. Final CTA above FAQs: “How does your brand compare?” README in `branding-and-website-landing-page/` supersedes the PRD where they conflict; Mario’s live edits take priority after ship
+`start/` and `terms/` are separate apps and were left unchanged. They still reference `start.catalyst-digital-solutions.com`, `terms.catalyst-digital-solutions.com`, and the old apex in a few return links.
 
 ## Known open items
 

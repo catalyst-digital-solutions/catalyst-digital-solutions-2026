@@ -1,74 +1,53 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const GETBRANDED_HOSTS = new Set([
-  "getbranded.catalyst-digital-solutions.com",
-  "getbranded.localhost",
-]);
+const CANONICAL_ORIGIN = "https://catalystdigitalsolutions.com";
+const CANONICAL_HOST = "catalystdigitalsolutions.com";
 
 /**
- * getbranded.* serves the /trades offer at the root.
- * /terms serves ToS + Schedule A + Schedule B (Stripe checkout consent links here).
- * /start is the post-$500 intake. /privacy redirects to the main site.
+ * Backstop only. Vercel already 308s the old apex domains to the canonical host.
+ * This set must never include the canonical host, or the redirect would loop.
+ * www of the new domain is included so a bare www alias still lands on the apex.
  */
+const APEX_ALIAS_HOSTS = new Set([
+  "www.catalystdigitalsolutions.com",
+  "catalyst-digital-solutions.com",
+  "www.catalyst-digital-solutions.com",
+  "catalyst-digital.solutions",
+  "www.catalyst-digital.solutions",
+]);
+
+/** Retired Branding/Website Special host. Paths other than /privacy go home. */
+const GETBRANDED_HOSTS = new Set([
+  "getbranded.catalyst-digital-solutions.com",
+  "getbranded.catalyst-digital.solutions",
+  "www.getbranded.catalyst-digital-solutions.com",
+]);
+
+function redirectTo(pathname: string, search = ""): NextResponse {
+  const dest = new URL(CANONICAL_ORIGIN);
+  dest.pathname = pathname;
+  dest.search = search;
+  return NextResponse.redirect(dest, 308);
+}
+
 export function proxy(request: NextRequest) {
   const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
-  if (!GETBRANDED_HOSTS.has(host)) {
+  if (!host || host === CANONICAL_HOST) {
     return NextResponse.next();
   }
 
-  const { pathname } = request.nextUrl;
-  if (
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/assets") ||
-    pathname.startsWith("/api") ||
-    pathname === "/favicon.ico" ||
-    pathname === "/robots.txt"
-  ) {
-    return NextResponse.next();
+  const { pathname, search } = request.nextUrl;
+
+  if (GETBRANDED_HOSTS.has(host)) {
+    return redirectTo(pathname === "/privacy" ? "/privacy" : "/", "");
   }
 
-  if (pathname === "/" || pathname === "") {
-    const url = request.nextUrl.clone();
-    url.pathname = "/trades";
-    return NextResponse.rewrite(url);
+  if (APEX_ALIAS_HOSTS.has(host)) {
+    return redirectTo(pathname, search);
   }
 
-  // ToS v1.0 (+ Schedule A) — checkout consent links point here
-  if (pathname === "/terms") {
-    const url = request.nextUrl.clone();
-    url.pathname = "/trades/terms";
-    return NextResponse.rewrite(url);
-  }
-
-  // Post-purchase redirect target for Stripe Payment Links
-  if (pathname === "/thank-you") {
-    const url = request.nextUrl.clone();
-    url.pathname = "/trades/thank-you";
-    return NextResponse.rewrite(url);
-  }
-
-  // Brand Starter intake after $500 checkout
-  if (pathname === "/start") {
-    const url = request.nextUrl.clone();
-    url.pathname = "/trades/start";
-    return NextResponse.rewrite(url);
-  }
-
-  // Privacy lives on the main site
-  if (pathname === "/privacy") {
-    return NextResponse.redirect("https://catalyst-digital-solutions.com/privacy");
-  }
-
-  // Keep /trades URL working on the subdomain too
-  if (pathname === "/trades" || pathname.startsWith("/trades/")) {
-    return NextResponse.next();
-  }
-
-  // Unknown paths on getbranded → offer page
-  const url = request.nextUrl.clone();
-  url.pathname = "/trades";
-  return NextResponse.rewrite(url);
+  return NextResponse.next();
 }
 
 export const config = {
