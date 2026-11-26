@@ -130,7 +130,7 @@ Class `a.ghost-program-btn`: **purple gradient + glow at rest**; **white backgro
 Requires parent `className="demo-card"` and img `className="demo-thumb-img"`. Hover scrolls the tall screenshot inside a `container-type: size` frame; touch devices get ambient `thumbScroll` animation. Defined in `globals.css`.
 
 ### Contact
-Real delivery via `src/app/api/contact/route.ts` (Resend). Form: email, phone, consent/honeypot, trade/source conditionals. Env vars in Vercel + `.env.local` only.
+Real delivery via `src/app/api/contact/route.ts` (Resend, or `CONTACT_WEBHOOK_URL` when set). A valid submission also notifies Catalyst Signal when `SIGNAL_WEBHOOK_URL` and `SIGNAL_WEBHOOK_SECRET` are both set. Signal is signed server-side; a failure is logged and does not change the visitor response. The same notice runs from `POST /api/brand-starter`. Form: email, phone, consent/honeypot, trade/source conditionals. Env vars in Vercel + `.env.local` only. Do not commit the Signal secret.
 
 ## Sibling repos (do not confuse)
 

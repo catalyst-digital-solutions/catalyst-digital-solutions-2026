@@ -1,3 +1,22 @@
+# STATUS — Catalyst Signal form webhook
+
+## Branch
+`cursor/signal-form-webhook-7b58` off `main` — **do not merge to `main` / prod without Mario OK**
+
+- [x] `/contact` → `POST /api/contact` also notifies Signal after a valid submission
+- [x] `/trades/start` → `POST /api/brand-starter` also notifies Signal after a valid intake
+- [x] Existing Resend / `CONTACT_WEBHOOK_URL` / Twilio / Supabase behavior unchanged
+- [x] Skip when `SIGNAL_WEBHOOK_URL` or `SIGNAL_WEBHOOK_SECRET` is unset
+- [x] 4s timeout; Signal errors logged only
+- [x] `npm test` and `npm run build` green
+- [ ] Mario: set `SIGNAL_WEBHOOK_URL` and `SIGNAL_WEBHOOK_SECRET` on Vercel (not set from this change)
+- [ ] Merge → main + prod (Mario explicit OK only)
+
+**Blockers:** Cal.com booking links are not site forms, so they do not raise a Signal alarm. Env vars are unset until Mario adds them.
+**Last updated:** 2026-11-26 by CG — Signal webhook on the branch only.
+
+---
+
 # STATUS — Atara private checkout (active)
 
 Living checklist. **CG updates the boxes** as work lands.
