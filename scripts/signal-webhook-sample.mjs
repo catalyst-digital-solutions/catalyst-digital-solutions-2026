@@ -49,12 +49,19 @@ if (!process.argv.includes("--send")) {
   process.exit(0);
 }
 
-if (!secret || !process.env.SIGNAL_WEBHOOK_URL?.trim()) {
-  console.error("\nRefusing to send. Set SIGNAL_WEBHOOK_URL and SIGNAL_WEBHOOK_SECRET.");
+const sendUrl = process.env.SIGNAL_WEBHOOK_URL?.trim() || "";
+let sendHttps = false;
+try {
+  sendHttps = new URL(sendUrl).protocol === "https:";
+} catch {
+  sendHttps = false;
+}
+if (!secret || !sendHttps) {
+  console.error("\nRefusing to send. Set SIGNAL_WEBHOOK_SECRET and an https SIGNAL_WEBHOOK_URL.");
   process.exit(1);
 }
 
-const response = await fetch(process.env.SIGNAL_WEBHOOK_URL.trim(), {
+const response = await fetch(sendUrl, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",

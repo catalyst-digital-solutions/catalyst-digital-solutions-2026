@@ -85,6 +85,14 @@ export function signSignalBody(secret: string, timestampSeconds: string, rawBody
   return createHmac("sha256", secret).update(`${timestampSeconds}.${rawBody}`).digest("hex");
 }
 
+function isHttpsUrl(value: string): boolean {
+  try {
+    return new URL(value).protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
 function envValue(name: "SIGNAL_WEBHOOK_URL" | "SIGNAL_WEBHOOK_SECRET"): string {
   // Dynamic lookup so Next does not inline the value at build time.
   // Mario sets these on Vercel after this code ships.
@@ -95,6 +103,10 @@ export async function notifySignal(lead: SignalLead): Promise<void> {
   const url = envValue("SIGNAL_WEBHOOK_URL");
   const secret = envValue("SIGNAL_WEBHOOK_SECRET");
   if (!url || !secret) return;
+  if (!isHttpsUrl(url)) {
+    console.error("[signal] SIGNAL_WEBHOOK_URL is not an https URL — skipping");
+    return;
+  }
 
   const payload = buildSignalPayload(lead);
   if (!payload.name && !payload.email && !payload.phone && !payload.message) return;

@@ -73,6 +73,27 @@ test("skips the webhook when either env var is unset", async () => {
   }
 });
 
+test("skips a webhook URL that is not https", async () => {
+  const prevUrl = process.env.SIGNAL_WEBHOOK_URL;
+  const prevSecret = process.env.SIGNAL_WEBHOOK_SECRET;
+  process.env.SIGNAL_WEBHOOK_URL = "http://127.0.0.1/api/hooks/form";
+  process.env.SIGNAL_WEBHOOK_SECRET = "secret";
+  let called = false;
+  const original = globalThis.fetch;
+  globalThis.fetch = (async () => {
+    called = true;
+    return new Response(null, { status: 201 });
+  }) as typeof fetch;
+  try {
+    await notifySignal({ name: "Ada", email: "ada@example.com" });
+    assert.equal(called, false);
+  } finally {
+    globalThis.fetch = original;
+    restoreEnv("SIGNAL_WEBHOOK_URL", prevUrl);
+    restoreEnv("SIGNAL_WEBHOOK_SECRET", prevSecret);
+  }
+});
+
 test("posts the signed body and still resolves when Signal errors", async () => {
   const prevUrl = process.env.SIGNAL_WEBHOOK_URL;
   const prevSecret = process.env.SIGNAL_WEBHOOK_SECRET;
