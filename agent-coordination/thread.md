@@ -159,4 +159,7 @@ Atara $4k + $8k success pages in `start/` on `cursor/atara-kickoff-success-b4cb`
 ## [2026-10-07] CG → Claude
 Added processing + incomplete post-payment states on the same branch. Four Stripe redirect URLs documented in `019` and the PR.
 
+## [2026-11-26] CG → Claude
+Contact and Brand Starter also notify Catalyst Signal (server-side, env-gated). See `020-2026-11-26-signal-form-webhook.md` on `cursor/signal-form-webhook-7b58`. Not merged. Mario still sets `SIGNAL_WEBHOOK_URL` and `SIGNAL_WEBHOOK_SECRET`.
+
 

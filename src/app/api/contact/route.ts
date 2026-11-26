@@ -12,8 +12,14 @@
  *   3. (neither set)         → logs to the server console so the flow is
  *                              testable in dev without any credentials.
  *
+ * After a valid (non-honeypot) submission, also notifies Catalyst Signal when
+ * both SIGNAL_WEBHOOK_URL and SIGNAL_WEBHOOK_SECRET are set. That call is
+ * extra: a Signal failure does not change the response from the path above.
+ *
  * Add new forms by POSTing here with a different `formId`/`formName`.
  */
+
+import { notifySignal, type SignalLead } from "@/lib/signal-webhook";
 
 export const dynamic = "force-dynamic"; // never cache; always run at request time
 
@@ -32,6 +38,36 @@ type Payload = Record<string, unknown> & {
 
 function esc(s: unknown): string {
   return String(s ?? "").replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c] as string));
+}
+
+function text(value: unknown): string {
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function toSignalLead(p: Payload): SignalLead {
+  const extra = p as Record<string, unknown>;
+  const meta = (p.meta || {}) as Record<string, unknown>;
+  const trade = text(extra.trade);
+  const tradeOther = text(extra.tradeOther);
+  const interest = trade === "Other" && tradeOther ? tradeOther : trade;
+  const heard = text(extra.source);
+  const heardOther = text(extra.sourceOther);
+  const lines = [
+    text(extra.challenge),
+    text(extra.revenue) ? `Annual revenue: ${text(extra.revenue)}` : "",
+    text(extra.url) ? `Website: ${text(extra.url)}` : "",
+    heard ? `Heard about us: ${heard}${heardOther ? ` (${heardOther})` : ""}` : "",
+  ].filter(Boolean);
+  return {
+    name: text(p.name),
+    email: text(p.email),
+    phone: text(extra.phone),
+    company: text(extra.company),
+    service: interest,
+    message: lines.join("\n"),
+    formName: text(p.formName) || text(p.formId) || "Website form",
+    page: text(meta.pagePath) || text(meta.pageUrl),
+  };
 }
 
 function buildEmail(p: Payload) {
@@ -98,7 +134,8 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "SMS consent is required when a phone number is provided." }, { status: 422 });
   }
 
-  const { text, html, subject } = buildEmail(body);
+  const { text: emailText, html, subject } = buildEmail(body);
+  const signalNotice = notifySignal(toSignalLead(body));
 
   try {
     // 1) Webhook (simplest; no domain verification needed)
@@ -106,9 +143,10 @@ export async function POST(request: Request) {
       const res = await fetch(process.env.CONTACT_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...body, _subject: subject, _text: text }),
+        body: JSON.stringify({ ...body, _subject: subject, _text: emailText }),
       });
       if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
+      await signalNotice;
       return Response.json({ ok: true, via: "webhook" });
     }
 
@@ -122,7 +160,7 @@ export async function POST(request: Request) {
           to: [TO_EMAIL],
           reply_to: body.email,
           subject,
-          text,
+          text: emailText,
           html,
         }),
       });
@@ -130,14 +168,17 @@ export async function POST(request: Request) {
         const detail = await res.text().catch(() => "");
         throw new Error(`Resend responded ${res.status} ${detail}`);
       }
+      await signalNotice;
       return Response.json({ ok: true, via: "resend" });
     }
 
     // 3) Dev fallback — no delivery configured. Log so it's testable.
-    console.log("[contact] no CONTACT_WEBHOOK_URL / RESEND_API_KEY set — submission not delivered:\n" + text);
+    console.log("[contact] no CONTACT_WEBHOOK_URL / RESEND_API_KEY set — submission not delivered:\n" + emailText);
+    await signalNotice;
     return Response.json({ ok: true, via: "log" });
   } catch (err) {
     console.error("[contact] delivery failed:", err);
+    await signalNotice;
     return Response.json({ ok: false, error: "Delivery failed" }, { status: 502 });
   }
 }

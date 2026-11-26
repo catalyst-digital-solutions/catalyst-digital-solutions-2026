@@ -4,7 +4,12 @@
  * Always emails Mario via Resend (same pattern as /api/contact).
  * If SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY are set, stores the row + files.
  * If TWILIO_* is set, texts Mario that a starter just submitted.
+ * Also notifies Catalyst Signal when SIGNAL_WEBHOOK_URL and
+ * SIGNAL_WEBHOOK_SECRET are both set. A Signal failure does not change
+ * the email / storage / SMS result.
  */
+
+import { notifySignal } from "@/lib/signal-webhook";
 
 export const dynamic = "force-dynamic";
 
@@ -198,6 +203,27 @@ export async function POST(request: Request) {
     `<h2 style="font-family:sans-serif">Brand Starter intake — ${esc(company)}</h2>` +
     `<pre style="font-family:sans-serif;white-space:pre-wrap">${esc(text)}</pre>`;
 
+  const signalNotice = notifySignal({
+    name,
+    email,
+    phone,
+    company,
+    service: services,
+    message: [
+      services.length > 300 ? `Services: ${services}` : "",
+      city ? `City: ${city}` : "",
+      towns ? `Towns: ${towns}` : "",
+      mascot ? `Mascot: ${mascot}` : "",
+      colors ? `Colors: ${colors}` : "",
+      competitors ? `Competitors: ${competitors}` : "",
+      sessionId ? `Stripe session: ${sessionId}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n"),
+    formName: "Brand Starter intake",
+    page: "/trades/start",
+  });
+
   try {
     const via = await sendEmail(`Brand Starter intake — ${company} (${name})`, text, html, email);
     let stored = false;
@@ -208,9 +234,11 @@ export async function POST(request: Request) {
       console.error("[brand-starter] supabase failed:", err);
     }
     const sms = await sendSms(`Brand Starter in: ${company} / ${name} / ${phone}. Book the reveal.`);
+    await signalNotice;
     return Response.json({ ok: true, via, stored, sms });
   } catch (err) {
     console.error("[brand-starter] delivery failed:", err);
+    await signalNotice;
     return Response.json({ ok: false, error: "Delivery failed" }, { status: 502 });
   }
 }
